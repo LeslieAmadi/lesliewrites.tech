@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Write API Examples Developers Actually Use</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo">Leslie Writes</h1>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../portfolio.html">Portfolio</a></li>
+            <li><a href="../blog.html" class="active">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="blog-post">
+    <article>
+        <h1>How to Write API Examples Developers Actually Use</h1>
+        <p class="post-meta">Published on March 2025 · API Documentation</p>
+
+        <p>API documentation is only useful if developers can copy, paste, and immediately run it. That’s why strong API examples are practical, realistic, and complete — not theoretical.</p>
+
+        <h2>✅ What Makes a Great API Example?</h2>
+        <ul>
+            <li><strong>Realistic values</strong> — Replace placeholders like <code>&lt;API_KEY&gt;</code> with believable sample values.</li>
+            <li><strong>Ready to copy and run</strong> — No missing headers, unexplained variables, or hidden steps.</li>
+            <li><strong>Clear response output</strong> — Show both success and failure responses.</li>
+        </ul>
+
+        <h2>🛠 Example of a Useful API Call</h2>
+        <pre>
+curl -X POST "https://api.example.com/v1/payments" \
+     -H "Authorization: Bearer sk_test_51Lx9C0Xexample123" \
+     -H "Content-Type: application/json" \
+     -d '{
+         "amount": 5000,
+         "currency": "GBP",
+         "customer_id": "cus_00123"
+     }'
+        </pre>
+
+        <h3>✅ Sample Response:</h3>
+        <pre>
+{
+    "status": "success",
+    "payment_id": "pay_98765",
+    "amount": 5000,
+    "currency": "GBP",
+    "created_at": "2025-03-12T10:15:30Z"
+}
+        </pre>
+
+        <h2>⚠ Common Mistakes to Avoid</h2>
+        <ul>
+            <li>❌ Writing fictional endpoints that don’t actually exist.</li>
+            <li>❌ Using Latin placeholder text or variables that confuse developers.</li>
+            <li>❌ Providing CURL requests without headers, response, or real context.</li>
+        </ul>
+
+        <h2>🚀 Final Tip</h2>
+        <p>The best API examples help developers succeed in under five minutes — without guessing, Googling, or debugging.</p>
+
+        <a href="../blog.html" class="back-link">← Back to Blog</a>
+    </article>
+</main>
+
+<footer>
+    <p>© 2025 Leslie Amadi · All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
