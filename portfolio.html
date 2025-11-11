@@ -2,18 +2,18 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
-<meta name="description" content="Leslie Amadi — Technical Writer specializing in AI, UX, API Docs, and SEO-friendly content.">
-<meta name="keywords" content="Technical Writing, AI Documentation, UX Writing, API Documentation, SEO Writing">
-<meta name="author" content="Leslie Amadi">
-<title>Leslie Writes | Technical Writing Portfolio</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Leslie Amadi — Technical Writer specializing in AI, UX, API Docs, and SEO-friendly content." />
+  <meta name="author" content="Leslie Amadi" />
   <title>Portfolio | Leslie Amadi</title>
+
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
 
-  <header class="navbar">
-    <div class="logo">Leslie Writes</div>
+<body style="background-color: #F0E2D2; color: #364042;">
+  <!-- HEADER -->
+  <header class="navbar" style="background-color: #4A2C2A;">
+    <div class="logo" style="color:#F0E2D2;">Leslie Writes</div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -25,170 +25,89 @@
     </nav>
   </header>
 
-  <section class="portfolio-intro container">
-    <h2>Portfolio | Leslie Amadi</h2>
-    <p>A curated selection of my work across API docs, UX microcopy, SEO content, and user guides.</p>
+  <!-- INTRO SECTION -->
+  <section class="portfolio-intro fade-in">
+    <h1 style="color:#4A2C2A;">Portfolio</h1>
+    <p>A curated selection of my technical writing work — from AI documentation to UX writing, API guides, and SEO content.</p>
   </section>
 
-  <section class="portfolio-section container">
-    
-
-    <details class="portfolio-item">
-      <button class="collapsible">How ChatGPT Works (Explained Simply)</button>
-      <summary>API Documentation – Fintech Payments API</summary>
-      <div class="portfolio-content">
-        <p>Clear REST API docs: endpoints, auth, examples and error handling.</p>
-        <pre>
-          Endpoint: POST /api/v1/payments
-          Headers: Content-Type: application/json; Authorization: Bearer &lt;token&gt;
-        </pre>
-        <a href="assets/docs/API-sample.pdf" class="btn" download>Download PDF</a>
-        <p class="last-updated">Last updated: 05 November 2025</p>
-      </div>
-
-      <div class="portfolio-card">
-        <h3>What Is Artificial Intelligence? (Explained Simply)</h3>
-        <p>A beginner-friendly explanation of AI, written in clear and professional tone.</p>
-        <a href="assets/docs/ai-explained-simply.pdf" class="btn" download>Download PDF</a>
-        <p class="last-updated">Last updated: November 2025</p>
-      </div>
-      
-    
-     <div class="sample-item" >
-      <article class="portfolio-card" data-category="ai">
-        <button class="collapsible">How ChatGPT Works (Explained Simply)</button>
-        <div class="content">
-      <h3>How ChatGPT Works (Explained Simply)</h3>
-      <p>A non-technical explanation of how ChatGPT generates text using AI.</p>
-      <a href="assets/docs/chatgpt-explained.pdf" class="btn" download>Download PDF</a>
-      <p class="updated-date">Last updated: Nov 2025</p>
-        </div>
-    </article>
-     </div>
-   
-
-    <div class="sample-item">
-      <button class="collapsible">AI Ethics & Bias — Explained Simply</button>
-      <div class="content">
-          <p>Understanding fairness, transparency and responsible AI for beginners.</p>
-          <p><strong>Last updated:</strong> November 2025</p>
-          <a href="assets/docs/ai-ethics-bias.pdf" download class="btn">Download PDF</a>
-      </div>
-  </div>
-
-  <div class="sample-item">
-    <button class="collapsible">AI Image Caption Generator API Documentation</button>
-    <div class="content">
-        <p>API documentation for an AI service that automatically generates captions for images using machine learning.</p>
-        <p><strong>Last updated:</strong> November 2025</p>
-        <a href="assets/docs/ai-image-caption-api.pdf" download class="btn">Download PDF</a>
+  <!-- PORTFOLIO GRID -->
+  <main class="portfolio-grid container">
+    <div class="portfolio-card fade-up">
+      <h2>Predictive Diagnosis Using AI</h2>
+      <p>Helping doctors predict chronic illnesses early with ML models.</p>
+      <a href="assets/docs/ai-case-study-healthcare.html" class="btn accent">View Case Study</a>
+      <a href="assets/docs/ai-case-study-healthcare.pdf" class="btn outline" download>Download PDF</a>
     </div>
-</div>
 
-<div class="sample-item">
-  <button class="collapsible">AI Image Caption Generator API Documentation</button>
-  <div class="content">
-      <p>API documentation for an AI service that automatically generates captions for images using machine learning.</p>
-      <p><strong>Last updated:</strong> November 2025</p>
-      <a href="assets/docs/ai-image-caption-api.pdf" download class="btn">Download PDF</a>
-  </div>
-</div>
+    <div class="portfolio-card fade-up">
+      <h2>LexiMind AI API</h2>
+      <p>REST API documentation for predictive diagnosis integration.</p>
+      <a href="assets/ai-docs/ai-api-docs-leximind.html" class="btn accent">View API Docs</a>
+      <a href="assets/docs/ai-api-docs-leximind.pdf" class="btn outline" download>Download PDF</a>
+    </div>
 
-<div class="portfolio-card">
-  <h3>AI Image Caption Generator API Documentation</h3>
-  <div class="content">
-      <p>ChatAssist — AI Model for Customer Service Chatbot Replies</p>
-      <p><strong>Last updated:</strong> November 2025</p>
-      <a href="assets/docs/chatassist-model-card.pdf" download class="btn">Download PDF</a>
-  </div>
-</div>
+    <div class="portfolio-card fade-up">
+      <h2>LexiMind Model Card</h2>
+      <p>Transparent overview, performance, and responsible AI details.</p>
+      <a href="assets/docs/leximind-model-card.html" class="btn accent">View Model Card</a>
+      <a href="assets/docs/leximind-model-card.pdf" class="btn outline" download>Download PDF</a>
+    </div>
 
-<div class="portfolio-card">
-  <h3>AI Model Release Notes</h3>
-  <p>Sample release notes for AI model version 1.0.</p>
-  <a href="assets/docs/releasenotes-v1.0.pdf" class="btn" download>
-      Download PDF
-  </a>
-</div>
+    <div class="portfolio-card fade-up">
+      <h2>Technical Writing – User Guide (HR Software)</h2>
+      <p>Step-by-step guide for HR admin tasks and onboarding.</p>
+      <a href="assets/docs/User-guide-sample.pdf" class="btn outline" download>Download PDF</a>
+    </div>
 
-<div class="portfolio-card">
-  <h3>AI Model Release Notes (v1.0)</h3>
-  <p>A professional release note for an AI machine learning model — includes model overview, limitations, ethical use, and version history.</p>
-  <a href="assets/docs/releasenotes-v1.0.pdf" class="btn" download>Download PDF</a>
-</div>
+    <div class="portfolio-card fade-up">
+      <h2>UX Writing – Microcopy & Interface Text</h2>
+      <p>Examples of interface text and helpful microcopy for user flows.</p>
+      <a href="assets/docs/UX-microcopy-sample.pdf" class="btn outline" download>Download PDF</a>
+    </div>
 
-<div class="portfolio-card">
-  <h3>ChatAssist AI — Model Documentation</h3>
-  <p>ChatAssist AI Model Structured Documentation </p>
-  <a href="assets/docs/ai-model-chatassist.pdf" class="btn" download>Download PDF</a>
-</div>
-  
-<div class="portfolio-card">
-  <h3>ChatAssist Release Notes (v2.0)</h3>
-  <p>Release Notes Structured Documentation </p>
-  <a href="assets/docs/chatassist-releasenotes.pdf" class="btn" download>Download PDF</a>
-</div>
-</details>
+    <div class="portfolio-card fade-up">
+      <h2>SEO Content Writing – Blog Sample</h2>
+      <p>SEO-optimised blog post explaining Two-Factor Authentication (2FA).</p>
+      <a href="assets/docs/SEO-writing-sample.pdf" class="btn outline" download>Download PDF</a>
+    </div>
 
+    <div class="portfolio-card fade-up">
+      <h2>ChatAssist AI — Model Documentation</h2>
+      <p>Structured model card and release notes for a customer service AI.</p>
+      <a href="assets/docs/ai-model-chatassist.pdf" class="btn outline" download>Download PDF</a>
+    </div>
 
+    <div class="portfolio-card fade-up">
+      <h2>Dataset Datasheet</h2>
+      <p>Comprehensive documentation of data provenance and ethics.</p>
+      <a href="assets/docs/dataset-sheet.pdf" class="btn outline" download>Download PDF</a>
+    </div>
 
-    <details class="portfolio-item">
-      <summary>Technical Writing – User Guide (HR Software)</summary>
-      <div class="portfolio-content">
-        <p>Step-by-step user guide for admin tasks and employee onboarding.</p>
-        <ul>
-           <li>Dashboard → Employees → Add New</li>
-           <li>Complete required fields and click Save</li>
-        </ul>
-        <a href="assets/docs/User-guide-sample.pdf" class="download-btn" download>Download PDF</a>
-        <p class="last-updated">Last updated: 05 November 2025</p>
-      </div>
-    </details>
+    <div class="portfolio-card fade-up">
+      <h2>Model Evaluation & Deployment</h2>
+      <a href="assets/docs/model-evaluation.pdf" class="btn outline" download>Download Evaluation</a>
+      <a href="assets/docs/model-deployment.pdf" class="btn outline" download>Download Deployment</a>
+    </div>
 
-    <details class="portfolio-item">
-      <summary>UX Writing – Microcopy & Interface Text</summary>
-      <div class="portfolio-content">
-        <p>Examples: error messages, empty states, onboarding tooltips.</p>
-        <blockquote>"We couldn't verify your login. Check your email or password and try again."</blockquote>
-        <a href="assets/docs/UX-microcopy-sample.pdf" class="download-btn" download>Download PDF</a>
-        <p class="last-updated">Last updated: 05 November 2025</p>
-      </div>
-    </details>
+    <div class="portfolio-card fade-up">
+      <h2>Release Notes (AI Model v1.0)</h2>
+      <p>Includes version history, limitations, and ethical guidance.</p>
+      <a href="assets/docs/releasenotes-v1.0.pdf" class="btn outline" download>Download PDF</a>
+    </div>
+  </main>
 
-    <details class="portfolio-item">
-      <summary>SEO Content Writing – Blog Sample</summary>
-      <div class="portfolio-content">
-        <p>Blog intro: What is Two-Factor Authentication (2FA)? Simple, keyword-driven copy for readers and search engines.</p>
-        <a href="assets/docs/SEO-writing-sample.pdf" class="download-btn" download>Download PDF</a>
-        <p class="last-updated">Last updated: 05 November 2025</p>
-      </div>
-    </details>
-
-  </section>
-
-  <footer class="footer container">
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76..."/></svg></a>
+      <a href="#" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0..."/></svg></a>
+      <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6..."/></svg></a>
+      <a href="mailto:hello@lesliewrites.tech" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M20 4H4c-1.1..."/></svg></a>
+    </div>
     <p>© 2025 Leslie Amadi | <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
   </footer>
 
   <script src="assets/script.js"></script>
-
-
-  <script>
-    const coll = document.querySelectorAll(".collapsible");
-    coll.forEach(button => {
-        button.addEventListener("click", () => {
-            button.classList.toggle("active");
-            const content = button.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    });
-    </script>
-    
-
-
 </body>
 </html>

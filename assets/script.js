@@ -107,4 +107,108 @@
     }
   
   })();  
+ 
   
+
+  /* ===============================
+   Leslie Amadi Portfolio Script
+   =============================== */
+
+// Fade-in on scroll animation
+const fadeElements = document.querySelectorAll(".fade-in, .fade-up");
+
+const appearOptions = {
+  threshold: 0.2,
+  rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("appear");
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+
+fadeElements.forEach(el => {
+  appearOnScroll.observe(el);
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+// Navbar active link highlight
+const currentPage = window.location.pathname.split("/").pop();
+document.querySelectorAll(".navbar nav a").forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.classList.add("active");
+  }
+});
+
+// Card hover glow
+document.querySelectorAll(".overview-card, .portfolio-card").forEach(card => {
+  card.addEventListener("mouseenter", () => {
+    card.style.boxShadow = "0 8px 20px rgba(0,0,0,0.15)";
+    card.style.transform = "translateY(-5px)";
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.boxShadow = "0 4px 8px rgba(0,0,0,0.05)";
+    card.style.transform = "translateY(0)";
+  });
+});
+
+// Button ripple effect
+document.querySelectorAll(".btn, .small-btn").forEach(button => {
+  button.addEventListener("click", function(e) {
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    this.appendChild(ripple);
+
+    const rect = this.getBoundingClientRect();
+    ripple.style.left = `${e.clientX - rect.left}px`;
+    ripple.style.top = `${e.clientY - rect.top}px`;
+
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+// Smooth fade-in thank-you message without redirect
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const thankYou = document.getElementById("thankYou");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" }
+        });
+
+        if (response.ok) {
+          form.reset();
+          thankYou.style.display = "block";
+          thankYou.classList.add("fade-in");
+        } else {
+          thankYou.textContent = "Hmm… something went wrong. Please try again.";
+          thankYou.style.display = "block";
+        }
+      } catch (err) {
+        thankYou.textContent = "Network error — please check your connection.";
+        thankYou.style.display = "block";
+      }
+    });
+  }
+});

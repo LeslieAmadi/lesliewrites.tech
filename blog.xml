@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="blog.xsl"?>
+<rss version="2.0">
+  <channel>
+    <title>Leslie Writes Blog</title>
+    <link>https://www.lesliewrites.tech/blog.html</link>
+    <description>Reflections on technical writing, AI, process documentation, and creativity by Leslie Amadi.</description>
+    <language>en-gb</language>
+    <lastBuildDate>Tue, 11 Nov 2025 12:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Writing About AI Without Losing the Human Touch</title>
+      <link>https://www.lesliewrites.tech/blog/ai-with-human-touch.html</link>
+      <description>How to balance accuracy with empathy when documenting complex AI systems.</description>
+      <pubDate>Tue, 4 Nov 2025 09:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Process Documentation as a Creative Practice</title>
+      <link>https://www.lesliewrites.tech/blog/process-documentation.html</link>
+      <description>Why documenting workflows can be as fulfilling as writing a story.</description>
+      <pubDate>Fri, 7 Nov 2025 14:30:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>The Future of Technical Writing in AI</title>
+      <link>https://www.lesliewrites.tech/blog/future-of-techwriting.html</link>
+      <description>Exploring how machine learning and natural language tools are changing the craft.</description>
+      <pubDate>Mon, 10 Nov 2025 10:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Finding Calm in Technical Chaos</title>
+      <link>https://www.lesliewrites.tech/blog/calm-in-chaos.html</link>
+      <description>Simple strategies to stay grounded while managing complex documentation projects.</description>
+      <pubDate>Wed, 12 Nov 2025 18:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

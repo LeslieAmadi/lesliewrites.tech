@@ -1,87 +1,86 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Leslie Writes</title>
-    <meta name="description" content="Leslie Amadi — Technical Writer specializing in AI, UX, API Docs, and SEO-friendly content.">
-    <meta name="keywords" content="Technical Writing, AI Documentation, UX Writing, API Documentation, SEO Writing">
-    <meta name="author" content="Leslie Amadi">
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="alternate" type="application/rss+xml" title="Leslie Writes RSS Feed" href="rss.xml" />
-    <link rel="alternate" type="application/rss+xml" title="Leslie Writes Blog" href="rss.xml">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Insights and articles by Leslie Amadi — exploring technical writing, AI, and documentation design." />
+  <meta name="author" content="Leslie Amadi" />
+  <title>Blog | Leslie Amadi</title>
 
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
-<body>
-    <!-- ✅ Navigation -->
-    <header class="navbar">
-        <div class="logo">Leslie Writes</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body style="background-color: #F0E2D2; color: #364042;">
+  <!-- HEADER -->
+  <header class="navbar" style="background-color: #4A2C2A;">
+    <div class="logo" style="color:#F0E2D2;">Leslie Writes</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- ✅ Blog Header -->
-    <section class="blog-header">
-        <h1>Blog</h1>
-        <p>Technical Writing • UX Writing • APIs • Content Strategy</p>
-        <p>
-          <a href="rss.xml" target="_blank" style="text-decoration:none; color:#b484a7;">
-              📡 Subscribe via RSS
-          </a>
-      </p>
-      
-    </section>
+  <!-- INTRO -->
+  <section class="blog-intro fade-in">
+    <h1 style="color:#4A2C2A;">Blog</h1>
+    <p>Thoughts, lessons, and documentation insights from my work in technical writing and AI communication.</p>
+  </section>
 
-    <!-- ✅ Blog List Section -->
-    <section class="blog-list">
-        <article class="blog-card">
-            <h2><a href="blog/2025-api-quickstart-guide.html">How to Write an API Quickstart Guide</a></h2>
-            <p>A practical guide to writing API documentation that helps developers get started quickly.</p>
-            <span class="blog-date">📅 Updated: January 2025</span>
-        </article>
+  <!-- BLOG GRID -->
+  <main class="blog-grid container">
+    <article class="blog-card fade-up">
+      <img src="assets/images/ai-writing.jpg" alt="AI writing concept" />
+      <div class="blog-card-content">
+        <h2>Explaining AI Clearly: A Writer’s Perspective</h2>
+        <p>How I approach making machine learning concepts readable and human-centred.</p>
+        <a href="blog/explaining-ai.html" class="btn accent">Read Article</a>
+      </div>
+    </article>
 
-        <article class="blog-card">
-            <h2><a href="blog/2025-ux-vs-copywriting.html">UX Writing vs Copywriting — What’s the Difference?</a></h2>
-            <p>Learn how UX writing focuses on user journeys, while copywriting focuses on persuasion and branding.</p>
-            <span class="blog-date">📅 Updated: January 2025</span>
-        </article>
+    <article class="blog-card fade-up">
+      <img src="assets/images/api-docs.jpg" alt="API documentation" />
+      <div class="blog-card-content">
+        <h2>Writing API Docs That Developers Actually Use</h2>
+        <p>Why empathy, structure, and clarity matter more than buzzwords in API documentation.</p>
+        <a href="#" class="btn accent">Read Article</a>
+      </div>
+    </article>
 
-        <article class="blog-card">
-            <h2><a href="blog/2025-seo-writing-humans.html">SEO Writing for Humans, Not Algorithms</a></h2>
-            <p>A better approach to search optimisation — write for users first, algorithms second.</p>
-            <span class="blog-date">📅 Updated: January 2025</span>
-        </article>
+    <article class="blog-card fade-up">
+      <img src="assets/images/ux-writing.jpg" alt="UX writing" />
+      <div class="blog-card-content">
+        <h2>The Art of UX Writing: Saying More with Less</h2>
+        <p>Exploring the subtle craft of helping users through words — not just screens.</p>
+        <a href="#" class="btn accent">Read Article</a>
+      </div>
+    </article>
 
-        <article class="blog-card">
-          <h2><a href="blog/2025-what-is-2fa.html">What is Two-Factor Authentication (2FA)?</a></h2>
-          <p>A better approach to search optimisation — write for users first, algorithms second.</p>
-          <span class="blog-date">📅 Updated: January 2025</span>
-      </article>
+    <article class="blog-card fade-up">
+      <img src="assets/images/process-doc.jpg" alt="Process documentation" />
+      <div class="blog-card-content">
+        <h2>Building Stronger Teams Through Process Documentation</h2>
+        <p>How documenting processes transforms chaos into calm collaboration.</p>
+        <a href="#" class="btn accent">Read Article</a>
+      </div>
+    </article>
+  </main>
 
-        <article class="blog-card">
-            <h2><a href="blog/2025-api-examples-that-work.html">How to Write API Examples Developers Actually Use</a></h2>
-            <p>Clear API examples improve developer adoption and reduce support tickets. Here’s how to write them.</p>
-            <span class="blog-date">📅 Updated: January 2025</span>
-        </article>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76..."/></svg></a>
+      <a href="#" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0..."/></svg></a>
+      <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6..."/></svg></a>
+      <a href="mailto:hello@lesliewrites.tech" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M20 4H4c-1.1..."/></svg></a>
+    </div>
+    <p>© 2025 Leslie Amadi | <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
+  </footer>
 
-        <article class="blog-card">
-            <h2><a href="blog/2025-microcopy-onboarding.html">Microcopy That Improves Onboarding Completion</a></h2>
-            <p>Small words, big impact — how the right microcopy reduces user friction and boosts onboarding success.</p>
-            <span class="blog-date">📅 Updated: January 2025</span>
-        </article>
-    </section>
-
-    <!-- ✅ Footer -->
-    <footer>
-        <p>© 2025 Leslie Amadi | lesliewrites.tech</p>
-    </footer>
+  <script src="assets/script.js"></script>
 </body>
 </html>
