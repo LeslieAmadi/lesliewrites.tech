@@ -1,82 +1,79 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hi, I’m Leslie Amadi — Technical Writer & AI Communicator. Explore my portfolio, blog, and contact information." />
-  <title>Leslie Amadi | Technical Writer & AI Communicator</title>
-
+  <meta name="description" content="Leslie Amadi — Technical Writer & AI Communicator. I turn complex technology into words people understand." />
+  <title>Home | Leslie Amadi</title>
   <link rel="stylesheet" href="assets/styles.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
 </head>
+<body>
 
-<body style="background-color: #F0E2D2; color: #364042;">
-  <!-- HEADER -->
+  <!-- Parallax Layer -->
+  <div class="parallax-wrap" aria-hidden="true">
+    <div class="parallax-layer"></div>
+  </div>
+
+  <!-- NAV -->
   <header class="navbar">
-    <div class="logo" style="color: #5B6D92;">Leslie Writes</div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="navbar-inner container">
+      <div class="logo">Leslie Amadi</div>
+      <div id="menu-toggle" class="menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></div>
+      <nav id="nav-menu" class="nav-menu">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero-section fade-in">
-    <div class="hero-content">
-      <h1>Hi, I’m <span style="color:#D18266;">Leslie Amadi</span></h1>
-      <h2>Technical Writer & AI Communicator</h2>
-      <p>I craft clear, human-centred documentation for AI, UX, and developer products. Explore my portfolio, read my blog, or get in touch for collaborations.</p>
-      <div class="hero-buttons">
-        <a href="portfolio.html" class="btn accent">View Portfolio</a>
-        <a href="contact.html" class="btn outline">Contact Me</a>
+  <!-- HERO -->
+  <section class="hero container fade-in">
+    <div class="hero-text">
+      <h1>Hi, I’m <span style="color:var(--accent)">Leslie Amadi</span> 
+        Technical Writer & AI Communicator</h1>
+      <p>I turn complex technology into words people understand.
+        Clear docs, human-centred explanations, and elegant
+         structure for AI, APIs, and product experiences.</p>
+      <div class="hero-cta">
+        <a href="portfolio.html" class="btn btn-accent">View My Work</a>
+        <a href="contact.html" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
-    <div class="hero-illustration fade-up">
-      <img src="assets/images/profile-pic.png" alt="Illustration of writing and creativity" />
+    <div class="hero-image">
+      <img src="assets/images/profile-pic.png" alt="Leslie Amadi — writing workspace" loading="lazy">
     </div>
   </section>
 
-  <!-- OVERVIEW CARDS -->
-  <section class="overview-section">
-    <h2>Explore My Work</h2>
-    <div class="overview-grid">
-      <div class="overview-card">
-        <h3>🧠 Portfolio</h3>
-        <p>Explore my technical writing projects — from AI documentation to UX writing.</p>
-        <a href="portfolio.html" class="btn small-btn">View Portfolio</a>
-      </div>
-
-      <div class="overview-card">
-        <h3>📝 Blog</h3>
-        <p>Read my thoughts on writing, AI, and creativity. Updated weekly.</p>
-        <a href="blog.html" class="btn small-btn">Go to Blog</a>
-      </div>
-
-      <div class="overview-card">
-        <h3>💬 Contact</h3>
-        <p>Let’s collaborate! I’d love to help you communicate your product or research clearly.</p>
-        <a href="contact.html" class="btn small-btn">Reach Out</a>
+  <!-- PREVIEW SECTIONS -->
+  <section class="section soft fade-in">
+    <div class="container center">
+      <h2>What I Do</h2>
+      <p class="mt-2">AI model docs & model cards · API docs · UX writing · process documentation
+         · release notes · ethical & transparent communication</p>
+      <div class="hero-cta mt-2" style="justify-content:center">
+        <a href="about.html" class="btn btn-outline">About Me</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer container">
-    <div class="social-links">
-      <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#364042" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76..."/></svg></a>
-      <a href="#" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#364042" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0..."/></svg></a>
-      <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#364042" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6..."/></svg></a>
-      <a href="mailto:hello@lesliewrites.tech" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#364042" viewBox="0 0 24 24"><path d="M20 4H4c-1.1..."/></svg></a>
+  <footer class="footer fade-in">
+    <div class="container">
+      <div class="social">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:hello@lesliewrites.tech" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p class="mt-2">© 2025 Leslie Amadi · <a href="mailto:pkiraly44@mail.com">hello@lesliewrites.tech</a></p>
     </div>
-    <p>© 2025 Leslie Amadi | <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
   </footer>
 
   <script src="assets/script.js"></script>
+  <script src="https://kit.fontawesome.com/a2e0c6b2b0.js" crossorigin="anonymous"></script>
 </body>
 </html>
-

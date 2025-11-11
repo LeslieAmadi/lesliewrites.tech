@@ -1,7 +1,7 @@
 # Case Study: Predictive Diagnosis Using AI in Healthcare
 
 ## Overview
-This case study explores how a machine learning model was developed to help doctors predict chronic illnesses early — reducing misdiagnosis rates and improving patient outcomes.  
+This case study explores how a machine learning model was developed to help doctors predict chronic illnesses early reducing misdiagnosis rates and improving patient outcomes.  
 
 ## The Problem
 Hospitals faced high diagnostic workloads, and early signs of diseases like diabetes, kidney failure, and heart conditions were often overlooked due to human fatigue and limited time for detailed analysis.
@@ -31,7 +31,7 @@ The model used a combination of:
 
 ## Lessons Learned
 - High-quality, balanced datasets are crucial for accuracy.  
-- Human review is still necessary — AI supports, not replaces, doctors.  
+- Human review is still necessary AI supports, not replaces, doctors.  
 - Interpretability (explainable AI) builds trust in medical applications.  
 
 ## Visual Summary
@@ -41,7 +41,7 @@ Imagine a flowchart:
 ---
 
 ## Key Takeaway
-AI-driven predictive diagnosis doesn’t replace doctors — it empowers them to make faster, more informed decisions that save lives.
+AI-driven predictive diagnosis doesn’t replace doctors it empowers them to make faster, more informed decisions that save lives.
 
 Patient Data → Data Preprocessing → ML Model → Risk Prediction → Doctor Review → Diagnosis Confirmation
 

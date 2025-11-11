@@ -3,111 +3,119 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Leslie Amadi — Technical Writer specializing in AI, UX, API Docs, and SEO-friendly content." />
-  <meta name="author" content="Leslie Amadi" />
+  <meta name="description" content="Portfolio of Leslie Amadi — AI documentation, API guides, UX writing, and technical content." />
   <title>Portfolio | Leslie Amadi</title>
-
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+<body>
 
-<body style="background-color: #F0E2D2; color: #364042;">
-  <!-- HEADER -->
-  <header class="navbar" style="background-color: #4A2C2A;">
-    <div class="logo" style="color:#F0E2D2;">Leslie Writes</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html" class="active">Portfolio</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="parallax-wrap" aria-hidden="true"><div class="parallax-layer"></div></div>
+
+  <header class="navbar">
+    <div class="navbar-inner container">
+      <div class="logo">Leslie Amadi</div>
+      <div id="menu-toggle" class="menu-toggle"><i class="fas fa-bars"></i></div>
+      <nav id="nav-menu" class="nav-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- INTRO SECTION -->
-  <section class="portfolio-intro fade-in">
-    <h1 style="color:#4A2C2A;">Portfolio</h1>
-    <p>A curated selection of my technical writing work — from AI documentation to UX writing, API guides, and SEO content.</p>
+  <section class="section soft fade-in">
+    <div class="container center">
+      <h1>Portfolio</h1>
+      <p class="mt-2">A curated selection — AI documentation, API guides, UX writing, SEO content, and model transparency work.</p>
+    </div>
   </section>
 
-  <!-- PORTFOLIO GRID -->
-  <main class="portfolio-grid container">
-    <div class="portfolio-card fade-up">
-      <h2>Predictive Diagnosis Using AI</h2>
-      <p>Helping doctors predict chronic illnesses early with ML models.</p>
-      <a href="assets/docs/ai-case-study-healthcare.html" class="btn accent">View Case Study</a>
-      <a href="assets/docs/ai-case-study-healthcare.pdf" class="btn outline" download>Download PDF</a>
-    </div>
+  <main class="section container fade-in">
+    <div class="portfolio-grid">
 
-    <div class="portfolio-card fade-up">
-      <h2>LexiMind AI API</h2>
-      <p>REST API documentation for predictive diagnosis integration.</p>
-      <a href="assets/ai-docs/ai-api-docs-leximind.html" class="btn accent">View API Docs</a>
-      <a href="assets/docs/ai-api-docs-leximind.pdf" class="btn outline" download>Download PDF</a>
-    </div>
+      <article class="card">
+        <h2>Predictive Diagnosis Using AI</h2>
+        <p>Helping doctors predict chronic illnesses early with ML models.</p>
+        <a href="assets/docs/ai-case-study-healthcare.html" class="btn btn-accent">View Case Study</a>
+        <a href="assets/docs/ai-case-study-healthcare.pdf" class="btn btn-outline" download>Download PDF</a>
+      </article>
 
-    <div class="portfolio-card fade-up">
-      <h2>LexiMind Model Card</h2>
-      <p>Transparent overview, performance, and responsible AI details.</p>
-      <a href="assets/docs/leximind-model-card.html" class="btn accent">View Model Card</a>
-      <a href="assets/docs/leximind-model-card.pdf" class="btn outline" download>Download PDF</a>
-    </div>
+      <article class="card">
+        <h2>LexiMind AI API</h2>
+        <p>REST API documentation for predictive diagnosis integration.</p>
+        <a href="assets/ai-docs/ai-api-docs-leximind.html" class="btn btn-accent">View API Docs</a>
+        <a href="assets/docs/ai-api-docs-leximind.pdf" class="btn btn-outline" download>Download PDF</a>
+      </article>
 
-    <div class="portfolio-card fade-up">
-      <h2>Technical Writing – User Guide (HR Software)</h2>
-      <p>Step-by-step guide for HR admin tasks and onboarding.</p>
-      <a href="assets/docs/User-guide-sample.pdf" class="btn outline" download>Download PDF</a>
-    </div>
+      <article class="card">
+        <h2>LexiMind Model Card</h2>
+        <p>Transparent overview, performance, and responsible AI details.</p>
+        <a href="assets/docs/leximind-model-card.html" class="btn btn-accent">View Model Card</a>
+        <a href="assets/docs/leximind-model-card.pdf" class="btn btn-outline" download>Download PDF</a>
+      </article>
 
-    <div class="portfolio-card fade-up">
-      <h2>UX Writing – Microcopy & Interface Text</h2>
-      <p>Examples of interface text and helpful microcopy for user flows.</p>
-      <a href="assets/docs/UX-microcopy-sample.pdf" class="btn outline" download>Download PDF</a>
-    </div>
+      <article class="card">
+        <h2>Technical Writing – User Guide (HR Software)</h2>
+        <p>Step-by-step guide for HR admin tasks and onboarding.</p>
+        <a href="assets/docs/User-guide-sample.pdf" class="btn btn-outline" download>Download PDF</a>
+      </article>
 
-    <div class="portfolio-card fade-up">
-      <h2>SEO Content Writing – Blog Sample</h2>
-      <p>SEO-optimised blog post explaining Two-Factor Authentication (2FA).</p>
-      <a href="assets/docs/SEO-writing-sample.pdf" class="btn outline" download>Download PDF</a>
-    </div>
+      <article class="card">
+        <h2>UX Writing – Microcopy & Interface Text</h2>
+        <p>Examples of interface text and helpful microcopy for user flows.</p>
+        <a href="assets/docs/UX-microcopy-sample.pdf" class="btn btn-outline" download>Download PDF</a>
+      </article>
 
-    <div class="portfolio-card fade-up">
-      <h2>ChatAssist AI — Model Documentation</h2>
-      <p>Structured model card and release notes for a customer service AI.</p>
-      <a href="assets/docs/ai-model-chatassist.pdf" class="btn outline" download>Download PDF</a>
-    </div>
+      <article class="card">
+        <h2>SEO Content Writing – Blog Sample</h2>
+        <p>SEO-optimised blog post explaining Two-Factor Authentication (2FA).</p>
+        <a href="assets/docs/SEO-writing-sample.pdf" class="btn btn-outline" download>Download PDF</a>
+      </article>
 
-    <div class="portfolio-card fade-up">
-      <h2>Dataset Datasheet</h2>
-      <p>Comprehensive documentation of data provenance and ethics.</p>
-      <a href="assets/docs/dataset-sheet.pdf" class="btn outline" download>Download PDF</a>
-    </div>
+      <article class="card">
+        <h2>ChatAssist AI — Model Documentation</h2>
+        <p>Structured model card and release notes for a customer service AI.</p>
+        <a href="assets/docs/ai-model-chatassist.pdf" class="btn btn-outline" download>Download PDF</a>
+      </article>
 
-    <div class="portfolio-card fade-up">
-      <h2>Model Evaluation & Deployment</h2>
-      <a href="assets/docs/model-evaluation.pdf" class="btn outline" download>Download Evaluation</a>
-      <a href="assets/docs/model-deployment.pdf" class="btn outline" download>Download Deployment</a>
-    </div>
+      <article class="card">
+        <h2>Dataset Datasheet</h2>
+        <p>Comprehensive documentation of data provenance and ethics.</p>
+        <a href="assets/docs/dataset-sheet.pdf" class="btn btn-outline" download>Download PDF</a>
+      </article>
 
-    <div class="portfolio-card fade-up">
-      <h2>Release Notes (AI Model v1.0)</h2>
-      <p>Includes version history, limitations, and ethical guidance.</p>
-      <a href="assets/docs/releasenotes-v1.0.pdf" class="btn outline" download>Download PDF</a>
+      <article class="card">
+        <h2>Model Evaluation & Deployment</h2>
+        <a href="assets/docs/model-evaluation.pdf" class="btn btn-outline" download>Download Evaluation</a>
+        <a href="assets/docs/model-deployment.pdf" class="btn btn-outline" download>Download Deployment</a>
+      </article>
+
+      <article class="card">
+        <h2>Release Notes (AI Model v1.0)</h2>
+        <p>Includes version history, limitations, and ethical guidance.</p>
+        <a href="assets/docs/releasenotes-v1.0.pdf" class="btn btn-outline" download>Download PDF</a>
+      </article>
+
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="social-links">
-      <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76..."/></svg></a>
-      <a href="#" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0..."/></svg></a>
-      <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6..."/></svg></a>
-      <a href="mailto:hello@lesliewrites.tech" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M20 4H4c-1.1..."/></svg></a>
+  <footer class="footer fade-in">
+    <div class="container">
+      <div class="social">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:hello@lesliewrites.tech"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p class="mt-2">© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
     </div>
-    <p>© 2025 Leslie Amadi | <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
   </footer>
 
   <script src="assets/script.js"></script>
+  <script src="https://kit.fontawesome.com/a2e0c6b2b0.js" crossorigin="anonymous"></script>
 </body>
 </html>

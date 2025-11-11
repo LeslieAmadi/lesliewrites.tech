@@ -3,84 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Insights and articles by Leslie Amadi — exploring technical writing, AI, and documentation design." />
-  <meta name="author" content="Leslie Amadi" />
+  <meta name="description" content="Blog — thoughts on AI, documentation, and human-centred writing by Leslie Amadi." />
   <title>Blog | Leslie Amadi</title>
-
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+<body>
 
-<body style="background-color: #F0E2D2; color: #364042;">
-  <!-- HEADER -->
-  <header class="navbar" style="background-color: #4A2C2A;">
-    <div class="logo" style="color:#F0E2D2;">Leslie Writes</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="parallax-wrap" aria-hidden="true"><div class="parallax-layer"></div></div>
+
+  <header class="navbar">
+    <div class="navbar-inner container">
+      <div class="logo">Leslie Amadi</div>
+      <div id="menu-toggle" class="menu-toggle"><i class="fas fa-bars"></i></div>
+      <nav id="nav-menu" class="nav-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a class="active" href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- INTRO -->
-  <section class="blog-intro fade-in">
-    <h1 style="color:#4A2C2A;">Blog</h1>
-    <p>Thoughts, lessons, and documentation insights from my work in technical writing and AI communication.</p>
+  <section class="section soft fade-in">
+    <div class="container center">
+      <h1>Blog</h1>
+      <p class="mt-2">Explaining AI clearly, writing with empathy, and documenting for trust.</p>
+    </div>
   </section>
 
-  <!-- BLOG GRID -->
-  <main class="blog-grid container">
-    <article class="blog-card fade-up">
-      <img src="assets/images/ai-writing.jpg" alt="AI writing concept" />
-      <div class="blog-card-content">
-        <h2>Explaining AI Clearly: A Writer’s Perspective</h2>
+  <main class="section container fade-in">
+    <div class="blog-grid">
+      <article class="card blog-card">
+        <h2><a href="blog-explaining-ai-clearly.html">Explaining AI Clearly: A Writer’s Perspective</a></h2>
         <p>How I approach making machine learning concepts readable and human-centred.</p>
-        <a href="blog/explaining-ai.html" class="btn accent">Read Article</a>
-      </div>
-    </article>
+        <p class="blog-meta">By Leslie Amadi · 2025</p>
+      </article>
 
-    <article class="blog-card fade-up">
-      <img src="assets/images/api-docs.jpg" alt="API documentation" />
-      <div class="blog-card-content">
-        <h2>Writing API Docs That Developers Actually Use</h2>
-        <p>Why empathy, structure, and clarity matter more than buzzwords in API documentation.</p>
-        <a href="#" class="btn accent">Read Article</a>
-      </div>
-    </article>
-
-    <article class="blog-card fade-up">
-      <img src="assets/images/ux-writing.jpg" alt="UX writing" />
-      <div class="blog-card-content">
-        <h2>The Art of UX Writing: Saying More with Less</h2>
-        <p>Exploring the subtle craft of helping users through words — not just screens.</p>
-        <a href="#" class="btn accent">Read Article</a>
-      </div>
-    </article>
-
-    <article class="blog-card fade-up">
-      <img src="assets/images/process-doc.jpg" alt="Process documentation" />
-      <div class="blog-card-content">
-        <h2>Building Stronger Teams Through Process Documentation</h2>
-        <p>How documenting processes transforms chaos into calm collaboration.</p>
-        <a href="#" class="btn accent">Read Article</a>
-      </div>
-    </article>
+      <article class="card blog-card">
+        <h2><a href="#">Humanising Technology: Writing for Empathy</a></h2>
+        <p>On the craft of helping users through language, not just interfaces.</p>
+        <p class="blog-meta">Coming soon</p>
+      </article>
+    </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="social-links">
-      <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76..."/></svg></a>
-      <a href="#" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0..."/></svg></a>
-      <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6..."/></svg></a>
-      <a href="mailto:hello@lesliewrites.tech" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M20 4H4c-1.1..."/></svg></a>
+  <footer class="footer fade-in">
+    <div class="container">
+      <div class="social">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:hello@lesliewrites.tech"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p class="mt-2">© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
     </div>
-    <p>© 2025 Leslie Amadi | <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
   </footer>
 
   <script src="assets/script.js"></script>
+  <script src="https://kit.fontawesome.com/a2e0c6b2b0.js" crossorigin="anonymous"></script>
 </body>
 </html>

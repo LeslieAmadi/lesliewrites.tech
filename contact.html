@@ -3,68 +3,69 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Leslie Amadi — Technical Writer & AI Communicator. Get in touch for writing, documentation, or collaboration." />
-  <meta name="author" content="Leslie Amadi" />
+  <meta name="description" content="Contact Leslie Amadi — Technical Writer & AI Communicator." />
   <title>Contact | Leslie Amadi</title>
-
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+<body>
 
-<body style="background-color: #F0E2D2; color: #364042;">
-  <!-- HEADER -->
-  <header class="navbar" style="background-color: #4A2C2A;">
-    <div class="logo" style="color:#F0E2D2;">Leslie Writes</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="parallax-wrap" aria-hidden="true"><div class="parallax-layer"></div></div>
+
+  <header class="navbar">
+    <div class="navbar-inner container">
+      <div class="logo">Leslie Amadi</div>
+      <div id="menu-toggle" class="menu-toggle"><i class="fas fa-bars"></i></div>
+      <nav id="nav-menu" class="nav-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact-section fade-in">
-    <div class="container">
-      <h1 style="color:#4A2C2A;">Let’s Work Together</h1>
-      <p>Whether you’re looking for a technical writer, documentation designer, or collaboration on AI content — I’d love to connect.</p>
-
-      <form id="contactForm" action="https://formspree.io/f/xblqjdwa" method="POST" class="contact-form fade-up">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your full name" required />
-        </div>
-      
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="_replyto" placeholder="Your email address" required />
-        </div>
-      
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="What would you like to collaborate on?" required></textarea>
-        </div>
-      
-        <button type="submit" class="btn accent">Send Message</button>
-        <p id="thankYou" class="thank-you-message" style="display:none;">✨ Thank you, your message has been sent! I’ll reply soon.</p>
-      </form>
-      
+  <section class="section soft fade-in">
+    <div class="container center">
+      <h1>Let’s Work Together</h1>
+      <p class="mt-2">Tell me about your project, documentation needs, or idea I’ll get back to you shortly.</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="social-links">
-      <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76..."/></svg></a>
-      <a href="#" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0..."/></svg></a>
-      <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6..."/></svg></a>
-      <a href="mailto:hello@lesliewrites.tech" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M20 4H4c-1.1..."/></svg></a>
+  <main class="section container fade-in">
+    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xblqjdwa" method="POST">
+      <div class="form-row">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your full name" required />
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input id="email" name="_replyto" type="email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, idea, or question..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-accent">Send Message</button>
+      <p id="thankYou" class="thank-you">✨ Thank you your message has been sent.</p>
+    </form>
+  </main>
+
+  <footer class="footer fade-in">
+    <div class="container">
+      <div class="social">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:hello@lesliewrites.tech"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p class="mt-2">© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
     </div>
-    <p>© 2025 Leslie Amadi | <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
   </footer>
 
   <script src="assets/script.js"></script>
+  <script src="https://kit.fontawesome.com/a2e0c6b2b0.js" crossorigin="anonymous"></script>
 </body>
 </html>

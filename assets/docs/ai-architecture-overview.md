@@ -1,7 +1,7 @@
 # Lesson 15: How AI Architectures Work Together
 
 ## Overview
-Artificial Intelligence is not just one model — it’s a **system of multiple architectures**, each specialised for a different kind of problem.  
+Artificial Intelligence is not just one model it’s a **system of multiple architectures**, each specialised for a different kind of problem.  
 From **predicting numbers** to **understanding language** and **seeing the world**, these models work together like the organs of a digital brain.
 
 ---
@@ -41,7 +41,7 @@ An e-commerce recommendation engine may use:
 - Learn relationships in data automatically.
 
 ### **How They Fit In:**
-Form the **core engine** of most AI systems — they detect and learn patterns from massive datasets.
+Form the **core engine** of most AI systems they detect and learn patterns from massive datasets.
 
 ### **Example:**
 In Tesla’s Autopilot:
@@ -93,7 +93,7 @@ They replaced RNNs by introducing **self-attention**, enabling models to underst
 When you ask ChatGPT a question:
 1. A Transformer model breaks your text into tokens.  
 2. It looks at how every word relates to every other word.  
-3. It predicts the most contextually appropriate next word — again and again — to form full sentences.
+3. It predicts the most contextually appropriate next word again and again to form full sentences.
 
 ---
 
@@ -139,7 +139,7 @@ In a real company, you might describe:
 - Why each was chosen  
 - How data flows between them  
 
-This forms the backbone of **AI architecture documentation** — one of the most in-demand writing skills today.
+This forms the backbone of **AI architecture documentation** one of the most in-demand writing skills today.
 
 ---
 

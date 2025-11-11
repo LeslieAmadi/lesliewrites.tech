@@ -3,96 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About Leslie Amadi — Technical Writer, AI Communicator, and UX Documentation Specialist." />
-  <meta name="author" content="Leslie Amadi" />
+  <meta name="description" content="About Leslie Amadi — Technical Writer & AI Communicator." />
   <title>About | Leslie Amadi</title>
-
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+<body>
 
-<body style="background-color: #F0E2D2; color: #364042;">
-  <!-- HEADER -->
-  <header class="navbar" style="background-color: #4A2C2A;">
-    <div class="logo" style="color:#F0E2D2;">Leslie Writes</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="parallax-wrap" aria-hidden="true"><div class="parallax-layer"></div></div>
+
+  <header class="navbar">
+    <div class="navbar-inner container">
+      <div class="logo">Leslie Amadi</div>
+      <div id="menu-toggle" class="menu-toggle"><i class="fas fa-bars"></i></div>
+      <nav id="nav-menu" class="nav-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a class="active" href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- ABOUT SECTION -->
-  <section class="about-section fade-in">
-    <div class="about-content container">
-      <div class="about-text">
-        <h1 style="color:#4A2C2A;">Hi, I’m Leslie Amadi</h1>
-        <p>
-          I’m a <strong>Technical Writer & AI Communicator</strong> passionate about bridging the gap between technology and human understanding. 
-          My work transforms complex systems into clear, human-centred documentation — from AI models and APIs to UX flows and product guides.
-        </p>
-
-        <p>
-          Over the years, I’ve built experience writing for <strong>AI, SaaS, and UX-driven companies</strong>, helping teams document smarter and design with empathy.
-          I enjoy working on projects where technology meets communication — especially where words help people *trust* and *use* innovation better.
-        </p>
-
-        <p>
-          Outside of writing, I’m fascinated by <strong>machine learning, process documentation, and human-centred AI</strong>. 
-          I’m currently expanding my technical knowledge in AI engineering and data communication.
-        </p>
-
-        <a href="portfolio.html" class="btn accent">View My Work</a>
-      </div>
-
-      <div class="about-image fade-up">
-        <img src="assets/images/profile-pic.png" alt="Leslie Amadi portrait" class="profile-img" />
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section class="skills-section fade-in" style="background-color: #D5E3E6;">
+  <section class="section soft fade-in">
     <div class="container">
-      <h2 style="color:#4A2C2A;">What I Do</h2>
-      <div class="skills-grid">
-        <div class="skill-card fade-up">
-          <h3>🧠 AI & Technical Writing</h3>
-          <p>Creating structured model cards, documentation, and ethical use guides for AI systems and APIs.</p>
+      <div class="about-wrap">
+        <div class="about-text">
+          <h1>Hi, I’m Leslie</h1>
+          <p class="mt-2">I’m a Technical Writer & AI Communicator. I help teams document complex systems with 
+            clarity, empathy, and structure from AI model cards and evaluation notes to API docs, 
+            onboarding flows, and release notes. My work blends precision with humanity so people can understand, 
+            trust, and use technology.</p>
+          <p class="mt-2">I love documenting how ideas turn into experiences. I write for both builders and users
+             translating systems into stories people can follow and apply.</p>
+          <div class="hero-cta mt-2">
+            <a href="portfolio.html" class="btn btn-accent">View My Work</a>
+            <a href="contact.html" class="btn btn-outline">Contact</a>
+          </div>
         </div>
-
-        <div class="skill-card fade-up">
-          <h3>🎨 UX & Product Documentation</h3>
-          <p>Designing clear, accessible guides that align with product goals and enhance user understanding.</p>
-        </div>
-
-        <div class="skill-card fade-up">
-          <h3>📘 Process Documentation</h3>
-          <p>Building internal documentation systems that help teams scale and collaborate effectively.</p>
-        </div>
-
-        <div class="skill-card fade-up">
-          <h3>📈 SEO & Content Strategy</h3>
-          <p>Crafting content that informs, engages, and ranks — balancing clarity with discoverability.</p>
+        <div class="about-photo">
+          <img src="assets/images/profile-pic.png" alt="Portrait of Leslie Amadi" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="social-links">
-      <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76..."/></svg></a>
-      <a href="#" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0..."/></svg></a>
-      <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6..."/></svg></a>
-      <a href="mailto:hello@lesliewrites.tech" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#4A2C2A" viewBox="0 0 24 24"><path d="M20 4H4c-1.1..."/></svg></a>
+  <footer class="footer fade-in">
+    <div class="container">
+      <div class="social">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:hello@lesliewrites.tech"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p class="mt-2">© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
     </div>
-    <p>© 2025 Leslie Amadi | <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
   </footer>
 
   <script src="assets/script.js"></script>
+  <script src="https://kit.fontawesome.com/a2e0c6b2b0.js" crossorigin="anonymous"></script>
 </body>
 </html>
