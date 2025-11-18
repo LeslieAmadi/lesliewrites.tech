@@ -1,149 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Healthcare Case Study | Leslie Writes</title>
-
-  <!-- Link to global styles -->
   <link rel="stylesheet" href="../styles.css">
 
-  <!-- Internal styling for case study layout -->
-  <style>
-    body {
-      max-width: 900px;
-      margin: 2rem auto;
-      background-color: #fff;
-      color: #333;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-      color: #7b4b7d;
-      margin-top: 1.5rem;
-    }
-
-    pre, code {
-      background: #f9f6fb;
-      border-radius: 6px;
-      padding: 1rem;
-      display: block;
-      font-family: monospace;
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-    }
-
-    th, td {
-      border: 1px solid #eee;
-      padding: 0.8rem;
-      text-align: left;
-    }
-
-    th {
-      background-color: #f7edf7;
-    }
-
-    .note {
-      background: #fef5f9;
-      border-left: 4px solid #e2a9c0;
-      padding: 1rem;
-      margin: 1.5rem 0;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid #f1d7f5;
-      margin: 1.5rem 0;
-    }
-
-    .btn {
-      background-color: #e4b1cb;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #c98bb9;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9em;
-      color: #777;
-    }
-  </style>
-
-  <!-- Mermaid support -->
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
+ 
 </head>
 
 <body>
-  <header>
-    <h1>Case Study: Predictive Diagnosis Using AI in Healthcare</h1>
-    <p><em>By Leslie Amadi</em></p>
-    <hr>
+  <div class="page-shell">
+    <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="logo">Leslie Amadi</div>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <h2>Overview</h2>
-    <p>
-      This case study explores how a machine learning model was developed to help doctors predict chronic illnesses early — reducing misdiagnosis rates and improving patient outcomes.
+  <!-- PROJECT HERO -->
+  <section class="project-hero">
+    <h1><h1>Case Study: Predictive Diagnosis Using AI in Healthcare</h1></h1>
+    <p class="project-subtitle">
+      A mid-sized SaaS company struggled with handling repetitive customer support queries. They implemented a GPT-based 
+      AI chatbot to automate responses and assist the support team.
     </p>
 
-    <h2>The Problem</h2>
-    <p>
-      Hospitals faced high diagnostic workloads, and early signs of diseases like diabetes, kidney failure, and heart conditions were often overlooked due to human fatigue and limited time for detailed analysis.
-    </p>
+    <div class="project-tags">
+      <span class="tag">Case Study</span>
+      <span class="tag">API Documentation</span>
+      <span class="tag">Evaluation</span>
+      <span class="tag">Healthcare AI</span>
+      <span class="tag">Safety</span>
+    </div>
+  </section>
 
-    <h2>The AI Solution</h2>
-    <p>
-      A predictive diagnosis system was built using supervised machine learning models.  
-      The model used:
-    </p>
-    <ul>
-      <li><strong>Logistic Regression</strong> for baseline risk prediction</li>
-      <li><strong>Random Forest</strong> for feature importance analysis</li>
-      <li><strong>Neural Networks</strong> for pattern recognition in complex datasets</li>
-    </ul>
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb">
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+    <span> / LexiMind</span>
+  </nav>
 
-    <h2>The Implementation</h2>
-    <ul>
-      <li><strong>Tools:</strong> Python, Scikit-learn, TensorFlow</li>
-      <li><strong>Data:</strong> anonymised hospital records, lab tests, patient lifestyle data</li>
-      <li><strong>Training:</strong> Data cleaning, feature selection, 80/20 split validation</li>
-      <li><strong>Deployment:</strong> REST API integrated with hospital system</li>
-    </ul>
+  <div class="docs-body">
 
-    <h2>Results</h2>
-    <ul>
-      <li><strong>Accuracy:</strong> 91% prediction rate for early-stage diseases</li>
-      <li><strong>Time Saved:</strong> Doctors saved ~3 hours per 50 patients/week</li>
-      <li><strong>Outcome:</strong> Reduced hospital readmissions by 18%</li>
-    </ul>
+    <header>
+      <h1>AI Healthcare Case Study</h1>
+      <p><em>By Leslie Amadi</em></p>
+      <hr>
+    </header>
 
-    <h2>Lessons Learned</h2>
-    <ul>
-      <li>High-quality, balanced datasets are crucial for accuracy</li>
-      <li>Human review is still necessary — AI supports, not replaces, doctors</li>
-      <li>Explainable AI builds trust in medical applications</li>
-    </ul>
+    <div class="docs-content">
 
-    <h2>Visual Summary</h2>
-    <div class="mermaid">
+      <h2>Overview</h2>
+      <p>
+        This case study explores how a machine learning model was developed to help doctors predict chronic illnesses early — reducing misdiagnosis rates and improving patient outcomes.
+      </p>
+
+      <h2>The Problem</h2>
+      <p>
+        Hospitals faced high diagnostic workloads, and early signs of diseases like diabetes, kidney failure, and heart conditions were often overlooked due to human fatigue and limited time for detailed analysis.
+      </p>
+
+      <h2>The AI Solution</h2>
+      <p>
+        A predictive diagnosis system was built using supervised machine learning models.  
+        The model used:
+      </p>
+      <ul>
+        <li><strong>Logistic Regression</strong> for baseline risk prediction</li>
+        <li><strong>Random Forest</strong> for feature importance analysis</li>
+        <li><strong>Neural Networks</strong> for pattern recognition in complex datasets</li>
+      </ul>
+
+      <h2>The Implementation</h2>
+      <ul>
+        <li><strong>Tools:</strong> Python, Scikit-learn, TensorFlow</li>
+        <li><strong>Data:</strong> anonymised hospital records, lab tests, patient lifestyle data</li>
+        <li><strong>Training:</strong> Data cleaning, feature selection, 80/20 split validation</li>
+        <li><strong>Deployment:</strong> REST API integrated with hospital system</li>
+      </ul>
+
+      <h2>Results</h2>
+      <ul>
+        <li><strong>Accuracy:</strong> 91% prediction rate for early-stage diseases</li>
+        <li><strong>Time Saved:</strong> Doctors saved ~3 hours per 50 patients/week</li>
+        <li><strong>Outcome:</strong> Reduced hospital readmissions by 18%</li>
+      </ul>
+
+      <h2>Lessons Learned</h2>
+      <ul>
+        <li>High-quality, balanced datasets are crucial for accuracy</li>
+        <li>Human review is still necessary — AI supports, not replaces, doctors</li>
+        <li>Explainable AI builds trust in medical applications</li>
+      </ul>
+
+      <h2>Visual Summary</h2>
+      <div class="mermaid">
 flowchart LR
     A[Patient Data] --> B[Data Preprocessing]
     B --> C[ML Model: Logistic Regression, Random Forest, Neural Network]
@@ -152,16 +111,33 @@ flowchart LR
     E --> F[Diagnosis Confirmation]
     D --> G[Doctor Feedback]
     G --> C
+      </div>
+
+      <!--------------
+        <p>
+        <a href="../docs/ai-case-study-healthcare.pdf" class="btn" download>Download PDF Version</a>
+      </p>
+      <p><em>Last updated: 9 November 2025</em></p>
+        
+        ------------------>
+
     </div>
 
-    <p>
-      <a href="../docs/ai-case-study-healthcare.pdf" class="btn" download>Download PDF Version</a>
-    </p>
-    <p><em>Last updated: 9 November 2025</em></p>
-  </main>
+    !-- NAV BUTTONS -->
+  <div class="nav-buttons">
+    <a href="leximind-api.html" class="btn">← Previous Project</a>
+    <a href="neuralflow-eval.html" class="btn">Next Project →</a>
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+  </div>
 
-  <footer class="footer">
-    <p>© 2025 Leslie Amadi — All Rights Reserved.</p>
-  </footer>
+  <!-- BACK TO TOP -->
+  <a href="#top" class="to-top">↑ Back to Top</a>
+
+    <footer class="footer">
+      <p>© 2025 Leslie Amadi — All Rights Reserved.</p>
+    </footer>
+
+  </div>
+  </div>
 </body>
 </html>

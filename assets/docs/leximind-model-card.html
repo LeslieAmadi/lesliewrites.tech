@@ -2,117 +2,566 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Model Card — LexiMind Predictive Diagnosis | Leslie Writes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LexiMind Model Card | Leslie Writes</title>
-
-  <!-- Link to global styles -->
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/docs.css">
 
   <style>
+    /* --- Global Page Background (old book, ivory blush) --- */
     body {
-      max-width: 900px;
-      margin: 2rem auto;
-      background-color: #fff;
-      color: #333;
+      margin: 0;
       padding: 2rem;
       font-family: "Poppins", sans-serif;
-      line-height: 1.6;
+      background: #f7f2ec; /* ✨ Soft ivory blush */
+      color: #333;
     }
 
-    h1, h2, h3 {
-      color: #723f74;
-      margin-top: 1.5rem;
+    /* --- Document Container with Border --- */
+    .docs-body {
+      background: #fff9f7; /* Off-white blush */
+      max-width: 900px;
+      margin: auto;
+      padding: 2.5rem;
+      border-radius: 14px;
+      border: 1.5px solid #e8d4c9; /* warm nude border */
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
     }
 
-    ul {
-      margin-left: 1.2rem;
+    /* --- Headings --- */
+    h1, h2, h3, h4 {
+      color: #2a2a2a; /* dusty rose */
+      margin-top: 1.6rem;
+      font-weight: 600;
     }
 
+    /* --- Meta Tags --- */
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      background: #f3d9e0;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      margin-right: 0.3rem;
+      color: #7c4b63;
+    }
+
+    /* --- Tables --- */
+    table {
+      width: 100%;
+      margin: 1rem 0;
+      border-collapse: collapse;
+      background: #fffdfc;
+      font-size: 0.95rem;
+    }
+    table th, table td {
+      padding: 0.7rem;
+      border: 1px solid #eadcd6;
+    }
+    table th {
+      background: #f4e8e2;
+      color: #613e4d;
+    }
+
+    /* --- Callouts --- */
+    .callout {
+      background: #fff4f6;
+      border-left: 4px solid #e3b4c4;
+      padding: 0.9rem 1.1rem;
+      border-radius: 8px;
+      margin: 1.3rem 0;
+    }
+
+    /* --- Preformatted Blocks --- */
+    pre {
+      background: #fff7f5;
+      border: 1px solid #eeded8;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /* --- Meta Grid --- */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 1rem;
+      margin: 1.2rem 0;
+    }
+    .meta-label {
+      font-weight: 600;
+      color: #7a4c58;
+    }
+
+    /* --- Navigation Buttons --- */
     .btn {
-      background-color: #e4b1cb;
-      color: rgb(252, 236, 236);
+      background: #e3b4c4;
+      color: #fff;
       padding: 0.6rem 1.2rem;
       border-radius: 8px;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      font-size: 0.9rem;
+      transition: 0.2s;
     }
-
     .btn:hover {
-      background-color: #f6bae7;
+      background: #dca6b7;
     }
 
-    hr {
-      border: none;
-      border-top: 2px solid #f1d7f5;
-      margin: 1.5rem 0;
+    /* --- Scroll-to-top button --- */
+    .to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #dca6b7;
+      color: #fff;
+      padding: 0.65rem 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
 
-    .footer {
+    footer {
+      margin-top: 2rem;
       text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9em;
-      color: #777;
+      font-size: 0.85rem;
+      color: #8a6d75;
     }
   </style>
 </head>
 <body>
+<div class="docs-body">
+
   <header>
+    <span class="tag">Healthcare AI</span>
+    <span class="tag">Model Card</span>
+    <span class="tag">Risk Prediction</span>
+
     <h1>Model Card: LexiMind Predictive Diagnosis</h1>
-    <p><em>By Leslie Amadi</em></p>
+    <p><em>Author: Leslie Amadi</em></p>
     <hr>
+
+    <div class="meta-grid">
+      <div>
+        <span class="meta-label">Model Name:</span>
+        LexiMind Predictive Diagnosis Model (LPD-1.0)
+      </div>
+      <div>
+        <span class="meta-label">Version:</span>
+        1.0
+      </div>
+      <div>
+        <span class="meta-label">Release Date:</span>
+        9 November 2025
+      </div>
+      <div>
+        <span class="meta-label">Domain:</span>
+        Chronic disease risk estimation
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Summary.</strong> The LexiMind Predictive Diagnosis Model estimates the likelihood of selected chronic
+      illnesses from structured patient data. It is designed as a <strong>clinical decision-support tool</strong>:
+      it surfaces risk signals for clinicians and care teams, but it does not issue diagnoses or treatment plans.
+    </div>
   </header>
 
   <main>
-    <p><strong>Version:</strong> 1.0</p>
-    <p><strong>Date:</strong> 9 November 2025</p>
+    <!-- 1. Overview -->
+    <section>
+      <h2>1. Overview</h2>
+      <p>
+        LexiMind Predictive Diagnosis uses patient demographics, lab results, and lifestyle information to estimate
+        risk for conditions such as diabetes, heart disease, and kidney disease. The model outputs probabilities that
+        can support early screening, prioritisation, and follow-up planning.
+      </p>
+      <p>
+        The model is part of the broader LexiMind Health Intelligence family, which focuses on interpretable,
+        clinician-centred AI for healthcare environments.
+      </p>
+    </section>
 
-    <h2>Overview</h2>
-    <p>
-      LexiMind predicts the likelihood of chronic illnesses based on patient data, supporting doctors in early diagnosis and treatment planning.
-    </p>
+    <!-- 2. Intended Use & Users -->
+    <section>
+      <h2>2. Intended Use & Users</h2>
 
-    <h2>How it Works</h2>
-    <ul>
-      <li>Model Types: Logistic Regression, Random Forest, Neural Network</li>
-      <li>Input Data: Patient demographics, lab results, lifestyle data</li>
-      <li>Output: Risk probabilities for diabetes, heart disease, kidney disease</li>
-    </ul>
+      <h3>2.1 Intended Use</h3>
+      <ul>
+        <li>Support clinicians in <strong>early screening</strong> for chronic diseases.</li>
+        <li>Highlight potentially high-risk patients for <strong>follow-up, additional tests, or lifestyle interventions</strong>.</li>
+        <li>Augment dashboards or risk registries with an additional predictive signal.</li>
+      </ul>
 
-    <h2>Performance</h2>
-    <ul>
-      <li>Accuracy: 91%</li>
-      <li>Reduced readmissions: 18%</li>
-      <li>Average time saved per doctor: 3 hours per 50 patients</li>
-    </ul>
+      <h3>2.2 Intended Users</h3>
+      <ul>
+        <li>Hospital and clinic teams (doctors, nurses, care coordinators).</li>
+        <li>Healthcare product teams integrating risk scores into clinical software.</li>
+        <li>Data and analytics teams running risk stratification or population health reports.</li>
+      </ul>
 
-    <h2>Intended Use</h2>
-    <ul>
-      <li>Hospitals and clinics for early screening</li>
-      <li>Healthcare apps for patient monitoring</li>
-    </ul>
+      <h3>2.3 Out-of-Scope Uses</h3>
+      <ul>
+        <li>Issuing fully automated diagnoses or treatment plans.</li>
+        <li>Insurance pricing, coverage decisions, or denial of care.</li>
+        <li>Use on paediatric populations or clinical domains not represented in training data.</li>
+      </ul>
+    </section>
 
-    <h2>Limitations</h2>
-    <ul>
-      <li>Requires accurate and anonymized input data</li>
-      <li>Human review necessary for final diagnosis</li>
-      <li>May not generalize outside the trained population</li>
-    </ul>
+    <!-- 3. How the Model Works -->
+    <section>
+      <h2>3. How the Model Works</h2>
+      <p>
+        LPD-1.0 is an ensemble model that combines several algorithm families to balance performance, robustness,
+        and interpretability:
+      </p>
+      <ul>
+        <li><strong>Logistic Regression</strong> for well-calibrated baseline risk.</li>
+        <li><strong>Random Forest</strong> for handling non-linear feature interactions and missingness patterns.</li>
+        <li><strong>Neural Network</strong> for capturing more complex relationships in larger feature sets.</li>
+      </ul>
+      <p>
+        The ensemble aggregates outputs from each component model and applies calibration to produce final
+        probability estimates per condition.
+      </p>
 
-    <h2>Responsible AI</h2>
-    <ul>
-      <li>Data anonymization ensures patient privacy</li>
-      <li>Explainable AI for transparency</li>
-      <li>Model continuously retrained with new data</li>
-    </ul>
+      <div class="diagram">
+        <div class="diagram-title">Figure 1 — High-Level Model Architecture</div>
+        <pre><code>Input features (demographics, labs, lifestyle)
+                |
+                v
+        [ Preprocessing & Normalisation ]
+                |
+                v
+       +----------------------------+
+       |  Base Models (per condition)|
+       |                             |
+       |  - Logistic Regression      |
+       |  - Random Forest            |
+       |  - Neural Network           |
+       +----------------------------+
+                |
+                v
+        [ Ensemble & Calibration ]
+                |
+                v
+      Risk probabilities (0–1) per condition</code></pre>
+      </div>
+    </section>
 
-    <p>
-      <a href="../docs/leximind-model-card.pdf" class="btn" download>Download PDF Version</a>
-    </p>
-    <p><em>Last updated: 9 November 2025</em></p>
-  </main>
+    <!-- 4. Data & Features -->
+    <section>
+      <h2>4. Training Data & Features</h2>
 
-  <footer class="footer">
-    <p>© 2025 Leslie Amadi — All Rights Reserved.</p>
-  </footer>
+      <h3>4.1 Data Sources (Conceptual)</h3>
+      <ul>
+        <li>De-identified electronic health record (EHR) datasets from partner hospitals.</li>
+        <li>Adult patient population (ages 18+), with recorded chronic disease outcomes.</li>
+        <li>Labels derived from diagnostic codes and clinician-confirmed case definitions.</li>
+      </ul>
+
+      <h3>4.2 Input Features</h3>
+      <p>Example families of input features include:</p>
+      <ul>
+        <li><strong>Demographics:</strong> age, sex.</li>
+        <li><strong>Vitals:</strong> blood pressure, BMI (derived), resting heart rate.</li>
+        <li><strong>Lab results:</strong> fasting blood sugar, HbA1c (if available), cholesterol profile.</li>
+        <li><strong>Lifestyle:</strong> smoking status, activity level (if available).</li>
+        <li><strong>History:</strong> family history of hypertension, diabetes, heart disease, kidney disease.</li>
+      </ul>
+      <p>
+        Direct identifiers (names, addresses) are excluded from model training, focusing on clinical and lifestyle
+        variables instead.
+      </p>
+    </section>
+
+    <!-- 5. Inputs & Outputs -->
+    <section>
+      <h2>5. Model Inputs & Outputs</h2>
+
+      <h3>5.1 Inputs (Conceptual Schema)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Example</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>age</td>
+            <td>integer</td>
+            <td>56</td>
+            <td>Age in years (adult population).</td>
+          </tr>
+          <tr>
+            <td>sex</td>
+            <td>string</td>
+            <td>"female"</td>
+            <td>Recorded sex or gender category.</td>
+          </tr>
+          <tr>
+            <td>blood_pressure</td>
+            <td>number</td>
+            <td>138</td>
+            <td>Systolic blood pressure (mmHg).</td>
+          </tr>
+          <tr>
+            <td>blood_sugar</td>
+            <td>number</td>
+            <td>110</td>
+            <td>Fasting blood sugar (mg/dL).</td>
+          </tr>
+          <tr>
+            <td>cholesterol</td>
+            <td>number</td>
+            <td>200</td>
+            <td>Total cholesterol (mg/dL).</td>
+          </tr>
+          <tr>
+            <td>smoker</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Whether the patient currently smokes.</td>
+          </tr>
+          <tr>
+            <td>family_history</td>
+            <td>array&lt;string&gt;</td>
+            <td>["diabetes", "hypertension"]</td>
+            <td>Key chronic conditions recorded in close relatives.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>5.2 Outputs</h3>
+      <p>For each patient, the model returns:</p>
+      <ul>
+        <li><strong>Risk probabilities</strong> for:
+          <ul>
+            <li>Diabetes</li>
+            <li>Heart disease</li>
+            <li>Kidney disease</li>
+          </ul>
+        </li>
+        <li>An optional <strong>aggregated risk score</strong> or category (e.g. low / medium / high).</li>
+      </ul>
+    </section>
+
+    <!-- 6. Performance -->
+    <section>
+      <h2>6. Performance (Illustrative)</h2>
+      <p>
+        The original high-level metric for this model was an overall <strong>accuracy of ~91%</strong>. To reflect
+        realistic evaluation for healthcare models, LPD-1.0 is instead characterised using discrimination and
+        calibration metrics.
+      </p>
+
+      <h3>6.1 Condition-Level Metrics</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Condition</th>
+            <th>ROC AUC</th>
+            <th>PR AUC</th>
+            <th>Sensitivity @ 80% specificity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Diabetes</td>
+            <td>0.89</td>
+            <td>0.64</td>
+            <td>0.81</td>
+          </tr>
+          <tr>
+            <td>Heart disease</td>
+            <td>0.86</td>
+            <td>0.58</td>
+            <td>0.78</td>
+          </tr>
+          <tr>
+            <td>Kidney disease</td>
+            <td>0.84</td>
+            <td>0.55</td>
+            <td>0.76</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>6.2 Example Impact Metrics (Conceptual)</h3>
+      <ul>
+        <li>Reduction in hospital readmissions for targeted high-risk cohorts: <strong>≈18%</strong> in offline simulations.</li>
+        <li>Estimated time saved per clinician: <strong>~3 hours per 50 patients</strong> when integrated into workflows.</li>
+      </ul>
+
+      <p>
+        These impact numbers are illustrative and depend on how the model is integrated into real-world care pathways.
+      </p>
+    </section>
+
+    <!-- 7. Calibration, Monitoring & Drift -->
+    <section>
+      <h2>7. Calibration, Monitoring & Drift</h2>
+      <p>
+        Because the model outputs probabilities, calibration is important. LPD-1.0 uses post-hoc calibration
+        techniques to align predicted risks with observed event rates in the development cohorts.
+      </p>
+      <ul>
+        <li>Calibration curves are monitored periodically on held-out evaluation data.</li>
+        <li>Input feature distributions are monitored for drift (e.g. shifts in age distribution or lab ranges).</li>
+        <li>Detected drift should trigger re-evaluation and potential retraining on more recent data.</li>
+      </ul>
+    </section>
+
+    <!-- 8. Fairness & Limitations -->
+    <section>
+      <h2>8. Fairness, Limitations & Known Risks</h2>
+
+      <h3>8.1 Limitations</h3>
+      <ul>
+        <li>Trained on a specific adult population; performance may differ on new regions or health systems.</li>
+        <li>Quality of predictions depends on the quality and completeness of input data.</li>
+        <li>Does not account for all possible comorbidities, social determinants, or nuanced clinical context.</li>
+      </ul>
+
+      <h3>8.2 Potential Bias & Fairness Considerations</h3>
+      <ul>
+        <li>
+          If certain demographic groups are under-represented in training data, performance may be lower in those
+          groups.
+        </li>
+        <li>
+          For safe deployment, teams should evaluate performance on their own population, including key subgroups
+          where possible.
+        </li>
+        <li>
+          Risk scores should never be used to deny care or justify reduced attention to any patient or community.
+        </li>
+      </ul>
+
+      <h3>8.3 Known Risks</h3>
+      <ul>
+        <li>Over-reliance on model outputs without clinical judgement.</li>
+        <li>Misinterpretation of risk probabilities as deterministic outcomes.</li>
+        <li>Potential miscalibration when usage context diverges significantly from training conditions.</li>
+      </ul>
+    </section>
+
+    <!-- 9. Responsible Use -->
+    <section>
+      <h2>9. Responsible AI & Human Oversight</h2>
+      <p>
+        LPD-1.0 is designed to support, not replace, human expertise. Recommended patterns for responsible use:
+      </p>
+      <ul>
+        <li>
+          Use the model as a <strong“second opinion signal”>second opinion signal</strong>, not the final decision.
+        </li>
+        <li>
+          Combine risk scores with clinical guidelines, patient preferences, and additional diagnostics.
+        </li>
+        <li>
+          Provide training and documentation to clinicians to interpret model outputs appropriately.
+        </li>
+      </ul>
+
+      <h3>9.1 Data Privacy & Anonymisation</h3>
+      <ul>
+        <li>Data used for training and evaluation is de-identified where possible.</li>
+        <li>Access to raw training data is restricted to authorised teams under data governance controls.</li>
+      </ul>
+
+      <h3>9.2 Model Maintenance</h3>
+      <ul>
+        <li>Model performance and calibration should be re-evaluated periodically.</li>
+        <li>Retraining schedules should consider clinical practice changes and new data availability.</li>
+      </ul>
+    </section>
+
+    <!-- 10. Deployment & Integration -->
+    <section>
+      <h2>10. Deployment & Integration (Conceptual)</h2>
+      <p>
+        LPD-1.0 is designed to be surfaced via APIs as part of the LexiMind platform. A typical integration pattern:
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 2 — Example Deployment Flow</div>
+        <pre><code>EHR / Clinical App
+        |
+        v
+   LexiMind API (Predictive Diagnosis)
+        |
+        v
+  [ LPD-1.0 Inference Service ]
+        |
+        v
+   Risk probabilities + explanation
+        |
+        v
+ Clinician dashboard / report</code></pre>
+      </div>
+
+      <p>
+        Integrations should log both inputs (appropriately anonymised) and outputs to support monitoring, auditing,
+        and local evaluation.
+      </p>
+    </section>
+
+    <!-- 11. Versioning -->
+    <section>
+      <h2>11. Versioning & Change Log</h2>
+      <p>Model versions follow a simple <strong>major.minor</strong> convention:</p>
+      <ul>
+        <li><strong>Major</strong> – substantial changes to model architecture, features, or condition coverage.</li>
+        <li><strong>Minor</strong> – calibration updates, small performance improvements, and bug fixes.</li>
+      </ul>
+
+      <h3>11.1 Version History</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Version</th>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.0</td>
+            <td>9 November 2025</td>
+            <td>Initial release of LexiMind Predictive Diagnosis model card (LPD-1.0).</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 12. References & Contact -->
+    <section>
+      <h2>12. References & Contact</h2>
+      <p>
+        For questions about this model card, integration options, or evaluation plans:
+      </p>
+      <ul>
+        <li><strong>Contact:</strong> ml-support@lexitech.ai</li>
+        <li><strong>Owner:</strong> LexiMind Health Intelligence team</li>
+      </ul>
+
+      <!-- NAV BUTTONS -->
+      <p style="margin-top: 2rem;">
+        <a href="../../previous-page.html" class="btn">← Previous Page</a>
+        <a href="../../next-page.html" class="btn" style="margin-left:0.5rem;">Next Page →</a>
+        <a href="../../portfolio.html" class="btn" style="margin-left:0.5rem;">Back to Portfolio</a>
+      </p>
+  
+      <footer>
+        © 2025 Leslie Amadi — All Rights Reserved.
+      </footer> 
+    </div>
+  
+    <!-- Scroll back to top button -->
+    <a href="#top" class="to-top">↑ Top</a>
+</div>
 </body>
 </html>

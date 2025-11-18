@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Evaluation Report Multilingual Chatbot v2.0 | Leslie Writes</title>
+  <link rel="stylesheet" href="../css/docs.css">
+
+  <style>
+    body {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #723f74;
+      margin-top: 1.6rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      padding: 0.7rem;
+      border: 1px solid #e9c3ea;
+      font-size: 0.95rem;
+    }
+    .callout {
+      border-left: 4px solid #e4b1cb;
+      background: #fff8fd;
+      padding: 0.9rem 1rem;
+      border-radius: 6px;
+      margin: 1.3rem 0;
+    }
+    .btn {
+      background-color: #e4b1cb;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .btn:hover { background-color: #f6bae7; }
+    hr {
+      border: none;
+      border-top: 2px solid #f1d7f5;
+      margin: 1.5rem 0;
+    }
+    pre {
+      background: #fff6fb;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid #f1d7f5;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+<div class="docs-body">
+
+<header>
+  <h1>Model Evaluation Report: Multilingual Chatbot Model v2.0</h1>
+  <p><em>Prepared by Leslie Amadi — Senior AI Technical Writer</em></p>
+  <hr>
+</header>
+
+<div class="docs-content">
+
+<!-- SECTION 1 -->
+<h2>1. Objective</h2>
+<p>
+  This report evaluates the performance of the <strong>Multilingual Chatbot Model v2.0</strong>,
+  designed for English–German customer service applications. The primary objective is to compare
+  v2.0 against the baseline <strong>v1.3</strong> across accuracy, conversational fluency, intent recognition,
+  model reliability, and multilingual robustness.
+</p>
+
+<div class="callout">
+  <strong>Scope:</strong> This report covers offline evaluation, dataset-level testing, error analysis,
+  and deployment readiness. Live production testing is scheduled for the next release cycle.
+</div>
+
+<!-- SECTION 2 -->
+<h2>2. Evaluation Datasets</h2>
+<p>
+  Three datasets were selected to reflect real-world customer interactions, mixed-language usage,
+  and varying levels of conversational complexity.
+</p>
+
+<h3>2.1 Dataset Summary</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th><th>Language</th><th>Size</th><th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Customer Support Eval Set</td>
+      <td>English</td>
+      <td>5,000 pairs</td>
+      <td>Intent recognition + troubleshooting</td>
+    </tr>
+    <tr>
+      <td>Kundenhilfe Eval Set</td>
+      <td>German</td>
+      <td>2,500 pairs</td>
+      <td>Multilingual behavioural accuracy</td>
+    </tr>
+    <tr>
+      <td>General QA Eval</td>
+      <td>Mixed (EN/DE)</td>
+      <td>3,000 pairs</td>
+      <td>Fluency, coherence, correctness</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>2.2 Dataset Split</h3>
+<ul>
+  <li>Training: 80%</li>
+  <li>Validation: 10%</li>
+  <li>Testing: 10% (7,500 samples)</li>
+</ul>
+
+<h3>2.3 Data Characteristics</h3>
+<ul>
+  <li>Includes idioms, colloquial expressions, and fragmented queries.</li>
+  <li>Reflects typical European customer service patterns.</li>
+  <li>Balanced domain coverage: billing, delivery, returns, technical issues.</li>
+</ul>
+
+<!-- SECTION 3 -->
+<h2>3. Evaluation Metrics</h2>
+<p>
+  The model was tested using industry-standard evaluation metrics for classification and
+  conversational agents. Definitions are provided below for clarity.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th><th>Definition</th><th>Target</th><th>Achieved</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Accuracy</td>
+      <td>(Correct predictions ÷ total predictions)</td>
+      <td>90%</td>
+      <td><strong>91.5%</strong></td>
+    </tr>
+    <tr>
+      <td>Precision</td>
+      <td>TP ÷ (TP + FP)</td>
+      <td>85%</td>
+      <td><strong>88%</strong></td>
+    </tr>
+    <tr>
+      <td>Recall</td>
+      <td>TP ÷ (TP + FN)</td>
+      <td>80%</td>
+      <td><strong>84%</strong></td>
+    </tr>
+    <tr>
+      <td>F1 Score</td>
+      <td>2 × (Precision × Recall) ÷ (Precision + Recall)</td>
+      <td>82%</td>
+      <td><strong>86%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- SECTION 4 -->
+<h2>4. Results Summary</h2>
+<p>
+  Overall performance improved significantly over the v1.3 baseline. The model demonstrates
+  stronger multilingual intent recognition, reduced hallucinations, and improved handling of
+  structured troubleshooting queries.
+</p>
+
+<h3>4.1 Accuracy by Language</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Language</th><th>v1.3</th><th>v2.0</th><th>Difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>English</td>
+      <td>89%</td>
+      <td>93%</td>
+      <td>+4%</td>
+    </tr>
+    <tr>
+      <td>German</td>
+      <td>84%</td>
+      <td>90%</td>
+      <td>+6%</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- SECTION 5 -->
+<h2>5. Error Analysis</h2>
+
+<h3>5.1 Frequent Error Types</h3>
+<ul>
+  <li><strong>Colloquial German misinterpretation</strong> — difficulty with slang and colloquial verbs.</li>
+  <li><strong>Long tail product queries</strong> — underrepresented items lead to uncertainty.</li>
+  <li><strong>Ambiguous intent</strong> — queries with multiple overlapping intents.</li>
+  <li><strong>Overly confident phrasing</strong> — softened in v2.0 but not eliminated.</li>
+</ul>
+
+<h3>5.2 Example Errors</h3>
+<pre>
+User (DE): "Wie läuft das mit dem Zurückschicken eigentlich?"
+Model v2.0: Provides general policy but misses edge-case exceptions.
+
+User (EN): "My charger died again and I'm tired of this."
+Model v2.0: Treats it as troubleshooting only, ignoring emotional context.
+</pre>
+
+<h3>5.3 Confusion Matrix Overview</h3>
+<p>(Simplified)</p>
+<pre>
+               Predicted
+              C1   C2   C3
+Actual C1    842   27   14
+Actual C2     33  691   21
+Actual C3     19   24  801
+</pre>
+
+<!-- SECTION 6 -->
+<h2>6. Interpretation & Insights</h2>
+<ul>
+  <li><strong>Improved domain generalisation:</strong> v2.0 handles new product categories better.</li>
+  <li><strong>Tone consistency improved:</strong> Fewer abrupt or robotic responses.</li>
+  <li><strong>German grammar improved notably:</strong> Declensions and article usage more accurate.</li>
+  <li><strong>Significant hallucination reduction:</strong> −32% compared to v1.3.</li>
+</ul>
+
+<!-- SECTION 7 -->
+<h2>7. Visual Summary</h2>
+<pre>
+MODEL PERFORMANCE OVER TIME
+v1.0  ████████████ 82%
+v1.3  █████████████████ 87%
+v2.0  ███████████████████████ 91.5%
+</pre>
+
+<!-- SECTION 8 -->
+<h2>8. Recommendations</h2>
+<ul>
+  <li>Add datasets for <strong>German slang and informal expressions</strong>.</li>
+  <li>Introduce <strong>Hungarian</strong> and <strong>Ukrainian</strong> low-resource evaluations.</li>
+  <li>Deploy continuous human-in-the-loop review for misclassification patterns.</li>
+  <li>Develop an automated regression suite for future model iterations.</li>
+  <li>Run fairness testing across language groups.</li>
+</ul>
+
+<!-- SECTION 9 -->
+<h2>9. Deployment Readiness</h2>
+<p>The model meets the minimum thresholds for deployment to staging environments:</p>
+<ul>
+  <li>Accuracy > 90%</li>
+  <li>F1 Score > 85%</li>
+  <li>Hallucination rate < 5%</li>
+  <li>No critical errors in high-risk domains</li>
+</ul>
+
+<!-- SECTION 10 -->
+<h2>10. Document Metadata</h2>
+<p><strong>Date:</strong> 7 November 2025<br>
+   <strong>Author:</strong> Leslie Amadi<br>
+   <strong>Version:</strong> 2.0
+</p>
+
+<p>
+  <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+</p>
+
+</div>
+
+<footer class="footer">
+  <p>© 2025 Leslie Amadi — All Rights Reserved.</p>
+</footer>
+
+</div>
+</body>
+</html>
+
+

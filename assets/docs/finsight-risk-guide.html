@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Integrate the FinSight Risk API | Portfolio | Leslie Amadi</title>
+
+  <!-- Adjust the path if this file lives elsewhere, e.g. ../../assets/style.css -->
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <div class="page-shell">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <div class="logo">Leslie Amadi</div>
+        <nav class="nav-menu" aria-label="Main navigation">
+          <a href="../../index.html">Home</a>
+          <a href="../../portfolio.html" class="active">Portfolio</a>
+          <a href="../../blog.html">Blog</a>
+          <a href="../../about.html">About</a>
+          <a href="../../contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-top:1.5rem; margin-bottom:0.5rem;">
+      <a href="../../portfolio.html">← Back to Portfolio</a>
+      <span> / FinSight Risk API Integration Guide</span>
+    </nav>
+
+    <!-- DOC BODY -->
+    <div class="docs-body">
+      <header>
+        <span class="tag">FinTech AI</span>
+        <span class="tag">Risk Scoring</span>
+        <span class="tag">REST API</span>
+
+        <h1>How to Integrate the FinSight Risk API into Your Application</h1>
+        <p><em>Implementation guide for engineering teams · Author: Leslie Amadi</em></p>
+        <hr>
+
+        <p>
+          The <strong>FinSight Risk API</strong> provides real-time risk scores for financial events such as
+          transactions, account activity, and user onboarding. This guide walks you through a realistic
+          integration process—from obtaining credentials and calling the API for the first time, to handling
+          errors, monitoring performance, and rolling out safely in production.
+        </p>
+
+        <div class="callout">
+          <strong>Who this is for.</strong>
+          Backend engineers, FinTech product teams, and data engineers integrating FinSight as a
+          <strong>risk signal</strong> into existing payments, onboarding, or monitoring flows.
+          The guide assumes familiarity with REST APIs and JSON.
+        </div>
+      </header>
+
+      <main class="docs-content">
+
+        <!-- 1. Overview -->
+        <section id="overview">
+          <h2>1. Integration Overview</h2>
+          <p>
+            At a high level, integrating the FinSight Risk API means:
+          </p>
+          <ul>
+            <li>Requesting a risk score for a <strong>user</strong>, <strong>account</strong>, or <strong>transaction</strong>.</li>
+            <li>Receiving a <code>risk_score</code> between <code>0</code> and <code>1</code>, plus a <code>risk_level</code> label.</li>
+            <li>Using that signal inside your own business logic (e.g. extra verification, manual review queues).</li>
+          </ul>
+
+          <div class="diagram">
+            <div class="diagram-title">Figure 1 — High-Level Data Flow</div>
+            <pre><code>Your App / Backend
+        |
+        v
+  [ FinSight Risk Client ]
+        |
+        v
+POST /v1/risk/predict
+        |
+        v
+  [ FinSight Risk Engine ]
+        |
+        v
+JSON response: risk_score, risk_level, explanation
+        |
+        v
+Your decision logic (approve, block, review)</code></pre>
+          </div>
+        </section>
+
+        <!-- 2. Prerequisites -->
+        <section id="prerequisites">
+          <h2>2. Prerequisites</h2>
+          <ul>
+            <li>A FinSight account with access to the Risk API.</li>
+            <li>An <strong>API key</strong> for the correct environment (staging and/or production).</li>
+            <li>Server-side environment able to make HTTPS requests (e.g. Python, Node, Java, Go).</li>
+            <li>Ability to log and monitor outgoing requests and responses (for debugging and audits).</li>
+          </ul>
+        </section>
+
+        <!-- 3. Environments -->
+        <section id="environments">
+          <h2>3. Environments &amp; Base URLs</h2>
+          <p>The API is typically exposed in two environments:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Environment</th>
+                <th>Base URL</th>
+                <th>Typical Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Staging</td>
+                <td><code>https://staging.api.finsight.ai/v1</code></td>
+                <td>Integration testing, sandbox traffic, non-production data.</td>
+              </tr>
+              <tr>
+                <td>Production</td>
+                <td><code>https://api.finsight.ai/v1</code></td>
+                <td>Live customer traffic and production workloads.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            In your application, keep the base URL in configuration, not hard-coded, so that you
+            can switch between staging and production per environment.
+          </p>
+        </section>
+
+        <!-- 4. Authentication -->
+        <section id="authentication">
+          <h2>4. Authentication</h2>
+          <p>
+            FinSight uses <strong>API key–based authentication</strong>. Every request must include an
+            <code>Authorization</code> header:
+          </p>
+          <pre><code>Authorization: Bearer YOUR_API_KEY
+Content-Type: application/json</code></pre>
+
+          <ul>
+            <li>API keys are <strong>organisation-scoped</strong> and <strong>environment-specific</strong>.</li>
+            <li>Keys must be stored server-side only (e.g. in an encrypted secret store).</li>
+            <li>Never commit keys to Git, logs, or analytics tools.</li>
+            <li>Rotate keys regularly and immediately on any suspected compromise.</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Real-world recommendation.</strong>
+            Inject the API key via environment variables or your platform’s secret manager
+            (e.g. AWS Secrets Manager, GCP Secret Manager, HashiCorp Vault) and pass it to
+            your FinSight client at startup.
+          </div>
+        </section>
+
+        <!-- 5. Request & Response Basics -->
+        <section id="format">
+          <h2>5. Request &amp; Response Basics</h2>
+          <ul>
+            <li>Protocol: <strong>HTTPS only</strong> (TLS 1.2+).</li>
+            <li>Content type: <code>application/json</code>.</li>
+            <li>All responses are JSON objects.</li>
+            <li>Timestamps, where present, use ISO 8601 in UTC.</li>
+          </ul>
+        </section>
+
+        <!-- 6. Step-by-step Integration -->
+        <section id="steps">
+          <h2>6. Step-by-Step Integration</h2>
+
+          <h3>6.1 Step 1 — Create a Reusable FinSight Client</h3>
+          <p>
+            In a real system, you don’t want to scatter raw HTTP calls across the codebase.
+            Instead, create a small client module responsible for:
+          </p>
+          <ul>
+            <li>Building URLs and headers.</li>
+            <li>Sending requests and parsing responses.</li>
+            <li>Handling timeouts and transient errors.</li>
+            <li>Logging <strong>trace IDs</strong> to help with debugging.</li>
+          </ul>
+
+          <pre><code>import requests
+
+class FinSightClient:
+    def __init__(self, base_url: str, api_key: str, timeout: float = 3.0):
+        self.base_url = base_url.rstrip("/")
+        self.api_key = api_key
+        self.timeout = timeout
+
+    def _headers(self):
+        return {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+
+    def health(self):
+        url = f"{self.base_url}/status"
+        resp = requests.get(url, headers=self._headers(), timeout=self.timeout)
+        resp.raise_for_status()
+        return resp.json()
+
+    def predict_risk(self, payload: dict):
+        url = f"{self.base_url}/risk/predict"
+        resp = requests.post(url, headers=self._headers(), json=payload, timeout=self.timeout)
+        resp.raise_for_status()
+        return resp.json()</code></pre>
+
+          <div class="callout">
+            <strong>Production tip.</strong>
+            Add proper logging and error mapping inside <code>predict_risk</code> (e.g. translating
+            <code>requests.exceptions.Timeout</code> and HTTP 429/500 into your own error types).
+          </div>
+
+          <h3>6.2 Step 2 — Call the Health Check Endpoint</h3>
+          <p>
+            Before wiring FinSight into your critical flows, confirm that your credentials and network
+            setup are correct:
+          </p>
+          <pre><code>client = FinSightClient(
+    base_url="https://staging.api.finsight.ai/v1",
+    api_key="YOUR_STAGING_API_KEY"
+)
+
+print(client.health())</code></pre>
+
+          <p>Example response:</p>
+          <pre><code>{
+  "status": "online",
+  "model_version": "FRM-3.1",
+  "environment": "staging"
+}</code></pre>
+
+          <h3>6.3 Step 3 — Build a Risk Request Payload</h3>
+          <p>
+            A typical request for a transaction risk prediction might look like this:
+          </p>
+
+          <pre><code>{
+  "transaction": {
+    "id": "txn_9140281",
+    "amount": 540.00,
+    "currency": "USD",
+    "merchant_category": "retail_ecommerce",
+    "country": "GB",
+    "channel": "web",
+    "timestamp": "2025-03-14T10:21:37Z"
+  },
+  "user": {
+    "id": "user_12489",
+    "age": 32,
+    "account_age_days": 420,
+    "kya_completed": true,
+    "previous_fraud_flags": 1
+  },
+  "context": {
+    "ip_address": "192.0.2.34",
+    "device_fingerprint": "dfp_98f0ab23",
+    "session_id": "sess_8912",
+    "historical_risk_segment": "medium"
+  }
+}</code></pre>
+
+          <p>
+            The exact schema will depend on your FinSight configuration, but the pattern is similar:
+            <strong>transaction + user + context</strong>.
+          </p>
+
+          <h3>6.4 Step 4 — Interpret the Response</h3>
+          <p>Example response from <code>POST /risk/predict</code>:</p>
+
+          <pre><code>{
+  "risk_score": 0.82,
+  "risk_level": "high",
+  "signals": {
+    "unusual_device": true,
+    "mismatch_country": true,
+    "recent_account_creation": false
+  },
+  "explanation": [
+    "Device not seen in the last 90 days",
+    "Location inconsistent with historical usage"
+  ],
+  "model_version": "FRM-3.1",
+  "trace_id": "req_9af13b72c4"
+}</code></pre>
+
+          <p>
+            In a real application, you would use this response to branch your logic:
+          </p>
+          <ul>
+            <li>
+              <strong>Low risk</strong> (e.g. &lt; 0.3): proceed normally and log the score.
+            </li>
+            <li>
+              <strong>Medium risk</strong> (e.g. 0.3–0.7): add step-up checks (e.g. 2FA, extra verification).
+            </li>
+            <li>
+              <strong>High risk</strong> (e.g. &gt; 0.7): send to manual review or block and ask the user to contact support.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 7. Error Handling -->
+        <section id="errors">
+          <h2>7. Error Handling &amp; Retry Behaviour</h2>
+          <p>
+            The FinSight API uses standard HTTP status codes plus a structured error payload. Example:
+          </p>
+
+          <pre><code>{
+  "error": {
+    "code": "4010_UNAUTHENTICATED",
+    "message": "Missing or invalid API key.",
+    "trace_id": "req_9af13b72c4"
+  }
+}</code></pre>
+
+          <table>
+            <thead>
+              <tr>
+                <th>HTTP Code</th>
+                <th>Error Class</th>
+                <th>Example Cause</th>
+                <th>Recommended Client Behaviour</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>400</td>
+                <td>Client error</td>
+                <td>Invalid schema, missing required fields.</td>
+                <td>Fix the request before retrying; do <strong>not</strong> automatically retry.</td>
+              </tr>
+              <tr>
+                <td>401</td>
+                <td>Authentication error</td>
+                <td>Missing or invalid API key.</td>
+                <td>Check configuration, rotate key if needed, alert ops if persistent.</td>
+              </tr>
+              <tr>
+                <td>403</td>
+                <td>Authorisation error</td>
+                <td>Key lacks access to this endpoint.</td>
+                <td>Confirm key scope / environment; escalate internally.</td>
+              </tr>
+              <tr>
+                <td>429</td>
+                <td>Rate limited</td>
+                <td>Too many requests in a given window.</td>
+                <td>Back off using exponential delays; respect <code>Retry-After</code> header.</td>
+              </tr>
+              <tr>
+                <td>500</td>
+                <td>Server error</td>
+                <td>Unexpected internal failure.</td>
+                <td>Retry with backoff, log <code>trace_id</code>, alert if frequent.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout">
+            <strong>Real-life behaviour.</strong>
+            Implement a small retry policy for <code>429</code> and <code>5xx</code> responses,
+            with jitter, and <strong>never</strong> retry on 4xx client errors except perhaps 408 (timeout).
+          </div>
+        </section>
+
+        <!-- 8. Monitoring & Logging -->
+        <section id="monitoring">
+          <h2>8. Monitoring, Logging &amp; Observability</h2>
+          <p>
+            In production, treating FinSight as a critical dependency means you must be able to
+            observe its behaviour clearly:
+          </p>
+          <ul>
+            <li>Log each request’s <code>trace_id</code>, risk score, and risk level.</li>
+            <li>Track latency (P50 / P95 / P99) for <code>/risk/predict</code>.</li>
+            <li>Monitor error rates by code (4xx, 5xx, 429) and alert on spikes.</li>
+            <li>Include FinSight in your incident response playbooks.</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Example.</strong>
+            Add a log entry with <code>trace_id</code>, <code>user_id</code>, <code>transaction_id</code>,
+            <code>risk_score</code>, and <code>risk_level</code> to support debugging and audits.
+          </div>
+        </section>
+
+        <!-- 9. Security & Compliance -->
+        <section id="security">
+          <h2>9. Security &amp; Data Protection</h2>
+          <ul>
+            <li>Use HTTPS for all traffic; block HTTP at your edge.</li>
+            <li>Only send the data required for risk predictions; avoid unnecessary PII.</li>
+            <li>Use pseudonymous identifiers where possible (e.g. internal IDs).</li>
+            <li>Restrict access to logs that contain risk scores and trace IDs.</li>
+          </ul>
+        </section>
+
+        <!-- 10. Go-Live Checklist -->
+        <section id="checklist">
+          <h2>10. Go-Live Checklist</h2>
+          <p>Before routing live production traffic through FinSight, confirm that:</p>
+          <ul>
+            <li>Staging integration is passing end-to-end tests.</li>
+            <li>Timeouts and retries are implemented safely.</li>
+            <li>Dashboard/alerting is configured for latency and error rates.</li>
+            <li>Business rules around <code>risk_level</code> are reviewed with stakeholders.</li>
+            <li>Playbooks exist for FinSight partial or full outages (e.g. fail-open or fail-closed).</li>
+          </ul>
+        </section>
+
+        <!-- NAV BUTTONS -->
+        <div class="nav-buttons" style="margin-top: 2rem;">
+          <a href="../../portfolio.html" class="btn btn-outline">← Back to Portfolio</a>
+          <a href="finsight-risk-evaluation.html" class="btn btn-accent">Next: FinSight ML Evaluation →</a>
+        </div>
+
+      </main>
+
+      <footer class="footer">
+        <p>© 2025 Leslie Amadi — All Rights Reserved.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

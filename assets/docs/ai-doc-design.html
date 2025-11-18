@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LexiMind Model Documentation | Leslie Writes</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/docs.css">
+</head>
+
+<body>
+  <div class="docs-body">
+  <header>
+    <h1>LexiMind: Legal Text Generation Model</h1>
+    <p><em>AI documentation system designed by Leslie Amadi</em></p>
+    <hr>
+  </header>
+
+  <main>
+    <p>
+      <strong>LexiMind</strong> is an AI-powered language model designed to assist with legal writing,
+      document drafting, and summarisation. It generates clear, concise, and compliant legal text using
+      context-aware generation. LexiMind is intended to help lawyers, paralegals, and legal researchers
+      save time and maintain consistency across contracts, briefs, and reports.
+    </p>
+
+    <h2>⚙️ Quickstart</h2>
+
+    <p><strong>Endpoint:</strong></p>
+    <pre><code>POST /v1/leximind/generate</code></pre>
+
+    <p><strong>Example (cURL):</strong></p>
+    <pre><code>curl https://api.leximind.ai/v1/generate \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "prompt": "Draft a confidentiality clause for an NDA agreement.",
+        "max_tokens": 180
+      }'</code></pre>
+
+    <p><strong>Example Response:</strong></p>
+    <pre><code>{
+  "text": "The Recipient agrees to keep confidential all proprietary information disclosed..."
+}</code></pre>
+
+    <h2>Model Card</h2>
+    <table>
+      <tr><th>Model Name</th><td>LexiMind v1.0</td></tr>
+      <tr><th>Type</th><td>Transformer-based text generation model</td></tr>
+      <tr><th>Training Data</th><td>10M+ anonymised legal documents, contracts, and case summaries</td></tr>
+      <tr><th>Languages</th><td>English (US, UK)</td></tr>
+      <tr><th>Release Date</th><td>2025-10-01</td></tr>
+      <tr><th>Responsible AI Contact</th><td>compliance@leximind.ai</td></tr>
+    </table>
+
+    <h3>Intended Use</h3>
+    <ul>
+      <li>Drafting standard legal templates</li>
+      <li>Assisting with legal research summaries</li>
+      <li>Generating formal legal correspondence</li>
+    </ul>
+
+    <h3>Limitations</h3>
+    <ul>
+      <li>Not a substitute for qualified legal advice</li>
+      <li>May generate outdated clauses based on training data</li>
+      <li>May reflect jurisdictional biases present in source material</li>
+    </ul>
+
+    <h2>🧩 Versioning and Changelog</h2>
+    <table>
+      <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
+      <tr><td>v1.0</td><td>2025-10-01</td><td>Initial release of LexiMind model</td></tr>
+      <tr><td>v1.1</td><td>2025-12-01</td><td>Improved citation accuracy and clause structure</td></tr>
+      <tr><td>v2.0</td><td>2026-03-15</td><td>Added multilingual legal terminology support</td></tr>
+    </table>
+
+    <h2>⚖️ Ethical Use Policy</h2>
+    <div class="note">
+      LexiMind should only be used in accordance with applicable data privacy and professional ethics laws.
+      Users are responsible for ensuring generated content complies with the rules of their jurisdiction.
+      The model must <strong>not</strong> be used for:
+      <ul>
+        <li>Generating or fabricating evidence</li>
+        <li>Misrepresenting legal advice</li>
+        <li>Creating deceptive or unlawful contracts</li>
+      </ul>
+    </div>
+
+    <h2> Visual Layout Plan</h2>
+    <pre><code>Overview
+Quickstart
+API Reference
+Model Card
+Limitations
+Changelog
+Ethical Use</code></pre>
+
+    <p><em>Last updated: 7 November 2025</em></p>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Leslie Amadi — All Rights Reserved.</p>
+  </footer>
+</div>
+</body>
+</html>
+

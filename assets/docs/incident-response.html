@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incident & Response Report | Leslie Amadi</title>
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+
+<body>
+  <div class="page-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="doc-sidebar">
+      <h2 class="sidebar-title">Portfolio</h2>
+      <nav class="sidebar-nav">
+        <a href="../../portfolio.html">← Back to Portfolio</a>
+        <a href="../incident-response.html" class="active">Incident & Response Report</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="doc-content">
+
+      <h1>NimbusTech Solutions – Incident & Response Report</h1>
+      <p class="doc-subtitle">Full post-incident analysis of a production outage affecting the Nimbus Payment Processing Service (NPPS).</p>
+
+      <section>
+        <h2>Document Control</h2>
+        <ul class="doc-meta">
+          <li><strong>Document Title:</strong> NPPS API Latency & Outage – Major Incident Report</li>
+          <li><strong>Incident Type:</strong> Partial Outage / Performance Degradation</li>
+          <li><strong>Owner:</strong> SRE Team – NimbusTech Solutions</li>
+          <li><strong>Approver:</strong> Head of Platform Engineering</li>
+          <li><strong>Department:</strong> Platform Engineering • SRE • Payments Team</li>
+          <li><strong>Version:</strong> 1.0</li>
+          <li><strong>Status:</strong> Final</li>
+          <li><strong>Incident Start:</strong> 14 Feb 2025 – 09:12 UTC</li>
+          <li><strong>Incident End:</strong> 14 Feb 2025 – 11:48 UTC</li>
+          <li><strong>Last Updated:</strong> 15 Feb 2025</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>1. Incident Summary</h2>
+        <p>
+          On 14 February 2025, NimbusTech experienced a major incident where the <strong>Payment Processing Service (NPPS)</strong>
+          exhibited severe latency spikes followed by intermittent request failures. Approximately <strong>31% of customer transactions</strong>
+          failed or timed out during the incident window. The issue originated from a misconfigured database connection pool
+          following a routine infrastructure scaling event. 
+        </p>
+        <p>
+          The incident lasted <strong>2 hours 36 minutes</strong> and was classified as <strong>Severity 1 (Critical)</strong> due to customer impact,
+          financial transaction failure, and direct disruption to partner APIs.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Incident Details</h2>
+        <table>
+          <tr><th>Field</th><th>Description</th></tr>
+          <tr><td>Start Time</td><td>14 Feb 2025 – 09:12 UTC</td></tr>
+          <tr><td>Detection Method</td><td>Automated monitoring alert (Datadog) – Latency SLA breach</td></tr>
+          <tr><td>Affected Systems</td><td>NPPS API Gateway, Postgres Cluster (payments-db-03), Redis cache</td></tr>
+          <tr><td>Impacted Customers</td><td>EU Retail Banking Clients, Partner Merchants, Mobile App Users</td></tr>
+          <tr><td>Severity Level</td><td>Critical</td></tr>
+          <tr><td>Root Trigger (initial)</td><td>Database connection pool exhaustion following autoscaling event</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>3. Impact Assessment</h2>
+        <ul>
+          <li><strong>Functional impact:</strong> NPPS API experienced 3–6 second latency spikes, followed by 500/504 errors.</li>
+          <li><strong>Financial impact:</strong> Approx. 4,800 failed transactions; reconciliation required; estimated €27,000 in delayed settlements.</li>
+          <li><strong>Compliance exposure:</strong> PSD2 response-time thresholds breached for EU partners.</li>
+          <li><strong>Reputational impact:</strong> Multiple enterprise clients reported outages; support backlog increased by 42% during the incident.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Timeline of Events</h2>
+        <table>
+          <tr><th>Time (UTC)</th><th>Event</th><th>Actor</th></tr>
+
+          <tr><td>09:12</td><td>Latency alert triggered for NPPS API (95th percentile > 3.2s)</td><td>Monitoring System</td></tr>
+          <tr><td>09:15</td><td>SRE acknowledges and begins investigation</td><td>SRE On-call</td></tr>
+          <tr><td>09:21</td><td>Initial hypothesis: external partner bottleneck</td><td>SRE</td></tr>
+          <tr><td>09:32</td><td>Connection pool errors detected in Postgres logs</td><td>SRE</td></tr>
+          <tr><td>09:41</td><td>Issue escalated to Database Engineering</td><td>SRE</td></tr>
+          <tr><td>10:05</td><td>Connection pool manually flushed; no improvement</td><td>DB Engineer</td></tr>
+          <tr><td>10:22</td><td>Root cause identified: autoscaler reduced DB node count from 5 → 3 unexpectedly</td><td>DB Engineering</td></tr>
+          <tr><td>10:31</td><td>Hot-fix applied: restore DB cluster to 5 nodes</td><td>DB Engineering</td></tr>
+          <tr><td>11:06</td><td>API latency begins to stabilise</td><td>SRE</td></tr>
+          <tr><td>11:48</td><td>Incident resolved; monitoring green</td><td>SRE Lead</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>5. Actions Taken</h2>
+
+        <h3>5.1 Immediate Actions</h3>
+        <ul>
+          <li>Increased API gateway timeouts from 3s → 6s to reduce cascading failures</li>
+          <li>Enabled degraded mode to route requests through cached transaction state</li>
+        </ul>
+
+        <h3>5.2 Corrective Actions</h3>
+        <p>
+          Database Engineering restored the cluster node count and rebalanced connections.  
+          SRE updated the connection pool configuration to prevent exhaustion during autoscaling.
+        </p>
+
+        <h3>5.3 Temporary Workarounds</h3>
+        <p>
+          A temporary Redis-based fallback was implemented to serve pre-authorised transactions while the
+          database cluster stabilised.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Communication Log</h2>
+        <table>
+          <tr><th>Time</th><th>Channel</th><th>Recipient</th><th>Summary</th></tr>
+          <tr><td>09:25</td><td>Slack</td><td>Platform Eng</td><td>Initial alert shared; investigation started.</td></tr>
+          <tr><td>09:50</td><td>Email</td><td>Enterprise Customers</td><td>Notification of degraded performance.</td></tr>
+          <tr><td>10:40</td><td>Slack</td><td>Executive Team</td><td>Root cause identified; fix in progress.</td></tr>
+          <tr><td>12:05</td><td>Email</td><td>All Customers</td><td>Resolution notice and reconciliation steps.</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>7. Root Cause Analysis (RCA)</h2>
+
+        <h3>7.1 Root Cause</h3>
+        <p>
+          A misconfigured autoscaling policy reduced the database cluster size from 5 → 3 nodes during low
+          overnight traffic. When traffic increased at peak hours, the reduced cluster capacity caused connection
+          bottlenecks, draining the API’s connection pool and triggering cascading latencies.
+        </p>
+
+        <h3>7.2 Contributing Factors</h3>
+        <ul>
+          <li>Connection pool settings were tuned for a 5-node cluster only.</li>
+          <li>Autoscaler thresholds had not been validated against weekday peak load.</li>
+          <li>Lack of alerting on unexpected infrastructure downscaling.</li>
+        </ul>
+
+        <h3>7.3 5 Whys Analysis</h3>
+        <ol>
+          <li>Why? → Because the database cluster unexpectedly scaled down.</li>
+          <li>Why? → Because autoscaling thresholds were too aggressive.</li>
+          <li>Why? → Because they were configured for weekend patterns, not weekdays.</li>
+          <li>Why? → Because the autoscaling policy was updated without SRE review.</li>
+          <li>Why? → Because change-management rules did not include cross-team review for scaling policies.</li>
+        </ol>
+
+        <h3>7.4 Evidence & Logs</h3>
+        <p>Included in internal Jira ticket: DB-1228 (not publicly shared).</p>
+      </section>
+
+      <section>
+        <h2>8. Long-Term Preventive Measures</h2>
+        <ul>
+          <li>Implement SRE-approved autoscaling policy with min-node lock.</li>
+          <li>Deploy real-time alerts for infrastructure downscaling events.</li>
+          <li>Introduce automated connection pool tuning based on cluster size.</li>
+          <li>Mandatory cross-team review for infra configuration changes.</li>
+          <li>Monthly resilience testing for all payment-related databases.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>9. Post-Incident Validation</h2>
+
+        <h3>9.1 Monitoring Results</h3>
+        <p>Latency averages returned to 200–300ms; error rate <0.04%.</p>
+
+        <h3>9.2 QA Validation</h3>
+        <p>Regression tests passed for all payment flows.</p>
+
+        <h3>9.3 Customer Confirmation</h3>
+        <p>All enterprise banking partners confirmed stable recovery and successful transaction retries.</p>
+      </section>
+
+      <section>
+        <h2>10. RACI Matrix</h2>
+        <table>
+          <tr><th>Task</th><th>R</th><th>A</th><th>C</th><th>I</th></tr>
+          <tr><td>Incident Detection</td><td>SRE</td><td>SRE Lead</td><td>Payments Eng</td><td>Exec Team</td></tr>
+          <tr><td>Root Cause Analysis</td><td>DB Eng</td><td>Head of Platform</td><td>SRE</td><td>Compliance</td></tr>
+          <tr><td>Customer Communication</td><td>Support</td><td>Support Lead</td><td>SRE / Legal</td><td>Partners</td></tr>
+          <tr><td>Final Approval</td><td>Head of Platform</td><td>CTO</td><td>SRE</td><td>All Teams</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>11. References</h2>
+        <ul>
+          <li>Datadog Monitoring Dashboard – NPPS API</li>
+          <li>Postgres Cluster Logs – payments-db-03</li>
+          <li>Incident Jira Ticket – INC-2049</li>
+          <li>Autoscaling Policy Documentation</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>12. Document History</h2>
+        <table>
+          <tr><th>Version</th><th>Date</th><th>Author</th><th>Change Description</th></tr>
+          <tr><td>1.0</td><td>15 Feb 2025</td><td>Leslie Amadi</td><td>Initial public portfolio version</td></tr>
+        </table>
+      </section>
+
+      <div class="nav-buttons">
+        <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+      </div>
+
+    </main>
+
+  </div>
+</body>
+</html>
+

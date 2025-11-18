@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>ChatAssist AI — Technical Onboarding & Integration Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/docs.css">
+  
+  <style>
+    body {
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: #fff;
+      color: #333;
+      padding: 2rem;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      color: #723f74;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    h4 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    ul, ol {
+      margin-left: 1.2rem;
+    }
+
+    p {
+      margin: 0.6rem 0;
+    }
+
+    code {
+      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.9rem;
+      background: #fdf1fb;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #241422;
+      color: #fdf4fb;
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      white-space: pre;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+    }
+
+    .btn {
+      background-color: #e4b1cb;
+      color: rgb(252, 236, 236);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #f6bae7;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #f1d7f5;
+      margin: 1.5rem 0;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #f1c5e4;
+      color: #7b396e;
+      background: #fff6fb;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 0.6rem 1.2rem;
+      margin: 1rem 0 1.6rem;
+      font-size: 0.9rem;
+    }
+
+    .meta-label {
+      font-weight: 600;
+      color: #555;
+      margin-right: 0.3rem;
+    }
+
+    .callout {
+      border-left: 4px solid #e4b1cb;
+      background: #fff7fd;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      margin: 1.2rem 0;
+      font-size: 0.9rem;
+    }
+
+    .diagram {
+      border-radius: 10px;
+      border: 1px dashed #f1c5e4;
+      background: #fffafd;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0 1.6rem;
+      font-size: 0.9rem;
+    }
+
+    .diagram-title {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #723f74;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid #f1d7f5;
+      padding: 0.5rem 0.6rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #fdf2ff;
+      font-weight: 600;
+      color: #4e274f;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="docs-body">
+    <main class="container">
+
+      <header>
+        <span class="tag">Customer Support</span>
+        <span class="tag">AI Assistant</span>
+        <span class="tag">Onboarding</span>
+
+        <h1>ChatAssist AI — Technical Onboarding &amp; Integration Guide</h1>
+        <p><em>For Customer Support &amp; Platform Teams · LexiTech</em></p>
+        <hr>
+
+        <p>
+          <strong>ChatAssist AI</strong> helps customer service teams respond faster and more consistently by generating
+          draft replies directly inside your helpdesk tools. This guide walks through onboarding, connection to
+          Zendesk/Intercom/Freshdesk, tone configuration, usage patterns, and troubleshooting. An optional API is
+          available for advanced integrations.
+        </p>
+
+        <div class="meta-grid">
+          <div>
+            <span class="meta-label">Primary Users:</span> CS managers, support agents, operations engineers
+          </div>
+          <div>
+            <span class="meta-label">Access URL:</span>
+            <a href="https://dashboard.lexitech.ai/chatassist">LexiTech Dashboard</a>
+          </div>
+          <div>
+            <span class="meta-label">Integrations:</span> Zendesk, Intercom, Freshdesk
+          </div>
+          <div>
+            <span class="meta-label">Last Updated:</span> 9 November 2025
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Scope.</strong> This document assumes an organisation admin is setting up ChatAssist AI for a customer
+          support team and may also collaborate with a technical owner for API/webhook integrations.
+        </div>
+      </header>
+
+      <!-- 1. Introduction -->
+      <section>
+        <h2>1. Introduction</h2>
+        <p>
+          ChatAssist AI plugs into your existing help centre and suggests draft responses for incoming tickets based
+          on:
+        </p>
+        <ul>
+          <li>The ticket content (subject + body + conversation history).</li>
+          <li>Your connected knowledge base (FAQs, docs, macros).</li>
+          <li>Configured tone and style settings for your brand.</li>
+        </ul>
+        <p>
+          Agents remain in control: ChatAssist provides suggestions that can be edited, accepted, or discarded before
+          sending.
+        </p>
+      </section>
+
+      <!-- 2. System Overview & Architecture -->
+      <section>
+        <h2>2. System Overview &amp; Architecture</h2>
+        <p>
+          At a high level, ChatAssist AI consists of a web dashboard, helpdesk connectors, and a suggestion engine backed
+          by large language models and a retrieval layer over your knowledge base.
+        </p>
+
+        <div class="diagram">
+          <div class="diagram-title">Figure 1 — ChatAssist AI Architecture (Conceptual)</div>
+          <pre><code>Helpdesk (Zendesk / Intercom / Freshdesk)
+              |
+              v
+       [ ChatAssist App / Widget ]
+              |
+              v
+       [ ChatAssist Backend ]
+          |       \
+          |        \--> [ Knowledge Base Sync ]
+          |               (articles, FAQs, macros)
+          |
+          +--> [ Suggestion Engine ]
+                   (LLM + tone control)
+              |
+              v
+       Draft reply shown to agent</code></pre>
+        </div>
+
+        <p>
+          The backend handles authentication, routing, knowledge base retrieval, and calls to the underlying language
+          model. The suggestion engine is tone-aware and uses your configuration to ensure responses match your brand.
+        </p>
+      </section>
+
+      <!-- 3. Requirements -->
+      <section>
+        <h2>3. Requirements</h2>
+        <p>To onboard ChatAssist AI for your team, you’ll need:</p>
+        <ul>
+          <li>An <strong>organisation admin account</strong> in LexiTech.</li>
+          <li>Access to at least one supported helpdesk: <strong>Zendesk, Intercom, or Freshdesk</strong>.</li>
+          <li>An <strong>API key with write permissions</strong> for your organisation.</li>
+          <li>Modern, supported browser (Chrome, Edge, Firefox, or Safari).</li>
+          <li>Access to the <strong>ChatAssist dashboard</strong> via LexiTech.</li>
+        </ul>
+      </section>
+
+      <!-- 4. Onboarding & Setup Flow -->
+      <section>
+        <h2>4. Onboarding &amp; Setup Flow</h2>
+
+        <h3>4.1 Step 1 — Log In</h3>
+        <p>
+          Go to the LexiTech dashboard:
+          <a href="https://dashboard.lexitech.ai/chatassist">https://dashboard.lexitech.ai/chatassist</a>
+        </p>
+        <p>Sign in with your organisation admin account.</p>
+
+        <h3>4.2 Step 2 — Connect Help Centre</h3>
+        <p>Select your helpdesk under <strong>Connections</strong>:</p>
+        <ul>
+          <li><strong>Zendesk</strong> — OAuth-based connection.</li>
+          <li><strong>Intercom</strong> — App install from the Intercom app store.</li>
+          <li><strong>Freshdesk</strong> — API token + domain configuration.</li>
+        </ul>
+        <p>
+          Once connected, ChatAssist will begin indexing your help centre content (articles, FAQs, macros) to use as
+          context when generating suggestions.
+        </p>
+
+        <h3>4.3 Step 3 — Configure Tone</h3>
+        <p>Under <strong>Assistant Settings → Tone &amp; Style</strong>, choose the default tone:</p>
+        <ul>
+          <li><strong>Professional</strong> – formal, concise, and neutral.</li>
+          <li><strong>Friendly</strong> – warm, approachable, and empathetic.</li>
+          <li><strong>Neutral</strong> – balanced and straightforward.</li>
+          <li><strong>Technical</strong> – precise, detailed, and suitable for advanced users.</li>
+        </ul>
+        <p>
+          Tone can be overridden per-team or per-queue later, but a global default must be set during onboarding.
+        </p>
+
+        <h3>4.4 Step 4 — Add Team Members</h3>
+        <p>Invite your team and assign appropriate roles:</p>
+        <ul>
+          <li><strong>Admin</strong> – full access: configuration, connections, and usage analytics.</li>
+          <li><strong>Editor</strong> – can manage templates, examples, and tone presets.</li>
+          <li><strong>Agent</strong> – can see and use ChatAssist suggestions in the helpdesk UI.</li>
+        </ul>
+      </section>
+
+      <!-- 5. How ChatAssist Works -->
+      <section>
+        <h2>5. How ChatAssist AI Works (Agent Experience)</h2>
+        <p>
+          For agents, ChatAssist appears directly inside the ticket view of your helpdesk. It reads the conversation
+          and suggests a draft reply the agent can review and edit.
+        </p>
+
+        <h3>5.1 Actions Available to Agents</h3>
+        <p>For each suggestion, agents can apply quick transformations such as:</p>
+        <ul>
+          <li><strong>Shorten</strong> – make the message more concise.</li>
+          <li><strong>Expand</strong> – add more detail or explanation.</li>
+          <li><strong>Formalise</strong> – adjust tone to be more professional.</li>
+          <li><strong>Simplify</strong> – make language clearer and easier to understand.</li>
+        </ul>
+
+        <h3>5.2 Typical Workflow</h3>
+        <ol>
+          <li>Agent opens a ticket in Zendesk/Intercom/Freshdesk.</li>
+          <li>ChatAssist reads the ticket content and knowledge base.</li>
+          <li>A suggested reply appears in the ChatAssist panel.</li>
+          <li>Agent edits the suggestion, optionally applies transformations (shorten, formalise, etc.).</li>
+          <li>Agent sends the reply as usual.</li>
+        </ol>
+      </section>
+
+      <!-- 6. Optional API & Webhooks -->
+      <section>
+        <h2>6. Optional API &amp; Webhook Integrations</h2>
+        <p>
+          For advanced use cases, ChatAssist can be used via API to generate suggestions outside the standard
+          helpdesk widgets (e.g. internal tools, custom dashboards).
+        </p>
+
+        <h3>6.1 Example: Suggest Reply API</h3>
+        <p><strong>Endpoint (illustrative):</strong> <code>POST /v1/chatassist/suggest-reply</code></p>
+
+        <h4>Request Example</h4>
+        <pre><code>{
+  "ticket_id": "ZD-48392",
+  "channel": "zendesk",
+  "thread": [
+    {
+      "from": "customer",
+      "message": "Hi, my order hasn't arrived yet and it's been 10 days."
+    }
+  ],
+  "tone": "friendly"
+}</code></pre>
+
+        <h4>Response Example</h4>
+        <pre><code>{
+  "suggestion": "Hi there, thanks for reaching out and I'm sorry for the delay. I can see that your order is still in transit. I'll contact our delivery partner to get an update and will share the latest status with you as soon as possible.",
+  "tokens_used": 184,
+  "model": "chatassist-support-1",
+  "trace_id": "req_92cd7a01"
+}</code></pre>
+
+        <p>
+          Webhooks can also be configured to log usage events or suggestion metadata back to your internal analytics
+          systems.
+        </p>
+      </section>
+
+      <!-- 7. Best Practices -->
+      <section>
+        <h2>7. Best Practices</h2>
+        <ul>
+          <li><strong>Always review suggestions</strong> before sending – the agent remains responsible for final wording.</li>
+          <li><strong>Keep your knowledge base up to date</strong> so ChatAssist has the best possible context.</li>
+          <li><strong>Add example responses</strong> for complex scenarios to guide the assistant’s style.</li>
+          <li><strong>Start with one queue or team</strong>, gather feedback, then roll out more broadly.</li>
+        </ul>
+      </section>
+
+      <!-- 8. Troubleshooting & Error Handling -->
+      <section>
+        <h2>8. Troubleshooting &amp; Error Handling</h2>
+        <p>
+          The most common issues and resolutions are listed below.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Issue</th>
+              <th>Likely Cause</th>
+              <th>Suggested Solution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>No suggestions appearing</td>
+              <td>Missing or invalid API key, or integration not fully connected.</td>
+              <td>Verify connection in the dashboard and re-add the API key if needed.</td>
+            </tr>
+            <tr>
+              <td>Slow responses</td>
+              <td>High load or temporary latency from the suggestion engine.</td>
+              <td>Retry after a short delay; if persistent, contact support with affected ticket IDs.</td>
+            </tr>
+            <tr>
+              <td>Incorrect or unexpected tone</td>
+              <td>Tone misconfigured at global or team level.</td>
+              <td>Review tone settings in the dashboard and ensure the correct preset is selected.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 9. Security & Data Handling -->
+      <section>
+        <h2>9. Security &amp; Data Handling</h2>
+        <p>
+          ChatAssist AI is designed to operate within typical SaaS security expectations for customer support tools.
+        </p>
+        <ul>
+          <li>All traffic between helpdesk, dashboard, and ChatAssist backend uses HTTPS.</li>
+          <li>Only ticket content and relevant metadata required for suggestions are processed.</li>
+          <li>API keys should be stored securely and rotated regularly.</li>
+        </ul>
+      </section>
+
+      <!-- 10. Contact & Support -->
+      <section>
+        <h2>10. Contact &amp; Support</h2>
+        <p>
+          For onboarding help, integration questions or incidents, reach out to:
+        </p>
+        <p>
+          <strong>Email:</strong> <a href="mailto:support@lexitech.ai">support@lexitech.ai</a>
+        </p>
+
+        <p style="margin-top: 1.5rem;">
+          <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Leslie Amadi — All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

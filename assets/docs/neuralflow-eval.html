@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeuralFlow Evaluation Suite | Project — Leslie Amadi</title>
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+<div class="page-shell">
+
+ <!-- NAVBAR -->
+ <header class="navbar">
+  <div class="navbar-inner">
+    <div class="logo">Leslie Amadi</div>
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb">
+    <a href="portfolio.html" class="btn">Back to Portfolio</a>
+    <span> / LexiMind</span>
+  </nav>
+
+  <!-- HERO -->
+  <header class="doc-header">
+    <h1>NeuralFlow Evaluation Suite</h1>
+    <p class="doc-subtitle">
+      A modular, automated evaluation framework designed for large-scale machine learning systems.
+      Includes benchmarking, safety evaluations, regression detection, dataset diagnostics, and real-time model monitoring.
+      I authored the entire technical documentation set: architecture, metrics, pipeline logic, APIs,
+      debugging workflows, and release checklists.
+    </p>
+  </header>
+
+  <!-- TAGS -->
+  <div class="tag-row">
+    <span class="tag">ML Evaluation</span>
+    <span class="tag">Benchmarking</span>
+    <span class="tag">Safety</span>
+    <span class="tag">MLOps</span>
+    <span class="tag">Regression Detection</span>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <section class="doc-section">
+    <div class="docs-body">
+
+    <!-- 1. Overview -->
+    <h2>1. System Overview</h2>
+    <p>
+      The <strong>NeuralFlow Evaluation Suite</strong> is a cloud-based framework for continuously evaluating
+      machine learning models in offline, online, and pre-release stages.
+    </p>
+    <p>
+      The system is built for:
+    </p>
+    <ul>
+      <li>ML research & applied science teams</li>
+      <li>MLOps & platform engineering teams</li>
+      <li>Evaluation & safety specialists</li>
+      <li>Quality assurance and release management groups</li>
+    </ul>
+
+    <p>
+      The platform runs thousands of structured tests across:
+    </p>
+    <ul>
+      <li><strong>Performance</strong> — accuracy, recall, F1, lift, ROC-AUC</li>
+      <li><strong>Robustness</strong> — perturbation tests, adversarial consistency, stability</li>
+      <li><strong>Safety</strong> — harmful content, bias, fairness, hallucination rates</li>
+      <li><strong>Model drift</strong> — temporal drift, domain drift, feature distribution shifts</li>
+      <li><strong>Regression detection</strong> — A/B comparison between current and baseline model</li>
+    </ul>
+
+    <p>
+      NeuralFlow is fully automated and can be triggered from CI/CD, a release pipeline, or manually via API.
+    </p>
+
+    <!-- 2. Real-Life Use Case -->
+    <h2>2. Real-Life Scenario: Preventing a Faulty Model Release</h2>
+    <p>
+      Suppose a research team trains a new version of a fraud detection model. It performs slightly better on internal
+      accuracy metrics, and the team prepares it for deployment.
+    </p>
+
+    <p>
+      Before release, the CI pipeline triggers NeuralFlow:
+    </p>
+
+    <ol>
+      <li><strong>Baseline vs Candidate Comparison</strong>  
+      The suite runs 48 evaluation tasks comparing the new model to the production one.</li>
+
+      <li><strong>Dataset Drift Check</strong>  
+      The system detects a 14% shift in the “device_country” feature distribution.</li>
+
+      <li><strong>Bias Evaluation</strong>  
+      NeuralFlow flags a <strong>gender skew</strong> in false positive rates (FPR +8.1% for female users).</li>
+
+      <li><strong>Robustness Stress Tests</strong>  
+      Under noise perturbation, risk scores fluctuate unpredictably.</li>
+
+      <li><strong>Safety Test</strong>  
+      An edge-case triggers unsafe denial logic.</li>
+    </ol>
+
+    <p>
+      Outcome:  
+      <strong>Release blocked.</strong>  
+      The system generates a “fail” report with detailed reasoning and recommended fixes.
+    </p>
+
+    <p><em>
+      This documentation includes the workflow, example reports, remediation guide, and how platform teams consume this output.
+    </em></p>
+
+    <!-- 3. Architecture -->
+    <h2>3. Architecture</h2>
+    <pre><code>[ CI/CD Pipeline ]
+          |
+          v
+   POST /run-evaluation
+          |
+          v
+    [ Task Orchestrator ]
+          |
+    --------------------------
+    |          |            |
+ [Benchmark] [Safety]   [Drift]
+    |          |            |
+    v          v            v
+  Results → Aggregator → Scorecard → Notifications
+    </code></pre>
+
+    <p>
+      The documentation breaks down:
+    </p>
+    <ul>
+      <li><strong>Task Orchestrator:</strong> schedules and runs evaluation modules in parallel.</li>
+      <li><strong>Benchmark Engine:</strong> standard ML tests (accuracy, recall, ROC curves).</li>
+      <li><strong>Safety Suite:</strong> policy violations, toxic responses, hallucination stress.</li>
+      <li><strong>Drift Detector:</strong> feature distribution monitoring + model stability.</li>
+      <li><strong>Scorecard Generator:</strong> creates PDF/JSON summaries for release managers.</li>
+    </ul>
+
+    <!-- 4. Evaluation Tasks -->
+    <h2>4. Evaluation Tasks & Methodology</h2>
+    <p>The suite includes over 60 task types, grouped into modules.</p>
+
+    <h3>4.1 Benchmark Module</h3>
+    <ul>
+      <li>Accuracy, precision, recall, F1</li>
+      <li>ROC-AUC, PR-AUC</li>
+      <li>Confusion matrix breakdown</li>
+      <li>Top-K ranking metrics</li>
+      <li>Latency profiling (p50 / p90 / p99)</li>
+    </ul>
+
+    <h3>4.2 Robustness Module</h3>
+    <ul>
+      <li>Noise perturbation tests</li>
+      <li>Adversarial input variation</li>
+      <li>Response stability under partial input loss</li>
+    </ul>
+
+    <h3>4.3 Safety Module</h3>
+    <ul>
+      <li>Harmful content detection</li>
+      <li>Policy-triggering outputs</li>
+      <li>Hallucination rate estimation</li>
+      <li>Missing disclaimers or safety warnings</li>
+    </ul>
+
+    <h3>4.4 Bias and Fairness Module</h3>
+    <ul>
+      <li>Equal opportunity difference</li>
+      <li>Group FPR/FNR parity</li>
+      <li>Threshold stability across demographic slices</li>
+    </ul>
+
+    <h3>4.5 Drift & Data Quality Module</h3>
+    <ul>
+      <li>Feature distribution drift (KS test)</li>
+      <li>Embedding drift (cosine shift)</li>
+      <li>Data leakage detection</li>
+      <li>Outlier analysis</li>
+    </ul>
+
+    <h3>4.6 Regression Detection Module</h3>
+    <ul>
+      <li>Baseline vs candidate delta</li>
+      <li>Pass/fail decision engine</li>
+      <li>Weighted scoring</li>
+      <li>Release blocking criteria</li>
+    </ul>
+
+    <!-- 5. API Endpoints -->
+    <h2>5. API Reference</h2>
+
+    <h3>5.1 POST /v1/evaluations/run</h3>
+    <p>Triggers a full evaluation suite run.</p>
+
+    <pre><code>{
+  "model_id": "fraud-detector-v12",
+  "baseline_id": "fraud-detector-v11",
+  "priority": "high",
+  "notify": ["platform-team", "ml-leads"]
+}</code></pre>
+
+    <h4>Response:</h4>
+    <pre><code>{
+  "evaluation_id": "eval_829301",
+  "status": "queued",
+  "estimated_completion": "2025-03-14T13:22:11Z"
+}</code></pre>
+
+    <h3>5.2 GET /v1/evaluations/{id}</h3>
+    <p>Returns evaluation status + results.</p>
+
+    <pre><code>{
+  "status": "completed",
+  "scorecard_url": "https://neuralflow.ai/evals/eval_829301/scorecard.pdf",
+  "modules_failed": ["safety", "bias"],
+  "release_decision": "block"
+}</code></pre>
+
+    <h3>5.3 GET /v1/metrics/drift/{model_id}</h3>
+    <p>Returns drift metrics for monitoring dashboards.</p>
+
+    <!-- 6. Reports -->
+    <h2>6. Scorecards & Reports</h2>
+    <p>
+      Each evaluation run produces:
+    </p>
+    <ul>
+      <li><strong>Model Delta Summary</strong></li>
+      <li><strong>Confusion Matrix & Class-wise Breakdown</strong></li>
+      <li><strong>Safety Violations Table</strong></li>
+      <li><strong>Bias Parity Report</strong></li>
+      <li><strong>Latency & Throughput Charts</strong></li>
+      <li><strong>Deployment Decision</strong> (allow / block / needs review)</li>
+    </ul>
+
+    <p>
+      Reports are available in <code>.html</code>, <code>.json</code>, and <code>.pdf</code>.
+    </p>
+
+    <!-- 7. Monitoring -->
+    <h2>7. Real-Time Monitoring & Alerts</h2>
+    <p>
+      After deployment, NeuralFlow monitors the model for:
+    </p>
+    <ul>
+      <li>Latency spikes</li>
+      <li>Drift anomalies</li>
+      <li>Sudden changes in error distribution</li>
+      <li>Unexpected failure patterns</li>
+    </ul>
+
+    <p>
+      Alerts are sent via Slack, PagerDuty, email, or webhook.
+    </p>
+
+    <!-- 8. Governance -->
+    <h2>8. Governance & Compliance</h2>
+    <p>
+      Documentation includes guidelines for handling:
+    </p>
+    <ul>
+      <li>PII and anonymisation in evaluation datasets</li>
+      <li>Audit trails for evaluation results</li>
+      <li>Regulatory needs (EU AI Act, banking-grade audit logs)</li>
+      <li>Release management protocols</li>
+    </ul>
+
+    <!-- 9. Integration Checklist -->
+    <h2>9. Integration Checklist</h2>
+    <ul>
+      <li>☑ CI/CD connected to evaluation API</li>
+      <li>☑ Baseline model defined for comparison</li>
+      <li>☑ Dataset snapshots versioned</li>
+      <li>☑ Drift monitoring enabled</li>
+      <li>☑ Safety thresholds configured</li>
+      <li>☑ Slack/webhook alerts integrated</li>
+    </ul>
+
+  </section>
+
+  <!-- NAV BUTTONS -->
+  <div class="nav-buttons">
+    <a href="finsight-risk-api.html" class="btn">← Previous Project</a>
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+  </div>
+
+  <a href="#top" class="to-top">↑ Back to Top</a>
+
+</div>
+
+</div>
+</body>
+</html>
+

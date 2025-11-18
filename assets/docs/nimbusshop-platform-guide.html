@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NimbusShop Platform Product System Guide | Portfolio | Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+    <div class="page-shell">
+    
+    <!-- NAVBAR -->
+ <header class="navbar">
+    <div class="navbar-inner">
+      <div class="logo">Leslie Amadi</div>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    </header>
+
+  <!-- PROJECT HERO -->
+  <header class="doc-header">
+    <h1>NimbusShop Platform Product System Guide</h1>
+      <p class="doc-subtitle">
+        Product and operational documentation for the NimbusShop Platform, designed for physical game shops with 
+        registered devices, player wallets, and real-time reporting.
+      </p>
+  </header>
+
+  <!-- TAGS -->
+  <div class="tag-row">
+    <span class="tag">Developer Experience</span>
+    <span class="tag">API Documentation</span>
+    <span class="tag">CLI Tools</span>
+    <span class="tag">SDKs</span>
+    <span class="tag">Platform</span>
+  </div>
+
+   <!-- BREADCRUMB -->
+   <nav class="breadcrumb">
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+    <span> / LexiMind</span>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <section class="doc-section">
+    <div class="docs-body">
+
+      <!-- OVERVIEW -->
+      <section>
+        <h2>Overview</h2>
+
+        <h3>Purpose</h3>
+        <p>
+          This document provides a comprehensive guide to the <strong>NimbusShop Platform</strong>, which is designed for
+          physical game shops. It explains the functionality of the platform, including shop and administrator
+          management, device registration, player wallet operations, and reporting. The guide supports administrators,
+          developers, and QA in understanding, implementing, and using the platform effectively.
+        </p>
+
+        <h3>Target Audience</h3>
+        <ul>
+          <li><strong>Developers:</strong> For understanding platform workflows and system interactions for implementation and maintenance.</li>
+          <li><strong>Quality Assurance (QA):</strong> To design test plans, validate workflows, and ensure operational correctness.</li>
+          <li><strong>Shop Administrators:</strong> For day-to-day operations, device management, and player wallet handling.</li>
+        </ul>
+
+        <h3>Scope</h3>
+
+        <h4>In Scope</h4>
+        <ul>
+          <li>Shop creation and administrator assignment by Super Admins.</li>
+          <li>Device registration, activation, and player interaction.</li>
+          <li>Player wallet operations: deposits, withdrawals, and balance updates.</li>
+          <li>Reporting and analytics, including gameplay and financial records.</li>
+          <li>Account and system support, including password resets and QA environment validation.</li>
+          <li>Demonstration workflows for typical platform usage scenarios.</li>
+        </ul>
+
+        <h4>Out of Scope</h4>
+        <ul>
+          <li>API integrations outside the standard NimbusShop platform.</li>
+          <li>Development of new game titles or content.</li>
+          <li>Physical hardware maintenance beyond registration and activation within NimbusShop.</li>
+          <li>
+            Advanced customisation or configuration of reporting dashboards beyond gameplay session and transaction
+            overview provided by standard platform features.
+          </li>
+        </ul>
+      </section>
+
+      <!-- MAIN CONTENT & FEATURES -->
+      <section>
+        <h2>Main Features & Functionalities</h2>
+
+        <h3>Pre-Requisites</h3>
+        <ul>
+          <li>You have access to the platform URL and valid credentials.</li>
+          <li>You are able to set up SSO or password-based MFA authentication.</li>
+          <li>Administrative roles are assigned (Super Admin, Shop Admin).</li>
+          <li>You have access rights to at least one shop.</li>
+        </ul>
+
+        <h3>Logging In</h3>
+        <ol>
+          <li>Navigate to <code>[NimbusShop Platform URL]</code>.</li>
+          <li>Click the <strong>Sign in</strong> button.</li>
+          <li>Enter credentials (SSO/password) and complete MFA if configured.</li>
+          <li>If you forgot your password, click <strong>“Forgot Password”</strong> to receive a reset link via email.</li>
+        </ol>
+
+        <h3>Super Admin Redirection View</h3>
+        <p>
+          Once a Super Admin logs in for the first time, they are redirected to the <strong>Locations</strong> dashboard,
+          where they can begin to create locations (physical shops).
+        </p>
+        <p><em>Screenshot placeholder: Locations dashboard showing “New Location” button.</em></p>
+        <p>
+          Once locations are created, they appear in the Locations dashboard list with key status indicators such as
+          active devices, total shop balance, and recent activity.
+        </p>
+        <p><em>Screenshot placeholder: Locations dashboard with two created locations.</em></p>
+
+        <p>
+          Super Admins have the authorisation to see and add location admins under the <strong>Administrators</strong>
+          or <strong>Locations</strong> tab.
+        </p>
+        <p><em>Screenshot placeholder: Super Admin dashboard showing an added admin and linked location.</em></p>
+
+        <h3>Shop Administrator Redirection View</h3>
+        <p>
+          Once a shop administrator logs in, they are redirected directly to their assigned location dashboard, where
+          they can manage devices, view reports, and operate player wallets.
+        </p>
+        <p><em>Screenshot placeholder: Location dashboard for a single shop.</em></p>
+
+        <h4>Edit Location</h4>
+        <p>
+          The <strong>Edit</strong> button on a location allows Shop Admins or Super Admins (depending on permissions)
+          to change the shop name and site credentials for gameplay.
+        </p>
+        <p><em>Screenshot placeholder: Edit Location view with fields for name and configuration.</em></p>
+
+        <ul>
+          <li><strong>Cancel:</strong> Cancels the edit request and returns to the Location page.</li>
+          <li><strong>Update Location:</strong> Saves the updated location name and site configuration details.</li>
+          <li><strong>Back to Locations:</strong> Returns to the main Locations dashboard.</li>
+        </ul>
+
+        <h3>Managing Users (Super Admin Role)</h3>
+        <ol>
+          <li>Go to <strong>Administrators &gt; New Location Admin</strong>.</li>
+          <li>Fill in the required fields (Name, Email, Password, Password Confirmation).</li>
+          <li>Assign Market Access using the checkbox options.</li>
+          <li>
+            Use:
+            <ul>
+              <li><strong>Cancel:</strong> Cancel creation and go back to the administrators list.</li>
+              <li><strong>Create Location Admin:</strong> Save the new admin. (A future enhancement may send an email invitation.)</li>
+              <li><strong>Back to Admins:</strong> Return to the main administrators dashboard.</li>
+            </ul>
+          </li>
+        </ol>
+        <p><em>Screenshot placeholder: New Location Administrator creation screen.</em></p>
+
+        <h3>Generating Reports</h3>
+        <ol>
+          <li>Navigate to <strong>Location &gt; View Detailed Reports</strong>.</li>
+          <li>Select a <strong>Date Range</strong> using the date picker (max range: 1 year).</li>
+          <li>Click <strong>Update Report</strong>.</li>
+          <li>Optionally export results to CSV/PDF (if enabled in your environment).</li>
+        </ol>
+        <p><em>Screenshot placeholder: Reports with date pickers, stats, and grids.</em></p>
+      </section>
+
+      <!-- DEVICE FUNCTIONALITIES -->
+      <section>
+        <h2>Device Functionalities & Procedures</h2>
+
+        <h3>Example Flow</h3>
+        <ol>
+          <li>Register and activate a new device for a shop.</li>
+          <li>Assign a player wallet and deposit initial funds.</li>
+          <li>Monitor gameplay and transaction logs in real time.</li>
+        </ol>
+        <p><em>Screenshot placeholder: Device Registrations page.</em></p>
+
+        <h3>Device Activation</h3>
+        <p>
+          The <strong>Register Device</strong> button redirects the administrator back to the device page, where the
+          activation steps are highlighted.
+        </p>
+        <p>
+          Clicking <strong>Activate This Device</strong> enables gameplay on the target machine and resets the current
+          session for the logged-in administrator.
+        </p>
+
+        <h4>Steps for Device Activation</h4>
+        <ol>
+          <li>Navigate to the physical device that needs activation.</li>
+          <li>Log in as an administrator on that device.</li>
+          <li>Navigate to the device’s page in NimbusShop.</li>
+          <li>Click <strong>Activate This Device</strong>.</li>
+          <li>An alert is displayed confirming the device was successfully activated and registered.</li>
+        </ol>
+
+        <h4>Device Details</h4>
+        <ul>
+          <li><strong>Device:</strong> e.g. <code>Building (N0)</code> — name and number assigned by the Shop Admin.</li>
+          <li><strong>Inactive / Active:</strong> Indicates whether the device is currently active.</li>
+          <li><strong>Back to Location:</strong> Returns to the previous shop view.</li>
+          <li><strong>ID:</strong> Unique device identifier.</li>
+          <li><strong>Location:</strong> Name of the current shop where the device resides.</li>
+          <li><strong>Physical Address:</strong> Exact address of the device.</li>
+          <li><strong>Locked:</strong> <code>true/false</code> — indicates whether gameplay is paused.</li>
+          <li><strong>Created:</strong> Date and time the device was registered.</li>
+          <li><strong>Last Activity:</strong> Timestamp of the device’s last activity.</li>
+          <li><strong>Wallets:</strong> Current device balance.</li>
+          <li><strong>Edit:</strong> Allows the Admin to modify device details.</li>
+          <li><strong>Delete:</strong> Allows removal of device registration (subject to permissions).</li>
+        </ul>
+
+        <h4>Device Revenue & Reporting</h4>
+        <ul>
+          <li><strong>Device Report Date Range:</strong> Start and End Date.</li>
+          <li><strong>Update Report:</strong> Refreshes device-level KPIs.</li>
+          <li><strong>Current Period GGR:</strong> Game Revenue (GGR) for a specific device or building.</li>
+        </ul>
+
+        <p>
+          Clicking <strong>Activate This Device</strong> typically displays a pop-up:
+        </p>
+        <ul>
+          <li><strong>Cancel:</strong> Closes the pop-up and keeps the device inactive.</li>
+          <li><strong>OK:</strong> Confirms activation and launches the game lobby.</li>
+        </ul>
+
+        <p><em>Screenshot placeholder: Device activation pop-up and game lobby after activation.</em></p>
+      </section>
+
+      <!-- DASHBOARD FUNCTIONALITIES -->
+      <section>
+        <h2>Dashboard Functionalities</h2>
+
+        <h3>Shop Statistics (Stats Widget)</h3>
+        <p>
+          The <strong>Stats</strong> widget displays real-time shop-level operational data, including:
+        </p>
+        <ul>
+          <li><strong>Registered Devices:</strong> Total number of devices added to the shop.</li>
+          <li><strong>Activated Devices:</strong> Subset of registered devices currently active for gameplay.</li>
+          <li><strong>Total Shop Balance:</strong> Aggregate of all active device wallet balances within the shop.</li>
+        </ul>
+        <p>
+          These metrics provide administrators with at-a-glance operational status for monitoring shop activity and
+          financial health.
+        </p>
+
+        <h3>Quick Links Panel</h3>
+        <p>The Quick Links panel provides shortcuts to frequently used functions:</p>
+        <ul>
+          <li>
+            <strong>Register New Device:</strong> Opens the device registration form with required fields like Device ID,
+            Shop Assignment, Activation Status. The system validates the device ID before registration.
+          </li>
+          <li>
+            <strong>View Detailed Reports:</strong> Redirects to the Location dashboard, where admins can access
+            transaction logs, GGR, deposits, withdrawals, and round history per device and shop. Reports support time,
+            shop, and device filters and can be exported.
+          </li>
+        </ul>
+
+        <h3>Device Money Transfer Module</h3>
+        <p>
+          The <strong>Device Money Transfer</strong> feature enables administrators to execute financial operations at
+          the device level.
+        </p>
+
+        <h4>Functional Inputs</h4>
+        <ul>
+          <li>
+            <strong>Choose Device:</strong> A dropdown listing all devices assigned to the shop. Admin selects the
+            target device.
+          </li>
+          <li>
+            <strong>Transaction Type:</strong>
+            <ul>
+              <li><strong>Deposit:</strong> Credits funds into the selected device wallet.</li>
+              <li><strong>Withdraw:</strong> Debits funds from the device wallet and returns cash to the player.</li>
+            </ul>
+          </li>
+          <li><strong>Amount:</strong> Numeric value; supports multiple currencies based on shop configuration.</li>
+          <li>
+            <strong>Process Transfer:</strong> Executes the deposit or withdrawal. The system validates transaction
+            limits, device status, and balances, then updates the wallet in real time. On validation failure, an error
+            message is displayed and logged for audit.
+          </li>
+        </ul>
+
+        <h3>Devices Overview</h3>
+        <p>
+          The device overview presents a summarised view of each device, including activation status, locked status, and
+          GGR. This allows administrators to quickly identify underperforming or inactive devices.
+        </p>
+      </section>
+
+      <!-- ROLES & ACCESS -->
+      <section>
+        <h2>Roles & Access</h2>
+
+        <h3>Super Admin</h3>
+        <ul>
+          <li>Signs into the system to create locations (physical venues).</li>
+          <li>Configures customer credentials to access the game portfolio.</li>
+          <li>Assigns administrators to shops (including multi-shop access).</li>
+          <li>Registers and manages all devices across shops.</li>
+        </ul>
+
+        <h3>Shop Administrator</h3>
+        <ul>
+          <li>Manages only their assigned shop(s).</li>
+          <li>Registers and activates devices.</li>
+          <li>Manages player wallets (deposits, withdrawals, balance updates).</li>
+          <li>Oversees player gameplay and device interactions.</li>
+        </ul>
+
+        <h3>Players</h3>
+        <ul>
+          <li>Use registered devices as secure browsers for gameplay.</li>
+          <li>View wallet balances directly on devices.</li>
+          <li>Deposit cash via the shop administrator.</li>
+          <li>Play games and withdraw funds as needed.</li>
+          <li>Optionally lock a device during breaks (unlockable by player or admin).</li>
+        </ul>
+      </section>
+
+      <!-- SHOP & ADMIN MANAGEMENT -->
+      <section>
+        <h2>Shop & Administrator Management</h2>
+
+        <h3>Super Admin Login</h3>
+        <p>Navigate to the login page and sign in using assigned Super Admin credentials.</p>
+
+        <h3>Shop Creation</h3>
+        <p>From the dashboard, create a new physical location (venue) representing a shop.</p>
+
+        <h3>Assign Administrators</h3>
+        <p>
+          Allocate shop administrators to specific locations. Multiple shops may be assigned to a single administrator,
+          based on operational requirements.
+        </p>
+
+        <h3>Admin Access</h3>
+        <p>
+          Shop administrators can log in to view and manage only their assigned shop(s), respecting least-privilege
+          access principles.
+        </p>
+      </section>
+
+      <!-- DEVICE REGISTRATION & MANAGEMENT -->
+      <section>
+        <h2>Device Registration & Management</h2>
+
+        <h3>Device Onboarding</h3>
+        <p>
+          Shop administrators register devices within their assigned shop through the <strong>Devices</strong> section.
+        </p>
+
+        <h3>Activation</h3>
+        <p>
+          Once registered, devices are activated and linked to shop records, enabling gameplay, wallet interactions, and
+          reporting.
+        </p>
+
+        <h3>Player Interaction</h3>
+        <p>Devices act as access points where players can:</p>
+        <ul>
+          <li>View wallet balances.</li>
+          <li>Deposit funds.</li>
+          <li>Play games.</li>
+          <li>Lock/unlock the device during breaks.</li>
+        </ul>
+      </section>
+
+      <!-- PLAYER WALLET & MONEY TRANSFER -->
+      <section>
+        <h2>Player Wallet & Device Money Transfer</h2>
+
+        <h3>Deposits</h3>
+        <p>
+          Players deposit cash with the shop administrator, who then credits the player’s electronic wallet and/or
+          device balance.
+        </p>
+
+        <h3>Withdrawals</h3>
+        <p>
+          Administrators process withdrawal requests and pay out cash to players. The system adjusts wallet balances in
+          real time.
+        </p>
+
+        <h3>Balance & Gameplay</h3>
+        <p>
+          Players can see their real-time balance on the device. All wins, losses, and round outcomes update their
+          wallet automatically.
+        </p>
+
+        <h3>Security & Audit</h3>
+        <p>
+          Each wallet transaction is logged with timestamps, operator IDs, and device/shop context for regulatory and
+          audit purposes.
+        </p>
+      </section>
+
+      <!-- REPORTING & ANALYTICS -->
+      <section>
+        <h2>Reporting & Analytics</h2>
+        <ul>
+          <li><strong>Gameplay Records:</strong> Logs of rounds played, wins/losses, and device activity.</li>
+          <li><strong>Financial Reports:</strong> GGR, deposits, withdrawals, and shop-level financial summaries.</li>
+          <li><strong>Performance Reports:</strong> Filters by shop, device, or date range for deeper insight.</li>
+          <li><strong>Compliance & Transparency:</strong> Reports suitable for operational review and audits.</li>
+        </ul>
+      </section>
+
+      <!-- ACCOUNT & SYSTEM SUPPORT -->
+      <section>
+        <h2>Account & System Support</h2>
+        <ul>
+          <li><strong>Organisation & Super Admin Accounts:</strong> Provisioned before client access begins.</li>
+          <li><strong>Password Reset:</strong> Users can trigger reset flows via email.</li>
+          <li><strong>Environment:</strong> Features can be demonstrated and tested in a dedicated QA environment.</li>
+        </ul>
+      </section>
+
+      <!-- DEMONSTRATION FLOW -->
+      <section>
+        <h2>Demonstration Flow (Example Use Case)</h2>
+        <p>The following high-level flow illustrates a typical daily path through the system:</p>
+        <ol>
+          <li>Super Admin logs in and creates a new shop (physical location).</li>
+          <li>Super Admin assigns one or more Shop Admins to the location.</li>
+          <li>Shop Admin registers devices for gameplay.</li>
+          <li>Player arrives, is registered, and deposits cash into a wallet.</li>
+          <li>Player uses wallet balance to play on a registered device.</li>
+          <li>Player takes a break and locks the device, then resumes later.</li>
+          <li>Player requests a withdrawal; Admin processes payout.</li>
+          <li>Admin reviews revenue, gameplay, and transaction reports.</li>
+        </ol>
+      </section>
+
+      <!-- USE CASE SCENARIOS -->
+      <section>
+        <h2>Use Case Scenarios</h2>
+
+        <h3>UC1: Player Onboarding & Device Interaction</h3>
+        <p>Summary of flow:</p>
+        <ol>
+          <li>Player arrives and requests to start playing.</li>
+          <li>Shop Admin registers the player’s wallet in the system.</li>
+          <li>The system assigns the player to an available registered device.</li>
+          <li>If new, the player is prompted for an initial deposit.</li>
+          <li>Once deposit is processed, the player can access the game lobby.</li>
+        </ol>
+
+        <pre><code>A[Player arrives at shop] --> B[Request to start playing]
+B --> C[Shop administrator assigns device]
+C --> D[Player assigned to device]
+D --> E[Player makes deposit]
+E --> F[Deposit credited to device]
+F --> G[Deposit processed]
+G --> H[Player can access game lobby]</code></pre>
+
+        <h3>UC2: Wallet Deposit</h3>
+        <ol>
+          <li>Player provides cash to the Shop Admin.</li>
+          <li>Admin goes to the designated device or player wallet view.</li>
+          <li>Admin selects <strong>Deposit</strong>, enters the amount, and processes transfer.</li>
+          <li>System updates the wallet balance in real time.</li>
+          <li>Confirmation appears on Admin dashboard and player’s device.</li>
+          <li>If the transaction fails (e.g. network error), the error handling flow is triggered.</li>
+        </ol>
+
+        <pre><code>A[Player Requests Deposit] --> B[Admin Opens Wallet > Deposit]
+B --> C[Admin Enters Amount]
+C --> D[System Updates Wallet Balance]
+D --> E[Confirmation Displayed on Admin + Player Device]
+D -->|Failure| F[Trigger Error Handling Flow]</code></pre>
+
+        <h3>UC3: Wallet Withdrawal</h3>
+        <ol>
+          <li>Player requests a withdrawal.</li>
+          <li>Admin navigates to the designated device or wallet view.</li>
+          <li>Admin selects <strong>Withdraw</strong>, enters amount, and clicks Process Transfer.</li>
+          <li>System validates available balance.</li>
+          <li>
+            If funds are sufficient, system processes withdrawal, updates balance, and the player receives cash;
+            otherwise an error message is displayed and error handling is triggered.
+          </li>
+        </ol>
+
+        <pre><code>A[Player Requests Withdrawal] --> B[Admin Opens Wallet > Withdraw]
+B --> C[Admin Enters Amount]
+C --> D{Sufficient Balance?}
+D -- Yes --> E[System Processes Withdrawal]
+E --> F[Balance Updated + Cash Handed to Player]
+D -- No --> G[Error Message Displayed]
+G --> H[Trigger Error Handling Flow]</code></pre>
+
+        <h3>UC4: Device Lock/Unlock</h3>
+        <ol>
+          <li>During gameplay, a player chooses to take a break and selects <strong>Lock Device</strong>.</li>
+          <li>System locks the device, hiding the balance and preventing gameplay.</li>
+          <li>To resume, the player or shop admin unlocks the device.</li>
+          <li>If the player unlocks, gameplay resumes immediately.</li>
+          <li>If the admin unlocks, the system may require confirmation of player presence.</li>
+        </ol>
+
+        <pre><code>A[Player Selects Lock Device] --> B[System Locks Device]
+B --> C[Balance Hidden + Gameplay Paused]
+C --> D{Unlock by Player?}
+D -- Yes --> E[Normal Gameplay Resumes]
+D -- No --> F[Unlock by Admin]
+F --> G[System Confirms Player Presence]
+G --> E[Gameplay Resumes]</code></pre>
+      </section>
+
+      <!-- DAILY TASK OVERVIEW -->
+      <section>
+        <h2>Daily Task Overview (Shop Admin)</h2>
+        <p>This serves as a quick training and daily operational checklist for shop administrators.</p>
+
+        <ul>
+          <li><strong>Log In:</strong> Access the platform with credentials and MFA.</li>
+          <li><strong>Device Management:</strong> Register, activate, lock/unlock devices.</li>
+          <li><strong>Player Wallets:</strong> Process deposits, withdrawals, and check balances.</li>
+          <li><strong>Reporting:</strong> Generate daily compliance and financial reports.</li>
+        </ul>
+      </section>
+
+      <!-- POST-IMPLEMENTATION CHECKS -->
+      <section>
+        <h2>Post-Implementation Checks</h2>
+        <ul>
+          <li>Each device shows status = <strong>Active</strong>.</li>
+          <li>All wallet transactions are logged and consistent.</li>
+          <li>
+            End-of-day report totals for deposits, withdrawals, and GGR match physical cash logs within an acceptable
+            variance (e.g. 0.5%).
+          </li>
+        </ul>
+      </section>
+
+      <!-- BEST PRACTICES -->
+      <section>
+        <h2>Best Practices</h2>
+        <ul>
+          <li>Always verify cash before updating wallet balances.</li>
+          <li>Lock unused devices to prevent misuse.</li>
+          <li>Run daily reports at shop closing.</li>
+          <li>Escalate technical issues promptly to the Super Admin.</li>
+        </ul>
+      </section>
+
+      <!-- SUPPORT CONTACTS -->
+      <section>
+        <h2>Support Contacts (Example)</h2>
+        <p>
+          <strong>Name:</strong> Gerrit Smit<br />
+          <strong>Role:</strong> Super Admin<br />
+          <strong>Platform Support Slack:</strong> <code>#nimbusshop-client-support</code><br />
+          <strong>Email:</strong> support@nimbusshop.io
+        </p>
+      </section>
+
+      <!-- PLAYER JOURNEY WORKFLOW -->
+      <section>
+        <h2>Player Journey Workflow</h2>
+
+        <h3>High-Level Flowchart</h3>
+        <pre><code>graph
+A[Player Arrives] --> B[Admin Registers Wallet]
+B --> C[Player Deposits Cash]
+C --> D[Wallet Updated]
+D --> E[Player Plays on Device]
+E --> F[Balance Displayed in Real-Time]
+E --> G[Break Taken → Device Locked]
+G --> H[Device Unlocked by Admin/Player]
+F --> I[Player Requests Withdrawal]
+I --> J[Admin Processes Withdrawal]
+J --> K[Wallet Updated]
+K --> L[Admin Runs End-of-Day Reports]</code></pre>
+
+        <h3>Step-by-Step: Player → Wallet → Gameplay → Withdrawal → Reporting</h3>
+
+        <h4>Prerequisites</h4>
+        <ul>
+          <li>Shop Admin account exists and is logged in.</li>
+          <li>Target device is registered and active in NimbusShop.</li>
+          <li>Cash float is available at the shop for deposits/withdrawals.</li>
+          <li>Network connectivity and NimbusShop services are operational.</li>
+        </ul>
+
+        <h4>1. Player Arrives</h4>
+        <p>
+          Player approaches the shop and requests to play. Staff greet the player and confirm any ID requirements based
+          on shop policy.
+        </p>
+
+        <h4>2. Admin Registers Wallet</h4>
+        <p>
+          Admin navigates to <strong>Players / Wallets → Create New Player / Register Wallet</strong>.
+          The system creates a player profile and electronic wallet with a unique ID.
+        </p>
+
+        <h4>3. Player Deposits Cash</h4>
+        <p>
+          Admin goes to the player profile, selects <strong>Wallet &gt; Deposit</strong>, enters amount,
+          and confirms cash receipt. The system records the deposit and queues it for immediate processing.
+        </p>
+
+        <h4>4. Wallet Updated</h4>
+        <p>
+          Wallet balance is updated in real time; transaction ID is generated and logged. Player can see the new balance
+          on the device.
+        </p>
+
+        <h4>5. Player Plays on Device</h4>
+        <p>
+          Player selects a game using device credits. The device debits the wallet for each round, and the session is
+          tracked in NimbusShop.
+        </p>
+
+        <h4>6. Balance Displayed in Real Time</h4>
+        <p>
+          After each round, the balance is updated on both the device UI and the admin dashboards. Transaction logs
+          capture debits and credits per round.
+        </p>
+
+        <h4>7. Break Taken → Device Locked</h4>
+        <p>
+          Player or Admin chooses <strong>Lock Device</strong>. The system pauses gameplay, hides balance, and logs a lock event.
+        </p>
+
+        <h4>8. Device Unlocked</h4>
+        <p>
+          Player unlocks with a PIN, or Admin unlocks via the dashboard. The system verifies identity and resumes session
+          where appropriate.
+        </p>
+
+        <h4>9. Player Requests Withdrawal</h4>
+        <p>
+          Player requests a withdrawal; Admin reviews balance and pending holds in the wallet view and prepares to process.
+        </p>
+
+        <h4>10. Admin Processes Withdrawal</h4>
+        <p>
+          Admin selects <strong>Wallet &gt; Withdraw</strong>, enters amount, and confirms payout. System deducts funds,
+          logs the transaction, and the player receives cash.
+        </p>
+
+        <h4>11. Wallet Updated (Post-Withdrawal)</h4>
+        <p>
+          Balance is updated, and an audit trail (operator ID, time, device, shop) is persisted for compliance.
+        </p>
+
+        <h4>12. Admin Runs End-of-Day Reports</h4>
+        <p>
+          Admin generates a daily report summarising deposits, withdrawals, GGR, and device activity. Totals are
+          reconciled against physical cash.
+        </p>
+      </section>
+
+      <!-- COMMON ERRORS & QUICK FIXES -->
+      <section>
+        <h2>Common Errors & Quick Fixes</h2>
+        <ul>
+          <li><strong>Deposit not recorded:</strong> Retry transaction; if risk of duplication exists, escalate to Super Admin for reconciliation.</li>
+          <li><strong>Device unresponsive:</strong> Deactivate device in dashboard, reassign player to another device, and log a support ticket.</li>
+          <li><strong>Balance mismatch:</strong> Export transaction history, reconcile deposits/withdrawals, and check for pending holds or errors.</li>
+          <li><strong>Unauthorised unlock attempt:</strong> Block action, confirm player identity, and escalate if suspicious.</li>
+        </ul>
+      </section>
+
+      <!-- AUDIT & LOGGING -->
+      <section>
+        <h2>Audit & Logging Notes</h2>
+        <ul>
+          <li>Each deposit/withdrawal and lock/unlock event must create a timestamped audit record.</li>
+          <li>Records must include operator ID and device/shop context.</li>
+          <li>End-of-day reports and logs should be retained per regulatory retention policy.</li>
+        </ul>
+      </section>
+
+      <!-- KEY HIGHLIGHTS -->
+      <section>
+        <h2>Key Highlights</h2>
+        <ul>
+          <li>Built for physical game shops using registered devices.</li>
+          <li>Super Admin controls shop creation, device activation, and administrator assignments.</li>
+          <li>Shop Admins manage wallets, devices, and daily operations.</li>
+          <li>Players enjoy secure deposits, withdrawals, and session management.</li>
+          <li>Comprehensive reporting supports financial transparency and compliance.</li>
+        </ul>
+      </section>
+
+      <!-- APPENDICES & COMPLIANCE -->
+      <section>
+        <h2>Appendices (Optional)</h2>
+        <ul>
+          <li>Example configurations.</li>
+          <li>Monitoring dashboards.</li>
+          <li>Extended test results.</li>
+          <li>Market/region-specific considerations.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Compliance</h2>
+        <p>
+          Compliance with this document and related operational procedures is monitored through KPIs, periodic
+          walkthroughs, business tool reports, and internal/external audits.
+        </p>
+        <p>
+          Any exception to the requirements must be approved by the Document Approver in advance. Deliberate violations
+          may result in disciplinary action up to and including termination, depending on severity and impact.
+        </p>
+      </section>
+
+      <section>
+        <h2>Document Control & Approvals</h2>
+        <p>
+          All versions of this document are controlled. Major changes are formally approved, recorded in a Version
+          History Table, and communicated by the Document Owner to relevant stakeholders.
+        </p>
+        <p>This document should be reviewed at least annually or when major changes occur.</p>
+
+        <h3>Compliance Approvals</h3>
+        <ul>
+          <li>Jurisdictions targeted.</li>
+          <li>Approval IDs / certification references.</li>
+          <li>Links to approval documents or ticketing references.</li>
+        </ul>
+      </section>
+    </section>
+
+      <!-- NAV BUTTONS -->
+      <div class="nav-buttons">
+        <a href="neuralflow-eval.html" class="btn">← Previous Project</a>
+        <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+      </div>
+    
+      <a href="#top" class="to-top">↑ Back to Top</a>
+
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+ <!-- SIDEBAR
+    <aside class="doc-sidebar">
+      <h2 class="sidebar-title">Portfolio</h2>
+      <nav class="sidebar-nav">
+        <a href="../../portfolio.html">← Back to Portfolio</a>
+        <a href="../nimbusshop-platform-guide.html" class="active">NimbusShop Product System Guide</a>
+      </nav>
+    </aside>
+    -->

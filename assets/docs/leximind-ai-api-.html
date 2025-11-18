@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <title>LexiMind AI API — Predictive Diagnosis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Technical API and system documentation for the LexiMind Predictive Diagnosis service.">
+  <link rel="stylesheet" href="../css/docs.css">
+
+  <style>
+    /* --- Global Page Background (old book, ivory blush) --- */
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: "Poppins", sans-serif;
+      background: #f7f2ec; /* ✨ Soft ivory blush */
+      color: #333;
+    }
+
+    /* --- Document Container with Border --- */
+    .docs-body {
+      background: #fff9f7; /* Off-white blush */
+      max-width: 900px;
+      margin: auto;
+      padding: 2.5rem;
+      border-radius: 14px;
+      border: 1.5px solid #e8d4c9; /* warm nude border */
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    }
+
+    /* --- Headings --- */
+    h1, h2, h3, h4 {
+      color: #2a2a2a; /* dusty rose */
+      margin-top: 1.6rem;
+      font-weight: 600;
+    }
+
+    /* --- Meta Tags --- */
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      background: #f3d9e0;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      margin-right: 0.3rem;
+      color: #7c4b63;
+    }
+
+    /* --- Tables --- */
+    table {
+      width: 100%;
+      margin: 1rem 0;
+      border-collapse: collapse;
+      background: #fffdfc;
+      font-size: 0.95rem;
+    }
+    table th, table td {
+      padding: 0.7rem;
+      border: 1px solid #eadcd6;
+    }
+    table th {
+      background: #f4e8e2;
+      color: #613e4d;
+    }
+
+    /* --- Callouts --- */
+    .callout {
+      background: #fff4f6;
+      border-left: 4px solid #e3b4c4;
+      padding: 0.9rem 1.1rem;
+      border-radius: 8px;
+      margin: 1.3rem 0;
+    }
+
+    /* --- Preformatted Blocks --- */
+    pre {
+      background: #fff7f5;
+      border: 1px solid #eeded8;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /* --- Meta Grid --- */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 1rem;
+      margin: 1.2rem 0;
+    }
+    .meta-label {
+      font-weight: 600;
+      color: #7a4c58;
+    }
+
+    /* --- Navigation Buttons --- */
+    .btn {
+      background: #e3b4c4;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn:hover {
+      background: #dca6b7;
+    }
+
+    /* --- Scroll-to-top button --- */
+    .to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #dca6b7;
+      color: #fff;
+      padding: 0.65rem 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8a6d75;
+    }
+  </style>
+
+</head>
+
+<body id="top">
+  <div class="docs-shell">
+    <!-- HEADER -->
+    <div class="docs-body">
+      <header>
+        <span class="tag">Healthcare AI</span>
+        <span class="tag">Predictive Modelling</span>
+        <span class="tag">REST API</span>
+
+        <h1>LexiMind AI API Predictive Diagnosis</h1>
+        <p><em>Technical API &amp; System Documentation · Author: Leslie Amadi</em></p>
+        <hr>
+
+        <p>
+          The <strong>LexiMind Predictive Diagnosis API</strong> exposes a clinical decision-support model that estimates
+          the likelihood of chronic conditions based on structured patient data. It is designed to integrate into
+          electronic health record (EHR) systems, hospital information systems, and analytics platforms as a
+          <strong>recommendation engine</strong>, not as an autonomous diagnostic tool.
+        </p>
+
+        <div class="meta-grid">
+          <div>
+            <span class="meta-label">Service Name:</span> predictive-diagnosis-api
+          </div>
+          <div>
+            <span class="meta-label">Owner:</span> Clinical ML Platform Team
+          </div>
+          <div>
+            <span class="meta-label">Primary Users:</span> EHR integrators, data engineers, clinical analytics teams
+          </div>
+          <div>
+            <span class="meta-label">Status:</span> Production, Model v2.0
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Scope.</strong> This document provides a senior-level overview of the Predictive Diagnosis API,
+          including architecture, model characteristics, API contracts, performance expectations, error handling,
+          security and compliance considerations, and guidance for responsible clinical integration.
+        </div>
+      </header>
+
+      <!-- MAIN CONTENT -->
+      <main class="docs-content">
+        <!-- 1. Environments & Authentication -->
+        <section id="env-auth">
+          <h2>1. Environments &amp; Authentication</h2>
+
+          <h3>1.1 Base URLs</h3>
+          <p>The API is deployed in separate environments:</p>
+          <ul>
+            <li><strong>Staging:</strong> <code>https://staging.api.leximind.ai/v1</code></li>
+            <li><strong>Production:</strong> <code>https://api.leximind.ai/v1</code></li>
+          </ul>
+          <p>
+            All examples in this document use the <strong>production</strong> base URL.
+            For testing, replace the host with the staging endpoint.
+          </p>
+
+          <h3>1.2 Authentication</h3>
+          <p>
+            LexiMind uses <strong>API key–based authentication</strong>. Each request must include the
+            <code>Authorization</code> header:
+          </p>
+          <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+          <p>
+            API keys are organisation-scoped and environment-specific. Keys must be stored server-side and not embedded in
+            client-side code or public repositories. Rotate keys regularly and immediately on suspected compromise.
+          </p>
+
+          <h3>1.3 Request &amp; Response Format</h3>
+          <ul>
+            <li>All requests must use <strong>HTTPS</strong>.</li>
+            <li>Content type: <code>application/json</code>.</li>
+            <li>Responses are returned as JSON objects.</li>
+            <li>All timestamps use ISO 8601, UTC.</li>
+          </ul>
+        </section>
+
+        <!-- 2. System Architecture -->
+        <section id="architecture">
+          <h2>2. System Architecture</h2>
+
+          <p>
+            The Predictive Diagnosis service is part of the broader LexiMind platform and follows a modular, API-first
+            architecture. It is stateless at the HTTP layer and relies on dedicated model-serving infrastructure for
+            inference.
+          </p>
+
+          <h3>2.1 Component Overview</h3>
+          <ul>
+            <li><strong>API Gateway</strong> – Validates requests, enforces authentication, rate limits and basic schema checks.</li>
+            <li><strong>Diagnosis Service</strong> – Accepts validated payloads, orchestrates feature extraction and model inference.</li>
+            <li><strong>Model Serving Layer</strong> – Hosts predictive models (e.g. gradient boosting / deep nets) with versioned deployments.</li>
+            <li><strong>Feature Store</strong> – Provides standardised clinical features and derived variables (e.g. BMI categories, comorbidity flags).</li>
+            <li><strong>Logging &amp; Telemetry</strong> – Captures structured logs, metrics and traces for monitoring and auditability.</li>
+            <li><strong>Feedback Ingestion</strong> – Receives optional ground-truth labels and clinician feedback for offline evaluation.</li>
+          </ul>
+
+          <div class="diagram">
+            <div class="diagram-title">Figure 1 – High-Level Architecture</div>
+            <pre><code>Client (EHR / Clinical App)
+        |
+        v
+ [ API Gateway ]
+        |
+        v
+ [ Diagnosis Service ]
+   |          |
+   |          +--> [ Feature Store ] (derived clinical features)
+   |
+   +--> [ Model Serving Layer ] --> risk scores + explanations
+        |
+        v
+ [ Telemetry &amp; Feedback Store ]
+        |
+        v
+ Response to client</code></pre>
+            <p>
+              The service is deployed on containerised infrastructure with horizontal scaling behind a load balancer.
+              Model-serving instances can be rolled out independently using blue–green or canary strategies.
+            </p>
+          </div>
+        </section>
+
+        <!-- 3. Model Card -->
+        <section id="model-card">
+          <h2>3. Model Card — Predictive Diagnosis v2.0</h2>
+
+          <h3>3.1 Intended Use</h3>
+          <ul>
+            <li><strong>Primary purpose:</strong> Support clinicians in identifying patients at higher risk of selected chronic conditions.</li>
+            <li><strong>Intended users:</strong> Licensed clinicians and clinical decision-support systems.</li>
+            <li><strong>Intended setting:</strong> Hospital and outpatient care, not direct-to-consumer.</li>
+          </ul>
+
+          <h3>3.2 Inputs &amp; Outputs</h3>
+          <ul class="pill-list">
+            <li>Inputs: age, sex, vitals, lab values, risk factors, symptoms</li>
+            <li>Outputs: per-condition risk scores (0–1), discrete risk level, feature attributions</li>
+          </ul>
+
+          <h3>3.3 Training Data (High-Level)</h3>
+          <ul>
+            <li>De-identified EHR data from multiple partner hospitals.</li>
+            <li>Adult patients (18+), diverse demographics and comorbidity profiles.</li>
+            <li>Label definitions based on ICD codes and clinician-validated cohorts.</li>
+          </ul>
+          <p><strong>Not</strong> trained on paediatric populations or rare disease cohorts.</p>
+
+          <h3>3.4 Evaluation Metrics (Illustrative)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Condition</th>
+                <th>ROC AUC</th>
+                <th>PR AUC</th>
+                <th>Sensitivity @ fixed specificity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Type 2 Diabetes</td>
+                <td class="metric-good">0.89</td>
+                <td>0.64</td>
+                <td>0.81 @ 0.80</td>
+              </tr>
+              <tr>
+                <td>Chronic Kidney Disease</td>
+                <td class="metric-good">0.86</td>
+                <td>0.57</td>
+                <td>0.78 @ 0.80</td>
+              </tr>
+              <tr>
+                <td>Coronary Heart Disease</td>
+                <td>0.84</td>
+                <td>0.52</td>
+                <td>0.76 @ 0.80</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>3.5 Limitations &amp; Exclusions</h3>
+          <ul>
+            <li>Not validated for paediatrics, obstetrics, psychiatry, or emergency triage.</li>
+            <li>Performance may degrade on populations that differ significantly from the training cohort.</li>
+            <li>Predictions should not be used for insurance pricing, eligibility, or administrative denial of care.</li>
+          </ul>
+        </section>
+
+        <!-- 4. Data & Inference Pipeline -->
+        <section id="pipeline">
+          <h2>4. Data &amp; Inference Pipeline</h2>
+
+          <p>
+            The inference pipeline converts raw JSON payloads into structured clinical features consumed by the model.
+          </p>
+
+          <ol>
+            <li><strong>Input validation</strong> – Required fields checked, types validated, ranges sanity-checked.</li>
+            <li><strong>Normalisation</strong> – Units harmonised (e.g. mmHg, mg/dL), categorical values standardised.</li>
+            <li><strong>Feature engineering</strong> – Derived risk factors computed (e.g. BMI categories, multi-morbidity indices).</li>
+            <li><strong>Model inference</strong> – Condition-specific models invoked, producing risk scores per condition.</li>
+            <li><strong>Risk stratification</strong> – Scores mapped to discrete levels (<code>low</code>, <code>medium</code>, <code>high</code>).</li>
+            <li><strong>Explanations</strong> – Top contributing features returned for interpretability.</li>
+          </ol>
+
+          <div class="diagram">
+            <div class="diagram-title">Figure 2 – Inference Pipeline</div>
+            <pre><code>JSON payload
+   -> schema &amp; range validation
+   -> normalise units &amp; categories
+   -> feature engineering (derived signals)
+   -> model inference (per condition)
+   -> risk stratification (low / medium / high)
+   -> explanations + response assembly</code></pre>
+          </div>
+        </section>
+
+        <!-- 5. API Design -->
+        <section id="api">
+          <h2>5. API Design &amp; Endpoints</h2>
+
+          <p>
+            The Predictive Diagnosis API follows a JSON-over-HTTP design, with clear, versioned endpoints.
+          </p>
+
+          <h3>5.1 POST /predict-diagnosis</h3>
+          <p>
+            Submits structured patient data and returns a risk score and risk level for one or more chronic disease categories.
+          </p>
+
+          <p>
+            <strong>Method:</strong> <code>POST</code><br>
+            <strong>Path:</strong> <code>/predict-diagnosis</code>
+          </p>
+
+          <h4>Request Body Example</h4>
+          <pre><code>{
+  "patient_id": "A-49302",
+  "age": 56,
+  "sex": "female",
+  "bmi": 29.4,
+  "blood_pressure": 138,
+  "glucose": 108,
+  "cholesterol": 210,
+  "smoker": false,
+  "family_history": ["diabetes", "hypertension"],
+  "symptoms": ["fatigue", "shortness_of_breath"]
+}</code></pre>
+
+          <h4>Request Fields</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>patient_id</td>
+                <td>string</td>
+                <td>optional</td>
+                <td>Local or anonymised identifier for traceability. Avoid direct identifiers (e.g. MRNs) where possible.</td>
+              </tr>
+              <tr>
+                <td>age</td>
+                <td>integer</td>
+                <td>required</td>
+                <td>Age in years (18+ recommended).</td>
+              </tr>
+              <tr>
+                <td>sex</td>
+                <td>string</td>
+                <td>required</td>
+                <td><code>"male"</code>, <code>"female"</code>, or <code>"other"</code>.</td>
+              </tr>
+              <tr>
+                <td>bmi</td>
+                <td>number</td>
+                <td>optional</td>
+                <td>Body Mass Index.</td>
+              </tr>
+              <tr>
+                <td>blood_pressure</td>
+                <td>number</td>
+                <td>required</td>
+                <td>Systolic blood pressure (mmHg).</td>
+              </tr>
+              <tr>
+                <td>glucose</td>
+                <td>number</td>
+                <td>required</td>
+                <td>Fasting glucose level (mg/dL).</td>
+              </tr>
+              <tr>
+                <td>cholesterol</td>
+                <td>number</td>
+                <td>optional</td>
+                <td>Total serum cholesterol (mg/dL).</td>
+              </tr>
+              <tr>
+                <td>smoker</td>
+                <td>boolean</td>
+                <td>optional</td>
+                <td>Current smoking status.</td>
+              </tr>
+              <tr>
+                <td>family_history</td>
+                <td>array&lt;string&gt;</td>
+                <td>optional</td>
+                <td>Relevant conditions in family history (e.g. <code>"diabetes"</code>, <code>"hypertension"</code>).</td>
+              </tr>
+              <tr>
+                <td>symptoms</td>
+                <td>array&lt;string&gt;</td>
+                <td>optional</td>
+                <td>List of reported symptoms (free-text category codes).</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Response Example</h4>
+          <pre><code>{
+  "risk_score": 0.81,
+  "risk_level": "high",
+  "conditions": {
+    "diabetes_type_2": 0.78,
+    "chronic_kidney_disease": 0.42,
+    "coronary_heart_disease": 0.35
+  },
+  "model_version": "2.0",
+  "explanations": {
+    "top_positive": ["blood_pressure", "age", "family_history.diabetes"],
+    "top_negative": ["glucose"]
+  },
+  "trace_id": "req_9f3a92b7c1"
+}</code></pre>
+
+          <h4>Response Fields</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>risk_score</td>
+                <td>number</td>
+                <td>Overall risk estimate between 0 and 1.</td>
+              </tr>
+              <tr>
+                <td>risk_level</td>
+                <td>string</td>
+                <td>One of <code>"low"</code>, <code>"medium"</code>, <code>"high"</code>.</td>
+              </tr>
+              <tr>
+                <td>conditions</td>
+                <td>object</td>
+                <td>Per-condition risk scores keyed by condition identifier.</td>
+              </tr>
+              <tr>
+                <td>model_version</td>
+                <td>string</td>
+                <td>Deployed model version used for this prediction.</td>
+              </tr>
+              <tr>
+                <td>explanations</td>
+                <td>object</td>
+                <td>Key features influencing the prediction (e.g. top positive/negative contributors).</td>
+              </tr>
+              <tr>
+                <td>trace_id</td>
+                <td>string</td>
+                <td>Identifier for auditing, debugging and feedback correlation.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Python Example</h4>
+          <pre><code>import requests
+
+BASE_URL = "https://api.leximind.ai/v1"
+API_KEY = "YOUR_API_KEY"
+
+payload = {
+  "patient_id": "A-49302",
+  "age": 56,
+  "sex": "female",
+  "bmi": 29.4,
+  "blood_pressure": 138,
+  "glucose": 108,
+  "cholesterol": 210,
+  "smoker": False,
+  "family_history": ["diabetes", "hypertension"],
+  "symptoms": ["fatigue", "shortness_of_breath"]
+}
+
+headers = {
+  "Authorization": f"Bearer {API_KEY}",
+  "Content-Type": "application/json"
+}
+
+response = requests.post(f"{BASE_URL}/predict-diagnosis", headers=headers, json=payload)
+print(response.status_code, response.json())</code></pre>
+
+          <h3>5.2 GET /status</h3>
+          <p>Lightweight health check to verify API availability and model readiness.</p>
+          <p>
+            <strong>Method:</strong> <code>GET</code><br>
+            <strong>Path:</strong> <code>/status</code>
+          </p>
+
+          <h4>Response Example</h4>
+          <pre><code>{
+  "status": "online",
+  "uptime": "99.98%",
+  "model_version": "2.0",
+  "environment": "production"
+}</code></pre>
+
+          <h3>5.3 POST /feedback (optional)</h3>
+          <p>
+            Allows client systems to submit feedback on prediction usefulness or correctness.
+            Feedback is ingested into offline evaluation pipelines; it does not update the model in real time.
+          </p>
+
+          <h4>Request Example</h4>
+          <pre><code>{
+  "trace_id": "req_9f3a92b7c1",
+  "label": "correct",
+  "notes": "Clinician confirmed early-stage diabetes."
+}</code></pre>
+        </section>
+
+        <!-- 6. Performance & Monitoring -->
+        <section id="performance">
+          <h2>6. Performance &amp; Monitoring</h2>
+
+          <p>
+            Performance is monitored along latency, reliability and prediction quality dimensions.
+            Metrics are exported to central monitoring dashboards.
+          </p>
+
+          <h3>6.1 Latency Targets (Illustrative)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>P95 Target</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>End-to-end latency: /predict-diagnosis</td>
+                <td class="metric-good">&lt; 800 ms</td>
+                <td>Includes feature engineering and model inference.</td>
+              </tr>
+              <tr>
+                <td>End-to-end latency: /status</td>
+                <td class="metric-good">&lt; 150 ms</td>
+                <td>Simple readiness probe, no model calls.</td>
+              </tr>
+              <tr>
+                <td>5xx error rate</td>
+                <td class="metric-good">&lt; 0.5%</td>
+                <td>Rolling 7-day window.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>6.2 Observability</h3>
+          <ul>
+            <li><strong>Logging:</strong> Structured JSON logs with trace IDs; sensitive values minimised or redacted.</li>
+            <li><strong>Metrics:</strong> Request counts, latency histograms, error codes, model-version usage.</li>
+            <li><strong>Tracing:</strong> Distributed traces for request path: gateway → diagnosis service → model serving.</li>
+          </ul>
+        </section>
+
+        <!-- 7. Error Handling -->
+        <section id="errors">
+          <h2>7. Error Handling &amp; Retry Strategy</h2>
+
+          <p>
+            LexiMind returns standard HTTP status codes together with a structured error payload:
+          </p>
+
+          <pre><code>{
+  "error": {
+    "code": "4001_INVALID_SCHEMA",
+    "message": "Request body does not match expected schema.",
+    "trace_id": "req_9f3a92b7c1"
+  }
+}</code></pre>
+
+          <table>
+            <thead>
+              <tr>
+                <th>HTTP Code</th>
+                <th>Error Code</th>
+                <th>Description</th>
+                <th>Recommended Client Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>400</td>
+                <td>4001_INVALID_SCHEMA</td>
+                <td>Request body does not match expected schema.</td>
+                <td>Validate JSON structure and required fields before retrying.</td>
+              </tr>
+              <tr>
+                <td>401</td>
+                <td>4010_UNAUTHENTICATED</td>
+                <td>Missing or invalid API key.</td>
+                <td>Check token, environment and authentication configuration.</td>
+              </tr>
+              <tr>
+                <td>403</td>
+                <td>4030_FORBIDDEN</td>
+                <td>API key does not have permission for this resource.</td>
+                <td>Confirm key scope and organisation access settings.</td>
+              </tr>
+              <tr>
+                <td>429</td>
+                <td>4290_RATE_LIMIT</td>
+                <td>Too many requests in a given window.</td>
+                <td>Throttle requests; implement exponential backoff using <code>Retry-After</code> where present.</td>
+              </tr>
+              <tr>
+                <td>500</td>
+                <td>5001_SERVER_ERROR</td>
+                <td>Unexpected internal error.</td>
+                <td>Retry with backoff; contact support if persistent and include <code>trace_id</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 8. Security & Compliance -->
+        <section id="security">
+          <h2>8. Security, Privacy &amp; Compliance</h2>
+
+          <h3>8.1 Data Protection</h3>
+          <ul>
+            <li>All traffic is encrypted in transit via TLS 1.2+.</li>
+            <li>Only the minimum necessary clinical features should be sent for a given use case.</li>
+            <li>Direct identifiers (names, addresses) should be excluded where possible.</li>
+          </ul>
+
+          <h3>8.2 Compliance</h3>
+          <ul>
+            <li>Service is designed to be compatible with HIPAA/GDPR-aligned environments.</li>
+            <li>Data controllers remain responsible for legal basis and consent management.</li>
+            <li>Log retention windows are configurable; default retention is time-bound and access-controlled.</li>
+          </ul>
+
+          <h3>8.3 Access Control</h3>
+          <ul>
+            <li>API keys are scoped to organisations; misuse can be traced and revoked.</li>
+            <li>Administrative access to logs and telemetry is restricted to authorised operations and ML teams.</li>
+          </ul>
+        </section>
+
+        <!-- 9. Risk Management & Responsible Use -->
+        <section id="risk">
+          <h2>9. Risk Management &amp; Responsible Use</h2>
+
+          <h3>9.1 Human-in-the-Loop</h3>
+          <ul>
+            <li>Predictions are <strong>decision support only</strong>; clinicians must retain ultimate responsibility.</li>
+            <li>Model outputs should be reviewed in context of full clinical history and additional diagnostics.</li>
+          </ul>
+
+          <h3>9.2 Model Drift &amp; Monitoring</h3>
+          <ul>
+            <li>Input distributions and calibration metrics are periodically monitored.</li>
+            <li>Significant drift triggers re-evaluation and potential retraining.</li>
+          </ul>
+
+          <h3>9.3 Fairness &amp; Bias</h3>
+          <ul>
+            <li>Model performance is evaluated on key demographic subgroups where data permits.</li>
+            <li>Clients should avoid using risk scores in ways that could reinforce structural inequities.</li>
+          </ul>
+
+          <h3>9.4 Prohibited Uses</h3>
+          <ul>
+            <li>Insurance coverage, pricing, or eligibility decisions.</li>
+            <li>Autonomous triage without human oversight.</li>
+          </ul>
+        </section>
+
+        <!-- 10. Versioning & Roadmap -->
+        <section id="versioning">
+          <h2>10. Versioning &amp; Roadmap</h2>
+
+          <h3>10.1 Versioning</h3>
+          <p>LexiMind follows a semantic-versioning inspired model:</p>
+          <ul>
+            <li><strong>Major</strong> (2.x → 3.x): may introduce breaking changes or new condition sets.</li>
+            <li><strong>Minor</strong> (2.0 → 2.1): backwards-compatible improvements (e.g. calibration, additional explanations).</li>
+            <li><strong>Patch</strong> (2.0.0 → 2.0.1): bug fixes and internal improvements.</li>
+          </ul>
+          <p>
+            API responses include a <code>model_version</code> field so clients can track which model served a request.
+          </p>
+
+          <h3>10.2 Roadmap (Illustrative)</h3>
+          <ul>
+            <li>Support for additional chronic conditions with sufficient training data.</li>
+            <li>Richer explainability (e.g. feature contribution magnitudes, confidence bands).</li>
+            <li>Configurable thresholds per organisation or clinical pathway.</li>
+          </ul>
+        </section>
+
+        <!-- 11. Integration & Support -->
+        <section id="integration">
+          <h2>11. Integration Checklist &amp; Support</h2>
+
+          <h3>11.1 Integration Checklist</h3>
+          <ul>
+            <li>Obtain and securely store API key (per environment).</li>
+            <li>Implement input validation and unit normalisation upstream where possible.</li>
+            <li>Propagate <code>trace_id</code> in logs for debugging.</li>
+            <li>Implement safe fallbacks if the API is temporarily unavailable (e.g. continue workflow without risk score).</li>
+            <li>Ensure local governance and clinical review for deployment decisions.</li>
+          </ul>
+
+          <h3>11.2 Contact &amp; Support</h3>
+          <p>
+            For integration issues, performance questions, or incident reports, contact:
+          </p>
+          <p>
+            <strong>Email:</strong> <a href="mailto:ml-support@lexitech.ai">ml-support@lexitech.ai</a><br>
+            <strong>Support hours:</strong> Monday–Friday, 09:00–18:00 (CET)
+          </p>
+        </section>
+
+        <!-- NAV BUTTONS -->
+        <p style="margin-top: 2rem;">
+          <a href="../../previous-page.html" class="btn">← Previous Page</a>
+          <a href="../../next-page.html" class="btn" style="margin-left:0.5rem;">Next Page →</a>
+          <a href="../../portfolio.html" class="btn" style="margin-left:0.5rem;">Back to Portfolio</a>
+        </p>
+    
+        <footer>
+          © 2025 Leslie Amadi — All Rights Reserved.
+        </footer>
+    
+      </div>
+    
+      <!-- Scroll back to top button -->
+      <a href="#top" class="to-top">↑ Top</a>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

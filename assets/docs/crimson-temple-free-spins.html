@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crimson Temple Free Spins Feature Game Mechanic | Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <div class="page-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="doc-sidebar">
+      <h2 class="sidebar-title">Portfolio</h2>
+      <nav class="sidebar-nav">
+        <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+        <a href="../crimson-temple-free-spins.html" class="active">Crimson Temple — Free Spins</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="doc-content">
+      <h1>Crimson Temple Free Spins Feature (Scatter Trigger)</h1>
+      <p class="doc-subtitle">
+        Detailed game mechanic documentation for the <strong>Free Spins Feature</strong> in
+        <em>Crimson Temple</em>, an Asian mythology–themed 5×4 video slot.
+      </p>
+
+      <!-- DOCUMENT META -->
+      <section>
+        <h2>Document Control</h2>
+        <table class="meta-table">
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td>Document Title</td>
+            <td>Crimson Temple — Free Spins Feature Design &amp; Implementation Guide</td>
+          </tr>
+          <tr>
+            <td>Feature</td>
+            <td>Free Spins with Progressive Multiplier &amp; Sticky Wilds</td>
+          </tr>
+          <tr>
+            <td>Game</td>
+            <td>Crimson Temple (5×4, 1024 ways)</td>
+          </tr>
+          <tr>
+            <td>Owner</td>
+            <td>Game Producer / Product Manager</td>
+          </tr>
+          <tr>
+            <td>Approver</td>
+            <td>Head of Games / Director of Product</td>
+          </tr>
+          <tr>
+            <td>Department</td>
+            <td>Game Studio · Product &amp; Engineering</td>
+          </tr>
+          <tr>
+            <td>Version</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>Final (for portfolio)</td>
+          </tr>
+          <tr>
+            <td>Date Created</td>
+            <td>2025-11-18</td>
+          </tr>
+          <tr>
+            <td>Next Review</td>
+            <td>On next math revision or re-certification</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- OVERVIEW -->
+      <section>
+        <h2>Overview</h2>
+
+        <h3>Purpose</h3>
+        <p>
+          This document defines the <strong>Free Spins Feature (Scatter Trigger)</strong> for
+          <em>Crimson Temple</em>. It describes the player-facing behaviour, underlying math model,
+          technical implementation details, and certification considerations.
+          The goal is to provide a single source of truth for Product, Engineering, QA, Design, and Compliance.
+        </p>
+
+        <h3>Scope</h3>
+
+        <h4>In Scope</h4>
+        <ul>
+          <li>Trigger conditions for Free Spins via scatter symbols.</li>
+          <li>Number of awarded free spins and retrigger rules.</li>
+          <li>Progressive win multiplier logic during the feature.</li>
+          <li>Sticky Wild behaviour and symbol hierarchy within Free Spins.</li>
+          <li>RTP contribution and volatility impact of the Free Spins feature.</li>
+          <li>Front-end and back-end responsibilities for state handling.</li>
+        </ul>
+
+        <h4>Out of Scope</h4>
+        <ul>
+          <li>Base game reel strips and paytable (covered in the core Game Math Spec).</li>
+          <li>Jackpot or bonus wheel mechanics (handled in separate feature documents).</li>
+          <li>Promotional overlays (e.g. tournaments, network campaigns).</li>
+          <li>Operator-specific marketing copy or localisation assets (handled in Go-to-Market pack).</li>
+        </ul>
+      </section>
+
+      <!-- PREREQUISITES -->
+      <section>
+        <h2>Prerequisites</h2>
+        <p>The following must be in place before implementing or testing this feature:</p>
+        <ul>
+          <li>
+            <strong>Installed Tools:</strong> Access to the studio’s
+            <code>GameClient</code> repo, <code>GameServer</code> repo, and Dev/QA environments.
+          </li>
+          <li>
+            <strong>Access Rights:</strong> Developer or QA access to feature flags,
+            configuration service, and game logs.
+          </li>
+          <li>
+            <strong>Base Game Ready:</strong> Base game reels, ways evaluation, and payout
+            engine must be stable and passing regression.
+          </li>
+          <li>
+            <strong>Math Model Signed Off:</strong> Final Free Spins math sheet approved by
+            Head of Math and Compliance.
+          </li>
+        </ul>
+      </section>
+
+      <!-- DEPENDENCIES -->
+      <section>
+        <h2>Dependencies</h2>
+        <ul>
+          <li>
+            <strong>RNG Service:</strong> Uses the studio’s certified RNG with no feature-specific
+            deviations.
+          </li>
+          <li>
+            <strong>Game Config Service:</strong> Multiplier growth, spins awarded, and scatter
+            configurations are driven by environment-specific config.
+          </li>
+          <li>
+            <strong>Session &amp; Wallet APIs:</strong> All wins generated in Free Spins are returned
+            to the player wallet via the existing payout flow.
+          </li>
+          <li>
+            <strong>Jurisdiction Config:</strong>
+            Minimum/maximum RTP variants per market may adjust the Free Spins hit rate or paytable weights.
+          </li>
+          <li>
+            <strong>Client Animation System:</strong>
+            Must support symbol highlighting, multiplier animations, and sticky wild glow states.
+          </li>
+        </ul>
+      </section>
+
+      <!-- ASSETS -->
+      <section>
+        <h2>Assets</h2>
+        <table>
+          <tr>
+            <th>Asset Type</th>
+            <th>File / Identifier</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td>Scatter Symbol</td>
+            <td><code>symbol_scatter_lotus.png</code></td>
+            <td>Golden lotus with red aura; appears on all reels.</td>
+          </tr>
+          <tr>
+            <td>Wild Symbol</td>
+            <td><code>symbol_wild_guardian.png</code></td>
+            <td>Temple guardian mask; becomes sticky in Free Spins only.</td>
+          </tr>
+          <tr>
+            <td>FS Entry Animation</td>
+            <td><code>anim_fs_enter_crimson_temple.mp4</code></td>
+            <td>Camera zoom into temple, lanterns ignite, multiplier appears.</td>
+          </tr>
+          <tr>
+            <td>FS Background</td>
+            <td><code>bg_free_spins_night_temple.png</code></td>
+            <td>Darker, high-contrast variant of base game background.</td>
+          </tr>
+          <tr>
+            <td>Sound – Trigger</td>
+            <td><code>sfx_fs_trigger_gong.wav</code></td>
+            <td>Layered gongs &amp; chanting when Free Spins are awarded.</td>
+          </tr>
+          <tr>
+            <td>Sound – Spin</td>
+            <td><code>sfx_fs_spin_loop.wav</code></td>
+            <td>Slightly more intense spin sound vs base game.</td>
+          </tr>
+          <tr>
+            <td>Sound – Big Win</td>
+            <td><code>sfx_fs_big_win_temple.wav</code></td>
+            <td>Extended crescendo for wins ≥ 50x bet.</td>
+          </tr>
+          <tr>
+            <td>Localisation Strings</td>
+            <td><code>loc_fs_crimson_temple.json</code></td>
+            <td>Free Spins UI copy in all supported languages.</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- CHANGE DESCRIPTION -->
+      <section>
+        <h2>Change Description</h2>
+
+        <p><strong>Current State:</strong> Base game only, 5×4, 1024 ways, standard wins and wilds. No bonus feature is currently active in the production build.</p>
+
+        <p><strong>Target State:</strong> Free Spins Feature triggered by 3+ scatter symbols. The feature introduces a progressive win multiplier and sticky wild behaviour that significantly increases volatility while keeping RTP within target bounds.</p>
+
+        <h3>Implementation Steps (High Level)</h3>
+        <ol>
+          <li>
+            <strong>Add Scatter Trigger Logic:</strong>
+            Evaluate scatters on each base spin and award Free Spins when threshold is met.
+          </li>
+          <li>
+            <strong>Implement Free Spins State Machine:</strong>
+            Enter, play, retrigger, and exit sequences, including UI updates and wallet settlement.
+          </li>
+          <li>
+            <strong>Wire Multiplier &amp; Sticky Wilds:</strong>
+            Increment multiplier after each winning spin; convert specific wilds into sticky positions for the remainder of the feature.
+          </li>
+          <li>
+            <strong>Integrate with Config &amp; RTP Variants:</strong>
+            Allow jurisdictions to vary number of spins and multiplier growth for different RTP versions (e.g., 96.10%, 94.00%).
+          </li>
+          <li>
+            <strong>QA, Certification, and Deployment:</strong>
+            Run full math verification, regression, and certification submission where required.
+          </li>
+        </ol>
+      </section>
+
+      <!-- MAIN MECHANIC DETAILS -->
+      <section>
+        <h2>Free Spins Mechanic — Detailed Behaviour</h2>
+
+        <h3>Trigger Conditions</h3>
+        <ul>
+          <li>
+            <strong>Scatter Symbol:</strong> Golden Lotus (<code>SCATTER</code>) can land on any reel in both base game and Free Spins.
+          </li>
+          <li>
+            <strong>Trigger Threshold:</strong>
+            <ul>
+              <li>3 scatters anywhere in view → <strong>10 Free Spins</strong></li>
+              <li>4 scatters anywhere in view → <strong>15 Free Spins</strong></li>
+              <li>5 scatters anywhere in view → <strong>20 Free Spins</strong></li>
+            </ul>
+          </li>
+          <li>
+            Wins from the triggering spin are paid first, then Free Spins are awarded.
+          </li>
+          <li>
+            If multiple scatter combinations occur (e.g. 3+ scatters plus high-value win),
+            both are paid; no conflict with line/ways wins.
+          </li>
+        </ul>
+
+        <h3>Free Spins Flow</h3>
+        <ol>
+          <li>Base spin completes and shows 3+ scatters.</li>
+          <li>Win evaluation and payout for base spin.</li>
+          <li>Free Spins intro animation plays; spin counter and multiplier UI fade in.</li>
+          <li>Free Spins begin with <strong>multiplier = 1x</strong>.</li>
+          <li>On each winning spin:
+            <ul>
+              <li>Total win for that spin is multiplied by the <strong>current multiplier</strong>.</li>
+              <li>Multiplier then increments by +1 (e.g. 1x → 2x → 3x, etc.).</li>
+              <li>Any wilds that land on reels 2–4 become <strong>sticky</strong> (remain in place for remaining spins).</li>
+            </ul>
+          </li>
+          <li>On non-winning spins:
+            <ul>
+              <li>Multiplier remains unchanged.</li>
+              <li>Existing sticky wilds stay on the reels.</li>
+            </ul>
+          </li>
+          <li>Any 3+ scatters during Free Spins retrigger additional spins:
+            <ul>
+              <li>3 scatters → +5 spins</li>
+              <li>4 scatters → +8 spins</li>
+              <li>5 scatters → +10 spins</li>
+            </ul>
+          </li>
+          <li>When spin counter reaches 0, final win banner is shown and all sticky wilds are cleared.</li>
+          <li>Control returns to the base game with updated credit balance.</li>
+        </ol>
+
+        <h3>Game Math &amp; RTP Contribution</h3>
+        <ul>
+          <li>Target overall game RTP: <strong>96.10%</strong> (base RTP variant).</li>
+          <li>Approx. Free Spins contribution to RTP: <strong>22–26%</strong> depending on jurisdiction config.</li>
+          <li>Hit frequency for Free Spins (3+ scatters): ~1 in 160–210 spins (configurable by reel strip tuning).</li>
+          <li>Feature is designed as the primary high-volatility component of the game.</li>
+        </ul>
+      </section>
+
+      <!-- DEPLOYMENT PLAN -->
+      <section>
+        <h2>Deployment Plan</h2>
+        <table>
+          <tr>
+            <th>Item</th>
+            <th>Details</th>
+          </tr>
+          <tr>
+            <td>Deployment Window</td>
+            <td>Standard weekly release window (e.g. Tuesday 09:00–11:00 CET).</td>
+          </tr>
+          <tr>
+            <td>Environments</td>
+            <td>DEV → QA → STAGING → PRODUCTION.</td>
+          </tr>
+          <tr>
+            <td>Responsible Teams</td>
+            <td>Game Dev, QA, DevOps, Regulatory/Compliance.</td>
+          </tr>
+          <tr>
+            <td>Go / No-Go Criteria</td>
+            <td>
+              <ul>
+                <li>All automated test suites passing (unit, functional, regression).</li>
+                <li>RTP verified vs math model with acceptable variance.</li>
+                <li>No critical or high-severity bugs open for Free Spins feature.</li>
+                <li>Jurisdiction-specific configs validated and signed off.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Communication Plan</td>
+            <td>
+              <ul>
+                <li>Internal release note in Product &amp; Games channel (Slack/Teams).</li>
+                <li>Operator-facing release brief (where applicable).</li>
+                <li>Update to game catalogue / content portal.</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- TESTING & VALIDATION -->
+      <section>
+        <h2>Testing &amp; Validation</h2>
+
+        <h3>Acceptance Criteria</h3>
+        <ul>
+          <li>Free Spins trigger exactly at 3+ scatters; no false positives or missed triggers.</li>
+          <li>Multiplier behaviour matches specification (increments only after wins, persists between spins).</li>
+          <li>Sticky wilds remain in place for remaining spins and are cleared correctly at feature end.</li>
+          <li>RTP and volatility metrics match the approved math sheet within defined tolerance.</li>
+          <li>All supported jurisdictions pass compliance and certification checks.</li>
+        </ul>
+
+        <h3>Test Plan Overview</h3>
+        <table>
+          <tr>
+            <th>Test Type</th>
+            <th>Area Tested</th>
+            <th>Method</th>
+            <th>Owner</th>
+          </tr>
+          <tr>
+            <td>Unit Tests</td>
+            <td>Scatter counting, multiplier state, sticky wild placement.</td>
+            <td>Automated test suite in server codebase.</td>
+            <td>Backend Developer</td>
+          </tr>
+          <tr>
+            <td>Functional Tests</td>
+            <td>Trigger animation, UI counters, retrigger flow.</td>
+            <td>Manual &amp; scripted functional tests.</td>
+            <td>QA Team</td>
+          </tr>
+          <tr>
+            <td>Regression</td>
+            <td>Base game wins, session handling, wallet updates.</td>
+            <td>Automated regression suite.</td>
+            <td>QA Team</td>
+          </tr>
+          <tr>
+            <td>Math / RNG Verification</td>
+            <td>RTP, hit rate, distribution of wins.</td>
+            <td>Large-scale simulation; statistical analysis.</td>
+            <td>Math &amp; Compliance</td>
+          </tr>
+        </table>
+
+        <h3>Testing Performed (Sample Bug Fix Record)</h3>
+        <table>
+          <tr>
+            <th>Bug ID / Jira Ref</th>
+            <th>Description</th>
+            <th>Test Type</th>
+            <th>Result</th>
+            <th>Tester</th>
+            <th>Date</th>
+          </tr>
+          <tr>
+            <td>CT-FS-001</td>
+            <td>Free Spins multiplier not resetting between features.</td>
+            <td>Functional</td>
+            <td>Pass (after fix)</td>
+            <td>QA Team</td>
+            <td>2025-11-10</td>
+          </tr>
+          <tr>
+            <td>CT-FS-002</td>
+            <td>Sticky wilds removed one spin early in rare edge case.</td>
+            <td>Regression</td>
+            <td>Pass (after fix)</td>
+            <td>QA Team</td>
+            <td>2025-11-11</td>
+          </tr>
+          <tr>
+            <td>CT-FS-003</td>
+            <td>Incorrect RTP in simulation for 94% variant.</td>
+            <td>Math Verification</td>
+            <td>Pass (after config update)</td>
+            <td>Math Team</td>
+            <td>2025-11-12</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- PLATFORM & SYSTEM UPDATES -->
+      <section>
+        <h2>Platform and System Updates</h2>
+
+        <table>
+          <tr>
+            <th>Category</th>
+            <th>Details</th>
+          </tr>
+          <tr>
+            <td>Supported Platforms</td>
+            <td>Desktop (Chrome, Edge, Firefox), Mobile Web (iOS/Android), Native wrappers where applicable.</td>
+          </tr>
+          <tr>
+            <td>Minimum System Requirements</td>
+            <td>Modern browser with WebGL support, 2 GB RAM, stable network connection.</td>
+          </tr>
+          <tr>
+            <td>Performance Enhancements</td>
+            <td>Preloading of Free Spins assets to avoid stutter during trigger sequence.</td>
+          </tr>
+          <tr>
+            <td>Compatibility Changes</td>
+            <td>No platforms removed; minor tweaks for low-resolution devices to avoid UI overlap.</td>
+          </tr>
+          <tr>
+            <td>Infrastructure Changes</td>
+            <td>No additional backend infrastructure; reuses existing game server cluster.</td>
+          </tr>
+          <tr>
+            <td>Third-Party Integrations</td>
+            <td>Existing game telemetry integration extended with Free Spins–specific events.</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- REFERENCES -->
+      <section>
+        <h2>References &amp; Supporting Documents</h2>
+        <table>
+          <tr>
+            <th>Field</th>
+            <th>Link / Reference</th>
+          </tr>
+          <tr>
+            <td>Jira Tickets</td>
+            <td>CT-FS-EPIC, CT-FS-001 … CT-FS-020 (implementation, testing, compliance).</td>
+          </tr>
+          <tr>
+            <td>Game Math Spec</td>
+            <td><em>Crimson Temple – Math Sheet</em> (RTP, hit rates, volatility).</td>
+          </tr>
+          <tr>
+            <td>Architecture Diagrams</td>
+            <td>Game server component diagram, sequence diagrams for spin → payout.</td>
+          </tr>
+          <tr>
+            <td>Version Control</td>
+            <td>Git branch <code>feature/crimson-temple-free-spins</code>, tagged at <code>ct-fs-v1.0</code>.</td>
+          </tr>
+          <tr>
+            <td>Certification Docs</td>
+            <td>Jurisdiction-specific submission packs referencing this feature.</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- APPENDICES -->
+      <section>
+        <h2>Appendices (Optional)</h2>
+        <ul>
+          <li>Example simulation output for key RTP variants.</li>
+          <li>Monitoring dashboards for feature-specific KPIs (feature hit rate, average win).</li>
+          <li>Market-specific notes (max bet limits, bonus restrictions).</li>
+        </ul>
+      </section>
+
+      <!-- COMPLIANCE -->
+      <section>
+        <h2>Compliance</h2>
+        <p>
+          Compliance with this document and the approved game math shall be monitored via:
+        </p>
+        <ul>
+          <li>Regular KPI reviews (RTP, hit rate, max win patterns).</li>
+          <li>Internal QA audits and periodic re-simulations.</li>
+          <li>External lab certifications where required.</li>
+        </ul>
+        <p>
+          Any deviation from the specifications described here must be reviewed and approved by
+          the Product Owner and Compliance before being released to production.
+        </p>
+      </section>
+
+      <!-- DOCUMENT CONTROL / APPROVALS -->
+      <section>
+        <h2>Document Control &amp; Approvals</h2>
+        <table>
+          <tr>
+            <th>Role</th>
+            <th>Name</th>
+            <th>Responsibility</th>
+          </tr>
+          <tr>
+            <td>Document Owner</td>
+            <td>Game Producer / Product Manager</td>
+            <td>Keeps this document up to date.</td>
+          </tr>
+          <tr>
+            <td>Technical Approver</td>
+            <td>Lead Engineer</td>
+            <td>Validates feasibility and technical correctness.</td>
+          </tr>
+          <tr>
+            <td>Math / Compliance</td>
+            <td>Head of Math / Compliance</td>
+            <td>Validates RTP, volatility, jurisdiction constraints.</td>
+          </tr>
+        </table>
+      </section>
+
+      <div class="nav-buttons">
+        <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>

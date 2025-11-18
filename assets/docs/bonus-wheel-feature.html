@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crimson Temple Bonus Wheel Feature (Asian Mythology) | Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css" />
+
+</head>
+
+<body>
+<div class="page-shell">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">Leslie Amadi</a>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PROJECT HERO -->
+  <header class="doc-header">
+    <h1>Crimson Temple Bonus Wheel Feature (Asian Mythology)</h1>
+      <p class="doc-subtitle">
+        Product and operational documentation for the NimbusShop Platform, designed for physical game shops with 
+        registered devices, player wallets, and real-time reporting.
+      </p>
+  </header>
+
+  <!-- TAGS -->
+  <div class="tag-row">
+    <span class="tag">Developer Experience</span>
+    <span class="tag">API Documentation</span>
+    <span class="tag">CLI Tools</span>
+    <span class="tag">SDKs</span>
+    <span class="tag">Platform</span>
+  </div>
+
+   <!-- BREADCRUMB -->
+   <nav class="breadcrumb">
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+    <span> / LexiMind</span>
+  </nav>
+
+  <!-- Main Doc Body -->
+  <section class="docs-section">
+    <div class="docs-body">
+
+    <section>
+        <h2>Overview</h2>
+      
+        <h3>Purpose</h3>
+        <p>
+          This document describes the <strong>Bonus Wheel feature</strong> for 
+          <strong>Crimson Temple</strong>, an Asian-mythology themed 5x3 video slot.
+          The feature introduces a high-intensity, visually cinematic wheel mechanic 
+          that awards multipliers, fixed coin wins, free spins bundles, and a 
+          progressive “Dragon Pot” jackpot tier.
+        </p>
+        <p>
+          The goal of this feature is to:
+        </p>
+        <ul>
+          <li>Provide a clear, reusable specification for engineering, QA, and math teams.</li>
+          <li>Define the exact behaviour of the Bonus Wheel from trigger to payout.</li>
+          <li>Ensure the feature can be certified in regulated markets with minimal rework.</li>
+          <li>Align UI/UX, audio, and thematic elements with the Crimson Temple brand.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>Scope</h2>
+      
+        <h3>In Scope</h3>
+        <ul>
+          <li>Bonus Wheel trigger conditions (base game only).</li>
+          <li>Wheel layout, segments, and prize types (coin wins, multipliers, free spins, jackpot tier).</li>
+          <li>Front-end flow and animations from trigger event to result reveal.</li>
+          <li>Back-end state handling, RNG calls, and payout resolution.</li>
+          <li>Integration with game math (RTP contribution, volatility, prize distribution).</li>
+          <li>Basic localisation hooks for labels, tooltips, and messages.</li>
+        </ul>
+      
+        <h3>Out of Scope</h3>
+        <ul>
+          <li>Full base game specification (reels, pay table, line evaluation logic).</li>
+          <li>Back-office configuration tools (campaign overlays, custom wheel mapping per operator).</li>
+          <li>Promotional overlays, seasonal reskins, or time-limited events.</li>
+          <li>Detailed jackpot platform integration (covered in Jackpot Platform spec).</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>Main Feature Description</h2>
+        <p>
+          The <strong>Crimson Temple Bonus Wheel</strong> is a single-spin wheel bonus feature with
+          16 segments. Each segment represents one of four prize classes:
+        </p>
+        <ul>
+          <li><strong>Fixed Coin Win</strong> (e.g., 20x–100x total bet)</li>
+          <li><strong>Win Multiplier</strong> applied to the spin that triggered the feature</li>
+          <li><strong>Free Spins Bundle</strong> with enhanced reel set</li>
+          <li><strong>Dragon Pot</strong> – entry into a jackpot pick game (Mini / Major / Grand)</li>
+        </ul>
+      
+        <h3>Trigger Conditions</h3>
+        <ul>
+          <li>
+            The Bonus Wheel triggers when <strong>3 or more Wheel Scatter symbols</strong> land 
+            anywhere on the reels during a base game spin.
+          </li>
+          <li>
+            A secondary trigger path exists via <strong>Temple Spirit Meter</strong>:
+            every non-winning spin may randomly charge the meter. When the meter reaches 100%, 
+            it guarantees a Bonus Wheel trigger on the next spin.
+          </li>
+          <li>Only one Bonus Wheel can be active at a time; feature triggers cannot stack.</li>
+        </ul>
+      
+        <h3>High-Level Flow</h3>
+        <ol>
+          <li>Base game spin completes and engine evaluates wins.</li>
+          <li>Engine checks for 3+ Wheel Scatters or a forced trigger via Temple Spirit Meter.</li>
+          <li>If triggered, reels dim and a modal-style transition animates the player into the Bonus Wheel scene.</li>
+          <li>Wheel spins for 3–5 seconds with easing out animation and synchronized soundscape.</li>
+          <li>RNG resolves final segment; wheel slows and stops on the winning prize.</li>
+          <li>Prize is granted (coin win, multiplier, free spins, or Dragon Pot entry).</li>
+          <li>Player is returned to base game or moved into the Free Spins / Dragon Pot bonus.</li>
+        </ol>
+      
+        <p>
+          📸 <em>Design Note:</em> The wheel UI is overlaid on a darkened view of the temple
+          courtyard, with animated lanterns and a coiled dragon silhouette behind the wheel.
+          The dragon glows when high-value rewards are near the pointer.
+        </p>
+      </section>
+      
+      <section>
+        <h2>Prerequisite</h2>
+        <p>Before implementing or enabling the Bonus Wheel feature, the following must be in place:</p>
+        <ul>
+          <li>Installed tools: <code>Node.js</code>, build tooling for the FE framework, RNG library dependency.</li>
+          <li>Access rights: 
+            <ul>
+              <li>Developer access to game server and client code repositories.</li>
+              <li>QA access to staging and certification environments.</li>
+              <li>Math team access to game configuration and simulation tools.</li>
+            </ul>
+          </li>
+          <li>A configured and certified RNG source referenced by the game server.</li>
+          <li>Art and sound assets for the wheel (see Assets section).</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>Dependencies</h2>
+        <ul>
+          <li><strong>Game Server:</strong> Responsible for RNG calls, prize resolution, and balance updates.</li>
+          <li><strong>Jackpot Platform:</strong> Required if the Dragon Pot prize is enabled.</li>
+          <li><strong>Base Game Engine:</strong> Must surface scatter counts and meter state per spin.</li>
+          <li><strong>Analytics / Telemetry Service:</strong> To track feature entry, hit rate, and prize distribution.</li>
+        </ul>
+        <p>
+          The Bonus Wheel feature must not be enabled in production until the base game configuration 
+          and math model have been validated by the math team and, where applicable, external labs.
+        </p>
+      </section>
+      
+      <section>
+        <h2>Assets</h2>
+        <ul>
+          <li><strong>Wheel Board:</strong> <code>art/ui/crimson_temple/wheel_board_v03.png</code></li>
+          <li><strong>Pointer &amp; Glow Effects:</strong> <code>art/ui/crimson_temple/wheel_pointer_v02.png</code></li>
+          <li><strong>Background Key Art:</strong> <code>art/bg/crimson_temple/temple_courtyard_night_v04.png</code></li>
+          <li><strong>Audio – Spin Loop:</strong> <code>audio/sfx/wheel_spin_bamboo_loop.wav</code></li>
+          <li><strong>Audio – Stop Hit:</strong> <code>audio/sfx/wheel_hit_gong.wav</code></li>
+          <li><strong>Audio – Dragon Pot Win:</strong> <code>audio/sfx/dragon_roar_bigwin.wav</code></li>
+          <li><strong>Localisation Keys:</strong> 
+            <ul>
+              <li><code>bonus_wheel_title</code> – “Crimson Fortune Wheel”</li>
+              <li><code>bonus_wheel_subtitle</code> – “Spin for multipliers, free spins and Dragon Pot rewards.”</li>
+              <li><code>bonus_wheel_hint</code> – “Tap to spin the wheel.”</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>Change Description</h2>
+        <p><strong>Current State:</strong> Crimson Temple base game is live with standard free spins feature, but no mid-to-high volatility wheel mechanic.</p>
+        <p><strong>Target State:</strong> Introduce a Bonus Wheel feature that:</p>
+        <ul>
+          <li>Triggers in ~1/160 spins (configurable per jurisdiction).</li>
+          <li>Contributes ~25–30% of total game RTP.</li>
+          <li>Offers a mix of medium coin wins and rare high-value outcomes (Dragon Pot, high multipliers).</li>
+        </ul>
+      
+        <h3>Implementation Steps</h3>
+        <ol>
+          <li>
+            <strong>Server:</strong> Add new feature state, RNG call, and prize resolution logic 
+            (including mapping of outcome ID → client segment index).
+          </li>
+          <li>
+            <strong>Client:</strong> Implement Bonus Wheel scene, animations, and event handling for
+            <code>feature_start</code>, <code>feature_result</code>, and <code>feature_end</code>.
+          </li>
+          <li>
+            <strong>Configuration &amp; Math:</strong> Define wheel segment weights, prize table, and 
+            jurisdictional overrides; run simulations to validate RTP and variance.
+          </li>
+        </ol>
+      </section>
+      
+      <section>
+        <h2>Deployment Plan</h2>
+        <ul>
+          <li><strong>Deployment Window:</strong> 02:00–04:00 UTC (low-traffic window).</li>
+          <li>
+            <strong>Responsible Teams:</strong>
+            <ul>
+              <li>Game Dev Team – deploy client build.</li>
+              <li>Platform / DevOps – deploy server build and config.</li>
+              <li>QA – smoke test feature post-deploy.</li>
+              <li>Compliance – confirm jurisdictions where Bonus Wheel may go live.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Go/No-Go Criteria:</strong>
+            <ul>
+              <li>All pre-deployment regression tests passed.</li>
+              <li>RTP simulations within approved tolerance band.</li>
+              <li>No new errors in telemetry for 30 mins after go-live.</li>
+            </ul>
+          </li>
+        </ul>
+      
+        <h3>Communication Plan</h3>
+        <ul>
+          <li>Pre-deploy notice in #release-crimson-temple 24 hours before deployment.</li>
+          <li>Real-time updates during deployment (start, halfway, completed, rollback if needed).</li>
+          <li>Post-release summary in internal release notes and, where applicable, partner changelog.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>Testing &amp; Validation</h2>
+      
+        <h3>Acceptance Criteria</h3>
+        <ul>
+          <li>Bonus Wheel triggers according to configured hit rate in simulation and QA.</li>
+          <li>All outcomes (coin wins, multipliers, free spins, Dragon Pot) resolve correctly and credit the player.</li>
+          <li>Animations, sound, and transitions match UX specification.</li>
+          <li>No orphaned states after disconnect / refresh.</li>
+        </ul>
+      
+        <h3>Test Plan Overview</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Test Type</th>
+              <th>Area Tested</th>
+              <th>Method</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Unit Tests</td>
+              <td>RNG mapping, feature state machine</td>
+              <td>Automated suite</td>
+              <td>BE Dev</td>
+            </tr>
+            <tr>
+              <td>Functional</td>
+              <td>Trigger logic, wheel spin, prize reveal</td>
+              <td>Manual + Automation</td>
+              <td>QA Team</td>
+            </tr>
+            <tr>
+              <td>Regression</td>
+              <td>Base game, free spins, jackpot integration</td>
+              <td>Automated suite</td>
+              <td>QA Team</td>
+            </tr>
+            <tr>
+              <td>Certification</td>
+              <td>RTP band, randomness, feature behaviour</td>
+              <td>Lab test plan</td>
+              <td>Compliance / External Lab</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <h3>Testing Performed (Sample Bug Records)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Bug ID / Jira Ref</th>
+              <th>Description</th>
+              <th>Test Type</th>
+              <th>Result</th>
+              <th>Tester</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CT-WHEEL-001</td>
+              <td>Wheel stops one segment before intended outcome</td>
+              <td>Functional</td>
+              <td>Pass (after easing curve fix)</td>
+              <td>QA Team</td>
+              <td>2025-11-10</td>
+            </tr>
+            <tr>
+              <td>CT-WHEEL-004</td>
+              <td>Dragon Pot win animation not playing audio</td>
+              <td>Functional</td>
+              <td>Pass</td>
+              <td>QA Team</td>
+              <td>2025-11-11</td>
+            </tr>
+            <tr>
+              <td>CT-WHEEL-007</td>
+              <td>Free spins prize not correctly incrementing total spins counter</td>
+              <td>Regression</td>
+              <td>Pass (post hotfix)</td>
+              <td>QA Team</td>
+              <td>2025-11-12</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <section>
+        <h2>Platform and System Updates</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supported Platforms</td>
+              <td>Desktop (Chrome, Edge, Firefox), Mobile Web (iOS/Android), Android native wrapper.</td>
+            </tr>
+            <tr>
+              <td>Minimum System Requirements</td>
+              <td>2GB RAM, modern JS engine, stable network connection (&gt; 1 Mbps).</td>
+            </tr>
+            <tr>
+              <td>Performance Enhancements</td>
+              <td>Preloading wheel assets; lazy-loading jackpot visuals only when segment is hit.</td>
+            </tr>
+            <tr>
+              <td>Compatibility Changes</td>
+              <td>No changes to legacy builds; Bonus Wheel available only in Crimson Temple v1.3+.</td>
+            </tr>
+            <tr>
+              <td>Infrastructure Changes</td>
+              <td>New feature flag <code>feature.crimson_temple_bonus_wheel</code> in config service.</td>
+            </tr>
+            <tr>
+              <td>Third-Party Integrations</td>
+              <td>Optional integration with operator jackpot API if mapped to Dragon Pot.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <section>
+        <h2>References &amp; Supporting Documents</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Links / IDs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jira Tickets</td>
+              <td>CTM-120 (Feature), CTM-134 (Math), CTM-141 (QA Regression Suite)</td>
+            </tr>
+            <tr>
+              <td>Related Documents</td>
+              <td>Crimson Temple Base Game Spec, Jackpot Integration Spec, Math Model v1.3</td>
+            </tr>
+            <tr>
+              <td>Version Control Reference</td>
+              <td>Repo: <code>games/crimson_temple</code>, Tag: <code>release/v1.3.0</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <section>
+        <h2>Compliance</h2>
+        <p>
+          Compliance with this document and the underlying certified math model shall be monitored via:
+          periodic audits, game configuration checks, and jurisdiction-specific certification reviews.
+        </p>
+        <p>
+          Any deviation from the certified wheel configuration (segment weights, prize table, RTP)
+          must follow the formal change management and re-certification process.
+        </p>
+      </section>
+      
+      <section>
+        <h2>Document Control &amp; Approvals</h2>
+        <p>
+          This document is reviewed at least annually, or whenever substantial changes are made 
+          to the Crimson Temple Bonus Wheel feature.
+        </p>
+        <ul>
+          <li><strong>Document Owner:</strong> Game Design Lead – Crimson Temple</li>
+          <li><strong>Technical Approver:</strong> Engineering Manager – Slot Platform</li>
+          <li><strong>Compliance Approver:</strong> Head of Regulatory &amp; Certification</li>
+        </ul>
+      </section>      
+    
+  </section>
+
+  <!-- NAV BUTTON -->
+
+  <div class="nav-buttons">
+    <a href="neuralflow-eval.html" class="btn">← Previous Project</a>
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+  </div>
+
+  <a href="#top" class="to-top">↑ Back to Top</a>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Leslie Amadi</p>
+</footer>
+
+</div>
+</div>
+</body>
+</html>
+

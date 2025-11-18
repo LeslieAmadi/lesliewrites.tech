@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booming Games – Jira Ticket Movement Workflow | Portfolio | Leslie Amadi</title>
+  <link rel="stylesheet" href="../../assets/style.css" />
+</head>
+
+<body>
+
+    <!--------------featured work---------------->
+<div class="page-shell">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="logo">Leslie Amadi</div>
+      <nav class="nav-menu">
+        <a href="../../index.html">Home</a>
+        <a href="../../portfolio.html" class="active">Portfolio</a>
+        <a href="../../blog.html">Blog</a>
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <h1>Hallo Games – Jira Ticket Movement Workflow</h1>
+    <p class="project-subtitle">
+      End-to-end workflow documentation defining statuses, transitions, governance rules, and SLAs
+      for multi-department operations across HOCS, CS, QA, Legal, and Product.
+    </p>
+
+    <div class="project-tags">
+      <span class="tag">Workflow Documentation</span>
+      <span class="tag">Process Design</span>
+      <span class="tag">Jira</span>
+      <span class="tag">Operational Excellence</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb">
+    <a href="../../portfolio.html">← Back to Portfolio</a>
+    <span> / Jira Workflow</span>
+  </nav>
+
+  <!-- DOCUMENT -->
+  <div class="docs-body">
+
+    <header>
+      <span class="tag">Process Documentation</span>
+      <span class="tag">Jira Workflow</span>
+      <span class="tag">Governance</span>
+
+      <h1>Hallo Games – Ticket Movement Workflow (Jira)</h1>
+      <p><em>Author: Leslie Amadi · Process & Technical Documentation</em></p>
+
+      <hr>
+
+      <!-- Document Control -->
+      <h2>Document Control</h2>
+      <table>
+        <tbody>
+          <tr><td><strong>Document Title:</strong></td><td>Hallo Games – Ticket Movement Workflow</td></tr>
+          <tr><td><strong>Workflow Type:</strong></td><td>Integration / QA / Support</td></tr>
+          <tr><td><strong>Owner:</strong></td><td>Head of CS (HOCS)</td></tr>
+          <tr><td><strong>Department:</strong></td><td>Customer Success · QA · Legal · Product</td></tr>
+          <tr><td><strong>Approver:</strong></td><td>Director of Operations</td></tr>
+          <tr><td><strong>Version:</strong></td><td>1.0</td></tr>
+          <tr><td><strong>Status:</strong></td><td>Final</td></tr>
+          <tr><td><strong>Last Updated:</strong></td><td>Feb 2025</td></tr>
+          <tr><td><strong>Next Review:</strong></td><td>May 2025</td></tr>
+        </tbody>
+      </table>
+    </header>
+
+    <!-- 1. Purpose -->
+    <h2>1. Purpose</h2>
+    <p>
+      This workflow defines the standardised process for managing and transitioning tickets across Booming Games’
+      integration, QA, and support lifecycle. It ensures:
+    </p>
+    <ul>
+      <li>Consistent and auditable transitions between teams.</li>
+      <li>Clear entry and exit criteria for every status.</li>
+      <li>SLA-aligned movement to support customer integrations.</li>
+      <li>Cross-department alignment between HOCS, CS, QA, Legal, and Product.</li>
+    </ul>
+
+    <!-- 2. Scope -->
+    <h2>2. Scope</h2>
+    <p>This workflow applies to:</p>
+    <ul>
+      <li><strong>HOCS</strong> – workflow initiation, governance, and customer coordination.</li>
+      <li><strong>Customer Success (CS)</strong> – integration support and customer communication.</li>
+      <li><strong>QA</strong> – functional validation, regression, defect reporting.</li>
+      <li><strong>Legal</strong> – contract compliance (when needed).</li>
+      <li><strong>Product / Dev</strong> – escalations, blockers, engineering fixes.</li>
+    </ul>
+
+    <!-- 3. Diagram -->
+    <h2>3. Workflow Overview</h2>
+    <p>Core workflow path used for all partner integrations:</p>
+
+    <pre><code>To Do 
+  → Client Setup 
+  → Pending Customer Feedback 
+  → Customer Integration 
+  → QA Testing 
+  → Ready to Go Live 
+  → Live</code></pre>
+
+    <!-- 4. Status Definitions -->
+    <h2>4. Status Definitions</h2>
+    <p>Each status includes meaning, entry criteria, and required exit criteria.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Meaning</th>
+          <th>Entry Criteria</th>
+          <th>Exit Criteria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>To Do</strong></td>
+          <td>Initial creation of task or integration request.</td>
+          <td>Ticket created with baseline requirements.</td>
+          <td>HOCS confirms customer and product involved.</td>
+        </tr>
+        <tr>
+          <td><strong>Client Setup</strong></td>
+          <td>Credentials, channel setup, environment preparation.</td>
+          <td>Customer contact + product information confirmed.</td>
+          <td>Credentials generated, documented, and delivered securely.</td>
+        </tr>
+        <tr>
+          <td><strong>Pending Customer Feedback</strong></td>
+          <td>Customer must provide input or approval.</td>
+          <td>CS sends request and logs communication.</td>
+          <td>Customer responds with next steps or approval.</td>
+        </tr>
+        <tr>
+          <td><strong>Customer Integration</strong></td>
+          <td>Customer is actively implementing the integration.</td>
+          <td>Test credentials in place.</td>
+          <td>Customer confirms readiness for QA.</td>
+        </tr>
+        <tr>
+          <td><strong>QA Testing</strong></td>
+          <td>Functional testing + integration validation.</td>
+          <td>Customer indicates integration is complete.</td>
+          <td>All tests passed, defects resolved, test results logged.</td>
+        </tr>
+        <tr>
+          <td><strong>Ready to Go Live</strong></td>
+          <td>Integration approved for production.</td>
+          <td>QA sign-off is completed and documented.</td>
+          <td>Production configuration staged and validated.</td>
+        </tr>
+        <tr>
+          <td><strong>Live</strong></td>
+          <td>Integration is active in production.</td>
+          <td>Go-live executed.</td>
+          <td>Stability monitoring completed (24–48 hours).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Transition Rules -->
+    <h2>5. Transition Rules</h2>
+
+    <h3>5.1 Allowed Transitions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>From</th>
+          <th>To</th>
+          <th>Actor</th>
+          <th>Conditions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>To Do</td>
+          <td>Client Setup</td>
+          <td>HOCS</td>
+          <td>Kick-off call completed.</td>
+        </tr>
+        <tr>
+          <td>Client Setup</td>
+          <td>Pending Customer Feedback</td>
+          <td>CS / HOCS</td>
+          <td>Credentials delivered, awaiting customer action.</td>
+        </tr>
+        <tr>
+          <td>Customer Integration</td>
+          <td>QA Testing</td>
+          <td>CS</td>
+          <td>Customer confirms readiness.</td>
+        </tr>
+        <tr>
+          <td>QA Testing</td>
+          <td>Ready to Go Live</td>
+          <td>QA</td>
+          <td>All tests passed.</td>
+        </tr>
+        <tr>
+          <td>Ready to Go Live</td>
+          <td>Live</td>
+          <td>HOCS / CS</td>
+          <td>Production configuration approved.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>5.2 Forbidden Transitions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>From</th>
+          <th>To</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Live</td>
+          <td>QA Testing</td>
+          <td>Post-release tests must be logged as new tickets.</td>
+        </tr>
+        <tr>
+          <td>Ready to Go Live</td>
+          <td>Customer Integration</td>
+          <td>Backwards movement violates audit trail.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 6. SLAs -->
+    <h2>6. SLA Expectations</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>SLA</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Customer Integration</td>
+          <td>7 days (customer-dependent)</td>
+          <td>Customer</td>
+        </tr>
+        <tr>
+          <td>QA Testing</td>
+          <td>2–3 business days</td>
+          <td>QA Team</td>
+        </tr>
+        <tr>
+          <td>Pending Customer Feedback</td>
+          <td>Reviewed every 48–72 hours</td>
+          <td>HOCS / CS</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 7. Roles -->
+    <h2>7. Role Responsibilities</h2>
+
+    <h3>HOCS</h3>
+    <ul>
+      <li>Initiates workflow and ensures compliance.</li>
+      <li>Runs kick-off and onboarding calls.</li>
+      <li>Determines transition readiness.</li>
+    </ul>
+
+    <h3>Customer Success (CS)</h3>
+    <ul>
+      <li>Supports customer through integration.</li>
+      <li>Moves tickets into QA readiness.</li>
+      <li>Documents customer communication.</li>
+    </ul>
+
+    <h3>QA Team</h3>
+    <ul>
+      <li>Executes testing and logs results.</li>
+      <li>Approves or blocks go-live transitions.</li>
+    </ul>
+
+    <h3>Customer</h3>
+    <ul>
+      <li>Completes integration work.</li>
+      <li>Provides timely feedback.</li>
+    </ul>
+
+    <!-- 8. RACI -->
+    <h2>8. RACI Matrix</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>R</th>
+          <th>A</th>
+          <th>C</th>
+          <th>I</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Move ticket to Client Setup</td>
+          <td>HOCS</td>
+          <td>HOCS</td>
+          <td>CS</td>
+          <td>QA</td>
+        </tr>
+        <tr>
+          <td>Begin QA Testing</td>
+          <td>QA</td>
+          <td>QA Lead</td>
+          <td>CS</td>
+          <td>HOCS</td>
+        </tr>
+        <tr>
+          <td>Approve Go Live</td>
+          <td>HOCS</td>
+          <td>HOCS</td>
+          <td>CS, QA</td>
+          <td>Legal</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 9. References -->
+    <h2>9. References</h2>
+    <ul>
+      <li><a href="#">Jira Workflow Board (Internal)</a></li>
+      <li><a href="#">Integration Checklist</a></li>
+      <li><a href="#">QA Standard Test Suite</a></li>
+    </ul>
+
+    <!-- 10. Document History -->
+    <h2>10. Document History</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Version</th>
+          <th>Date</th>
+          <th>Author</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1.0</td>
+          <td>Feb 2025</td>
+          <td>Leslie Amadi</td>
+          <td>Initial release of workflow documentation.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- NAV BUTTONS -->
+    <div class="nav-buttons">
+      <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+    </div>
+
+  </div><!-- end docs-body -->
+
+</div>
+</body>
+</html>

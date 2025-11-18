@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CloudTrack Monitor Technical Documentation by LexiTech">
+  <title>CloudTrack Monitor Technical Documentation | LexiTech</title>
+  <link rel="stylesheet" href="../css/docs.css">
+</head>
+
+<style>
+  body {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: #fff;
+    color: #333;
+    padding: 2rem;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    color: #723f74;
+    margin-top: 1.5rem;
+  }
+
+  ul {
+    margin-left: 1.2rem;
+  }
+
+  .btn {
+    background-color: #e4b1cb;
+    color: rgb(252, 236, 236);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #f6bae7;
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid #f1d7f5;
+    margin: 1.5rem 0;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.9em;
+    color: #777;
+  }
+</style>
+
+<body> 
+  <div class="docs-body">
+
+    <header>
+      <h3>CloudTrack Monitor – Technical Documentation</h1>
+      <p>Version: 2.3 · Author: Leslie Amadi · Organisation: LexiTech · Date: November 2025</p>
+      <hr>
+    </header>
+
+    <div class="docs-content">
+
+      <h2>Purpose</h2>
+      <p><strong>CloudTrack Monitor</strong> is a predictive server analytics and monitoring tool developed by <strong>LexiTech</strong>.</p>
+
+      <h2>Scope</h2>
+      <p>Covers architecture, installation, API, configuration, and troubleshooting.</p>
+
+      <h2>System Overview</h2>
+      <p>CloudTrack continuously collects and analyses server performance metrics to forecast issues before they occur.</p>
+
+      <h2>Design Details</h2>
+      <p><strong>Architecture:</strong> Cloud Agent → Data Stream → Analytics Engine → Dashboard + Alerts</p>
+
+      <h2>Installation</h2>
+      <p><strong>Requirements:</strong> Node.js 18+, MongoDB 6+, Cloud provider API credentials</p>
+      <ol>
+        <li>Clone the repository</li>
+        <li>Install dependencies</li>
+        <li>Run <code>npm start</code></li>
+      </ol>
+
+      <h2>Configuration</h2>
+      <pre>{ "thresholds": { "cpu": 80, "memory": 85 }, "alertChannels": ["email", "slack"] }</pre>
+
+      <h2>Usage</h2>
+      <p>Visit <code>http://localhost:3000</code> to access the dashboard and monitor system health in real time.</p>
+
+      <h2>Troubleshooting</h2>
+      <table>
+        <tr><th>Problem</th><th>Cause</th><th>Solution</th></tr>
+        <tr><td>Metrics missing</td><td>Agent not connected</td><td>Restart the agent</td></tr>
+        <tr><td>Alerts not delivered</td><td>Invalid token</td><td>Update webhook credentials</td></tr>
+        <tr><td>Dashboard blank</td><td>DB disconnected</td><td>Reconnect or restart MongoDB</td></tr>
+      </table>
+
+      <h2>Best Practices</h2>
+      <ul>
+        <li>Configure redundant agents for critical systems.</li>
+        <li>Enable weekly automated reports for audits.</li>
+        <li>Regularly update dependencies to maintain performance.</li>
+      </ul>
+
+      <p>
+        <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+      </p>
+    </div>
+
+    <footer class="footer">
+      <p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>

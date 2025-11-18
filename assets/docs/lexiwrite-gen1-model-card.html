@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Card: LexiWrite Gen-1 | Leslie Writes</title>
+  <link rel="stylesheet" href="../css/docs.css">
+
+  <style>
+    /* --- Global Page Background (old book, ivory blush) --- */
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: "Poppins", sans-serif;
+      background: #f7f2ec; /* ✨ Soft ivory blush */
+      color: #333;
+    }
+
+    /* --- Document Container with Border --- */
+    .docs-body {
+      background: #fff9f7; /* Off-white blush */
+      max-width: 900px;
+      margin: auto;
+      padding: 2.5rem;
+      border-radius: 14px;
+      border: 1.5px solid #e8d4c9; /* warm nude border */
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    }
+
+    /* --- Headings --- */
+    h1, h2, h3, h4 {
+      color: #2a2a2a; /* dusty rose */
+      margin-top: 1.6rem;
+      font-weight: 600;
+    }
+
+    /* --- Meta Tags --- */
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      background: #f3d9e0;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      margin-right: 0.3rem;
+      color: #7c4b63;
+    }
+
+    /* --- Tables --- */
+    table {
+      width: 100%;
+      margin: 1rem 0;
+      border-collapse: collapse;
+      background: #fffdfc;
+      font-size: 0.95rem;
+    }
+    table th, table td {
+      padding: 0.7rem;
+      border: 1px solid #eadcd6;
+    }
+    table th {
+      background: #f4e8e2;
+      color: #613e4d;
+    }
+
+    /* --- Callouts --- */
+    .callout {
+      background: #fff4f6;
+      border-left: 4px solid #e3b4c4;
+      padding: 0.9rem 1.1rem;
+      border-radius: 8px;
+      margin: 1.3rem 0;
+    }
+
+    /* --- Preformatted Blocks --- */
+    pre {
+      background: #fff7f5;
+      border: 1px solid #eeded8;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /* --- Meta Grid --- */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 1rem;
+      margin: 1.2rem 0;
+    }
+    .meta-label {
+      font-weight: 600;
+      color: #7a4c58;
+    }
+
+    /* --- Navigation Buttons --- */
+    .btn {
+      background: #e3b4c4;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn:hover {
+      background: #dca6b7;
+    }
+
+    /* --- Scroll-to-top button --- */
+    .to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #dca6b7;
+      color: #fff;
+      padding: 0.65rem 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8a6d75;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Model Card: LexiWrite Gen-1</h1>
+    <p><em>Prepared by: LexiTech AI Documentation Team</em></p>
+    <hr>
+  </header>
+
+  <main>
+
+    <!-- 1. Overview -->
+    <section>
+      <h2>1. Overview</h2>
+      <p><strong>Model Name:</strong> LexiWrite Gen-1<br>
+         <strong>Type:</strong> Transformer-based LLM (medium class)<br>
+         <strong>Primary Application:</strong> AI-assisted writing for product documentation, internal comms, and structured text rewriting<br>
+         <strong>Owner:</strong> LexiTech AI Documentation Team<br>
+         <strong>Version:</strong> 1.0<br>
+         <strong>Release Date:</strong> September 2025</p>
+
+      <p>
+        LexiWrite Gen-1 is designed as an internal AI assistant for improving content workflows.  
+        Unlike customer-facing generative models, this version prioritises <strong>consistency, clarity, and controllability</strong> over wide-domain generalisation.
+      </p>
+    </section>
+
+    <!-- 1.1 Architecture Diagram -->
+    <section>
+      <h3>1.1 High-Level Model Architecture</h3>
+      <pre>
++---------------------------------------------------------------+
+|                        LEXIWRITE GEN-1                        |
++---------------------------------------------------------------+
+                |                     |
+                v                     v
+      +------------------+   +------------------------+
+      |  Input Handler   |   |  Prompt Conditioning   |
+      +------------------+   +------------------------+
+      | - Cleaning       |   | - Style constraints    |
+      | - Tokenisation   |   | - Tone hints           |
+      | - Normalisation  |   | - Context injection    |
+      +---------+--------+   +-----------+------------+
+                |                        |
+                +-----------+------------+
+                            v
+                 +-------------------------+
+                 |  Transformer Encoder    |
+                 +-------------------------+
+                 | - 18 layers             |
+                 | - Multi-head attention  |
+                 | - LayerNorm             |
+                 | - Positional embeddings |
+                 +-----------+-------------+
+                             |
+                             v
+                 +--------------------------+
+                 |  Decoder / Rewrite Head  |
+                 +--------------------------+
+                 | - Controlled generation  |
+                 | - Tone smoothing         |
+                 | - Output formatting      |
+                 +-----------+--------------+
+                             |
+                             v
+                 +----------------------------+
+                 |        Final Output        |
+                 +----------------------------+
+      </pre>
+    </section>
+
+    <!-- 2. Intended Use -->
+    <section>
+      <h2>2. Intended Use</h2>
+
+      <h3>2.1 Intended Users</h3>
+      <ul>
+        <li>Technical Writers</li>
+        <li>Product Managers</li>
+        <li>UX Writers</li>
+        <li>Support Content Leads</li>
+      </ul>
+
+      <h3>2.2 Supported Use Cases</h3>
+      <ul>
+        <li>Rewriting content for clarity and tone</li>
+        <li>Drafting help centre articles and FAQs</li>
+        <li>Summarising product updates for release notes</li>
+        <li>Converting technical jargon into user-friendly text</li>
+      </ul>
+
+      <h3>2.3 Out-of-Scope Uses</h3>
+      <p>LexiWrite Gen-1 must <strong>not</strong> be used for:</p>
+      <ul>
+        <li>Medical, legal, or financial content</li>
+        <li>Autonomous content publication systems</li>
+        <li>Processing confidential or regulated data</li>
+        <li>Generation of harmful or discriminatory content</li>
+      </ul>
+    </section>
+
+    <!-- 3. Model Details -->
+    <section>
+      <h2>3. Model Details</h2>
+
+      <h3>3.1 Configuration</h3>
+      <ul>
+        <li><strong>Architecture:</strong> Transformer, 480M parameters</li>
+        <li><strong>Context Window:</strong> 4,096 tokens</li>
+        <li><strong>Embedding Size:</strong> 2,048</li>
+        <li><strong>Attention Heads:</strong> 16</li>
+        <li><strong>Training Framework:</strong> PyTorch + DeepSpeed</li>
+      </ul>
+
+      <h3>3.2 Training Data Composition</h3>
+      <pre>
++--------------------------------------+
+| LexiWrite Gen-1 Training Data Mix    |
++--------------------------------------+
+| 45% Public technical documentation   |
+| 30% Internal product help content    |
+| 15% Curated web text                 |
+| 10% Synthetic rewrite examples       |
++--------------------------------------+
+      </pre>
+
+      <p><em>No customer data or private logs were used.</em></p>
+    </section>
+
+    <!-- 4. Performance -->
+    <section>
+      <h2>4. Performance & Evaluation</h2>
+
+      <h3>4.1 Quantitative Metrics</h3>
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>Score</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Helpfulness (human-rated)</td><td>4.4 / 5</td><td>Internal panel</td></tr>
+          <tr><td>Factual accuracy</td><td>82%</td><td>Non-domain factual checks</td></tr>
+          <tr><td>Style adherence</td><td>88%</td><td>Based on LexiTech voice guide</td></tr>
+          <tr><td>Rewrite consistency</td><td>91%</td><td>Structural fidelity</td></tr>
+        </tbody>
+      </table>
+
+      <h3>4.2 Human Evaluation Summary</h3>
+      <ul>
+        <li>Strong at rewriting unclear phrasing into concise instructions.</li>
+        <li>Reliable when given context (product name, audience, constraints).</li>
+        <li>Weak when asked to invent technical features or unknown API behaviours.</li>
+      </ul>
+
+      <h3>4.3 Example Monitoring Dashboard (ASCII)</h3>
+      <pre>
+LexiWrite Gen-1 Monitoring Dashboard (Weekly)
+
+Latency (p95): ████░░░░ 230ms
+Error Rate:    █░░░░░░░ 0.4%
+Style Score:   ██████░░ 88%
+Usage Volume:  ██████████████ 14.2k requests/week
+      </pre>
+    </section>
+
+    <!-- 5. Risks -->
+    <section>
+      <h2>5. Risks & Limitations</h2>
+
+      <h3>5.1 Known Risks</h3>
+      <ul>
+        <li>May fabricate missing technical details</li>
+        <li>Limited deep engineering reasoning</li>
+        <li>Weak at long-form creativity tasks</li>
+        <li>Occasional over-simplification</li>
+      </ul>
+
+      <h3>5.2 Mitigations</h3>
+      <ul>
+        <li>Ensure all outputs undergo human editorial review</li>
+        <li>Provide clear constraints (“Do not invent features”)</li>
+        <li>Supply grounding documents</li>
+        <li>Enable hallucination heuristics in the API layer</li>
+      </ul>
+
+      <h3>5.3 Safety Considerations</h3>
+      <ul>
+        <li>Content filters run pre- and post-generation</li>
+        <li>PII stripping enforced automatically</li>
+        <li>Misuse detection monitors unusual patterns</li>
+      </ul>
+    </section>
+
+    <!-- 6. Data & Privacy -->
+    <section>
+      <h2>6. Data & Privacy</h2>
+      <ul>
+        <li>No user PII required for inference</li>
+        <li>Error logs stored in anonymised form</li>
+        <li>Conforms to LexiTech privacy governance</li>
+      </ul>
+    </section>
+
+    <!-- 7. Deployment -->
+    <section>
+      <h2>7. Deployment & Monitoring</h2>
+
+      <h3>7.1 API Access</h3>
+      <p>Endpoint: <code>POST /v1/generate-copy</code><br>
+      Authentication: Internal service token</p>
+
+      <h3>7.2 Runtime Monitoring</h3>
+      <ul>
+        <li>Latency thresholds (p95 / p99)</li>
+        <li>Style adherence checks</li>
+        <li>Error-rate alerting</li>
+        <li>Hallucination heuristics</li>
+      </ul>
+
+      <h3>7.3 Model Lifecycle</h3>
+      <pre>
+Model Lineage:
+Gen-0.5 → Prototype
+Gen-1.0 → Current production
+Gen-1.1 → Planned (bigger window, stronger German support)
+      </pre>
+
+      <h3>7.4 Decommissioning Triggers</h3>
+      <ul>
+        <li>Voice guide revision</li>
+        <li>Accuracy below 75%</li>
+        <li>Compliance changes</li>
+        <li>Shift to multilingual workflows</li>
+      </ul>
+
+      <!-- NAV BUTTONS -->
+ <p style="margin-top: 2rem;">
+  <a href="../../previous-page.html" class="btn">← Previous Page</a>
+  <a href="../../next-page.html" class="btn" style="margin-left:0.5rem;">Next Page →</a>
+  <a href="../../portfolio.html" class="btn" style="margin-left:0.5rem;">Back to Portfolio</a>
+</p>
+
+<footer>
+  © 2025 Leslie Amadi — All Rights Reserved.
+</footer>
+
+</div>
+
+<!-- Scroll back to top button -->
+<a href="#top" class="to-top">↑ Top</a>
+</div>
+</body>
+</html>
+
+
+
+

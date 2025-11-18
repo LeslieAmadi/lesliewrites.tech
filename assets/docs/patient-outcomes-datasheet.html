@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>Datasheet: Patient Outcomes Dataset | Leslie Writes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/docs.css">
+
+  <style>
+    body {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      color: #723f74;
+      margin-top: 2.1rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      margin-top: 0;
+    }
+
+    p, ul, table {
+      margin-bottom: 1.1rem;
+    }
+
+    ul {
+      margin-left: 1.4rem;
+      padding-left: 0.2rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #f1d7f5;
+      margin: 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.8rem;
+    }
+
+    table th, table td {
+      padding: 0.7rem 0.9rem;
+      border: 1px solid #e9c3ea;
+      font-size: 0.95rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    table th {
+      background-color: #f8e9fa;
+      color: #723f74;
+      font-weight: 600;
+    }
+
+    pre {
+      background: #fff6fb;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #f1d7f5;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    .callout {
+      border-left: 4px solid #e4b1cb;
+      background: #fff8fd;
+      padding: 0.9rem 1rem;
+      border-radius: 6px;
+      margin: 1.4rem 0;
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      background-color: #e4b1cb;
+      color: #fff;
+      padding: 0.7rem 1.4rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 1.4rem;
+      transition: background 0.25s ease;
+    }
+
+    .btn:hover {
+      background-color: #f6bae7;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="docs-body">
+    <main class="container">
+
+      <h1>Datasheet: Patient Outcomes Dataset</h1>
+      <p><em>Prepared by: LexiTech AI Research · Author: Leslie Amadi</em></p>
+      <hr>
+
+      <!-- 1. Motivation -->
+      <section>
+        <h2>1. Motivation</h2>
+        <p>
+          The <strong>Patient Outcomes Dataset</strong> was created to support research into the
+          early detection and monitoring of chronic illnesses using anonymised electronic health record (EHR) data.
+          It provides a structured, multi-centre view of patient trajectories, enabling fair, transparent,
+          and traceable machine learning evaluation in healthcare settings.
+        </p>
+        <p>
+          The dataset is intended for healthcare organisations, research teams, and ML practitioners who need a
+          realistic but privacy-preserving foundation for risk prediction models, treatment outcome analysis,
+          and bias evaluation across demographic groups.
+        </p>
+
+        <div class="callout">
+          <strong>Clinical note:</strong> The dataset is designed for <strong>model development and evaluation</strong>,
+          not for direct point-of-care decision making. Any models trained using this dataset must be clinically validated
+          and governed before deployment.
+        </div>
+      </section>
+
+      <!-- 2. Dataset Summary -->
+      <section>
+        <h2>2. Dataset Summary</h2>
+
+        <h3>2.1 Population & Coverage</h3>
+        <p>
+          The dataset includes longitudinal records from adult patients receiving care at
+          <strong>seven hospital centres</strong> in a mixed urban–suburban healthcare network.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Number of patients</td>
+              <td>~520,000 unique anonymised patient records</td>
+            </tr>
+            <tr>
+              <td>Institutions</td>
+              <td>7 medical centres (acute care & outpatient clinics)</td>
+            </tr>
+            <tr>
+              <td>Geography</td>
+              <td>Single country; mix of urban, peri-urban, and rural catchment areas</td>
+            </tr>
+            <tr>
+              <td>Time span</td>
+              <td>8-year window of historical data, aggregated by month</td>
+            </tr>
+            <tr>
+              <td>Age range</td>
+              <td>18–95+ at index encounter</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>2.2 Record Types</h3>
+        <p>The dataset contains the following broad feature groups:</p>
+        <ul>
+          <li><strong>Demographics:</strong> age band, sex, broad region, encounter type</li>
+          <li><strong>Clinical measurements:</strong> blood pressure, BMI, heart rate, temperature</li>
+          <li><strong>Medical history:</strong> diagnosis codes, comorbidities, prior admissions</li>
+          <li><strong>Lab tests:</strong> key lab values (e.g. creatinine, HbA1c, eGFR, lipids)</li>
+          <li><strong>Lifestyle indicators:</strong> smoking status, high-level adherence flags, activity category</li>
+        </ul>
+
+        <h3>2.3 Target Labels</h3>
+        <p>
+          Labels are defined at the patient-level over a fixed follow-up window and derived from clinician-confirmed
+          diagnoses and outcome events.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Type</th>
+              <th>Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>high_risk</td>
+              <td>Binary (0/1)</td>
+              <td>Patient had at least one serious chronic condition confirmed within 12 months of index date.</td>
+            </tr>
+            <tr>
+              <td>readmission_30d</td>
+              <td>Binary (0/1)</td>
+              <td>Readmission to any of the network hospitals within 30 days of discharge.</td>
+            </tr>
+            <tr>
+              <td>mortality_1y</td>
+              <td>Binary (0/1)</td>
+              <td>All-cause mortality within 1 year of index encounter (if available in source systems).</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 3. Schema & Features -->
+      <section>
+        <h2>3. Schema & Feature Groups</h2>
+
+        <h3>3.1 High-Level Schema</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature Group</th>
+              <th>Examples</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Demographics</td>
+              <td><code>age_band</code>, <code>sex</code>, <code>region</code>, <code>insurance_type</code></td>
+              <td>Highly aggregated to reduce re-identification risk.</td>
+            </tr>
+            <tr>
+              <td>Vitals & Measurements</td>
+              <td><code>bmi</code>, <code>sbp</code>, <code>dbp</code>, <code>heart_rate</code></td>
+              <td>Most recent measurement in a defined lookback window.</td>
+            </tr>
+            <tr>
+              <td>Lab Results</td>
+              <td><code>creatinine</code>, <code>hba1c</code>, <code>egfr</code>, <code>ldl</code></td>
+              <td>Normalised units; extreme outliers filtered or clipped.</td>
+            </tr>
+            <tr>
+              <td>Comorbidities</td>
+              <td><code>diabetes_flag</code>, <code>ckd_flag</code>, <code>chf_flag</code></td>
+              <td>Derived from diagnosis codes aggregated into condition flags.</td>
+            </tr>
+            <tr>
+              <td>Lifestyle Indicators</td>
+              <td><code>smoking_status</code>, <code>activity_level</code>, <code>adherence_score</code></td>
+              <td>Partially self-reported, partially inferred from encounters.</td>
+            </tr>
+            <tr>
+              <td>Outcome Labels</td>
+              <td><code>high_risk</code>, <code>readmission_30d</code>, <code>mortality_1y</code></td>
+              <td>Clinician-validated where possible; otherwise derived from EHR events.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>3.2 Data Splits</h3>
+        <p>Data is split by patient (not by encounter) to avoid leakage across train/test partitions.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Split</th>
+              <th>Percentage</th>
+              <th>Approx. Patients</th>
+              <th>Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Train</td>
+              <td>70%</td>
+              <td>~364,000</td>
+              <td>Model development</td>
+            </tr>
+            <tr>
+              <td>Validation</td>
+              <td>15%</td>
+              <td>~78,000</td>
+              <td>Hyperparameter tuning & early stopping</td>
+            </tr>
+            <tr>
+              <td>Test</td>
+              <td>15%</td>
+              <td>~78,000</td>
+              <td>Final model evaluation and reporting</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 4. Collection & Governance -->
+      <section>
+        <h2>4. Collection Process & Governance</h2>
+
+        <h3>4.1 Source Systems</h3>
+        <ul>
+          <li>Hospital electronic health record (EHR) exports (inpatient + outpatient).</li>
+          <li>Laboratory information systems (LIS) for structured lab results.</li>
+          <li>Admission/Discharge/Transfer (ADT) feeds for encounter and outcome events.</li>
+        </ul>
+
+        <h3>4.2 Collection Workflow</h3>
+        <ul>
+          <li>Raw EHR tables are extracted by each participating centre on a scheduled basis.</li>
+          <li>Data is transferred to a secure research enclave using encrypted channels.</li>
+          <li>Identifiers (names, addresses, direct IDs) are removed at the source institution.</li>
+          <li>Site-level mapping scripts harmonise codes and formats into a shared schema.</li>
+        </ul>
+
+        <h3>4.3 Governance</h3>
+        <ul>
+          <li>Dataset creation approved by each centre’s internal data governance board.</li>
+          <li>Use is restricted to research or ML evaluation under an approved protocol.</li>
+          <li>Re-identification attempts are explicitly prohibited in usage agreements.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>PHI/PII handling:</strong> Direct patient identifiers are removed before the data reaches
+          the central environment. Only highly aggregated demographic variables are retained.
+        </div>
+      </section>
+
+      <!-- 5. Preprocessing -->
+      <section>
+        <h2>5. Preprocessing & Data Pipeline</h2>
+
+        <h3>5.1 Pipeline Overview</h3>
+        <p>Transformation from raw EHR exports to the final ML-ready dataset follows this pipeline:</p>
+
+        <pre>
+Raw EHR & Lab Tables
+        |
+        v
++---------------------------+
+| 1. Schema Standardisation |
+| - Map local columns       |
+| - Align units             |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| 2. Cleaning & Filtering   |
+| - Remove corrupt rows     |
+| - De-duplicate patients   |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| 3. Outlier Handling       |
+| - Clinical range checks   |
+| - Winsorisation/clipping  |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| 4. Imputation             |
+| - Simple & model-based    |
+| - Missingness indicators  |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| 5. Feature Engineering    |
+| - Comorbidity flags       |
+| - Aggregated lab trends   |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| 6. Final Dataset Export   |
+| - Train/val/test splits   |
+| - Version tagging         |
++---------------------------+
+        </pre>
+
+        <h3>5.2 Key Preprocessing Steps</h3>
+        <ul>
+          <li><strong>Schema standardisation:</strong> Derived fields get consistent names across sites (e.g. <code>sbp</code>, <code>bmi</code>).</li>
+          <li><strong>Outlier removal:</strong> Clinically impossible values (e.g. negative heart rates) are removed or corrected.</li>
+          <li><strong>Normalisation:</strong> Selected numeric features are scaled for ML training (stored as both raw and normalised where needed).</li>
+          <li><strong>Missing value imputation:</strong> Combination of simple imputation (median) and model-based methods for selected labs.</li>
+          <li><strong>Category encoding:</strong> Categorical variables are one-hot or ordinal encoded, with an explicit <code>unknown</code> bucket.</li>
+        </ul>
+      </section>
+
+      <!-- 6. Intended Uses -->
+      <section>
+        <h2>6. Intended Uses</h2>
+        <p>
+          The dataset is primarily designed for research and development of clinical risk prediction and outcome
+          modelling, such as:
+        </p>
+        <ul>
+          <li>Training supervised ML models for early detection of chronic conditions.</li>
+          <li>Developing readmission risk scores and triage prioritisation tools.</li>
+          <li>Benchmarking model performance across demographic subgroups.</li>
+          <li>Evaluating fairness metrics (e.g. equal opportunity, calibration) in healthcare ML systems.</li>
+        </ul>
+      </section>
+
+      <!-- 7. Out-of-Scope Uses -->
+      <section>
+        <h2>7. Out-of-Scope Uses</h2>
+        <p>The dataset is <strong>not</strong> intended for:</p>
+        <ul>
+          <li>Direct, individual patient diagnosis or real-time treatment decisions.</li>
+          <li>Use as the sole evidence in clinical or legal decision-making.</li>
+          <li>Insurance pricing, eligibility decisions, or risk scoring for coverage.</li>
+          <li>Any application aiming to infer identity or re-identify individuals.</li>
+        </ul>
+      </section>
+
+      <!-- 8. Bias, Fairness & Ethics -->
+      <section>
+        <h2>8. Bias, Fairness & Ethical Considerations</h2>
+
+        <h3>8.1 Known Risks</h3>
+        <ul>
+          <li>
+            <strong>Demographic underrepresentation:</strong> Some age groups and regions are underrepresented,
+            which may lead to less reliable models for those subpopulations.
+          </li>
+          <li>
+            <strong>Healthcare access bias:</strong> The dataset reflects patients who had contact with the
+            healthcare system, not the general population.
+          </li>
+          <li>
+            <strong>Incomplete social determinants:</strong> Important contextual factors (income, housing stability)
+            are not directly encoded.
+          </li>
+        </ul>
+
+        <h3>8.2 Recommended Fairness Checks</h3>
+        <ul>
+          <li>Evaluate model performance separately across sex, age bands, and regional groups.</li>
+          <li>Monitor calibration curves across demographic subgroups.</li>
+          <li>Document any performance trade-offs when applying fairness constraints.</li>
+        </ul>
+
+        <h3>8.3 Ethical Use Guidance</h3>
+        <ul>
+          <li>Use the dataset as one input into a broader clinical and ethical evaluation process.</li>
+          <li>Engage clinical stakeholders when interpreting model behaviour and limitations.</li>
+          <li>Clearly communicate known dataset limitations in any downstream model documentation.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Important:</strong> Models derived from this dataset should undergo
+          <strong>external validation</strong> and <strong>local calibration</strong> before being used in
+          any clinical decision-support context.
+        </div>
+      </section>
+
+      <!-- 9. Distribution & Access -->
+      <section>
+        <h2>9. Distribution & Access Controls</h2>
+        <ul>
+          <li><strong>Access scope:</strong> Internal research and approved collaborations only.</li>
+          <li><strong>Access control:</strong> Role-based access via institutional identity provider.</li>
+          <li><strong>Data location:</strong> Hosted in a secure research environment with audited access.</li>
+          <li><strong>Retention:</strong> Default retention period of 5 years, subject to governance review.</li>
+        </ul>
+
+        <p>
+          External sharing is only permitted in aggregated or synthetic form and must be reviewed by
+          the data governance board on a case-by-case basis.
+        </p>
+      </section>
+
+      <!-- 10. Maintenance & Versioning -->
+      <section>
+        <h2>10. Maintenance & Versioning</h2>
+
+        <h3>10.1 Update Cadence</h3>
+        <ul>
+          <li>Major dataset refresh planned annually to incorporate new cohorts and updated lab ranges.</li>
+          <li>Minor quality fixes can be released as patch versions (e.g. 1.0.1, 1.0.2).</li>
+          <li>Deprecated records are flagged rather than removed, to preserve auditability.</li>
+        </ul>
+
+        <h3>10.2 Version History</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Version</th>
+              <th>Date</th>
+              <th>Key Changes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.0</td>
+              <td>March 2025</td>
+              <td>Initial release: 520k patients across 7 centres, core labels included.</td>
+            </tr>
+            <tr>
+              <td>1.1 (planned)</td>
+              <td>TBC</td>
+              <td>Add selected social context features and refine lab normalisation.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Consumers of this dataset should record the dataset version together with model training and evaluation
+          runs to support full reproducibility.
+        </p>
+      </section>
+
+      <p style="margin-top:2rem;">
+        <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+      </p>
+
+    </main>
+
+    <footer>
+      <p>© 2025 LexiTech AI — All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
+

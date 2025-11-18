@@ -6,7 +6,7 @@ From **predicting numbers** to **understanding language** and **seeing the world
 
 ---
 
-## 1. Linear Models — The Foundation 🧩
+## 1. Linear Models — The Foundation 
 ### **Purpose:**
 - Solve simple prediction and classification problems.
 
@@ -19,7 +19,7 @@ then a **logistic regression layer** decides: “Dog or Cat?”
 
 ---
 
-## 2. Decision Trees — The Logic Builders 🌳
+## 2. Decision Trees — The Logic Builders 
 ### **Purpose:**
 - Make structured, rule-based decisions.
 - Easy to interpret, fast to train.
@@ -36,7 +36,7 @@ An e-commerce recommendation engine may use:
 
 ---
 
-## 3. Neural Networks — The Pattern Learners 🧠
+## 3. Neural Networks — The Pattern Learners 
 ### **Purpose:**
 - Learn relationships in data automatically.
 
@@ -50,7 +50,7 @@ In Tesla’s Autopilot:
 
 ---
 
-## 4. CNNs — The Eyes of AI 👁️
+## 4. CNNs — The Eyes of AI 
 ### **Purpose:**
 - Extract features from visual or spatial data.
 
@@ -65,7 +65,7 @@ In a medical AI tool:
 
 ---
 
-## 5. RNNs — The Memory Keepers ⏳
+## 5. RNNs — The Memory Keepers 
 ### **Purpose:**
 - Handle sequential or time-based data.
 

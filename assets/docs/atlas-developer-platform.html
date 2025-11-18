@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Developer Experience Platform | Project Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page-shell">
+    
+    <!-- NAVBAR -->
+ <header class="navbar">
+    <div class="navbar-inner">
+      <div class="logo">Leslie Amadi</div>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    </header>
+
+
+  <!-- PROJECT HERO -->
+  <header class="doc-header">
+    <h1>Atlas Developer Experience Platform</h1>
+    <p class="doc-subtitle">
+      A unified developer platform that streamlines onboarding, API exploration, SDK installation,
+      authentication, testing, debugging, and release integration. I authored the entire documentation
+      suite including API references, onboarding flows, best practices, CLI docs, sandbox tooling,
+      authentication workflows, and developer workflow guides.
+    </p>
+  </header>
+
+  <!-- TAGS -->
+  <div class="tag-row">
+    <span class="tag">Developer Experience</span>
+    <span class="tag">API Documentation</span>
+    <span class="tag">CLI Tools</span>
+    <span class="tag">SDKs</span>
+    <span class="tag">Platform</span>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb">
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+    <span> / LexiMind</span>
+  </nav>
+
+  <!-- MAIN -->
+  <section class="doc-section">
+    <div class="docs-body">
+
+    <!-- Overview -->
+    <h2>1. Platform Overview</h2>
+    <p>
+      The <strong>Atlas Developer Experience Platform (DXP)</strong> is an integrated environment that helps
+      developers move from “first request” to “production-ready integration” with minimal friction.
+    </p>
+
+    <p>Atlas provides:</p>
+    <ul>
+      <li><strong>API Explorer</strong> for live requests</li>
+      <li><strong>SDK & CLI tools</strong> for fast onboarding</li>
+      <li><strong>Authentication Dashboard</strong> for managing keys & OAuth flows</li>
+      <li><strong>Sandbox environments</strong> with simulated data</li>
+      <li><strong>Error library</strong> with real debugging guidance</li>
+      <li><strong>Developer webhooks</strong> for event-driven architecture</li>
+      <li><strong>Release & versioning workflow</strong></li>
+      <li><strong>Use-case templates</strong> for production-ready examples</li>
+    </ul>
+
+    <p>
+      My documentation ensures that developers understand every step—from account creation to testing,
+      scaling, and debugging real integrations.
+    </p>
+
+    <!-- 2 -->
+    <h2>2. Real-Life Developer Story</h2>
+    <p>
+      A fintech engineer wants to integrate Atlas' Payments API. Historically, it took developers
+      2–4 days to understand authentication, error responses, and webhook flows.
+    </p>
+
+    <p>After launching my documentation suite:</p>
+    <ul>
+      <li>Time to first successful API call: <strong>32 minutes</strong></li>
+      <li>Time to full integration: <strong>1.4 days → 3 hours</strong></li>
+      <li>Support tickets dropped by <strong>47%</strong></li>
+      <li>Error misinterpretation reduced dramatically</li>
+    </ul>
+
+    <p>
+      This story is included in the documentation as a real case study showing DX impact.
+    </p>
+
+    <!-- 3 -->
+    <h2>3. Architecture Overview</h2>
+
+    <pre><code>[ Atlas Dashboard ]
+        |
+        v
+    [ Auth Service ]
+        |
+        +-------------------------+
+        |                         |
+ [ API Key Mgmt ]        [ OAuth 2.0 Server ]
+        |
+        v
+  [ API Gateway ] ---> [ Rate Limiter ]
+        |
+        v
+  [ Service Mesh ]
+        |
+        +-----> Payments API
+        +-----> Risk API
+        +-----> Identity API
+        +-----> Webhooks Engine
+    </code></pre>
+
+    <p>
+      The documentation breaks down each layer and explains how developers interact with it.
+    </p>
+
+    <!-- 4 -->
+    <h2>4. Authentication</h2>
+
+    <h3>4.1 API Keys (Server-to-Server)</h3>
+    <p>
+      Best for backend integrations. Rotate regularly, do not store in client apps.
+    </p>
+    <pre><code>Authorization: Bearer API_KEY</code></pre>
+
+    <h3>4.2 OAuth 2.0 (User Delegation)</h3>
+    <p>
+      Supports: <code>authorization_code</code>, <code>client_credentials</code>, and <code>refresh_token</code>.
+    </p>
+
+    <h3>4.3 Session Tokens</h3>
+    <p>
+      Short-lived, suitable for interactive dashboards.
+    </p>
+
+    <!-- 5 -->
+    <h2>5. Sandbox & Testing</h2>
+    <p>
+      Developers can test using a fully isolated sandbox:
+    </p>
+    <ul>
+      <li>Rate limits relaxed</li>
+      <li>Simulated events</li>
+      <li>Fake identities & transactions</li>
+      <li>Replay mode for deterministic testing</li>
+    </ul>
+
+    <pre><code>https://sandbox.api.atlas.dev/v1</code></pre>
+
+    <!-- 6 -->
+    <h2>6. API Explorer</h2>
+    <p>
+      A browser-based tool allowing developers to call any Atlas endpoint with live or mock data.
+    </p>
+
+    <ul>
+      <li>Auto-populated parameters</li>
+      <li>Schema validation</li>
+      <li>Instant error explanations</li>
+      <li>Request history per project</li>
+    </ul>
+
+    <!-- 7 -->
+    <h2>7. SDKs & CLI Tools</h2>
+
+    <h3>7.1 Install the Atlas CLI</h3>
+    <pre><code>npm install -g atlas-cli</code></pre>
+
+    <h3>7.2 Python SDK</h3>
+    <pre><code>pip install atlas-sdk</code></pre>
+
+    <h3>7.3 Common Commands</h3>
+    <pre><code>atlas login
+atlas projects list
+atlas simulate webhook payment.succeeded
+atlas apis invoke payments.create
+</code></pre>
+
+    <!-- 8 -->
+    <h2>8. Webhooks</h2>
+    <p>
+      Developers can subscribe to domain events using secure webhooks.
+    </p>
+
+    <pre><code>{
+  "event": "payment.succeeded",
+  "data": {
+    "payment_id": "pay_92349",
+    "amount": 12000,
+    "currency": "GBP"
+  }
+}</code></pre>
+
+    <!-- 9 -->
+    <h2>9. Error Library</h2>
+    <p>
+      One of the biggest improvements I delivered:  
+      A structured, human-readable error library.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Error Code</th><th>Description</th><th>Fix</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4010_INVALID_KEY</td>
+          <td>API key missing or incorrect.</td>
+          <td>Use a valid server-side key from the Atlas dashboard.</td>
+        </tr>
+        <tr>
+          <td>4031_PERMISSION_DENIED</td>
+          <td>Project not allowed to access this API.</td>
+          <td>Enable the API in your project settings.</td>
+        </tr>
+        <tr>
+          <td>4290_RATE_LIMIT_EXCEEDED</td>
+          <td>Too many requests.</td>
+          <td>Implement retry with exponential backoff.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 10 -->
+    <h2>10. Versioning & Release Strategy</h2>
+    <p>
+      Atlas uses a dual-strategy approach:
+    </p>
+
+    <ul>
+      <li><strong>Major versions</strong> for breaking changes</li>
+      <li><strong>Minor versions</strong> for new features</li>
+      <li><strong>Patches</strong> for backwards-compatible fixes</li>
+    </ul>
+
+    <pre><code>v1.4.2  → Patch  
+v1.5.0  → New features  
+v2.0.0  → Breaking changes  
+</code></pre>
+
+    <!-- 11 -->
+    <h2>11. Integration Checklist</h2>
+    <ul>
+      <li>☑ API key securely stored</li>
+      <li>☑ Sandbox calls working</li>
+      <li>☑ Webhooks signed & verified</li>
+      <li>☑ Error handling implemented</li>
+      <li>☑ Retry logic added</li>
+      <li>☑ Version pinned</li>
+      <li>☑ Production endpoints configured</li>
+    </ul>
+
+  </section>
+
+  <!-- NAV BUTTON -->
+
+  <div class="nav-buttons">
+    <a href="neuralflow-eval.html" class="btn">← Previous Project</a>
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+  </div>
+
+  <a href="#top" class="to-top">↑ Back to Top</a>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Leslie Amadi</p>
+</footer>
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Leslie Amadi — Technical Writer & AI Communicator." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Leslie Amadi</title>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
+
 <body>
+<div class="page-shell">
 
-  <div class="parallax-wrap" aria-hidden="true"><div class="parallax-layer"></div></div>
-
+  <!-- NAVBAR -->
   <header class="navbar">
-    <div class="navbar-inner container">
-      <div class="logo">Leslie Amadi</div>
-      <div id="menu-toggle" class="menu-toggle"><i class="fas fa-bars"></i></div>
-      <nav id="nav-menu" class="nav-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a class="active" href="contact.html">Contact</a></li>
-        </ul>
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">Leslie Amadi</a>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="section soft fade-in">
-    <div class="container center">
-      <h1>Let’s Work Together</h1>
-      <p class="mt-2">Tell me about your project, documentation needs, or idea I’ll get back to you shortly.</p>
-    </div>
-  </section>
+  <!-- HERO CONTACT CONTAINER -->
+  <main class="hero-box">
+    <div class="hero-box-inner two-col">
 
-  <main class="section container fade-in">
-    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xblqjdwa" method="POST">
-      <div class="form-row">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" placeholder="Your full name" required />
+      <!-- LEFT -->
+      <div class="hero-col">
+        <h1>Let’s Work Together</h1>
+        <p>
+          Whether you're building AI systems, APIs, or developer tools, I help create documentation that stays
+          clear, responsible, and human-centered.
+        </p>
+        <p>
+          Email me anytime at:  
+          <strong><a href="mailto:pkiraly44@gmail.com">hello@lesliewrites.tech</a></strong>
+        </p>
       </div>
-      <div class="form-row">
-        <label for="email">Email</label>
-        <input id="email" name="_replyto" type="email" placeholder="you@example.com" required />
+
+      <!-- RIGHT -->
+      <div class="hero-col">
+        <form action="https://formspree.io/f/xblqjdwa" method="post" class="contact-form">
+          <label>Your Name</label>
+          <input type="text" required>
+
+          <label>Your Email</label>
+          <input type="email" required>
+
+          <label>Your Message</label>
+          <textarea rows="6" required></textarea>
+
+          <button type="submit" class="btn btn-accent">Send Message</button>
+        </form>
       </div>
-      <div class="form-row">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, idea, or question..." required></textarea>
-      </div>
-      <button type="submit" class="btn btn-accent">Send Message</button>
-      <p id="thankYou" class="thank-you">✨ Thank you your message has been sent.</p>
-    </form>
+
+    </div>
   </main>
 
-  <footer class="footer fade-in">
-    <div class="container">
-      <div class="social">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:hello@lesliewrites.tech"><i class="fas fa-envelope"></i></a>
-      </div>
-      <p class="mt-2">© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
-    </div>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Leslie Amadi</p>
   </footer>
 
-  <script src="assets/script.js"></script>
-  <script src="https://kit.fontawesome.com/a2e0c6b2b0.js" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
+

@@ -5,75 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Leslie Amadi — Technical Writer & AI Communicator. I turn complex technology into words people understand." />
   <title>Home | Leslie Amadi</title>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/styles.css">  
+
+
 </head>
 <body>
+  <div class="page-shell">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <div class="logo-mark">
+          <div class="logo-badge">LA</div>
+          <div class="logo-text">
+            <span>Technical Writer</span>
+            <span>Leslie Amadi</span>
+          </div>
+        </div>
+        <nav class="nav-menu" aria-label="Primary navigation">
+          <a href="index.html" class="active">Home</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <!-- Parallax Layer -->
-  <div class="parallax-wrap" aria-hidden="true">
-    <div class="parallax-layer"></div>
+    <!-- HERO -->
+    <main class="hero-grid" aria-labelledby="home-heading">
+      <!-- Left: Copy -->
+      <section class="hero-copy">
+        <div class="hero-chip-row">
+          <span class="chip">AI &amp; Machine Learning Docs</span>
+          <span class="chip">API &amp; Developer Experience</span>
+        </div>
+        <h1 id="home-heading">
+          Technical writing that makes complex AI feel human and usable, not overwhelming.
+        </h1>
+        <p class="hero-subtitle">
+          I’m <span>Leslie Amadi</span>, a technical writer and AI communicator. I specialise in turning
+          models, APIs, and platforms into calm, clear documentation—from model cards and evaluation reports
+          to onboarding guides and UX microcopy.
+        </p>
+        <p class="hero-meta">
+          <strong>Focus areas:</strong> AI/ML documentation, REST APIs, platform docs, evaluation &amp; release notes,
+          safety and responsible-use communication.
+        </p>
+        <div class="hero-actions">
+          <a href="portfolio.html" class="btn btn-accent">View portfolio</a>
+          <a href="contact.html" class="btn btn-ghost">
+            Let’s work together
+            <span class="btn-small-text">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Right: Panel inspired by reference UI -->
+      <aside class="hero-panel" aria-label="Preview of Leslie's work">
+        <div class="hero-panel-header">
+          <div>
+            <div class="hero-panel-breadcrumb">
+              Team Leslie · <span>Help Center</span>
+            </div>
+            <div class="hero-panel-breadcrumb" style="margin-top:0.2rem; font-size:0.7rem; opacity:0.8;">
+              AI Documentation › API Docs › Model Cards
+            </div>
+          </div>
+          <div class="hero-panel-avatar"></div>
+        </div>
+
+        <div class="hero-panel-search-shell" aria-hidden="true">
+          <div class="hero-panel-dot"></div>
+          <span>Portfolio preview · Documentation view</span>
+        </div>
+
+        <div class="hero-preview-card">
+          <div class="hero-preview-image">
+            <img src="assets/images/profile-pic.png"
+                 alt="Preview of Leslie Amadi's documentation layout"
+                 loading="lazy" />
+          </div>
+          <div class="hero-preview-body">
+            <div class="hero-preview-title">
+              LexiMind Predictive Diagnosis — API &amp; Model Docs
+            </div>
+            <p>
+              End-to-end documentation for a healthcare AI system: architecture diagrams, model card,
+              API reference, evaluation report, and release notes—all written with clinical safety in mind.
+            </p>
+            <div class="hero-preview-tags">
+              <span class="mini-tag">Model Card</span>
+              <span class="mini-tag">API Docs</span>
+              <span class="mini-tag">Evaluation</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- QUICK STRIP -->
+    <section class="strip" aria-label="Highlights">
+      <article class="strip-card">
+        <div class="strip-title">AI &amp; ML Documentation</div>
+        <p>
+          Model cards, system architecture, dataset datasheets, evaluation reports, and safety notes
+          for production AI systems.
+        </p>
+        <a href="portfolio.html#documentation" class="strip-link">
+          Browse AI documentation work →
+        </a>
+      </article>
+
+      <article class="strip-card">
+        <div class="strip-title">Developer &amp; API Content</div>
+        <p>
+          REST API references, onboarding guides, integration workflows, and error-handling patterns
+          tailored for engineers.
+        </p>
+        <a href="portfolio.html#api" class="strip-link">
+          See API &amp; integration docs →
+        </a>
+      </article>
+
+      <article class="strip-card">
+        <div class="strip-title">UX &amp; Product Writing</div>
+        <p>
+          Interface copy, onboarding flows, and release notes that keep users oriented, confident,
+          and informed.
+        </p>
+        <a href="portfolio.html#ux" class="strip-link">
+          Explore UX &amp; release writing →
+        </a>
+      </article>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        © 2025 Leslie Amadi ·
+        <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a>
+      </p>
+    </footer>
   </div>
-
-  <!-- NAV -->
-  <header class="navbar">
-    <div class="navbar-inner container">
-      <div class="logo">Leslie Amadi</div>
-      <div id="menu-toggle" class="menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></div>
-      <nav id="nav-menu" class="nav-menu">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero container fade-in">
-    <div class="hero-text">
-      <h1>Hi, I’m <span style="color:var(--accent)">Leslie Amadi</span> 
-        Technical Writer & AI Communicator</h1>
-      <p>I turn complex technology into words people understand.
-        Clear docs, human-centred explanations, and elegant
-         structure for AI, APIs, and product experiences.</p>
-      <div class="hero-cta">
-        <a href="portfolio.html" class="btn btn-accent">View My Work</a>
-        <a href="contact.html" class="btn btn-outline">Get in Touch</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="assets/images/profile-pic.png" alt="Leslie Amadi — writing workspace" loading="lazy">
-    </div>
-  </section>
-
-  <!-- PREVIEW SECTIONS -->
-  <section class="section soft fade-in">
-    <div class="container center">
-      <h2>What I Do</h2>
-      <p class="mt-2">AI model docs & model cards · API docs · UX writing · process documentation
-         · release notes · ethical & transparent communication</p>
-      <div class="hero-cta mt-2" style="justify-content:center">
-        <a href="about.html" class="btn btn-outline">About Me</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer fade-in">
-    <div class="container">
-      <div class="social">
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:hello@lesliewrites.tech" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      </div>
-      <p class="mt-2">© 2025 Leslie Amadi · <a href="mailto:pkiraly44@mail.com">hello@lesliewrites.tech</a></p>
-    </div>
-  </footer>
-
-  <script src="assets/script.js"></script>
-  <script src="https://kit.fontawesome.com/a2e0c6b2b0.js" crossorigin="anonymous"></script>
 </body>
 </html>

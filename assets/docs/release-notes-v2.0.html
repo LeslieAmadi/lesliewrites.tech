@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>Release Notes — LexiMind v2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/docs.css">
+
+  <style>
+    body {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.65;
+    }
+    h1, h2, h3 {
+      color: #723f74;
+      margin-top: 1.8rem;
+      font-weight: 600;
+    }
+    ul { margin-left: 1.2rem; }
+    hr {
+      border: none;
+      border-top: 2px solid #f1d7f5;
+      margin: 2rem 0;
+    }
+    .btn {
+      background-color: #e4b1cb;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .btn:hover { background-color: #f6bae7; }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <h1>Release Notes — LexiMind v2.0</h1>
+    <p><strong>Release Date:</strong> 12 March 2025</p>
+    <hr>
+
+    <section>
+      <h2>1. Summary</h2>
+      <p>
+        LexiMind v2.0 introduces improved accuracy, faster inference times, and expanded input support.
+        This release strengthens overall model reliability while preparing the system for future multilingual and
+        multi-modal extensions.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Key Enhancements</h2>
+      <ul>
+        <li><strong>+7% predictive accuracy</strong> across key risk categories</li>
+        <li><strong>Latency reduced</strong> from 230 ms → 140 ms</li>
+        <li><strong>New input features</strong> including lab test categories and medication patterns</li>
+        <li><strong>Updated architecture</strong> with Hybrid Transformer + MLP Mixer</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Fixes</h2>
+      <ul>
+        <li>Resolved rounding inconsistencies in scoring</li>
+        <li>Stabilised inference under low-volume traffic</li>
+        <li>Corrected version mismatch logs</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Deprecations</h2>
+      <ul>
+        <li>v1.0 endpoints deprecated on 30 June 2025</li>
+        <li>Removed legacy <code>riskScore</code> field</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Migration Notes</h2>
+      <ul>
+        <li>Update API calls to <code>/v2/predict</code></li>
+        <li>Use the new <code>risk_score</code> field</li>
+        <li>Test updated integrations in staging</li>
+      </ul>
+    </section>
+
+    <p style="margin-top:2rem;">
+      <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+    </p>
+
+  </main>
+</body>
+</html>

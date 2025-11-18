@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orion Feature Store & Data Pipelines | Portfolio — Leslie Amadi</title>
+  <link rel="stylesheet" href="../../assets/style.css" />
+</head>
+
+<body>
+<div class="doc-shell">
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb">
+    <a href="../../index.html">Home</a> ›
+    <a href="../../portfolio.html">Portfolio</a> ›
+    <span>Orion Feature Store & Data Pipelines</span>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="doc-header">
+    <h1>Orion Data Pipelines & Feature Store</h1>
+    <p class="doc-subtitle">
+      Design + documentation of a real-time & batch feature store, ingestion pipelines, validation layers,
+      transformation workflows, point-in-time correctness, registry governance, and high-volume model training pipelines.
+      Built for enterprise-scale ML across multiple teams.
+    </p>
+  </header>
+
+  <!-- TAGS -->
+  <div class="tag-row">
+    <span class="tag">Feature Store</span>
+    <span class="tag">Batch Pipelines</span>
+    <span class="tag">Real-Time Features</span>
+    <span class="tag">Data Engineering</span>
+    <span class="tag">MLOps</span>
+  </div>
+
+  <!-- BODY -->
+  <section class="doc-section">
+
+    <!-- 1 -->
+    <h2>1. Platform Overview</h2>
+    <p>
+      <strong>Orion</strong> is the central backbone for all machine learning data at the organisation.  
+      It provides:
+    </p>
+    <ul>
+      <li><strong>Ingestion pipelines</strong> (streaming + batch)</li>
+      <li><strong>Transformation pipelines</strong> (ETL/ELT with validations)</li>
+      <li><strong>Feature Store</strong> for consistent offline/online features</li>
+      <li><strong>Data lineage & governance</strong></li>
+      <li><strong>Training datasets</strong> with point-in-time correctness</li>
+      <li><strong>High-throughput materialization jobs</strong></li>
+      <li><strong>Real-time feature vector retrieval</strong> for production ML models</li>
+    </ul>
+
+    <p>
+      In a real production environment, this prevents data scientists and ML engineers from building their own ad-hoc
+      data pipelines, ensuring that all models use the same trusted features.
+    </p>
+
+    <!-- 2 -->
+    <h2>2. High-Level Architecture</h2>
+    <pre><code>         +------------------------------+
+         |          Data Sources         |
+         +------------------------------+
+          CRM / DBs / Clickstreams / APIs    
+                  |            |
+                  v            v
+           +--------+    +-----------+
+           | Batch  |    | Streaming |
+           | Ingest |    |  Ingest   |
+           +--------+    +-----------+
+                  \          /
+                   \        /
+                    v      v
+                +------------------+
+                | Transformation   |
+                |   Workflows      |
+                |  (Spark / DBT)   |
+                +------------------+
+                        |
+                        v
+             +-----------------------+
+             |   Offline Feature     |
+             |        Store          |
+             +-----------------------+
+               |             |
+         (model training)    |
+                             v
+                   +------------------+
+                   | Online Feature   |
+                   |      Store       |
+                   +------------------+
+                             |
+                             v
+                    Prediction Services
+    </code></pre>
+
+    <p>
+      Orion uses a dual-store design:  
+      <strong>Offline Feature Store</strong> → analytical, large-scale data (Parquet, Delta Lake, BigQuery)  
+      <strong>Online Feature Store</strong> → low-latency feature lookups (Redis, DynamoDB, ScyllaDB)
+    </p>
+
+    <!-- 3 -->
+    <h2>3. Data Ingestion Pipelines</h2>
+
+    <h3>3.1 Batch Ingestion (Daily/Hourly)</h3>
+    <p>
+      Batch pipelines load stable data sources — customer master tables, transaction history, billing, etc.
+    </p>
+
+    <p>Typical behaviour in real life:</p>
+    <ul>
+      <li>Nightly large-scale ETL using Spark, DBT, or Snowflake Tasks</li>
+      <li>Schema drift detection triggers alerts and pipeline pauses</li>
+      <li>Idempotent loads: re-running the job won’t create duplicates</li>
+      <li>Data quality tests must pass before materialization</li>
+    </ul>
+
+    <h3>3.2 Streaming Ingestion (Real-Time)</h3>
+    <p>
+      For real-time features such as clicks, payments, fraud signals, or device telemetry.
+    </p>
+
+    <p>Real-world considerations:</p>
+    <ul>
+      <li>Kafka, Kinesis, or Pub/Sub used for ingestion</li>
+      <li>Events arrive late or out-of-order → watermarks + windowing used</li>
+      <li>Data is deduplicated using event IDs / timestamps</li>
+      <li>Fault tolerance requires replaying from checkpoints during outages</li>
+    </ul>
+
+    <!-- 4 -->
+    <h2>4. Transformation Layer</h2>
+    <p>
+      Transformations convert raw data into reliable, ML-ready features.
+    </p>
+
+    <h3>Real considerations for transformation workflows:</h3>
+    <ul>
+      <li>ETL/ELT workflows written in Spark, Flink, or DBT</li>
+      <li>Validation at multiple stages</li>
+      <li>Feature definitions stored in the registry</li>
+      <li>Strict backward compatibility requirements</li>
+      <li>Auto-documentation of feature lineage</li>
+    </ul>
+
+    <h3>Validation Example</h3>
+    <p>Every transformation includes validation checks:</p>
+    <ul>
+      <li>No null values in required features</li>
+      <li>Value ranges respected (e.g. age 0–120)</li>
+      <li>Statistical drift monitored (population changes)</li>
+    </ul>
+
+    <!-- 5 -->
+    <h2>5. Feature Store: Concepts & Behaviour</h2>
+
+    <h3>5.1 Point-In-Time Correctness</h3>
+    <p>This prevents “data leakage” by ensuring:</p>
+    <ul>
+      <li>Training features use only information available before the label timestamp</li>
+      <li>Time travel queries produce correct historical feature values</li>
+      <li>No future information leaks into training</li>
+    </ul>
+
+    <h3>5.2 Offline Store</h3>
+    <p>Stores historical features for:</p>
+    <ul>
+      <li>Training</li>
+      <li>Backtesting</li>
+      <li>Feature exploration</li>
+    </ul>
+
+    <h3>5.3 Online Store</h3>
+    <p>Used during real-time model serving:</p>
+    <ul>
+      <li>Fetch feature vectors in &lt; 10ms</li>
+      <li>Queried via Feature API</li>
+      <li>TTL-based freshness to prevent stale data</li>
+    </ul>
+
+    <!-- 6 -->
+    <h2>6. Materialization Jobs</h2>
+    <p>
+      Materialization transfers features from the offline store → online store.
+    </p>
+
+    <h3>Real workflow:</h3>
+    <ul>
+      <li>Scheduled every 5 minutes to 1 hour</li>
+      <li>Incremental updates only (delta changes)</li>
+      <li>Batch writes with retries and deduplication</li>
+      <li>Quality checks before publishing</li>
+    </ul>
+
+    <!-- 7 -->
+    <h2>7. Feature Registry & Governance</h2>
+    <p>
+      A central registry defines all features, owners, metadata, tests, and schemas.
+    </p>
+
+    <p>In real production:</p>
+    <ul>
+      <li>Teams cannot create duplicate features — registry enforces uniqueness</li>
+      <li>Every feature has an owner (team, Slack channel)</li>
+      <li>Deprecated features cannot be materialized to online store</li>
+      <li>Audit logs track who changed what and when</li>
+    </ul>
+
+    <!-- 8 -->
+    <h2>8. Real-Time Feature Fetch API</h2>
+    <p>The API serves features to production models.</p>
+
+    <pre><code>GET /v1/features?entity_id=12345&features=avg_txn_amt,last_login,fraud_score</code></pre>
+
+    <p>Behaviour includes:</p>
+    <ul>
+      <li>Sub-millisecond Redis lookups</li>
+      <li>Graceful fallbacks if some feature groups fail</li>
+      <li>Batch retrieval for high-throughput systems</li>
+    </ul>
+
+    <!-- 9 -->
+    <h2>9. Failure Modes & Incident Scenarios</h2>
+
+    <h3>9.1 Late-Arriving Data</h3>
+    Real-world workflow:
+    <ul>
+      <li>Events arrive hours late due to upstream outage</li>
+      <li>Backfill job triggered with watermark logic</li>
+      <li>Feature values corrected without breaking training sets</li>
+    </ul>
+
+    <h3>9.2 Corrupted Batch Loads</h3>
+    <ul>
+      <li>Automatic schema validation rejects load</li>
+      <li>Load quarantined in staging area</li>
+      <li>On-call notified and transformation halted</li>
+    </ul>
+
+    <h3>9.3 Online Store Drift</h3>
+    <ul>
+      <li>Monitoring detects divergence between offline & online values</li>
+      <li>Replication job restarted</li>
+      <li>Fallback to stale values until consistency restored</li>
+    </ul>
+
+    <!-- 10 -->
+    <h2>10. Integration Checklist</h2>
+
+    <ul>
+      <li>☑ All features defined in registry</li>
+      <li>☑ Validation tests built</li>
+      <li>☑ Data quality SLAs configured</li>
+      <li>☑ Materialization workflows scheduled</li>
+      <li>☑ Online store keys optimised</li>
+      <li>☑ Error budgets defined</li>
+      <li>☑ On-call playbooks linked</li>
+    </ul>
+
+  </section>
+
+  <!-- NAV -->
+  <div class="nav-buttons">
+    <a href="helios-model-serving.html" class="btn">← Previous Project</a>
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+    <a href="finsight-risk-api.html" class="btn">Next Project →</a>
+  </div>
+
+  <a href="#top" class="to-top">↑ Back to Top</a>
+</div>
+</body>
+</html>

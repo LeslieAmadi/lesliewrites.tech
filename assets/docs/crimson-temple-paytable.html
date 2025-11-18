@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crimson Temple Paytable & Symbol Design | Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+  <div class="page-shell">
+
+    <!-- NAVBAR -->
+    
+    <header class="navbar">
+      <div class="navbar-inner">
+        <div class="logo">Leslie Amadi</div>
+        <nav class="nav-menu">
+          <a href="../../index.html">Home</a>
+          <a href="../../portfolio.html" class="active">Portfolio</a>
+          <a href="../../blog.html">Blog</a>
+          <a href="../../about.html">About</a>
+          <a href="../../contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="doc-content">
+
+      <h1>Crimson Temple Paytable & Symbol Design</h1>
+      <p class="doc-subtitle">
+        Detailed paytable, symbol hierarchy, feature payouts, and math-facing documentation
+        for the <strong>Crimson Temple</strong> online slot (Asian mythology theme).
+      </p>
+
+      <!-- 1. Overview -->
+      <section>
+        <h2>1. Overview</h2>
+        <p>
+          This document defines the full paytable and symbol design for the
+          <strong>Crimson Temple</strong> video slot. It is intended for:
+        </p>
+        <ul>
+          <li><strong>Game Designers</strong> – to align on symbol hierarchy and thematic intent.</li>
+          <li><strong>Math / RNG Engineers</strong> – to implement symbol values and win logic.</li>
+          <li><strong>Front-End Developers</strong> – to wire UI, paytable screen, and tooltips.</li>
+          <li><strong>Compliance & Certification Teams</strong> – to validate payout structures per jurisdiction.</li>
+        </ul>
+        <p>
+          The paytable has been designed to support a <strong>medium–high volatility</strong> profile and
+          an overall target RTP of <strong>96.10%</strong> (base version), combining steady low-symbol wins
+          with high-impact feature potential from the <strong>Free Spins</strong> and
+          <strong>Crimson Fortune Wheel</strong>.
+        </p>
+      </section>
+
+      <!-- 2. Base Game Structure -->
+      <section>
+        <h2>2. Base Game Structure</h2>
+        <ul>
+          <li><strong>Grid:</strong> 5 reels × 3 rows</li>
+          <li><strong>Paylines:</strong> 25 fixed paylines</li>
+          <li><strong>Win Direction:</strong> Left to right only</li>
+          <li><strong>Minimum Bet:</strong> 0.10 (currency-agnostic)</li>
+          <li><strong>Maximum Bet:</strong> 50.00</li>
+          <li><strong>Volatility:</strong> Medium–High</li>
+        </ul>
+        <p>
+          All line wins are multiplied by the <strong>line bet</strong> (total bet ÷ 25).
+          Only the highest win per line is paid. Simultaneous wins on different lines are added.
+        </p>
+      </section>
+
+      <!-- 3. Symbol Tiers -->
+      <section>
+        <h2>3. Symbol Tiers & Thematic Roles</h2>
+        <p>
+          Symbols are grouped into four tiers:
+          <strong>Premium Characters, High Symbols, Mid Symbols,</strong> and <strong>Low Symbols</strong>.
+          In addition, there are <strong>Special Symbols</strong> that drive features.
+        </p>
+
+        <h3>3.1 Premium Character Symbols</h3>
+        <ul>
+          <li><strong>Crimson Priestess</strong> – highest paying symbol</li>
+          <li><strong>Golden Dragon Mask</strong></li>
+        </ul>
+
+        <h3>3.2 High Symbols</h3>
+        <ul>
+          <li><strong>Lantern of Embers</strong></li>
+          <li><strong>Temple Gate</strong></li>
+        </ul>
+
+        <h3>3.3 Mid Symbols</h3>
+        <ul>
+          <li><strong>Scroll of Oaths</strong></li>
+          <li><strong>Lotus Relic</strong></li>
+        </ul>
+
+        <h3>3.4 Low Symbols (Card Ranks)</h3>
+        <ul>
+          <li><strong>A</strong>, <strong>K</strong>, <strong>Q</strong>, <strong>J</strong></li>
+        </ul>
+      </section>
+
+      <!-- 4. Detailed Paytable -->
+      <section>
+        <h2>4. Detailed Paytable (Line Wins)</h2>
+        <p>
+          The values below are expressed as <strong>x line bet</strong>. A “5 of a kind” refers
+          to five identical symbols on a valid payline from left to right.
+        </p>
+
+        <h3>4.1 Premium Symbols</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>5 of a kind</th>
+              <th>4 of a kind</th>
+              <th>3 of a kind</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Crimson Priestess</td>
+              <td>20×</td>
+              <td>6×</td>
+              <td>2×</td>
+            </tr>
+            <tr>
+              <td>Golden Dragon Mask</td>
+              <td>15×</td>
+              <td>5×</td>
+              <td>1.5×</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>4.2 High Symbols</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>5 of a kind</th>
+              <th>4 of a kind</th>
+              <th>3 of a kind</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lantern of Embers</td>
+              <td>10×</td>
+              <td>3×</td>
+              <td>1×</td>
+            </tr>
+            <tr>
+              <td>Temple Gate</td>
+              <td>8×</td>
+              <td>2.5×</td>
+              <td>0.8×</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>4.3 Mid Symbols</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>5 of a kind</th>
+              <th>4 of a kind</th>
+              <th>3 of a kind</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Scroll of Oaths</td>
+              <td>6×</td>
+              <td>2×</td>
+              <td>0.6×</td>
+            </tr>
+            <tr>
+              <td>Lotus Relic</td>
+              <td>5×</td>
+              <td>1.8×</td>
+              <td>0.5×</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>4.4 Low Symbols</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>5 of a kind</th>
+              <th>4 of a kind</th>
+              <th>3 of a kind</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A</td>
+              <td>3×</td>
+              <td>1×</td>
+              <td>0.3×</td>
+            </tr>
+            <tr>
+              <td>K</td>
+              <td>2.5×</td>
+              <td>0.9×</td>
+              <td>0.25×</td>
+            </tr>
+            <tr>
+              <td>Q</td>
+              <td>2×</td>
+              <td>0.8×</td>
+              <td>0.2×</td>
+            </tr>
+            <tr>
+              <td>J</td>
+              <td>2×</td>
+              <td>0.8×</td>
+              <td>0.2×</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 5. Special Symbols -->
+      <section>
+        <h2>5. Special Symbols & Feature Payouts</h2>
+
+        <h3>5.1 Wild Symbol – Crimson Sigil</h3>
+        <ul>
+          <li><strong>Symbol Name:</strong> Crimson Sigil</li>
+          <li><strong>Function:</strong> Substitutes for all paying symbols except Scatter and Bonus.</li>
+          <li><strong>Appearance:</strong> Reels 2, 3, 4, and 5 only.</li>
+          <li><strong>Pays:</strong> No standalone payout; only contributes to line wins.</li>
+        </ul>
+
+        <h3>5.2 Scatter Symbol – Temple Bell (Free Spins)</h3>
+        <ul>
+          <li><strong>Symbol Name:</strong> Temple Bell</li>
+          <li><strong>Trigger:</strong> 3 or more Scatters anywhere in view.</li>
+          <li><strong>Base Payout:</strong> Scatter wins are multiplied by total bet.</li>
+        </ul>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Scatters</th>
+              <th>Award</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3</td>
+              <td>2× total bet + 10 Free Spins</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>5× total bet + 15 Free Spins</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>20× total bet + 20 Free Spins</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>5.3 Bonus Symbol – Crimson Coin (Bonus Wheel)</h3>
+        <ul>
+          <li><strong>Symbol Name:</strong> Crimson Coin</li>
+          <li><strong>Trigger:</strong> 3+ Bonus symbols on reels 1, 3, and 5</li>
+          <li><strong>Award:</strong> Entry to the <strong>Crimson Fortune Wheel</strong> feature.</li>
+        </ul>
+        <p>
+          The Bonus Symbol does not have a direct pay value; it unlocks the
+          <strong>Crimson Fortune Wheel</strong>, where the player can win:
+        </p>
+        <ul>
+          <li>Fixed cash prizes (e.g. 20×, 40×, 80× total bet)</li>
+          <li>Additional Free Spins bundles</li>
+          <li>Feature upgrade (e.g. “Super Spins” with more Wilds)</li>
+        </ul>
+      </section>
+
+      <!-- 6. Example Win Scenarios -->
+      <section>
+        <h2>6. Example Win Scenarios</h2>
+
+        <h3>6.1 Line Win Example (Base Game)</h3>
+        <p>
+          Total Bet = 2.50 → Line Bet = 2.50 ÷ 25 = 0.10.
+        </p>
+        <p>
+          Player hits 5× <strong>Lantern of Embers</strong> on a single payline:
+        </p>
+        <p>
+          Payout = 10× line bet = 10 × 0.10 = <strong>1.00</strong>.
+        </p>
+
+        <h3>6.2 Combined Line Wins</h3>
+        <p>
+          Same spin:
+        </p>
+        <ul>
+          <li>5× Lantern of Embers on Line 3 → 1.00</li>
+          <li>4× Lotus Relic on Line 7 → 1.8 × 0.10 = 0.18</li>
+          <li>3× A on Line 10 → 0.3 × 0.10 = 0.03</li>
+        </ul>
+        <p>
+          Total win for spin = <strong>1.21</strong>.
+        </p>
+
+        <h3>6.3 Scatter Win + Free Spins</h3>
+        <p>
+          Total bet = 2.50; player hits 4 Temple Bells (Scatters).
+        </p>
+        <ul>
+          <li>Scatter payout = 5× total bet = 5 × 2.50 = <strong>12.50</strong></li>
+          <li>Feature: <strong>15 Free Spins</strong> awarded</li>
+        </ul>
+
+        <h3>6.4 Bonus Wheel Outcome</h3>
+        <p>
+          Player triggers the Crimson Fortune Wheel and lands on <strong>40× total bet</strong>.
+        </p>
+        <p>
+          Total bet = 2.50 → Wheel prize = 40 × 2.50 = <strong>100.00</strong>.
+        </p>
+      </section>
+
+      <!-- 7. RTP & Volatility Breakdown -->
+      <section>
+        <h2>7. RTP & Volatility Breakdown</h2>
+        <p>
+          The paytable and feature structure contribute to an overall
+          <strong>target RTP of 96.10%</strong>. This can be split conceptually into:
+        </p>
+        <ul>
+          <li><strong>Base Game Wins:</strong> ~62.0%</li>
+          <li><strong>Free Spins Feature:</strong> ~24.5%</li>
+          <li><strong>Crimson Fortune Wheel:</strong> ~9.6%</li>
+        </ul>
+        <p>
+          These values are illustrative and depend on the final math model implementation,
+          including hit frequency, reel strips, and feature trigger rates.
+        </p>
+
+        <h3>7.1 Volatility Profile</h3>
+        <ul>
+          <li><strong>Base Hit Frequency:</strong> Approx. 28–32%</li>
+          <li><strong>Free Spins Hit Frequency:</strong> Approx. 1 in 140–180 spins</li>
+          <li><strong>Bonus Wheel Hit Frequency:</strong> Approx. 1 in 200–250 spins</li>
+        </ul>
+        <p>
+          The combination of frequent small wins and occasional high-impact features positions the game
+          in the <strong>medium–high volatility</strong> range. This should be confirmed by simulation
+          and certified as part of the math model approval process.
+        </p>
+      </section>
+
+      <!-- 8. Jurisdiction & Configuration -->
+      <section>
+        <h2>8. Jurisdiction & Configuration Notes</h2>
+        <ul>
+          <li>
+            Alternative RTP configurations (e.g. 94.10%, 92.00%) can be derived by adjusting:
+            feature frequency, wheel prize weighting, or high-tier symbol frequencies.
+          </li>
+          <li>
+            Some jurisdictions may require:
+            <ul>
+              <li>Removal or rewording of certain thematic phrases.</li>
+              <li>Specific limitations on maximum win or feature chaining.</li>
+            </ul>
+          </li>
+          <li>
+            Paytable values must be reflected identically in:
+            <ul>
+              <li>In-game paytable UI</li>
+              <li>Help screen / info pages</li>
+              <li>Math specification document</li>
+              <li>Certification submissions</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 9. UI / UX Notes -->
+      <section>
+        <h2>9. UI / UX Implementation Notes</h2>
+        <ul>
+          <li>All paytable values should be displayed as <strong>multipliers</strong> (x bet) for localisation simplicity.</li>
+          <li>Hover / tap tooltips for each symbol:
+            <ul>
+              <li><strong>Crimson Priestess:</strong> “Highest paying symbol.”</li>
+              <li><strong>Temple Bell:</strong> “Scatter – triggers Free Spins.”</li>
+              <li><strong>Crimson Coin:</strong> “Bonus – unlocks the Crimson Fortune Wheel.”</li>
+            </ul>
+          </li>
+          <li>Accessibility:
+            <ul>
+              <li>Symbols should have alt text or readable names for screen readers.</li>
+              <li>Paytable screen must be navigable via keyboard/focus order.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 10. References -->
+      <section>
+        <h2>10. References & Supporting Documents</h2>
+        <ul>
+          <li><strong>Crimson Temple – Math Specification</strong> (RTP, reel strips, simulations)</li>
+          <li><strong>Crimson Temple – Game Mechanic Overview</strong> (Free Spins, Bonus Wheel)</li>
+          <li><strong>Crimson Temple – UX Writing Pack</strong> (tooltips, notifications, modals)</li>
+          <li><strong>Certification Submission Package</strong> (jurisdiction-specific)</li>
+        </ul>
+      </section>
+
+      <!-- NAV BUTTONS -->
+      <div class="nav-buttons">
+        <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+        <a href="crimson-temple-mechanic.html" class="btn">View Mechanic Doc</a>
+        <a href="crimson-temple-ux-pack.html" class="btn">View UX Writing Pack</a>
+      </div>
+
+    <!-- SIDEBAR 
+    <aside class="doc-sidebar">
+        <h2 class="sidebar-title">Crimson Temple</h2>
+        <nav class="sidebar-nav">
+          <a href="../../portfolio.html">← Back to Portfolio</a>
+          <a href="crimson-temple-mechanic.html">Game Mechanic – Free Spins & Bonus Wheel</a>
+          <a href="crimson-temple-ux-pack.html">UX Writing Pack</a>
+          <a href="crimson-temple-paytable.html" class="active">Paytable & Symbol Design</a>
+        </nav>
+      </aside>
+    -->
+
+  </div>
+</body>
+</html>
+
+
+

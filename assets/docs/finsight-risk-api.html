@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinSight Risk API Project | Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+  <div class="page-shell">
+
+        <!-- NAVBAR -->
+        <header class="navbar">
+          <div class="navbar-inner">
+            <div class="logo">Leslie Amadi</div>
+            <nav class="nav-menu">
+              <a href="index.html">Home</a>
+              <a href="portfolio.html" class="active">Portfolio</a>
+              <a href="blog.html">Blog</a>
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact</a>
+            </nav>
+          </div>
+        </header>
+<div class="doc-shell">
+
+  <!-- PROJECT HERO -->
+  <header class="doc-header">
+    <h1>FinSight Risk API — Real-Time Financial Risk Scoring</h1>
+    <p class="doc-subtitle">
+      End-to-end documentation for a production-grade financial risk and fraud detection platform.
+      I designed the information architecture, wrote the API reference, error catalogue, risk model overview,
+      and created real-world integration flows for partner engineering teams.
+    </p>
+  </header>
+
+  <!-- TAGS -->
+  <div class="tag-row">
+    <span class="tag">FinTech</span>
+    <span class="tag">Fraud Detection</span>
+    <span class="tag">Risk Scoring</span>
+    <span class="tag">REST API</span>
+    <span class="tag">Security</span>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb">
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+    <span> / LexiMind</span>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <section class="doc-section">
+    <div class="docs-body">
+
+    <!-- 1. Product Overview -->
+    <h2>1. Product Overview</h2>
+    <p>
+      <strong>FinSight Risk API</strong> evaluates card and wallet transactions in real time and returns a
+      numeric risk score together with a recommended action. It is designed for:
+    </p>
+    <ul>
+      <li>Payment gateways and processors</li>
+      <li>Neobanks and digital wallets</li>
+      <li>Marketplaces and platform businesses</li>
+    </ul>
+    <p>
+      The documentation is written to support both <strong>backend engineers</strong> integrating the API
+      and <strong>risk / fraud analysts</strong> who need to understand what the model is doing and how
+      to tune policies on top of it.
+    </p>
+
+    <!-- 2. Real-Life Scenario -->
+    <h2>2. Real-Life Scenario: How FinSight Fits Into Checkout</h2>
+    <p>
+      Imagine a customer paying £289.50 on an e-commerce site using a saved Visa card.
+      The merchant uses a payment gateway which, in turn, calls FinSight before authorising the payment.
+    </p>
+    <ol>
+      <li>Customer confirms checkout on the merchant's website.</li>
+      <li>Merchant sends a transaction authorisation request to the payment gateway.</li>
+      <li>Before forwarding to the card network, the gateway calls
+          <code>POST /v1/risk/score</code> on FinSight with transaction details.</li>
+      <li>FinSight returns a <strong>risk_score</strong> (0–1), a <strong>risk_band</strong> (e.g. <code>low</code>, <code>medium</code>, <code>high</code>),
+          and a <strong>recommended_action</strong> (e.g. <code>allow</code>, <code>challenge</code>, <code>block</code>).</li>
+      <li>The gateway applies its own policy:
+        <ul>
+          <li><code>allow</code> → send to issuer for authorisation.</li>
+          <li><code>challenge</code> → enforce 3-D Secure (step-up authentication).</li>
+          <li><code>block</code> → decline immediately and log a potential fraud event.</li>
+        </ul>
+      </li>
+      <li>The final decision (approved / challenged / declined) is returned to the merchant and shown to the user.</li>
+    </ol>
+    <p>
+      This flow is documented with diagrams, sequence descriptions, and example payloads so engineers understand exactly
+      where to plug FinSight into their existing payment pipeline.
+    </p>
+
+    <!-- 3. System Architecture -->
+    <h2>3. System Architecture</h2>
+    <p>
+      Documentation includes a high-level architecture diagram and narrative description that explains how the
+      FinSight Risk Engine sits between <strong>client systems</strong> and downstream decisioning.
+    </p>
+
+    <pre><code>Client (Payment Gateway / PSP)
+          |
+          v
+   POST /v1/risk/score
+          |
+          v
+   [ API Gateway ]
+          |
+          v
+   [ Risk Engine Service ]
+      |         \
+      |          \--> [ Feature Store &amp; Device Graph ]
+      |
+      +--> [ Risk Models + Rules ]
+               |
+               v
+        risk scores + reasons
+          |
+          v
+   JSON response to client
+    </code></pre>
+
+    <p>
+      My documentation breaks this down into:
+    </p>
+    <ul>
+      <li><strong>API Gateway:</strong> auth, rate limiting, schema validation.</li>
+      <li><strong>Risk Engine:</strong> orchestrates feature extraction, model scoring, and business rules.</li>
+      <li><strong>Feature Store:</strong> aggregates historical behaviour (velocity, device, IP, merchant, card token).</li>
+      <li><strong>Models &amp; Rules:</strong> machine learning models plus configurable rules (e.g. country lists, velocity limits).</li>
+    </ul>
+
+    <!-- 4. Signals & Risk Model -->
+    <h2>4. Signals & Risk Model</h2>
+    <p>
+      To help risk teams and engineers trust the system, the docs explain what types of signals
+      the model uses, at a conceptual level.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Signal Type</th>
+          <th>Examples</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Transaction</td>
+          <td>Amount, currency, merchant category, channel (web / app)</td>
+          <td>Baseline risk modelling per transaction pattern.</td>
+        </tr>
+        <tr>
+          <td>Behavioural</td>
+          <td>Recent transaction count, first-seen date, time of day</td>
+          <td>Velocity checks and unusual patterns.</td>
+        </tr>
+        <tr>
+          <td>Device &amp; Network</td>
+          <td>IP country, device fingerprint, proxy/VPN signals</td>
+          <td>Detect location mismatch or suspicious infrastructure.</td>
+        </tr>
+        <tr>
+          <td>Historical Outcomes</td>
+          <td>Past chargebacks, disputes, manual reviews</td>
+          <td>Learn from previous fraud or false positives.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The documentation clarifies that risk scores are <strong>probabilistic</strong>, not deterministic, and should always be
+      combined with the client’s own business logic and regulatory obligations.
+    </p>
+
+    <!-- 5. API Design -->
+    <h2>5. API Design &amp; Core Endpoints</h2>
+
+    <h3>5.1 Authentication</h3>
+    <p>
+      All endpoints require an API key sent with a bearer token:
+    </p>
+    <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+
+    <h3>5.2 POST /v1/risk/score</h3>
+    <p>
+      Main risk scoring endpoint. Called synchronously during checkout.
+    </p>
+    <p>
+      <strong>Method:</strong> <code>POST</code><br />
+      <strong>Path:</strong> <code>/v1/risk/score</code>
+    </p>
+
+    <h4>Request Example</h4>
+    <pre><code>{
+  "transaction_id": "txn_493930",
+  "occurred_at": "2025-03-18T14:23:11Z",
+  "amount": 289.50,
+  "currency": "GBP",
+  "merchant": {
+    "id": "mrc_9102",
+    "category": "ecommerce",
+    "country": "GB"
+  },
+  "payment_method": {
+    "type": "card",
+    "network": "visa",
+    "bin": "424242",
+    "last4": "0018",
+    "token_id": "card_tok_91f8a"
+  },
+  "customer": {
+    "id": "cust_1203",
+    "account_age_days": 340,
+    "email_domain": "gmail.com"
+  },
+  "device": {
+    "ip_address": "81.2.69.160",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+    "device_id": "dev_338192"
+  }
+}</code></pre>
+
+    <h4>Response Example</h4>
+    <pre><code>{
+  "risk_score": 0.82,
+  "risk_band": "high",
+  "recommended_action": "challenge",
+  "reasons": [
+    "velocity_high",
+    "new_device_high_amount",
+    "ip_country_mismatch"
+  ],
+  "model_version": "finsight-risk-3.1",
+  "trace_id": "req_f91ec7d02a"
+}</code></pre>
+
+    <h4>Key Fields</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>risk_score</td>
+          <td>number</td>
+          <td>Value between 0 and 1. Higher means higher estimated fraud risk.</td>
+        </tr>
+        <tr>
+          <td>risk_band</td>
+          <td>string</td>
+          <td>Discrete band such as <code>low</code>, <code>medium</code>, <code>high</code> for policy rules.</td>
+        </tr>
+        <tr>
+          <td>recommended_action</td>
+          <td>string</td>
+          <td>Suggested action: <code>allow</code>, <code>challenge</code>, or <code>block</code>.</td>
+        </tr>
+        <tr>
+          <td>reasons</td>
+          <td>array&lt;string&gt;</td>
+          <td>List of high-level reasons used for auditability and analyst tooling.</td>
+        </tr>
+        <tr>
+          <td>trace_id</td>
+          <td>string</td>
+          <td>Correlation ID for logging, debugging, and support.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>5.3 POST /v1/events/chargeback</h3>
+    <p>
+      Clients use this endpoint to send confirmed chargebacks back to FinSight so the system can learn from
+      outcomes and refine future risk scores.
+    </p>
+    <pre><code>{
+  "transaction_id": "txn_493930",
+  "occurred_at": "2025-04-02T09:11:02Z",
+  "reason_code": "fraud",
+  "amount": 289.50,
+  "currency": "GBP"
+}</code></pre>
+
+    <h3>5.4 GET /v1/cases/{id}</h3>
+    <p>
+      Returns details of a high-risk transaction that was escalated to manual review. This is used by
+      in-house risk teams building dashboards on top of FinSight.
+    </p>
+
+    <!-- 6. Error Handling & Idempotency -->
+    <h2>6. Error Handling &amp; Idempotency</h2>
+    <p>
+      I designed the error model to be predictable and easy to consume in production systems. The docs include
+      a full error catalogue and recommended client behaviour.
+    </p>
+
+    <h3>6.1 Error Response Shape</h3>
+    <pre><code>{
+  "error": {
+    "code": "4001_INVALID_SCHEMA",
+    "message": "Field 'amount' must be a positive number.",
+    "trace_id": "req_abc123"
+  }
+}</code></pre>
+
+    <table>
+      <thead>
+        <tr>
+          <th>HTTP Code</th>
+          <th>Error Code</th>
+          <th>Meaning</th>
+          <th>Client Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>400</td>
+          <td>4001_INVALID_SCHEMA</td>
+          <td>Missing or invalid fields, JSON not matching schema.</td>
+          <td>Fix payload before retrying.</td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>4010_UNAUTHENTICATED</td>
+          <td>Missing or invalid API key.</td>
+          <td>Check credentials and environment.</td>
+        </tr>
+        <tr>
+          <td>429</td>
+          <td>4290_RATE_LIMIT</td>
+          <td>Rate limit exceeded for this key.</td>
+          <td>Back off and respect <code>Retry-After</code> header.</td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>5000_SERVER_ERROR</td>
+          <td>Unexpected backend error.</td>
+          <td>Safe retry with exponential backoff.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>6.2 Idempotency</h3>
+    <p>
+      For real-money transactions, the docs recommend and describe use of an
+      <code>Idempotency-Key</code> header:
+    </p>
+    <pre><code>Idempotency-Key: txn_493930</code></pre>
+    <p>
+      If the client re-sends the same request (e.g. due to a timeout), the server returns the
+      original result rather than re-scoring the transaction, avoiding inconsistent decisions.
+    </p>
+
+    <!-- 7. Monitoring & SLAs -->
+    <h2>7. Monitoring, Latency &amp; SLAs</h2>
+    <p>
+      Because FinSight sits in the critical path of payment authorisation, latency and uptime are documented clearly.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Target</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>P95 latency (POST /v1/risk/score)</td>
+          <td>&lt; 250 ms</td>
+          <td>From FinSight edge to response.</td>
+        </tr>
+        <tr>
+          <td>Availability</td>
+          <td>&gt; 99.9%</td>
+          <td>Measured monthly.</td>
+        </tr>
+        <tr>
+          <td>5xx error rate</td>
+          <td>&lt; 0.1%</td>
+          <td>Rolling 7-day window.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      The documentation includes guidance on how clients should alert on error codes, latency, and anomaly patterns.
+    </p>
+
+    <!-- 8. Security & Compliance -->
+    <h2>8. Security &amp; Compliance Considerations</h2>
+    <ul>
+      <li>All requests must use TLS; HTTP is rejected.</li>
+      <li>API keys are scoped per environment and can be rotated without downtime.</li>
+      <li>PII should be minimised wherever possible; local identifiers are preferred over raw card numbers.</li>
+      <li>Audit logs and trace IDs are available to help with investigations and compliance reporting.</li>
+    </ul>
+
+    <!-- 9. Integration Checklist -->
+    <h2>9. Integration Checklist</h2>
+    <p>
+      To make the docs actionable, I finish with a checklist teams can follow before going live:
+    </p>
+    <ul>
+      <li>☑ API key configured and stored securely.</li>
+      <li>☑ Idempotency keys implemented for all risk requests.</li>
+      <li>☑ Error handling and retry logic implemented by error class.</li>
+      <li>☑ Monitoring for latency, 4xx/5xx, and rate-limit events.</li>
+      <li>☑ Business rules configured on top of <code>risk_band</code> and <code>recommended_action</code>.</li>
+      <li>☑ Chargeback feedback integrated via <code>/events/chargeback</code>.</li>
+    </ul>
+
+  </section>
+
+  <!-- NAV BUTTONS -->
+  <div class="nav-buttons">
+    <a href="leximind-api.html" class="btn">← Previous Project</a>
+    <a href="neuralflow-eval.html" class="btn">Next Project →</a>
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <a href="#top" class="to-top">↑ Back to Top</a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Helios Model Serving Infrastructure | Project — Leslie Amadi</title>
+
+  <!-- Global theme -->
+  <link rel="stylesheet" href="../../assets/style.css" />
+</head>
+
+<body>
+<div class="doc-shell">
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb">
+    <a href="portfolio.html" class="btn">Back to Portfolio</a>
+    <span> / LexiMind</span>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="doc-header">
+    <h1>Helios Model Serving Infrastructure</h1>
+    <p class="doc-subtitle">
+      Production-grade model serving platform for real-time and batch inference at scale. I documented the
+      full system: architecture, autoscaling, deployment strategy, SLOs, caching, observability, safety rails,
+      incident playbooks, and model versioning for multiple ML teams.
+    </p>
+  </header>
+
+  <!-- TAGS -->
+  <div class="tag-row">
+    <span class="tag">Model Serving</span>
+    <span class="tag">MLOps</span>
+    <span class="tag">Real-Time Inference</span>
+    <span class="tag">Autoscaling</span>
+    <span class="tag">Observability</span>
+  </div>
+
+  <!-- BODY -->
+  <section class="doc-section">
+
+    <!-- 1. Overview -->
+    <h2>1. Platform Overview</h2>
+    <p>
+      <strong>Helios</strong> is a model serving platform designed to host multiple machine learning models in
+      production—supporting real-time APIs, asynchronous batch jobs, and scheduled inference workflows.
+    </p>
+
+    <p>In a real organisation, Helios would be used by:</p>
+    <ul>
+      <li><strong>Product teams</strong> calling low-latency prediction APIs from user-facing applications.</li>
+      <li><strong>Risk & analytics teams</strong> running large batch-scoring jobs overnight.</li>
+      <li><strong>ML engineers</strong> deploying and monitoring new model versions.</li>
+      <li><strong>Platform / SRE teams</strong> managing capacity, incidents, and SLOs.</li>
+    </ul>
+
+    <p>
+      This documentation explains how the serving infrastructure behaves under real traffic, how it fails,
+      and how teams are expected to operate it safely.
+    </p>
+
+    <!-- 2. High-Level Architecture -->
+    <h2>2. High-Level Architecture</h2>
+    <p>
+      Helios separates <strong>control plane</strong> (configuration, model registry, deployments) from
+      <strong>data plane</strong> (actual inference traffic).
+    </p>
+
+    <pre><code>              +------------------------+
+              |   Helios Control Plane |
+              |------------------------|
+              |  Model Registry        |
+              |  Deployment Manager    |
+              |  Config Store          |
+              |  Canary Controller     |
+              +-----------+------------+
+                          |
+                          v
+          +---------------+------------------+
+          |        Helios Data Plane         |
+          |----------------------------------|
+   User   |  API Gateway  →  Router          |
+  / App   |       |          |               |
+ Requests |       v          v               |
+          |   Online Pods   Batch Workers    |
+          | (GPU / CPU)     (Jobs / Queues)  |
+          +-------+--------------------------+
+                  |
+                  v
+           Logging & Metrics Stack
+    </code></pre>
+
+    <p>
+      All user traffic flows through a <strong>Gateway → Router → Inference Pods</strong> pattern. Each model
+      version is deployed as a separate group of pods with clear traffic routing rules.
+    </p>
+
+    <!-- 3. Serving Modes -->
+    <h2>3. Serving Modes & Real-Life Usage</h2>
+
+    <h3>3.1 Online / Real-Time Serving</h3>
+    <p>
+      Used by latency-sensitive features such as personalised recommendations, fraud checks, or in-product risk
+      alerts. Typical targets:
+    </p>
+    <ul>
+      <li>P95 latency: <strong>&lt; 250 ms</strong></li>
+      <li>Traffic pattern: steady baseline with spikes (e.g. campaign launches)</li>
+      <li>Requirements: strict SLOs, graceful degradation if dependencies fail</li>
+    </ul>
+
+    <h3>3.2 Batch & Async Serving</h3>
+    <p>
+      Used when latency is less critical but volume is high—for example:
+    </p>
+    <ul>
+      <li>Nightly credit risk scoring for millions of accounts</li>
+      <li>Weekly churn predictions for an entire customer base</li>
+      <li>Backfills after feature changes or schema updates</li>
+    </ul>
+    <p>
+      Batch jobs run via a queue-based system and can tolerate retried tasks, backpressure, and longer runtimes.
+    </p>
+
+    <h3>3.3 Shadow & Replay Serving</h3>
+    <p>
+      For new model versions, Helios can “shadow” traffic: duplicating live requests to a candidate model
+      without affecting user-visible behaviour. This enables:
+    </p>
+    <ul>
+      <li>Real-world load testing</li>
+      <li>Side-by-side performance comparison</li>
+      <li>Validating edge cases before promotion</li>
+    </ul>
+
+    <!-- 4. Model Registry & Versioning -->
+    <h2>4. Model Registry, Versions & Lifecycle</h2>
+
+    <p>
+      All models deployed through Helios must be registered in a central <strong>Model Registry</strong>.
+      Each entry tracks:
+    </p>
+    <ul>
+      <li><strong>Model ID:</strong> e.g. <code>fraud-score-v3</code></li>
+      <li><strong>Version:</strong> semantic versioning (e.g. <code>3.1.0</code>)</li>
+      <li><strong>Artifact URI:</strong> object storage / container image</li>
+      <li><strong>Schema:</strong> expected input/output contracts</li>
+      <li><strong>Owner:</strong> team responsible</li>
+      <li><strong>Status:</strong> staging, canary, production, deprecated</li>
+    </ul>
+
+    <p>In a real deployment, this controls:</p>
+    <ul>
+      <li>Which version receives live traffic</li>
+      <li>Which models are allowed in certain environments (e.g. sandbox vs production)</li>
+      <li>Who can roll back or roll forward during incidents</li>
+    </ul>
+
+    <h3>4.1 Promotion Workflow (Real Scenario)</h3>
+    <ol>
+      <li>Model registered with metadata and linked evaluation results.</li>
+      <li>Deployed to <strong>staging environment</strong> for integration tests.</li>
+      <li>Traffic shadowed or canaried in production (e.g. 5–10%).</li>
+      <li>Observability dashboards tracked (latency, error rate, business KPIs).</li>
+      <li>After sign-off, traffic shifted to 100%.</li>
+      <li>Old version kept as <strong>hot standby</strong> for fast rollback.</li>
+    </ol>
+
+    <!-- 5. Request Flow & Routing -->
+    <h2>5. Request Flow & Routing Logic</h2>
+
+    <p>For a real-time prediction, the end-to-end path looks like:</p>
+
+    <pre><code>Client → API Gateway → Auth & Rate Limiting → Router
+      → Select Model Version (v2.3.1, region=eu-west)
+      → Inference Pod (GPU/CPU)
+      → Logging + Metrics
+      → Response to client
+    </code></pre>
+
+    <p>The router decides which model instance to call based on:</p>
+    <ul>
+      <li>Model ID + version pin (e.g. <code>FraudModel@2.3</code>)</li>
+      <li>Traffic split rules (e.g. 90% v2.3, 10% v3.0-canary)</li>
+      <li>Region or tenant affinity</li>
+      <li>Health status of pods</li>
+    </ul>
+
+    <p>
+      If an instance is unhealthy, traffic is shifted away automatically. This is critical in real production
+      to avoid cascading failures.
+    </p>
+
+    <!-- 6. Autoscaling & Capacity Planning -->
+    <h2>6. Autoscaling & Capacity Planning</h2>
+
+    <p>
+      Helios supports both <strong>horizontal autoscaling</strong> (more pods) and <strong>vertical scaling</strong>
+      (bigger instances), depending on the model and workload type.
+    </p>
+
+    <h3>6.1 Scaling Triggers</h3>
+    <ul>
+      <li>P95 latency above threshold (e.g. &gt; 200 ms for 5 minutes)</li>
+      <li>CPU or GPU utilisation beyond configured thresholds (e.g. &gt; 70%)</li>
+      <li>Queue depth / backlog size for batch jobs</li>
+      <li>Custom business metrics (e.g. dropped requests, timeouts)</li>
+    </ul>
+
+    <h3>6.2 Real-Life Spike Scenario</h3>
+    <p>Imagine a marketing campaign goes live and traffic doubles within 10 minutes.</p>
+    <p>Expected behaviour:</p>
+    <ul>
+      <li>Autoscaler detects sustained CPU + latency increase.</li>
+      <li>Spins up additional pods (e.g. from 8 → 20 replicas).</li>
+      <li>New pods warm the model into memory before serving traffic.</li>
+      <li>Rate limiter still protects upstream services from overload.</li>
+      <li>Dashboards show a temporary latency bump, then stabilisation.</li>
+    </ul>
+
+    <p>
+      If scaling cannot keep up (e.g. GPU capacity limit reached), the documentation explains that Helios
+      should <strong>degrade gracefully</strong>—for example by:
+    </p>
+    <ul>
+      <li>Returning cached responses where safe</li>
+      <li>Reducing model complexity (falling back to a cheaper model)</li>
+      <li>Failing “open” or “closed” depending on the risk profile of the product</li>
+    </ul>
+
+    <!-- 7. Caching & Latency Optimisation -->
+    <h2>7. Caching, Warmup & Latency Optimisation</h2>
+
+    <p>
+      Real production systems often need aggressive optimisation to meet SLAs, especially when using large models.
+    </p>
+
+    <h3>7.1 Caching Layers</h3>
+    <ul>
+      <li><strong>Feature cache:</strong> frequently reused feature vectors (e.g. per user)</li>
+      <li><strong>Response cache:</strong> for idempotent lookups or slow-changing scores</li>
+      <li><strong>Model warmup:</strong> priming models on cold start to avoid slow first calls</li>
+    </ul>
+
+    <h3>7.2 Warmup Strategy (Real Example)</h3>
+    <ol>
+      <li>When new pods start, they run a synthetic “warmup script”.</li>
+      <li>Models load into memory and perform a set of known inferences.</li>
+      <li>Only after warmup is successful are pods marked <code>Ready</code> for live traffic.</li>
+    </ol>
+
+    <!-- 8. Observability & SLOs -->
+    <h2>8. Observability & SLOs</h2>
+
+    <p>
+      Helios ships with batteries-included observability. The docs assume the use of modern tooling
+      (e.g. Prometheus, Grafana, OpenTelemetry, ELK/ClickHouse).
+    </p>
+
+    <h3>8.1 Core Metrics</h3>
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Why it matters</th><th>Typical Target</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>P95 latency</td>
+          <td>Captures tail performance for users.</td>
+          <td>&lt; 250 ms for online inference</td>
+        </tr>
+        <tr>
+          <td>Error rate (4xx/5xx)</td>
+          <td>Detects integration issues or server failures.</td>
+          <td>&lt; 0.5% over 1 hour</td>
+        </tr>
+        <tr>
+          <td>Throughput (RPS)</td>
+          <td>Used for capacity planning.</td>
+          <td>Depends on model & infra</td>
+        </tr>
+        <tr>
+          <td>CPU/GPU utilisation</td>
+          <td>Signals over/under-provisioning.</td>
+          <td>Ideal: 50–70%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>8.2 Logging & Tracing</h3>
+    <ul>
+      <li>Each request carries a <code>trace_id</code> and <code>model_version</code>.</li>
+      <li>Logs capture input metadata (not raw PII), timing, and result summary.</li>
+      <li>Distributed tracing shows gateway → router → pod path.</li>
+    </ul>
+
+    <!-- 9. Failure Modes & Incident Response -->
+    <h2>9. Failure Modes & Incident Response</h2>
+
+    <p>
+      This section documents what should happen when things go wrong in real life.
+    </p>
+
+    <h3>9.1 Common Failure Scenarios</h3>
+    <ul>
+      <li><strong>Model regression:</strong> new version performs worse on key metrics.</li>
+      <li><strong>Latency spike:</strong> downstream dependency is slow.</li>
+      <li><strong>Capacity exhaustion:</strong> not enough GPUs/CPUs.</li>
+      <li><strong>Schema mismatch:</strong> client sends fields the model doesn’t expect.</li>
+    </ul>
+
+    <h3>9.2 Example: Model Regression in Production</h3>
+    <p>Real-world incident flow:</p>
+    <ol>
+      <li>Canary deployment sends 10% of traffic to <code>FraudModel v4.0</code>.</li>
+      <li>Monitoring detects decreased precision and increased false positives.</li>
+      <li>Alerts fire to the owning team and on-call SRE.</li>
+      <li>Traffic automatically rolled back to v3.2 according to policy.</li>
+      <li>Post-incident review links logs, evaluation dashboards, and root cause analysis.</li>
+    </ol>
+
+    <p>
+      The documentation would provide a <strong>Runbook</strong> that on-call engineers can follow
+      step-by-step during such an incident.
+    </p>
+
+    <!-- 10. Security & Multi-Tenancy -->
+    <h2>10. Security & Multi-Tenant Isolation</h2>
+
+    <p>
+      In a realistic platform, multiple teams and products may share the same Helios cluster.
+      The documentation describes guardrails such as:
+    </p>
+
+    <ul>
+      <li>Per-tenant API keys and scoped service accounts</li>
+      <li>Resource quotas per team (CPU, GPU, memory)</li>
+      <li>Namespace or project isolation for models and configs</li>
+      <li>Strict input validation and rate limiting at the edge</li>
+    </ul>
+
+    <!-- 11. Integration Checklist -->
+    <h2>11. Integration Checklist for Model Teams</h2>
+
+    <ul>
+      <li>☑ Model registered in the Helios model registry with owner + version</li>
+      <li>☑ Input/output schemas documented and validated</li>
+      <li>☑ Evaluation metrics captured and reviewed</li>
+      <li>☑ Canary / shadow traffic plan agreed with product team</li>
+      <li>☑ Dashboards and alerts configured for key SLOs</li>
+      <li>☑ Rollback plan tested (not just written)</li>
+      <li>☑ Playbooks created for high-risk failure modes</li>
+    </ul>
+
+  </section>
+
+  <!-- NAV BUTTONS -->
+  <div class="nav-buttons">
+    <a href="atlas-developer-platform.html" class="btn">← Previous Project</a>
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+    <a href="finsight-risk-api.html" class="btn">Next Project →</a>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <a href="#top" class="to-top">↑ Back to Top</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatAssist AI Architecture & Regression Suite | Leslie Writes</title>
+  <link rel="stylesheet" href="../css/docs.css">
+
+  <style>
+    body {
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: #fff;
+      color: #333;
+      padding: 2rem;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #723f74;
+      margin-top: 1.6rem;
+    }
+
+    pre {
+      background: #faf5fb;
+      border-left: 4px solid #e4b1cb;
+      padding: 1rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      font-size: 0.95rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    table th, table td {
+      border: 1px solid #e6d4e8;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .btn {
+      background-color: #e4b1cb;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #f6bae7;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #f1d7f5;
+      margin: 1.5rem 0;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="docs-body">
+
+    <header>
+      <h1>ChatAssist AI Architecture & Regression Suite</h1>
+      <p><em>Prepared by Leslie Amadi | Senior AI Technical Writer</em></p>
+      <hr>
+    </header>
+
+    <div class="docs-content">
+
+      <!-- SECTION 1 -->
+      <h2>1. High-Level Model Architecture</h2>
+      <p>
+        The following ASCII architecture diagram represents the internal structure of the 
+        <strong>Multilingual Chatbot Model v2.0</strong>.  
+        This visualisation is suitable for documentation, GitHub READMEs, and import into diagram tools such as Draw.io or Excalidraw.
+      </p>
+
+      <pre>
++----------------------------------------------------------+
+|                   MULTILINGUAL CHATBOT MODEL             |
++----------------------------------------------------------+
+                    |
+                    v
+        +---------------------------+
+        |     Input Processing      |
+        +---------------------------+
+        | - Text cleaning           |
+        | - Language detection      |
+        | - Tokenisation (EN/DE)    |
+        | - Normalisation           |
+        +-------------+-------------+
+                      |
+                      v
+        +---------------------------+
+        |  Shared Embedding Layer   |
+        +---------------------------+
+        | - BPE/WordPiece Encoder   |
+        | - Multilingual embeddings |
+        +-------------+-------------+
+                      |
+                      v
+      +-------------------------------------+
+      |     Transformer Encoder Blocks       |
+      +-------------------------------------+
+      | LayerNorm | Multi-Head Attention    |
+      | Feed-Forward Network | Residual      |
+      +------------------+------------------+
+                         |
+                         v
+        +--------------------------------+
+        |    Intent Classification Head  |
+        +--------------------------------+
+        | Softmax — 33 multilingual intents |
+        +--------------------------------+
+                         |
+                         v
+        +--------------------------------+
+        | Response Generator (Decoder)   |
+        +--------------------------------+
+        | - Template-based generation    |
+        | - Neural paraphrasing layer    |
+        +--------------------------------+
+                         |
+                         v
+        +-----------------------------+
+        | Output: Model Response      |
+        +-----------------------------+
+      </pre>
+
+      <!-- SECTION 2 -->
+      <h2>2. Evaluation Pipeline Architecture</h2>
+      <p>
+        The evaluation pipeline automates comparative testing across different model versions  
+        (v1.0 → v1.3 → v2.0), ensuring consistent performance measurement.
+      </p>
+
+      <pre>
+                    +-----------------------+
+                    |  Test Dataset Loader  |
+                    +-----------------------+
+                              |
+                              v
+               +-----------------------------+
+               | Preprocessing & Tokenisation|
+               +-----------------------------+
+                              |
+                              v
+                    +-----------------------+
+                    |   Model v1.0/1.3/2.0  |
+                    +-----------------------+
+                              |
+                              v
+                    +-----------------------+
+                    | Prediction Collector  |
+                    +-----------------------+
+                              |
+                              v
+         +--------------------------------------------+
+         | Metrics Engine (Accuracy, F1, Recall, etc.)|
+         +--------------------------------------------+
+                              |
+                              v
+                +-----------------------------+
+                | Comparative Performance Log |
+                +-----------------------------+
+                              |
+                              v
+                        +-----------+
+                        | Dashboard |
+                        +-----------+
+      </pre>
+
+      <!-- SECTION 3 -->
+      <h2>3. Regression Testing Template</h2>
+      <p>This regression suite ensures that every new model release maintains or improves quality without introducing regressions.</p>
+
+      <h3>3.1 Scope</h3>
+      <ul>
+        <li>Intent classification accuracy</li>
+        <li>Multilingual fluency (EN/DE)</li>
+        <li>Tone consistency</li>
+        <li>Hallucination reduction</li>
+        <li>Latency and cost</li>
+      </ul>
+
+      <h3>3.2 Test Categories</h3>
+
+      <h4>Intent Classification Tests</h4>
+      <table>
+        <thead>
+          <tr><th>Test ID</th><th>Description</th><th>Expected Output</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>IC-01</td><td>Recognise billing queries</td><td>Correct intent</td></tr>
+          <tr><td>IC-02</td><td>Technical troubleshooting</td><td>Correct intent</td></tr>
+          <tr><td>IC-03</td><td>Ambiguous queries</td><td>Highest-probability valid intent</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Multilingual Robustness</h4>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Language</th><th>Scenario</th><th>Expectation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MLR-01</td><td>German</td><td>Formal inquiry</td><td>Correct and fluent</td></tr>
+          <tr><td>MLR-02</td><td>German</td><td>Colloquial</td><td>Reasonable interpretation</td></tr>
+          <tr><td>MLR-03</td><td>English</td><td>Emotional tone</td><td>Soft, empathetic reply</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Hallucination Tests</h4>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Case</th><th>Expected Behaviour</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>HL-01</td><td>Unsupported product</td><td>Safe fallback</td></tr>
+          <tr><td>HL-02</td><td>Incorrect facts</td><td>Ask for clarification</td></tr>
+          <tr><td>HL-03</td><td>Unsafe content</td><td>Block + safe response</td></tr>
+        </tbody>
+      </table>
+
+      <h3>3.3 Pass/Fail Criteria</h3>
+      <ul>
+        <li>No accuracy drop > 2%</li>
+        <li>No new hallucinations introduced</li>
+        <li>Latency must not increase by >10%</li>
+        <li>Safety tests must pass 100%</li>
+      </ul>
+
+      <h3>3.4 Execution Log Template</h3>
+      <pre>
+Model Version: ____________
+Date: ____________
+Tester: ____________
+
+Test ID: ____________
+Input: ____________
+Output: ____________
+Expected: ____________
+Status: PASS / FAIL
+
+Notes:
+_________________________________________________________
+      </pre>
+
+      <!-- SECTION 4 -->
+      <h2>4. Version-to-Version Comparison (v1.0 → v1.3 → v2.0)</h2>
+
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>v1.0</th><th>v1.3</th><th>v2.0</th><th>Δ 1.3 → 2.0</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Accuracy</td><td>82%</td><td>87%</td><td><strong>91.5%</strong></td><td>+4.5%</td></tr>
+          <tr><td>Precision</td><td>77%</td><td>82%</td><td><strong>88%</strong></td><td>+6%</td></tr>
+          <tr><td>Recall</td><td>73%</td><td>78%</td><td><strong>84%</strong></td><td>+6%</td></tr>
+          <tr><td>F1 Score</td><td>75%</td><td>80%</td><td><strong>86%</strong></td><td>+6%</td></tr>
+          <tr><td>Hallucination Rate</td><td>14%</td><td>9%</td><td><strong>5.8%</strong></td><td>-3.2%</td></tr>
+        </tbody>
+      </table>
+
+      <h3>ASCII Comparison Chart</h3>
+      <pre>
+MODEL PERFORMANCE OVER TIME (Accuracy)
+
+v1.0  | ████████████░░░░░░    82%
+v1.3  | ███████████████░░     87%
+v2.0  | ██████████████████    91.5%
+      </pre>
+
+      <pre>
+HALLUCINATION RATE (lower is better)
+
+v1.0  | ██████████ 14%
+v1.3  | ██████░░░ 9%
+v2.0  | ███░░░░░ 5.8%
+      </pre>
+
+      <h3>Version Change Notes</h3>
+      <ul>
+        <li><strong>v1.0 → v1.3:</strong> Added multilingual embeddings, first hallucination filter.</li>
+        <li><strong>v1.3 → v2.0:</strong> Full data refresh, tone-control decoder, 32% fewer hallucinations.</li>
+      </ul>
+
+      <p class="mt-2">
+        <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+      </p>
+
+    </div>
+
+    <footer class="footer">
+      <p>© 2025 Leslie Amadi — All Rights Reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

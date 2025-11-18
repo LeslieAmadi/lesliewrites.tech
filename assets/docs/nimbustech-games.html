@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NimbusTech Customer Onboarding Integration | Portfolio | Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+<div class="page-shell">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="logo">Leslie Amadi</div>
+      <nav class="nav-menu">
+        <a href="../index.html">Home</a>
+        <a href="../portfolio.html" class="active">Portfolio</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PROJECT HERO -->
+  <section class="doc-header">
+    <h1>NimbusTech Customer Onboarding Integration</h1>
+    <p class="doc-subtitle">
+      A structured workflow framework for documenting Jira status transitions, governance, SLAs, 
+      and operational alignment across technical and non-technical teams.
+    </p>
+
+    <divc lass="tag-row">
+      <span class="tag">Workflow</span>
+      <span class="tag">Jira</span>
+      <span class="tag">Process Documentation</span>
+      <span class="tag">Team Operations</span>
+    </div>
+  </section>
+
+   <!-- BREADCRUMB -->
+   <nav class="breadcrumb">
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+    <span> / LexiMind</span>
+  </nav>
+
+  <!-- DOCUMENT BODY -->
+  <section class="doc-section">
+    <div class="docs-body">
+
+    <header>
+      <span class="tag">Operations</span>
+      <span class="tag">Governance</span>
+      <span class="tag">Team Alignment</span>
+
+      <h1>NimbusTech Jira Workflow Documentation Template</h1>
+      <p><em>Author: Leslie Amadi · Technical Documentation</em></p>
+      <hr>
+
+      <p>
+        This template is used by <strong>NimbusTech Systems</strong> to define consistent, audit-friendly 
+        workflow governance for Jira-based operational processes. It standardises transitions, clarifies 
+        responsibilities, and ensures cross-team alignment.
+      </p>
+    </header>
+
+
+    <div class="docs-content">
+
+      <!-- 1. Purpose -->
+      <h2>1. Purpose</h2>
+      <p>
+        This workflow template exists to ensure consistency, transparency, and operational discipline across all 
+        Jira-driven activities. It helps teams:
+      </p>
+      <ul>
+        <li>Standardise Jira ticket movement</li>
+        <li>Define clear entry and exit criteria</li>
+        <li>Align all technical & non-technical teams</li>
+        <li>Ensure auditability for compliance and reporting</li>
+        <li>Improve communication during complex workflows</li>
+      </ul>
+
+      <!-- 2. Scope -->
+      <h2>2. Scope</h2>
+      <p>This workflow applies to the following NimbusTech teams and boards:</p>
+      <ul>
+        <li>Customer Success (CS)</li>
+        <li>Integration Engineering</li>
+        <li>Quality Assurance (QA)</li>
+        <li>Product & Engineering</li>
+        <li>Compliance & Legal (if required)</li>
+      </ul>
+
+      <!-- 3. Workflow Diagram -->
+      <h2>3. Workflow Diagram</h2>
+      <p>
+        This workflow represents the standard Jira flow across NimbusTech’s customer-integration lifecycle.
+      </p>
+
+      <pre><code>To Do → Client Setup → Pending Customer Feedback → Customer Integration 
+→ QA Testing → Ready to Go Live → Live</code></pre>
+
+      <!-- 4. Status Definitions -->
+      <h2>4. Status Definitions</h2>
+      <p>
+        Each Jira status has a defined purpose, entry criteria, and exit criteria to ensure process clarity and 
+        correct ownership.
+      </p>
+
+      <h3>4.1 Status Table</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Meaning</th>
+            <th>Entry Criteria</th>
+            <th>Exit Criteria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>To Do</td>
+            <td>Initial creation of task or initiative</td>
+            <td>Ticket created</td>
+            <td>Client Setup initiated</td>
+          </tr>
+          <tr>
+            <td>Client Setup</td>
+            <td>Credentials, channel setup, environment readiness</td>
+            <td>Customer communication started</td>
+            <td>Credentials documented & validated</td>
+          </tr>
+          <tr>
+            <td>Pending Customer Feedback</td>
+            <td>Awaiting input, configuration, or confirmation</td>
+            <td>Request sent to customer</td>
+            <td>Customer responds with required details</td>
+          </tr>
+          <tr>
+            <td>Customer Integration</td>
+            <td>Customer begins integration work</td>
+            <td>Test credentials shared</td>
+            <td>Customer confirms readiness for QA</td>
+          </tr>
+          <tr>
+            <td>QA Testing</td>
+            <td>QA validates integration</td>
+            <td>QA ticket assigned</td>
+            <td>All tests passed; defects resolved</td>
+          </tr>
+          <tr>
+            <td>Ready to Go Live</td>
+            <td>Approved for production deployment</td>
+            <td>QA sign-off completed</td>
+            <td>Production configuration executed</td>
+          </tr>
+          <tr>
+            <td>Live</td>
+            <td>Feature successfully deployed to production</td>
+            <td>Go-live executed</td>
+            <td>Monitoring complete; handover done</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 5. Transition Rules -->
+      <h2>5. Transition Rules</h2>
+
+      <h3>5.1 Allowed Transitions</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Actor</th>
+            <th>Conditions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>To Do</td>
+            <td>Client Setup</td>
+            <td>CS / Integration</td>
+            <td>Kick-off completed</td>
+          </tr>
+          <tr>
+            <td>Client Setup</td>
+            <td>Customer Integration</td>
+            <td>CS / Integration</td>
+            <td>Credentials delivered</td>
+          </tr>
+          <tr>
+            <td>Customer Integration</td>
+            <td>QA Testing</td>
+            <td>Customer / CS</td>
+            <td>Customer confirms readiness</td>
+          </tr>
+          <tr>
+            <td>QA Testing</td>
+            <td>Ready to Go Live</td>
+            <td>QA</td>
+            <td>All acceptance tests passed</td>
+          </tr>
+          <tr>
+            <td>Ready to Go Live</td>
+            <td>Live</td>
+            <td>CS / Integration</td>
+            <td>Production configurations applied</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>5.2 Forbidden Transitions</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Live</td>
+            <td>QA Testing</td>
+            <td>Post-release changes must be logged separately</td>
+          </tr>
+          <tr>
+            <td>Ready to Go Live</td>
+            <td>Customer Integration</td>
+            <td>Backtracking breaks audit trails & compliance</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 6. SLA -->
+      <h2>6. SLA Expectations</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>SLA</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Customer Integration</td>
+            <td>5–10 business days</td>
+            <td>Customer</td>
+          </tr>
+          <tr>
+            <td>QA Testing</td>
+            <td>2–4 business days</td>
+            <td>QA</td>
+          </tr>
+          <tr>
+            <td>Pending Customer Feedback</td>
+            <td>Reviewed every 48 hours</td>
+            <td>CS</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Roles -->
+      <h2>7. Team Responsibilities</h2>
+
+      <h3>Customer Success (CS)</h3>
+      <ul>
+        <li>Initiates workflow with customer</li>
+        <li>Ensures transitions adhere to governance</li>
+      </ul>
+
+      <h3>QA Team</h3>
+      <ul>
+        <li>Manages QA Testing status</li>
+        <li>Validates exit criteria</li>
+      </ul>
+
+      <h3>Integration Engineering</h3>
+      <ul>
+        <li>Supports setup and production readiness</li>
+      </ul>
+
+      <h3>Customer</h3>
+      <ul>
+        <li>Completes integration tasks</li>
+        <li>Provides required confirmations</li>
+      </ul>
+
+      <!-- RACI -->
+      <h2>8. RACI Matrix</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>R</th>
+            <th>A</th>
+            <th>C</th>
+            <th>I</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Move ticket to Client Setup</td>
+            <td>CS</td>
+            <td>CS Lead</td>
+            <td>Integration</td>
+            <td>QA</td>
+          </tr>
+          <tr>
+            <td>Begin QA Testing</td>
+            <td>QA</td>
+            <td>QA Lead</td>
+            <td>CS</td>
+            <td>Integration</td>
+          </tr>
+          <tr>
+            <td>Approve Go Live</td>
+            <td>Integration</td>
+            <td>CS Lead</td>
+            <td>QA</td>
+            <td>Compliance</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- References -->
+      <h2>9. References</h2>
+      <ul>
+        <li>Jira workflow diagrams</li>
+        <li>NimbusTech integration guides</li>
+        <li>API documentation</li>
+        <li>Previous workflow audits</li>
+      </ul>
+
+      <!-- History -->
+      <h2>10. Document History</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Version</th>
+            <th>Date</th>
+            <th>Author</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.0</td>
+            <td>2025-01-12</td>
+            <td>Leslie Amadi</td>
+            <td>Initial creation</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+     <!-- NAV BUTTON -->
+
+  <div class="nav-buttons">
+    <a href="neuralflow-eval.html" class="btn">← Previous Project</a>
+    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+  </div>
+
+  <a href="#top" class="to-top">↑ Back to Top</a>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Leslie Amadi</p>
+</footer>
+  
+</div>
+</div>
+</body>
+</html>
