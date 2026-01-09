@@ -4,109 +4,9 @@
   <meta charset="utf-8">
   <title>Datasheet: Patient Outcomes Dataset | Leslie Writes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/docs.css">
+  <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    body {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: #fff;
-      color: #333;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      line-height: 1.65;
-    }
-
-    h1, h2, h3, h4 {
-      color: #723f74;
-      margin-top: 2.1rem;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-
-    h1 {
-      font-size: 2.1rem;
-      margin-top: 0;
-    }
-
-    p, ul, table {
-      margin-bottom: 1.1rem;
-    }
-
-    ul {
-      margin-left: 1.4rem;
-      padding-left: 0.2rem;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid #f1d7f5;
-      margin: 2rem 0;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 0.8rem;
-    }
-
-    table th, table td {
-      padding: 0.7rem 0.9rem;
-      border: 1px solid #e9c3ea;
-      font-size: 0.95rem;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    table th {
-      background-color: #f8e9fa;
-      color: #723f74;
-      font-weight: 600;
-    }
-
-    pre {
-      background: #fff6fb;
-      padding: 1rem;
-      border-radius: 8px;
-      border: 1px solid #f1d7f5;
-      font-size: 0.9rem;
-      overflow-x: auto;
-      white-space: pre-wrap;
-    }
-
-    .callout {
-      border-left: 4px solid #e4b1cb;
-      background: #fff8fd;
-      padding: 0.9rem 1rem;
-      border-radius: 6px;
-      margin: 1.4rem 0;
-      font-size: 0.95rem;
-    }
-
-    .btn {
-      background-color: #e4b1cb;
-      color: #fff;
-      padding: 0.7rem 1.4rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: inline-block;
-      margin-top: 1.4rem;
-      transition: background 0.25s ease;
-    }
-
-    .btn:hover {
-      background-color: #f6bae7;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -114,12 +14,64 @@
     <main class="container">
 
       <h1>Datasheet: Patient Outcomes Dataset</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-motivation">1. Motivation</a></li>
+          <li><a href="#2-dataset-summary">2. Dataset Summary</a></li>
+          <li><a href="#3-schema-feature-groups">3. Schema &amp; Feature Groups</a></li>
+          <li><a href="#4-collection-process-governance">4. Collection Process &amp; Governance</a></li>
+          <li><a href="#5-preprocessing-data-pipeline">5. Preprocessing &amp; Data Pipeline</a></li>
+          <li><a href="#6-intended-uses">6. Intended Uses</a></li>
+          <li><a href="#7-out-of-scope-uses">7. Out-of-Scope Uses</a></li>
+          <li><a href="#8-bias-fairness-ethical-considerations">8. Bias, Fairness &amp; Ethical Considerations</a></li>
+          <li><a href="#9-distribution-access-controls">9. Distribution &amp; Access Controls</a></li>
+          <li><a href="#10-maintenance-versioning">10. Maintenance &amp; Versioning</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>Datasheet: Patient Outcomes Dataset | Leslie Writes</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
       <p><em>Prepared by: LexiTech AI Research · Author: Leslie Amadi</em></p>
       <hr>
 
       <!-- 1. Motivation -->
       <section>
-        <h2>1. Motivation</h2>
+        <h2 id="1-motivation">1. Motivation</h2>
         <p>
           The <strong>Patient Outcomes Dataset</strong> was created to support research into the
           early detection and monitoring of chronic illnesses using anonymised electronic health record (EHR) data.
@@ -141,7 +93,7 @@
 
       <!-- 2. Dataset Summary -->
       <section>
-        <h2>2. Dataset Summary</h2>
+        <h2 id="2-dataset-summary">2. Dataset Summary</h2>
 
         <h3>2.1 Population & Coverage</h3>
         <p>
@@ -226,7 +178,7 @@
 
       <!-- 3. Schema & Features -->
       <section>
-        <h2>3. Schema & Feature Groups</h2>
+        <h2 id="3-schema-feature-groups">3. Schema & Feature Groups</h2>
 
         <h3>3.1 High-Level Schema</h3>
         <table>
@@ -308,7 +260,7 @@
 
       <!-- 4. Collection & Governance -->
       <section>
-        <h2>4. Collection Process & Governance</h2>
+        <h2 id="4-collection-process-governance">4. Collection Process & Governance</h2>
 
         <h3>4.1 Source Systems</h3>
         <ul>
@@ -340,7 +292,7 @@
 
       <!-- 5. Preprocessing -->
       <section>
-        <h2>5. Preprocessing & Data Pipeline</h2>
+        <h2 id="5-preprocessing-data-pipeline">5. Preprocessing & Data Pipeline</h2>
 
         <h3>5.1 Pipeline Overview</h3>
         <p>Transformation from raw EHR exports to the final ML-ready dataset follows this pipeline:</p>
@@ -403,7 +355,7 @@ Raw EHR & Lab Tables
 
       <!-- 6. Intended Uses -->
       <section>
-        <h2>6. Intended Uses</h2>
+        <h2 id="6-intended-uses">6. Intended Uses</h2>
         <p>
           The dataset is primarily designed for research and development of clinical risk prediction and outcome
           modelling, such as:
@@ -418,7 +370,7 @@ Raw EHR & Lab Tables
 
       <!-- 7. Out-of-Scope Uses -->
       <section>
-        <h2>7. Out-of-Scope Uses</h2>
+        <h2 id="7-out-of-scope-uses">7. Out-of-Scope Uses</h2>
         <p>The dataset is <strong>not</strong> intended for:</p>
         <ul>
           <li>Direct, individual patient diagnosis or real-time treatment decisions.</li>
@@ -430,7 +382,7 @@ Raw EHR & Lab Tables
 
       <!-- 8. Bias, Fairness & Ethics -->
       <section>
-        <h2>8. Bias, Fairness & Ethical Considerations</h2>
+        <h2 id="8-bias-fairness-ethical-considerations">8. Bias, Fairness & Ethical Considerations</h2>
 
         <h3>8.1 Known Risks</h3>
         <ul>
@@ -471,7 +423,7 @@ Raw EHR & Lab Tables
 
       <!-- 9. Distribution & Access -->
       <section>
-        <h2>9. Distribution & Access Controls</h2>
+        <h2 id="9-distribution-access-controls">9. Distribution & Access Controls</h2>
         <ul>
           <li><strong>Access scope:</strong> Internal research and approved collaborations only.</li>
           <li><strong>Access control:</strong> Role-based access via institutional identity provider.</li>
@@ -487,7 +439,7 @@ Raw EHR & Lab Tables
 
       <!-- 10. Maintenance & Versioning -->
       <section>
-        <h2>10. Maintenance & Versioning</h2>
+        <h2 id="10-maintenance-versioning">10. Maintenance & Versioning</h2>
 
         <h3>10.1 Update Cadence</h3>
         <ul>

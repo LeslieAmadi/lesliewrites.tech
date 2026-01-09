@@ -6,7 +6,7 @@
   <title>Helios Model Serving Infrastructure | Project — Leslie Amadi</title>
 
   <!-- Global theme -->
-  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
@@ -21,6 +21,59 @@
   <!-- HEADER -->
   <header class="doc-header">
     <h1>Helios Model Serving Infrastructure</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-platform-overview">1. Platform Overview</a></li>
+          <li><a href="#2-high-level-architecture">2. High-Level Architecture</a></li>
+          <li><a href="#3-serving-modes-real-life-usage">3. Serving Modes &amp; Real-Life Usage</a></li>
+          <li><a href="#4-model-registry-versions-lifecycle">4. Model Registry, Versions &amp; Lifecycle</a></li>
+          <li><a href="#5-request-flow-routing-logic">5. Request Flow &amp; Routing Logic</a></li>
+          <li><a href="#6-autoscaling-capacity-planning">6. Autoscaling &amp; Capacity Planning</a></li>
+          <li><a href="#7-caching-warmup-latency-optimisation">7. Caching, Warmup &amp; Latency Optimisation</a></li>
+          <li><a href="#8-observability-slos">8. Observability &amp; SLOs</a></li>
+          <li><a href="#9-failure-modes-incident-response">9. Failure Modes &amp; Incident Response</a></li>
+          <li><a href="#10-security-multi-tenant-isolation">10. Security &amp; Multi-Tenant Isolation</a></li>
+          <li><a href="#11-integration-checklist-for-model-teams">11. Integration Checklist for Model Teams</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>Helios Model Serving Infrastructure | Project — Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
     <p class="doc-subtitle">
       Production-grade model serving platform for real-time and batch inference at scale. I documented the
       full system: architecture, autoscaling, deployment strategy, SLOs, caching, observability, safety rails,
@@ -41,7 +94,7 @@
   <section class="doc-section">
 
     <!-- 1. Overview -->
-    <h2>1. Platform Overview</h2>
+    <h2 id="1-platform-overview">1. Platform Overview</h2>
     <p>
       <strong>Helios</strong> is a model serving platform designed to host multiple machine learning models in
       production—supporting real-time APIs, asynchronous batch jobs, and scheduled inference workflows.
@@ -61,7 +114,7 @@
     </p>
 
     <!-- 2. High-Level Architecture -->
-    <h2>2. High-Level Architecture</h2>
+    <h2 id="2-high-level-architecture">2. High-Level Architecture</h2>
     <p>
       Helios separates <strong>control plane</strong> (configuration, model registry, deployments) from
       <strong>data plane</strong> (actual inference traffic).
@@ -97,7 +150,7 @@
     </p>
 
     <!-- 3. Serving Modes -->
-    <h2>3. Serving Modes & Real-Life Usage</h2>
+    <h2 id="3-serving-modes-real-life-usage">3. Serving Modes & Real-Life Usage</h2>
 
     <h3>3.1 Online / Real-Time Serving</h3>
     <p>
@@ -135,7 +188,7 @@
     </ul>
 
     <!-- 4. Model Registry & Versioning -->
-    <h2>4. Model Registry, Versions & Lifecycle</h2>
+    <h2 id="4-model-registry-versions-lifecycle">4. Model Registry, Versions & Lifecycle</h2>
 
     <p>
       All models deployed through Helios must be registered in a central <strong>Model Registry</strong>.
@@ -168,7 +221,7 @@
     </ol>
 
     <!-- 5. Request Flow & Routing -->
-    <h2>5. Request Flow & Routing Logic</h2>
+    <h2 id="5-request-flow-routing-logic">5. Request Flow & Routing Logic</h2>
 
     <p>For a real-time prediction, the end-to-end path looks like:</p>
 
@@ -193,7 +246,7 @@
     </p>
 
     <!-- 6. Autoscaling & Capacity Planning -->
-    <h2>6. Autoscaling & Capacity Planning</h2>
+    <h2 id="6-autoscaling-capacity-planning">6. Autoscaling & Capacity Planning</h2>
 
     <p>
       Helios supports both <strong>horizontal autoscaling</strong> (more pods) and <strong>vertical scaling</strong>
@@ -230,7 +283,7 @@
     </ul>
 
     <!-- 7. Caching & Latency Optimisation -->
-    <h2>7. Caching, Warmup & Latency Optimisation</h2>
+    <h2 id="7-caching-warmup-latency-optimisation">7. Caching, Warmup & Latency Optimisation</h2>
 
     <p>
       Real production systems often need aggressive optimisation to meet SLAs, especially when using large models.
@@ -251,7 +304,7 @@
     </ol>
 
     <!-- 8. Observability & SLOs -->
-    <h2>8. Observability & SLOs</h2>
+    <h2 id="8-observability-slos">8. Observability & SLOs</h2>
 
     <p>
       Helios ships with batteries-included observability. The docs assume the use of modern tooling
@@ -295,7 +348,7 @@
     </ul>
 
     <!-- 9. Failure Modes & Incident Response -->
-    <h2>9. Failure Modes & Incident Response</h2>
+    <h2 id="9-failure-modes-incident-response">9. Failure Modes & Incident Response</h2>
 
     <p>
       This section documents what should happen when things go wrong in real life.
@@ -325,7 +378,7 @@
     </p>
 
     <!-- 10. Security & Multi-Tenancy -->
-    <h2>10. Security & Multi-Tenant Isolation</h2>
+    <h2 id="10-security-multi-tenant-isolation">10. Security & Multi-Tenant Isolation</h2>
 
     <p>
       In a realistic platform, multiple teams and products may share the same Helios cluster.
@@ -340,7 +393,7 @@
     </ul>
 
     <!-- 11. Integration Checklist -->
-    <h2>11. Integration Checklist for Model Teams</h2>
+    <h2 id="11-integration-checklist-for-model-teams">11. Integration Checklist for Model Teams</h2>
 
     <ul>
       <li>☑ Model registered in the Helios model registry with owner + version</li>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crimson Temple Bonus Wheel Feature (Asian Mythology) | Leslie Amadi</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css">
 
 </head>
 
@@ -28,6 +28,61 @@
   <!-- PROJECT HERO -->
   <header class="doc-header">
     <h1>Crimson Temple Bonus Wheel Feature (Asian Mythology)</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#scope">Scope</a></li>
+          <li><a href="#main-feature-description">Main Feature Description</a></li>
+          <li><a href="#prerequisite">Prerequisite</a></li>
+          <li><a href="#dependencies">Dependencies</a></li>
+          <li><a href="#assets">Assets</a></li>
+          <li><a href="#change-description">Change Description</a></li>
+          <li><a href="#deployment-plan">Deployment Plan</a></li>
+          <li><a href="#testing-validation">Testing &amp; Validation</a></li>
+          <li><a href="#platform-and-system-updates">Platform and System Updates</a></li>
+          <li><a href="#references-supporting-documents">References &amp; Supporting Documents</a></li>
+          <li><a href="#compliance">Compliance</a></li>
+          <li><a href="#document-control-approvals">Document Control &amp; Approvals</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>Crimson Temple Bonus Wheel Feature (Asian Mythology) | Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
       <p class="doc-subtitle">
         Product and operational documentation for the NimbusShop Platform, designed for physical game shops with 
         registered devices, player wallets, and real-time reporting.
@@ -54,7 +109,7 @@
     <div class="docs-body">
 
     <section>
-        <h2>Overview</h2>
+        <h2 id="overview">Overview</h2>
       
         <h3>Purpose</h3>
         <p>
@@ -76,7 +131,7 @@
       </section>
       
       <section>
-        <h2>Scope</h2>
+        <h2 id="scope">Scope</h2>
       
         <h3>In Scope</h3>
         <ul>
@@ -98,7 +153,7 @@
       </section>
       
       <section>
-        <h2>Main Feature Description</h2>
+        <h2 id="main-feature-description">Main Feature Description</h2>
         <p>
           The <strong>Crimson Temple Bonus Wheel</strong> is a single-spin wheel bonus feature with
           16 segments. Each segment represents one of four prize classes:
@@ -143,7 +198,7 @@
       </section>
       
       <section>
-        <h2>Prerequisite</h2>
+        <h2 id="prerequisite">Prerequisite</h2>
         <p>Before implementing or enabling the Bonus Wheel feature, the following must be in place:</p>
         <ul>
           <li>Installed tools: <code>Node.js</code>, build tooling for the FE framework, RNG library dependency.</li>
@@ -160,7 +215,7 @@
       </section>
       
       <section>
-        <h2>Dependencies</h2>
+        <h2 id="dependencies">Dependencies</h2>
         <ul>
           <li><strong>Game Server:</strong> Responsible for RNG calls, prize resolution, and balance updates.</li>
           <li><strong>Jackpot Platform:</strong> Required if the Dragon Pot prize is enabled.</li>
@@ -174,7 +229,7 @@
       </section>
       
       <section>
-        <h2>Assets</h2>
+        <h2 id="assets">Assets</h2>
         <ul>
           <li><strong>Wheel Board:</strong> <code>art/ui/crimson_temple/wheel_board_v03.png</code></li>
           <li><strong>Pointer &amp; Glow Effects:</strong> <code>art/ui/crimson_temple/wheel_pointer_v02.png</code></li>
@@ -193,7 +248,7 @@
       </section>
       
       <section>
-        <h2>Change Description</h2>
+        <h2 id="change-description">Change Description</h2>
         <p><strong>Current State:</strong> Crimson Temple base game is live with standard free spins feature, but no mid-to-high volatility wheel mechanic.</p>
         <p><strong>Target State:</strong> Introduce a Bonus Wheel feature that:</p>
         <ul>
@@ -220,7 +275,7 @@
       </section>
       
       <section>
-        <h2>Deployment Plan</h2>
+        <h2 id="deployment-plan">Deployment Plan</h2>
         <ul>
           <li><strong>Deployment Window:</strong> 02:00–04:00 UTC (low-traffic window).</li>
           <li>
@@ -251,7 +306,7 @@
       </section>
       
       <section>
-        <h2>Testing &amp; Validation</h2>
+        <h2 id="testing-validation">Testing &amp; Validation</h2>
       
         <h3>Acceptance Criteria</h3>
         <ul>
@@ -341,7 +396,7 @@
       </section>
       
       <section>
-        <h2>Platform and System Updates</h2>
+        <h2 id="platform-and-system-updates">Platform and System Updates</h2>
         <table>
           <thead>
             <tr>
@@ -379,7 +434,7 @@
       </section>
       
       <section>
-        <h2>References &amp; Supporting Documents</h2>
+        <h2 id="references-supporting-documents">References &amp; Supporting Documents</h2>
         <table>
           <thead>
             <tr>
@@ -405,7 +460,7 @@
       </section>
       
       <section>
-        <h2>Compliance</h2>
+        <h2 id="compliance">Compliance</h2>
         <p>
           Compliance with this document and the underlying certified math model shall be monitored via:
           periodic audits, game configuration checks, and jurisdiction-specific certification reviews.
@@ -417,7 +472,7 @@
       </section>
       
       <section>
-        <h2>Document Control &amp; Approvals</h2>
+        <h2 id="document-control-approvals">Document Control &amp; Approvals</h2>
         <p>
           This document is reviewed at least annually, or whenever substantial changes are made 
           to the Crimson Temple Bonus Wheel feature.

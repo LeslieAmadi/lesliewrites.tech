@@ -3,24 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LexiMind — Predictive Diagnosis | Portfolio | Leslie Amadi</title>
-  <link rel="stylesheet" href="../styles.css">
+  <title>LexiMind Predictive Diagnosis API | Portfolio | Leslie Amadi</title>
 
+  <meta name="description"
+        content="Technical documentation for the LexiMind Health Intelligence API (HIM-2.0): predictive diagnosis, endpoints, evaluation, and guidance for safe integration into clinical systems.">
+<link rel="stylesheet" href="../styles.css">
+  
 </head>
 
-<body>
+<body id="top">
 <div class="page-shell">
 
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="navbar-inner">
-      <div class="logo">Leslie Amadi</div>
+      <a href="../../index.html" class="logo">Leslie Amadi</a>
       <nav class="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="portfolio.html" class="active">Portfolio</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="../../index.html">Home</a>
+        <a href="../../portfolio.html" class="active">Portfolio</a>
+        <a href="../../blog.html">Blog</a>
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -28,45 +31,64 @@
   <!-- PROJECT HERO -->
   <section class="project-hero">
     <h1>LexiMind — Predictive Diagnosis AI</h1>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>LexiMind Predictive Diagnosis API | Portfolio | Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
     <p class="project-subtitle">
-      End-to-end documentation for a clinical AI system: model card, API reference, 
-      evaluation report, release notes, and safety guidelines.
+      End-to-end documentation for a clinical AI risk-scoring service: model card, API reference,
+      evaluation notes, and safety guidance for hospital environments.
     </p>
 
     <div class="project-tags">
-      <span class="tag">Model Card</span>
-      <span class="tag">API Documentation</span>
-      <span class="tag">Evaluation</span>
       <span class="tag">Healthcare AI</span>
-      <span class="tag">Safety</span>
+      <span class="tag">Risk Prediction</span>
+      <span class="tag">REST API</span>
+      <span class="tag">Model Card</span>
     </div>
   </section>
 
   <!-- BREADCRUMB -->
-  <nav class="breadcrumb">
-    <a href="portfolio.html" class="btn">Back to Portfolio</a>
-    <span> / LexiMind</span>
+  <nav class="project-breadcrumb">
+    <a href="../../portfolio.html">← Back to Portfolio</a>
+    <span> / LexiMind Predictive Diagnosis</span>
   </nav>
 
   <!-- DOCUMENT BODY -->
   <div class="docs-body">
 
-    <header>
-      <span class="tag">Healthcare AI</span>
-      <span class="tag">Risk Prediction</span>
-      <span class="tag">REST API</span>
-
-      <h1>LexiMind Health Intelligence API — Predictive Diagnosis</h1>
-      <p><em>Technical API &amp; System Documentation · Author: Leslie Amadi</em></p>
-      <hr>
-
-      <p>
-        The <strong>LexiMind Health Intelligence Model (HIM-2.0)</strong> provides clinically oriented risk estimates
-        for chronic conditions using structured patient data. This API is designed to plug into electronic health
-        record (EHR) systems, decision-support dashboards, and analytics pipelines as a
-        <strong>supporting signal</strong> — never as an autonomous diagnostic tool.
-      </p>
-
+    <!-- HEADER + ROLE / IMPACT -->
+    <header class="project-header">
       <div class="meta-grid">
         <div>
           <span class="meta-label">Service:</span> health-intelligence-predictive-api
@@ -83,16 +105,53 @@
       </div>
 
       <div class="callout">
-        <strong>Who this is for.</strong> This page is written for engineers and technical stakeholders integrating
-        the LexiMind Health Intelligence API into clinical systems. It covers architecture, endpoints, request/response
-        contracts, model characteristics, performance expectations, error handling, and guidance for safe, responsible use.
+        <strong>My role & impact.</strong>
+        <ul>
+          <li><strong>Role:</strong> Technical Writer for AI/ML & clinical API documentation.</li>
+          <li><strong>Scope:</strong> API reference design, model card, error handling patterns, integration flow,
+              safety & responsible use guidance.</li>
+          <li><strong>Impact:</strong> Reduced back-and-forth with engineering teams, clarified clinical boundaries
+              of the model, and provided a stable contract for multiple hospital EHR integrations.</li>
+        </ul>
+      </div>
+
+      <p>
+        The <strong>LexiMind Health Intelligence Model (HIM-2.0)</strong> provides clinically oriented risk estimates
+        for chronic conditions using structured patient data. The service is designed to plug into electronic
+        health record (EHR) systems, decision-support dashboards, and analytics pipelines as a
+        <strong>supporting signal</strong> — never as an autonomous diagnostic tool.
+      </p>
+
+      <div class="callout">
+        <strong>Who this page is for.</strong>
+        Engineers, solution architects, and technical stakeholders responsible for integrating the LexiMind
+        Health Intelligence API into clinical systems. It covers architecture, endpoints, request/response
+        contracts, model characteristics, performance expectations, error handling, and guidance for safe use.
       </div>
     </header>
 
+    <!-- TABLE OF CONTENTS -->
+    <nav class="docs-toc">
+      <h2 id="on-this-page">On this page</h2>
+      <ol>
+        <li><a href="#overview">1. High-level overview</a></li>
+        <li><a href="#environments">2. Environments &amp; authentication</a></li>
+        <li><a href="#model-card">3. Model card — HIM-2.0</a></li>
+        <li><a href="#pipeline">4. Inference pipeline</a></li>
+        <li><a href="#api-endpoints">5. API endpoints</a></li>
+        <li><a href="#error-handling">6. Error handling &amp; retries</a></li>
+        <li><a href="#performance">7. Rate limits &amp; performance</a></li>
+        <li><a href="#security">8. Security, privacy &amp; responsible use</a></li>
+        <li><a href="#checklist">9. Integration checklist</a></li>
+        <li><a href="#support">10. Contact &amp; support</a></li>
+      </ol>
+    </nav>
+
+    <!-- MAIN CONTENT -->
     <div class="docs-content">
 
       <!-- 1. Overview -->
-      <h2>1. High-Level Overview</h2>
+      <h2 id="overview">1. High-level overview</h2>
       <p>
         LexiMind’s predictive diagnosis capability is delivered as a stateless JSON-over-HTTPS API. Clients submit
         structured patient data (age, vitals, lab values, risk factors) and receive:
@@ -100,11 +159,11 @@
       <ul>
         <li>Per-condition risk scores in the range <code>[0, 1]</code>.</li>
         <li>An overall risk category (<code>low</code>, <code>medium</code>, <code>high</code>).</li>
-        <li>Human-interpretable feature contributions for explainability.</li>
+        <li>Human-interpretable feature contributions to support clinical interpretation.</li>
       </ul>
 
       <div class="diagram">
-        <div class="diagram-title">Figure 1 — End-to-End Data Flow</div>
+        <div class="diagram-title">Figure 1 — End-to-end data flow</div>
         <pre><code>Client (EHR / Clinical App)
         |
         v
@@ -129,7 +188,7 @@
       </div>
 
       <!-- 2. Environments & Authentication -->
-      <h2>2. Environments & Authentication</h2>
+      <h2 id="environments">2. Environments &amp; authentication</h2>
 
       <h3>2.1 Base URL</h3>
       <p>The v1 API is exposed under:</p>
@@ -137,8 +196,8 @@
         <li><strong>Production:</strong> <code>https://api.leximind.ai/v1</code></li>
       </ul>
       <p>
-        If your organisation uses a dedicated staging environment, a similar pattern (e.g.
-        <code>https://staging.api.leximind.ai/v1</code>) is recommended.
+        If your organisation uses a dedicated staging environment, a similar pattern (for example
+        <code>https://staging.api.leximind.ai/v1</code>) is recommended and can be provisioned per customer.
       </p>
 
       <h3>2.2 Authentication</h3>
@@ -148,11 +207,11 @@
       <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
       <ul>
         <li>Keys are scoped per organisation and environment.</li>
-        <li>Store keys server-side only; never embed them in client-side code or mobile apps.</li>
-        <li>Rotate keys regularly and immediately on suspected compromise.</li>
+        <li>Store keys server-side only; never embed them in browser or mobile clients.</li>
+        <li>Rotate keys regularly and immediately if compromise is suspected.</li>
       </ul>
 
-      <h3>2.3 Request & Response Format</h3>
+      <h3>2.3 Request &amp; response format</h3>
       <ul>
         <li>Only <strong>HTTPS</strong> is supported.</li>
         <li>Requests must use <code>Content-Type: application/json</code>.</li>
@@ -160,16 +219,16 @@
       </ul>
 
       <!-- 3. Model Card -->
-      <h2>3. Model Card — LexiMind Health Intelligence Model (HIM-2.0)</h2>
+      <h2 id="model-card">3. Model card — LexiMind Health Intelligence Model (HIM-2.0)</h2>
 
-      <h3>3.1 Intended Use</h3>
+      <h3>3.1 Intended use</h3>
       <ul>
         <li><strong>Purpose:</strong> Support clinicians in stratifying risk for selected chronic conditions.</li>
         <li><strong>Users:</strong> Licensed clinicians and clinical support systems, via technical integrations.</li>
-        <li><strong>Setting:</strong> Hospital and outpatient care; not direct-to-consumer.</li>
+        <li><strong>Setting:</strong> Hospital and outpatient care; not intended for direct-to-consumer use.</li>
       </ul>
 
-      <h3>3.2 Inputs & Outputs</h3>
+      <h3>3.2 Inputs &amp; outputs</h3>
       <table>
         <thead>
           <tr>
@@ -180,42 +239,44 @@
         <tbody>
           <tr>
             <td>Inputs</td>
-            <td>Age, sex, blood pressure, glucose, cholesterol, risk factors (e.g. smoking, family history), symptoms.</td>
+            <td>Age, sex, blood pressure, glucose, cholesterol, risk factors (for example smoking, family history), and
+                high-level symptoms where available.</td>
           </tr>
           <tr>
-            <td>Primary Outputs</td>
-            <td>Condition-specific risk scores (0–1), overall risk category (<code>low</code>, <code>medium</code>, <code>high</code>).</td>
+            <td>Primary outputs</td>
+            <td>Condition-specific risk scores (0–1), plus overall risk category
+                (<code>low</code>, <code>medium</code>, <code>high</code>).</td>
           </tr>
           <tr>
-            <td>Secondary Outputs</td>
-            <td>Top contributing features used by the model (for interpretability).</td>
+            <td>Secondary outputs</td>
+            <td>Top contributing features used by the model (for interpretability and clinical discussion).</td>
           </tr>
         </tbody>
       </table>
 
-      <h3>3.3 Behaviour & Limitations (Conceptual)</h3>
+      <h3>3.3 Behaviour &amp; limitations</h3>
       <ul>
-        <li>Optimised for adult populations (18+) with documented vitals and lab results.</li>
+        <li>Optimised for adult populations (18+) with recent vitals and lab results.</li>
         <li>Not validated for paediatrics, emergency triage, or rare diseases.</li>
-        <li>Predictions are probabilistic and should be used as an additional signal, not a final decision.</li>
+        <li>Predictions are probabilistic and must be treated as one signal in a wider clinical assessment.</li>
       </ul>
 
       <!-- 4. Inference Pipeline -->
-      <h2>4. Inference Pipeline</h2>
+      <h2 id="pipeline">4. Inference pipeline</h2>
       <p>
         Once a request passes authentication and basic validation, the following pipeline executes:
       </p>
       <ol>
         <li><strong>Schema validation:</strong> Checks required fields, data types, and basic ranges.</li>
-        <li><strong>Normalisation:</strong> Harmonises units and encodings (e.g. mmHg, mg/dL, booleans).</li>
+        <li><strong>Normalisation:</strong> Harmonises units and encodings (for example mmHg, mg/dL, booleans).</li>
         <li><strong>Feature engineering:</strong> Computes derived risk indicators and aggregates.</li>
-        <li><strong>Model inference (HIM-2.0):</strong> Applies trained model(s) to produce per-condition risk scores.</li>
-        <li><strong>Risk categorisation:</strong> Maps numeric scores to discrete risk levels.</li>
-        <li><strong>Response assembly:</strong> Packages scores, categories, and recommendations into JSON.</li>
+        <li><strong>Model inference (HIM-2.0):</strong> Produces per-condition risk scores.</li>
+        <li><strong>Risk categorisation:</strong> Maps numeric scores to discrete risk tiers.</li>
+        <li><strong>Response assembly:</strong> Packages scores, categories, and recommendation into JSON.</li>
       </ol>
 
       <div class="diagram">
-        <div class="diagram-title">Figure 2 — Inference Pipeline (Conceptual)</div>
+        <div class="diagram-title">Figure 2 — Inference pipeline (conceptual)</div>
         <pre><code>JSON request
    -> validate schema & ranges
    -> normalise (units, categories)
@@ -226,12 +287,12 @@
       </div>
 
       <!-- 5. API Endpoints -->
-      <h2>5. API Endpoints</h2>
+      <h2 id="api-endpoints">5. API endpoints</h2>
 
       <h3>5.1 POST /predict</h3>
       <p>
         Main scoring endpoint. Accepts structured patient data and returns risk estimates
-        for a set of chronic conditions.
+        for supported chronic conditions.
       </p>
 
       <p>
@@ -240,7 +301,7 @@
         <strong>Base URL:</strong> <code>https://api.leximind.ai/v1</code>
       </p>
 
-      <h4>5.1.1 Request Body Example</h4>
+      <h4>5.1.1 Request body example</h4>
       <pre><code>{
   "patient_data": {
     "age": 55,
@@ -252,7 +313,7 @@
   }
 }</code></pre>
 
-      <h4>5.1.2 Request Fields</h4>
+      <h4>5.1.2 Request fields</h4>
       <table>
         <thead>
           <tr>
@@ -297,12 +358,12 @@
             <td>patient_data.family_history</td>
             <td>array&lt;string&gt;</td>
             <td>optional</td>
-            <td>List of relevant family conditions (e.g. <code>"diabetes"</code>).</td>
+            <td>List of relevant family conditions (for example <code>"diabetes"</code>).</td>
           </tr>
         </tbody>
       </table>
 
-      <h4>5.1.3 Response Example</h4>
+      <h4>5.1.3 Response example</h4>
       <pre><code>{
   "prediction": {
     "diabetes": 0.78,
@@ -315,7 +376,7 @@
   "trace_id": "req_f91ec7d02a"
 }</code></pre>
 
-      <h4>5.1.4 Response Fields</h4>
+      <h4>5.1.4 Response fields</h4>
       <table>
         <thead>
           <tr>
@@ -333,17 +394,17 @@
           <tr>
             <td>risk_level</td>
             <td>string</td>
-            <td>Overall risk category, e.g. <code>"low"</code>, <code>"medium"</code>, <code>"high"</code>.</td>
+            <td>Overall risk category (for example <code>"low"</code>, <code>"medium"</code>, <code>"high"</code>).</td>
           </tr>
           <tr>
             <td>recommendation</td>
             <td>string</td>
-            <td>Human-readable guidance emphasising that predictions are decision support, not diagnosis.</td>
+            <td>Plain-language guidance emphasising that predictions are a support signal, not a diagnosis.</td>
           </tr>
           <tr>
             <td>model_version</td>
             <td>string</td>
-            <td>Model identifier and version, e.g. <code>"HIM-2.0"</code>.</td>
+            <td>Model identifier and version, for example <code>"HIM-2.0"</code>.</td>
           </tr>
           <tr>
             <td>trace_id</td>
@@ -353,7 +414,7 @@
         </tbody>
       </table>
 
-      <h4>5.1.5 Python Example</h4>
+      <h4>5.1.5 Python example</h4>
       <pre><code>import requests
 
 BASE_URL = "https://api.leximind.ai/v1"
@@ -386,7 +447,7 @@ print(response.json())</code></pre>
         <strong>Path:</strong> <code>/status</code>
       </p>
 
-      <h4>5.2.1 Response Example</h4>
+      <h4>5.2.1 Response example</h4>
       <pre><code>{
   "status": "online",
   "uptime": "99.9%",
@@ -395,7 +456,7 @@ print(response.json())</code></pre>
 }</code></pre>
 
       <!-- 6. Error Handling -->
-      <h2>6. Error Handling & Retry Strategy</h2>
+      <h2 id="error-handling">6. Error handling &amp; retry strategy</h2>
       <p>
         Errors are communicated via standard HTTP status codes and a structured JSON body. Clients should branch
         behaviour based on <strong>error class</strong>:
@@ -412,10 +473,10 @@ print(response.json())</code></pre>
       <table>
         <thead>
           <tr>
-            <th>HTTP Code</th>
-            <th>Error Code</th>
+            <th>HTTP code</th>
+            <th>Error code</th>
             <th>Description</th>
-            <th>Recommended Action</th>
+            <th>Recommended action</th>
           </tr>
         </thead>
         <tbody>
@@ -453,9 +514,9 @@ print(response.json())</code></pre>
       </table>
 
       <!-- 7. Rate Limits & Performance -->
-      <h2>7. Rate Limits & Performance Expectations</h2>
+      <h2 id="performance">7. Rate limits &amp; performance expectations</h2>
 
-      <h3>7.1 Rate Limits (Illustrative)</h3>
+      <h3>7.1 Rate limits (illustrative)</h3>
       <ul>
         <li><strong>Default:</strong> 100 requests per minute per API key.</li>
         <li><strong>Enterprise:</strong> Custom limits can be negotiated.</li>
@@ -465,12 +526,12 @@ print(response.json())</code></pre>
         Clients should back off rather than continuously retry.
       </p>
 
-      <h3>7.2 Latency Targets</h3>
+      <h3>7.2 Latency targets</h3>
       <table>
         <thead>
           <tr>
             <th>Endpoint</th>
-            <th>Target P95 Latency</th>
+            <th>Target P95 latency</th>
             <th>Notes</th>
           </tr>
         </thead>
@@ -489,16 +550,16 @@ print(response.json())</code></pre>
       </table>
 
       <!-- 8. Security & Responsible Use -->
-      <h2>8. Security, Privacy & Responsible Use</h2>
+      <h2 id="security">8. Security, privacy &amp; responsible use</h2>
 
-      <h3>8.1 Data Protection</h3>
+      <h3>8.1 Data protection</h3>
       <ul>
         <li>All traffic must use TLS (HTTPS); plaintext HTTP is not supported.</li>
         <li>Only send features necessary for your clinical use case; avoid gratuitous data.</li>
-        <li>Where possible, avoid direct identifiers in <code>patient_data</code> and rely on local IDs.</li>
+        <li>Where possible, avoid direct identifiers in <code>patient_data</code> and rely on internal IDs.</li>
       </ul>
 
-      <h3>8.2 Responsible Use Guidance</h3>
+      <h3>8.2 Responsible use guidance</h3>
       <ul>
         <li>Use outputs as <strong>decision support</strong>, not as standalone diagnoses.</li>
         <li>Ensure clinicians retain final responsibility for clinical decisions.</li>
@@ -506,7 +567,7 @@ print(response.json())</code></pre>
       </ul>
 
       <!-- 9. Integration Checklist -->
-      <h2>9. Integration Checklist</h2>
+      <h2 id="checklist">9. Integration checklist</h2>
       <p>Before going live, we recommend verifying the following:</p>
       <ul>
         <li>API key securely stored and injected server-side.</li>
@@ -517,7 +578,7 @@ print(response.json())</code></pre>
       </ul>
 
       <!-- 10. Support -->
-      <h2>10. Contact & Support</h2>
+      <h2 id="support">10. Contact &amp; support</h2>
       <p>
         For integration issues, performance questions, or incident reports:
       </p>
@@ -526,27 +587,30 @@ print(response.json())</code></pre>
         <strong>Support hours:</strong> Monday–Friday · 09:00–18:00 (CET)
       </p>
 
-     <!-- NAV BUTTONS -->
-     <div class="nav-buttons">
-      <a href="../../previous-page.html" class="btn-leslie"><span class="arrow">←</span> Previous Page</a>
-      <a href="../../next-page.html" class="btn-leslie">Next Page <span class="arrow">→</span></a>
-      <a href="../../portfolio.html" class="btn-leslie">Back to Portfolio</a>
-    </div>
-    
-    
-    <footer>
-      © 2025 Leslie Amadi — All Rights Reserved.
-    </footer>
+      <!-- NAV BUTTONS -->
+      <div class="nav-buttons">
+        <a href="finsight-risk-api.html" class="btn-leslie">
+          <span class="arrow">←</span> Previous
+        </a>
+        <a href="../../portfolio.html" class="btn-leslie">
+          Back to Portfolio
+        </a>
+        <a href="leximind-api-reference.html" class="btn-leslie">
+          Next <span class="arrow">→</span>
+        </a>
+      </div>
 
-      <a href="#top" class="to-top" class="nav-buttons">↑ Top</a>
-  
+      <p style="margin-top: 1.5rem;">
+        <a href="#top" class="to-top">↑ Back to top</a>
+      </p>
 
-   
+    </div><!-- /.docs-content -->
+  </div><!-- /.docs-body -->
 
-  </div>
+  <footer>
+    © 2025 Leslie Amadi — All Rights Reserved.
+  </footer>
 
-  
-
-  </div>
+</div><!-- /.page-shell -->
 </body>
 </html>

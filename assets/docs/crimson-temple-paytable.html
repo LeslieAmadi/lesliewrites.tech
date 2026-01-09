@@ -29,6 +29,59 @@
     <main class="doc-content">
 
       <h1>Crimson Temple Paytable & Symbol Design</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-overview">1. Overview</a></li>
+          <li><a href="#2-base-game-structure">2. Base Game Structure</a></li>
+          <li><a href="#3-symbol-tiers-thematic-roles">3. Symbol Tiers &amp; Thematic Roles</a></li>
+          <li><a href="#4-detailed-paytable-line-wins">4. Detailed Paytable (Line Wins)</a></li>
+          <li><a href="#5-special-symbols-feature-payouts">5. Special Symbols &amp; Feature Payouts</a></li>
+          <li><a href="#6-example-win-scenarios">6. Example Win Scenarios</a></li>
+          <li><a href="#7-rtp-volatility-breakdown">7. RTP &amp; Volatility Breakdown</a></li>
+          <li><a href="#8-jurisdiction-configuration-notes">8. Jurisdiction &amp; Configuration Notes</a></li>
+          <li><a href="#9-ui-ux-implementation-notes">9. UI / UX Implementation Notes</a></li>
+          <li><a href="#10-references-supporting-documents">10. References &amp; Supporting Documents</a></li>
+          <li><a href="#crimson-temple">Crimson Temple</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>Crimson Temple Paytable &amp; Symbol Design | Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
       <p class="doc-subtitle">
         Detailed paytable, symbol hierarchy, feature payouts, and math-facing documentation
         for the <strong>Crimson Temple</strong> online slot (Asian mythology theme).
@@ -36,7 +89,7 @@
 
       <!-- 1. Overview -->
       <section>
-        <h2>1. Overview</h2>
+        <h2 id="1-overview">1. Overview</h2>
         <p>
           This document defines the full paytable and symbol design for the
           <strong>Crimson Temple</strong> video slot. It is intended for:
@@ -57,7 +110,7 @@
 
       <!-- 2. Base Game Structure -->
       <section>
-        <h2>2. Base Game Structure</h2>
+        <h2 id="2-base-game-structure">2. Base Game Structure</h2>
         <ul>
           <li><strong>Grid:</strong> 5 reels × 3 rows</li>
           <li><strong>Paylines:</strong> 25 fixed paylines</li>
@@ -74,7 +127,7 @@
 
       <!-- 3. Symbol Tiers -->
       <section>
-        <h2>3. Symbol Tiers & Thematic Roles</h2>
+        <h2 id="3-symbol-tiers-thematic-roles">3. Symbol Tiers & Thematic Roles</h2>
         <p>
           Symbols are grouped into four tiers:
           <strong>Premium Characters, High Symbols, Mid Symbols,</strong> and <strong>Low Symbols</strong>.
@@ -107,7 +160,7 @@
 
       <!-- 4. Detailed Paytable -->
       <section>
-        <h2>4. Detailed Paytable (Line Wins)</h2>
+        <h2 id="4-detailed-paytable-line-wins">4. Detailed Paytable (Line Wins)</h2>
         <p>
           The values below are expressed as <strong>x line bet</strong>. A “5 of a kind” refers
           to five identical symbols on a valid payline from left to right.
@@ -232,7 +285,7 @@
 
       <!-- 5. Special Symbols -->
       <section>
-        <h2>5. Special Symbols & Feature Payouts</h2>
+        <h2 id="5-special-symbols-feature-payouts">5. Special Symbols & Feature Payouts</h2>
 
         <h3>5.1 Wild Symbol – Crimson Sigil</h3>
         <ul>
@@ -291,7 +344,7 @@
 
       <!-- 6. Example Win Scenarios -->
       <section>
-        <h2>6. Example Win Scenarios</h2>
+        <h2 id="6-example-win-scenarios">6. Example Win Scenarios</h2>
 
         <h3>6.1 Line Win Example (Base Game)</h3>
         <p>
@@ -337,7 +390,7 @@
 
       <!-- 7. RTP & Volatility Breakdown -->
       <section>
-        <h2>7. RTP & Volatility Breakdown</h2>
+        <h2 id="7-rtp-volatility-breakdown">7. RTP & Volatility Breakdown</h2>
         <p>
           The paytable and feature structure contribute to an overall
           <strong>target RTP of 96.10%</strong>. This can be split conceptually into:
@@ -367,7 +420,7 @@
 
       <!-- 8. Jurisdiction & Configuration -->
       <section>
-        <h2>8. Jurisdiction & Configuration Notes</h2>
+        <h2 id="8-jurisdiction-configuration-notes">8. Jurisdiction & Configuration Notes</h2>
         <ul>
           <li>
             Alternative RTP configurations (e.g. 94.10%, 92.00%) can be derived by adjusting:
@@ -394,7 +447,7 @@
 
       <!-- 9. UI / UX Notes -->
       <section>
-        <h2>9. UI / UX Implementation Notes</h2>
+        <h2 id="9-ui-ux-implementation-notes">9. UI / UX Implementation Notes</h2>
         <ul>
           <li>All paytable values should be displayed as <strong>multipliers</strong> (x bet) for localisation simplicity.</li>
           <li>Hover / tap tooltips for each symbol:
@@ -415,7 +468,7 @@
 
       <!-- 10. References -->
       <section>
-        <h2>10. References & Supporting Documents</h2>
+        <h2 id="10-references-supporting-documents">10. References & Supporting Documents</h2>
         <ul>
           <li><strong>Crimson Temple – Math Specification</strong> (RTP, reel strips, simulations)</li>
           <li><strong>Crimson Temple – Game Mechanic Overview</strong> (Free Spins, Bonus Wheel)</li>
@@ -433,7 +486,7 @@
 
     <!-- SIDEBAR 
     <aside class="doc-sidebar">
-        <h2 class="sidebar-title">Crimson Temple</h2>
+        <h2 id="crimson-temple">Crimson Temple</h2>
         <nav class="sidebar-nav">
           <a href="../../portfolio.html">← Back to Portfolio</a>
           <a href="crimson-temple-mechanic.html">Game Mechanic – Free Spins & Bonus Wheel</a>

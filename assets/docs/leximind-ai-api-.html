@@ -5,129 +5,9 @@
   <title>LexiMind AI API — Predictive Diagnosis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Technical API and system documentation for the LexiMind Predictive Diagnosis service.">
-  <link rel="stylesheet" href="../css/docs.css">
+  <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    /* --- Global Page Background (old book, ivory blush) --- */
-    body {
-      margin: 0;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      background: #f7f2ec; /* ✨ Soft ivory blush */
-      color: #333;
-    }
-
-    /* --- Document Container with Border --- */
-    .docs-body {
-      background: #fff9f7; /* Off-white blush */
-      max-width: 900px;
-      margin: auto;
-      padding: 2.5rem;
-      border-radius: 14px;
-      border: 1.5px solid #e8d4c9; /* warm nude border */
-      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
-    }
-
-    /* --- Headings --- */
-    h1, h2, h3, h4 {
-      color: #2a2a2a; /* dusty rose */
-      margin-top: 1.6rem;
-      font-weight: 600;
-    }
-
-    /* --- Meta Tags --- */
-    .tag {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      background: #f3d9e0;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      margin-right: 0.3rem;
-      color: #7c4b63;
-    }
-
-    /* --- Tables --- */
-    table {
-      width: 100%;
-      margin: 1rem 0;
-      border-collapse: collapse;
-      background: #fffdfc;
-      font-size: 0.95rem;
-    }
-    table th, table td {
-      padding: 0.7rem;
-      border: 1px solid #eadcd6;
-    }
-    table th {
-      background: #f4e8e2;
-      color: #613e4d;
-    }
-
-    /* --- Callouts --- */
-    .callout {
-      background: #fff4f6;
-      border-left: 4px solid #e3b4c4;
-      padding: 0.9rem 1.1rem;
-      border-radius: 8px;
-      margin: 1.3rem 0;
-    }
-
-    /* --- Preformatted Blocks --- */
-    pre {
-      background: #fff7f5;
-      border: 1px solid #eeded8;
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-
-    /* --- Meta Grid --- */
-    .meta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.7rem 1rem;
-      margin: 1.2rem 0;
-    }
-    .meta-label {
-      font-weight: 600;
-      color: #7a4c58;
-    }
-
-    /* --- Navigation Buttons --- */
-    .btn {
-      background: #e3b4c4;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: 0.2s;
-    }
-    .btn:hover {
-      background: #dca6b7;
-    }
-
-    /* --- Scroll-to-top button --- */
-    .to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #dca6b7;
-      color: #fff;
-      padding: 0.65rem 1rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #8a6d75;
-    }
-  </style>
+  
 
 </head>
 
@@ -141,6 +21,59 @@
         <span class="tag">REST API</span>
 
         <h1>LexiMind AI API Predictive Diagnosis</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-environments-authentication">1. Environments &amp; Authentication</a></li>
+          <li><a href="#2-system-architecture">2. System Architecture</a></li>
+          <li><a href="#3-model-card-predictive-diagnosis-v2-0">3. Model Card — Predictive Diagnosis v2.0</a></li>
+          <li><a href="#4-data-inference-pipeline">4. Data &amp; Inference Pipeline</a></li>
+          <li><a href="#5-api-design-endpoints">5. API Design &amp; Endpoints</a></li>
+          <li><a href="#6-performance-monitoring">6. Performance &amp; Monitoring</a></li>
+          <li><a href="#7-error-handling-retry-strategy">7. Error Handling &amp; Retry Strategy</a></li>
+          <li><a href="#8-security-privacy-compliance">8. Security, Privacy &amp; Compliance</a></li>
+          <li><a href="#9-risk-management-responsible-use">9. Risk Management &amp; Responsible Use</a></li>
+          <li><a href="#10-versioning-roadmap">10. Versioning &amp; Roadmap</a></li>
+          <li><a href="#11-integration-checklist-support">11. Integration Checklist &amp; Support</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>LexiMind AI API — Predictive Diagnosis</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
         <p><em>Technical API &amp; System Documentation · Author: Leslie Amadi</em></p>
         <hr>
 
@@ -177,7 +110,7 @@
       <main class="docs-content">
         <!-- 1. Environments & Authentication -->
         <section id="env-auth">
-          <h2>1. Environments &amp; Authentication</h2>
+          <h2 id="1-environments-authentication">1. Environments &amp; Authentication</h2>
 
           <h3>1.1 Base URLs</h3>
           <p>The API is deployed in separate environments:</p>
@@ -212,7 +145,7 @@
 
         <!-- 2. System Architecture -->
         <section id="architecture">
-          <h2>2. System Architecture</h2>
+          <h2 id="2-system-architecture">2. System Architecture</h2>
 
           <p>
             The Predictive Diagnosis service is part of the broader LexiMind platform and follows a modular, API-first
@@ -258,7 +191,7 @@
 
         <!-- 3. Model Card -->
         <section id="model-card">
-          <h2>3. Model Card — Predictive Diagnosis v2.0</h2>
+          <h2 id="3-model-card-predictive-diagnosis-v2-0">3. Model Card — Predictive Diagnosis v2.0</h2>
 
           <h3>3.1 Intended Use</h3>
           <ul>
@@ -323,7 +256,7 @@
 
         <!-- 4. Data & Inference Pipeline -->
         <section id="pipeline">
-          <h2>4. Data &amp; Inference Pipeline</h2>
+          <h2 id="4-data-inference-pipeline">4. Data &amp; Inference Pipeline</h2>
 
           <p>
             The inference pipeline converts raw JSON payloads into structured clinical features consumed by the model.
@@ -352,7 +285,7 @@
 
         <!-- 5. API Design -->
         <section id="api">
-          <h2>5. API Design &amp; Endpoints</h2>
+          <h2 id="5-api-design-endpoints">5. API Design &amp; Endpoints</h2>
 
           <p>
             The Predictive Diagnosis API follows a JSON-over-HTTP design, with clear, versioned endpoints.
@@ -574,7 +507,7 @@ print(response.status_code, response.json())</code></pre>
 
         <!-- 6. Performance & Monitoring -->
         <section id="performance">
-          <h2>6. Performance &amp; Monitoring</h2>
+          <h2 id="6-performance-monitoring">6. Performance &amp; Monitoring</h2>
 
           <p>
             Performance is monitored along latency, reliability and prediction quality dimensions.
@@ -619,7 +552,7 @@ print(response.status_code, response.json())</code></pre>
 
         <!-- 7. Error Handling -->
         <section id="errors">
-          <h2>7. Error Handling &amp; Retry Strategy</h2>
+          <h2 id="7-error-handling-retry-strategy">7. Error Handling &amp; Retry Strategy</h2>
 
           <p>
             LexiMind returns standard HTTP status codes together with a structured error payload:
@@ -679,7 +612,7 @@ print(response.status_code, response.json())</code></pre>
 
         <!-- 8. Security & Compliance -->
         <section id="security">
-          <h2>8. Security, Privacy &amp; Compliance</h2>
+          <h2 id="8-security-privacy-compliance">8. Security, Privacy &amp; Compliance</h2>
 
           <h3>8.1 Data Protection</h3>
           <ul>
@@ -704,7 +637,7 @@ print(response.status_code, response.json())</code></pre>
 
         <!-- 9. Risk Management & Responsible Use -->
         <section id="risk">
-          <h2>9. Risk Management &amp; Responsible Use</h2>
+          <h2 id="9-risk-management-responsible-use">9. Risk Management &amp; Responsible Use</h2>
 
           <h3>9.1 Human-in-the-Loop</h3>
           <ul>
@@ -733,7 +666,7 @@ print(response.status_code, response.json())</code></pre>
 
         <!-- 10. Versioning & Roadmap -->
         <section id="versioning">
-          <h2>10. Versioning &amp; Roadmap</h2>
+          <h2 id="10-versioning-roadmap">10. Versioning &amp; Roadmap</h2>
 
           <h3>10.1 Versioning</h3>
           <p>LexiMind follows a semantic-versioning inspired model:</p>
@@ -756,7 +689,7 @@ print(response.status_code, response.json())</code></pre>
 
         <!-- 11. Integration & Support -->
         <section id="integration">
-          <h2>11. Integration Checklist &amp; Support</h2>
+          <h2 id="11-integration-checklist-support">11. Integration Checklist &amp; Support</h2>
 
           <h3>11.1 Integration Checklist</h3>
           <ul>

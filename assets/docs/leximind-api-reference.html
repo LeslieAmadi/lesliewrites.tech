@@ -4,108 +4,9 @@
   <meta charset="UTF-8">
   <title>LexiMind API Reference — Predictive Diagnosis | Leslie Writes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/docs.css">
+  <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    body {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: #fff;
-      color: #333;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      line-height: 1.65;
-    }
-
-    h1, h2, h3 {
-      color: #723f74;
-      margin-top: 2.2rem;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-    }
-
-    h1 {
-      font-size: 2.1rem;
-      margin-top: 0;
-    }
-
-    p, ul, table {
-      margin-bottom: 1.2rem;
-    }
-
-    ul {
-      margin-left: 1.4rem;
-      padding-left: 0.4rem;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid #f1d7f5;
-      margin: 2rem 0;
-    }
-
-    pre {
-      background: #fff6fb;
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      border-left: 4px solid #d9b3dd;
-      font-size: 0.9rem;
-      white-space: pre-wrap;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    table th, table td {
-      padding: 0.7rem 0.9rem;
-      border: 1px solid #e9c3ea;
-      font-size: 0.95rem;
-      text-align: left;
-    }
-
-    table th {
-      background-color: #f8e9fa;
-      color: #723f74;
-      font-weight: 600;
-    }
-
-    .callout {
-      border-left: 4px solid #e4b1cb;
-      background: #fff8fd;
-      padding: 0.9rem 1rem;
-      border-radius: 6px;
-      margin: 1.3rem 0;
-      font-size: 0.95rem;
-    }
-
-    .btn {
-      background-color: #e4b1cb;
-      color: #fff;
-      padding: 0.7rem 1.4rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: inline-block;
-      margin-top: 1.2rem;
-      transition: background 0.25s ease;
-    }
-
-    .btn:hover {
-      background-color: #f6bae7;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -113,12 +14,67 @@
     <main class="container">
 
       <h1>LexiMind API Reference — Predictive Diagnosis</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-overview">1. Overview</a></li>
+          <li><a href="#2-environments-base-urls">2. Environments &amp; Base URLs</a></li>
+          <li><a href="#3-authentication">3. Authentication</a></li>
+          <li><a href="#4-request-lifecycle-architecture-view">4. Request Lifecycle (Architecture View)</a></li>
+          <li><a href="#5-endpoint-summary">5. Endpoint Summary</a></li>
+          <li><a href="#6-endpoint-post-v1-predict-diagnosis">6. Endpoint: POST /v1/predict-diagnosis</a></li>
+          <li><a href="#7-response-schema">7. Response Schema</a></li>
+          <li><a href="#8-error-handling">8. Error Handling</a></li>
+          <li><a href="#9-rate-limits">9. Rate Limits</a></li>
+          <li><a href="#10-security-compliance">10. Security &amp; Compliance</a></li>
+          <li><a href="#11-usage-patterns-best-practices">11. Usage Patterns &amp; Best Practices</a></li>
+          <li><a href="#12-quickstart-examples">12. Quickstart Examples</a></li>
+          <li><a href="#13-versioning-lifecycle">13. Versioning &amp; Lifecycle</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>LexiMind API Reference — Predictive Diagnosis | Leslie Writes</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
       <p><em>Technical API Documentation · Author: Leslie Amadi</em></p>
       <hr>
 
       <!-- 1. Overview -->
       <section>
-        <h2>1. Overview</h2>
+        <h2 id="1-overview">1. Overview</h2>
         <p>
           The <strong>LexiMind Predictive Diagnosis API</strong> exposes a machine learning model that estimates
           chronic disease risk based on structured patient data. It is designed for integration into
@@ -139,7 +95,7 @@
 
       <!-- 2. Environments & Base URL -->
       <section>
-        <h2>2. Environments & Base URLs</h2>
+        <h2 id="2-environments-base-urls">2. Environments & Base URLs</h2>
         <p>The API is deployed in two environments:</p>
 
         <table>
@@ -172,7 +128,7 @@
 
       <!-- 3. Authentication -->
       <section>
-        <h2>3. Authentication</h2>
+        <h2 id="3-authentication">3. Authentication</h2>
         <p>
           LexiMind uses <strong>Bearer token authentication</strong>. Every request must include a valid API key:
         </p>
@@ -188,7 +144,7 @@
 
       <!-- 4. API Architecture Diagram -->
       <section>
-        <h2>4. Request Lifecycle (Architecture View)</h2>
+        <h2 id="4-request-lifecycle-architecture-view">4. Request Lifecycle (Architecture View)</h2>
         <p>The diagram below summarises how a prediction request flows through the LexiMind system.</p>
 
         <pre>
@@ -233,7 +189,7 @@ Client System
 
       <!-- 5. Endpoint Summary -->
       <section>
-        <h2>5. Endpoint Summary</h2>
+        <h2 id="5-endpoint-summary">5. Endpoint Summary</h2>
 
         <table>
           <thead>
@@ -257,7 +213,7 @@ Client System
 
       <!-- 6. Predict Endpoint -->
       <section>
-        <h2>6. Endpoint: POST /v1/predict-diagnosis</h2>
+        <h2 id="6-endpoint-post-v1-predict-diagnosis">6. Endpoint: POST /v1/predict-diagnosis</h2>
 
         <h3>6.1 Description</h3>
         <p>
@@ -407,7 +363,7 @@ Client System
 
       <!-- 7. Response Schema -->
       <section>
-        <h2>7. Response Schema</h2>
+        <h2 id="7-response-schema">7. Response Schema</h2>
 
         <h3>7.1 Successful Response (200 OK)</h3>
         <pre><code>{
@@ -472,7 +428,7 @@ Client System
 
       <!-- 8. Error Handling -->
       <section>
-        <h2>8. Error Handling</h2>
+        <h2 id="8-error-handling">8. Error Handling</h2>
         <p>
           All errors are returned with a standard JSON payload and appropriate HTTP status.
         </p>
@@ -543,7 +499,7 @@ Client System
 
       <!-- 9. Rate Limits -->
       <section>
-        <h2>9. Rate Limits</h2>
+        <h2 id="9-rate-limits">9. Rate Limits</h2>
         <p>Default rate limits for the LexiMind Predictive Diagnosis API are:</p>
 
         <table>
@@ -577,7 +533,7 @@ Client System
 
       <!-- 10. Security & Compliance -->
       <section>
-        <h2>10. Security & Compliance</h2>
+        <h2 id="10-security-compliance">10. Security & Compliance</h2>
         <ul>
           <li>All traffic is encrypted via HTTPS (TLS 1.2+ only).</li>
           <li>API keys must be stored server-side, never in unencrypted client code.</li>
@@ -594,7 +550,7 @@ Client System
 
       <!-- 11. Usage Patterns & Best Practices -->
       <section>
-        <h2>11. Usage Patterns & Best Practices</h2>
+        <h2 id="11-usage-patterns-best-practices">11. Usage Patterns & Best Practices</h2>
         <ul>
           <li>Validate inputs on your side before calling the API to reduce 4xx errors.</li>
           <li>Log <code>trace_id</code> values for troubleshooting with LexiMind support.</li>
@@ -605,7 +561,7 @@ Client System
 
       <!-- 12. Quickstart Examples -->
       <section>
-        <h2>12. Quickstart Examples</h2>
+        <h2 id="12-quickstart-examples">12. Quickstart Examples</h2>
 
         <h3>12.1 cURL Example</h3>
         <pre><code>curl -X POST "https://api.leximind.ai/v1/predict-diagnosis" \
@@ -654,7 +610,7 @@ print(response.json())</code></pre>
 
       <!-- 13. Versioning -->
       <section>
-        <h2>13. Versioning & Lifecycle</h2>
+        <h2 id="13-versioning-lifecycle">13. Versioning & Lifecycle</h2>
         <p>
           The Predictive Diagnosis endpoint follows semantic versioning at the <code>/v1</code> level.
           Backwards-incompatible changes will be released under a new version prefix (e.g., <code>/v2</code>).

@@ -4,71 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChatAssist AI Architecture & Regression Suite | Leslie Writes</title>
-  <link rel="stylesheet" href="../css/docs.css">
+  <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    body {
-      max-width: 900px;
-      margin: 2rem auto;
-      background-color: #fff;
-      color: #333;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-      color: #723f74;
-      margin-top: 1.6rem;
-    }
-
-    pre {
-      background: #faf5fb;
-      border-left: 4px solid #e4b1cb;
-      padding: 1rem;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      font-size: 0.95rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-    }
-
-    table th, table td {
-      border: 1px solid #e6d4e8;
-      padding: 8px;
-      text-align: left;
-    }
-
-    .btn {
-      background-color: #e4b1cb;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #f6bae7;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid #f1d7f5;
-      margin: 1.5rem 0;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9em;
-      color: #777;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -76,6 +14,52 @@
 
     <header>
       <h1>ChatAssist AI Architecture & Regression Suite</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-high-level-model-architecture">1. High-Level Model Architecture</a></li>
+          <li><a href="#2-evaluation-pipeline-architecture">2. Evaluation Pipeline Architecture</a></li>
+          <li><a href="#3-regression-testing-template">3. Regression Testing Template</a></li>
+          <li><a href="#4-version-to-version-comparison-v1-0-v1-3-v2-0">4. Version-to-Version Comparison (v1.0 → v1.3 → v2.0)</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>ChatAssist AI Architecture &amp; Regression Suite | Leslie Writes</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
       <p><em>Prepared by Leslie Amadi | Senior AI Technical Writer</em></p>
       <hr>
     </header>
@@ -83,7 +67,7 @@
     <div class="docs-content">
 
       <!-- SECTION 1 -->
-      <h2>1. High-Level Model Architecture</h2>
+      <h2 id="1-high-level-model-architecture">1. High-Level Model Architecture</h2>
       <p>
         The following ASCII architecture diagram represents the internal structure of the 
         <strong>Multilingual Chatbot Model v2.0</strong>.  
@@ -143,7 +127,7 @@
       </pre>
 
       <!-- SECTION 2 -->
-      <h2>2. Evaluation Pipeline Architecture</h2>
+      <h2 id="2-evaluation-pipeline-architecture">2. Evaluation Pipeline Architecture</h2>
       <p>
         The evaluation pipeline automates comparative testing across different model versions  
         (v1.0 → v1.3 → v2.0), ensuring consistent performance measurement.
@@ -186,7 +170,7 @@
       </pre>
 
       <!-- SECTION 3 -->
-      <h2>3. Regression Testing Template</h2>
+      <h2 id="3-regression-testing-template">3. Regression Testing Template</h2>
       <p>This regression suite ensures that every new model release maintains or improves quality without introducing regressions.</p>
 
       <h3>3.1 Scope</h3>
@@ -261,7 +245,7 @@ _________________________________________________________
       </pre>
 
       <!-- SECTION 4 -->
-      <h2>4. Version-to-Version Comparison (v1.0 → v1.3 → v2.0)</h2>
+      <h2 id="4-version-to-version-comparison-v1-0-v1-3-v2-0">4. Version-to-Version Comparison (v1.0 → v1.3 → v2.0)</h2>
 
       <table>
         <thead>

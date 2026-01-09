@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Incident & Response Report | Leslie Amadi</title>
-  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
@@ -12,7 +12,7 @@
 
     <!-- SIDEBAR -->
     <aside class="doc-sidebar">
-      <h2 class="sidebar-title">Portfolio</h2>
+      <h2 id="portfolio">Portfolio</h2>
       <nav class="sidebar-nav">
         <a href="../../portfolio.html">← Back to Portfolio</a>
         <a href="../incident-response.html" class="active">Incident & Response Report</a>
@@ -23,10 +23,66 @@
     <main class="doc-content">
 
       <h1>NimbusTech Solutions – Incident & Response Report</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#document-control">Document Control</a></li>
+          <li><a href="#1-incident-summary">1. Incident Summary</a></li>
+          <li><a href="#2-incident-details">2. Incident Details</a></li>
+          <li><a href="#3-impact-assessment">3. Impact Assessment</a></li>
+          <li><a href="#4-timeline-of-events">4. Timeline of Events</a></li>
+          <li><a href="#5-actions-taken">5. Actions Taken</a></li>
+          <li><a href="#6-communication-log">6. Communication Log</a></li>
+          <li><a href="#7-root-cause-analysis-rca">7. Root Cause Analysis (RCA)</a></li>
+          <li><a href="#8-long-term-preventive-measures">8. Long-Term Preventive Measures</a></li>
+          <li><a href="#9-post-incident-validation">9. Post-Incident Validation</a></li>
+          <li><a href="#10-raci-matrix">10. RACI Matrix</a></li>
+          <li><a href="#11-references">11. References</a></li>
+          <li><a href="#12-document-history">12. Document History</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>Incident &amp; Response Report | Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
       <p class="doc-subtitle">Full post-incident analysis of a production outage affecting the Nimbus Payment Processing Service (NPPS).</p>
 
       <section>
-        <h2>Document Control</h2>
+        <h2 id="document-control">Document Control</h2>
         <ul class="doc-meta">
           <li><strong>Document Title:</strong> NPPS API Latency & Outage – Major Incident Report</li>
           <li><strong>Incident Type:</strong> Partial Outage / Performance Degradation</li>
@@ -42,7 +98,7 @@
       </section>
 
       <section>
-        <h2>1. Incident Summary</h2>
+        <h2 id="1-incident-summary">1. Incident Summary</h2>
         <p>
           On 14 February 2025, NimbusTech experienced a major incident where the <strong>Payment Processing Service (NPPS)</strong>
           exhibited severe latency spikes followed by intermittent request failures. Approximately <strong>31% of customer transactions</strong>
@@ -56,7 +112,7 @@
       </section>
 
       <section>
-        <h2>2. Incident Details</h2>
+        <h2 id="2-incident-details">2. Incident Details</h2>
         <table>
           <tr><th>Field</th><th>Description</th></tr>
           <tr><td>Start Time</td><td>14 Feb 2025 – 09:12 UTC</td></tr>
@@ -69,7 +125,7 @@
       </section>
 
       <section>
-        <h2>3. Impact Assessment</h2>
+        <h2 id="3-impact-assessment">3. Impact Assessment</h2>
         <ul>
           <li><strong>Functional impact:</strong> NPPS API experienced 3–6 second latency spikes, followed by 500/504 errors.</li>
           <li><strong>Financial impact:</strong> Approx. 4,800 failed transactions; reconciliation required; estimated €27,000 in delayed settlements.</li>
@@ -79,7 +135,7 @@
       </section>
 
       <section>
-        <h2>4. Timeline of Events</h2>
+        <h2 id="4-timeline-of-events">4. Timeline of Events</h2>
         <table>
           <tr><th>Time (UTC)</th><th>Event</th><th>Actor</th></tr>
 
@@ -97,7 +153,7 @@
       </section>
 
       <section>
-        <h2>5. Actions Taken</h2>
+        <h2 id="5-actions-taken">5. Actions Taken</h2>
 
         <h3>5.1 Immediate Actions</h3>
         <ul>
@@ -119,7 +175,7 @@
       </section>
 
       <section>
-        <h2>6. Communication Log</h2>
+        <h2 id="6-communication-log">6. Communication Log</h2>
         <table>
           <tr><th>Time</th><th>Channel</th><th>Recipient</th><th>Summary</th></tr>
           <tr><td>09:25</td><td>Slack</td><td>Platform Eng</td><td>Initial alert shared; investigation started.</td></tr>
@@ -130,7 +186,7 @@
       </section>
 
       <section>
-        <h2>7. Root Cause Analysis (RCA)</h2>
+        <h2 id="7-root-cause-analysis-rca">7. Root Cause Analysis (RCA)</h2>
 
         <h3>7.1 Root Cause</h3>
         <p>
@@ -160,7 +216,7 @@
       </section>
 
       <section>
-        <h2>8. Long-Term Preventive Measures</h2>
+        <h2 id="8-long-term-preventive-measures">8. Long-Term Preventive Measures</h2>
         <ul>
           <li>Implement SRE-approved autoscaling policy with min-node lock.</li>
           <li>Deploy real-time alerts for infrastructure downscaling events.</li>
@@ -171,7 +227,7 @@
       </section>
 
       <section>
-        <h2>9. Post-Incident Validation</h2>
+        <h2 id="9-post-incident-validation">9. Post-Incident Validation</h2>
 
         <h3>9.1 Monitoring Results</h3>
         <p>Latency averages returned to 200–300ms; error rate <0.04%.</p>
@@ -184,7 +240,7 @@
       </section>
 
       <section>
-        <h2>10. RACI Matrix</h2>
+        <h2 id="10-raci-matrix">10. RACI Matrix</h2>
         <table>
           <tr><th>Task</th><th>R</th><th>A</th><th>C</th><th>I</th></tr>
           <tr><td>Incident Detection</td><td>SRE</td><td>SRE Lead</td><td>Payments Eng</td><td>Exec Team</td></tr>
@@ -195,7 +251,7 @@
       </section>
 
       <section>
-        <h2>11. References</h2>
+        <h2 id="11-references">11. References</h2>
         <ul>
           <li>Datadog Monitoring Dashboard – NPPS API</li>
           <li>Postgres Cluster Logs – payments-db-03</li>
@@ -205,7 +261,7 @@
       </section>
 
       <section>
-        <h2>12. Document History</h2>
+        <h2 id="12-document-history">12. Document History</h2>
         <table>
           <tr><th>Version</th><th>Date</th><th>Author</th><th>Change Description</th></tr>
           <tr><td>1.0</td><td>15 Feb 2025</td><td>Leslie Amadi</td><td>Initial public portfolio version</td></tr>

@@ -4,129 +4,9 @@
   <meta charset="UTF-8" />
   <title>Model Card — LexiMind Predictive Diagnosis | Leslie Writes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/docs.css">
+  <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    /* --- Global Page Background (old book, ivory blush) --- */
-    body {
-      margin: 0;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      background: #f7f2ec; /* ✨ Soft ivory blush */
-      color: #333;
-    }
-
-    /* --- Document Container with Border --- */
-    .docs-body {
-      background: #fff9f7; /* Off-white blush */
-      max-width: 900px;
-      margin: auto;
-      padding: 2.5rem;
-      border-radius: 14px;
-      border: 1.5px solid #e8d4c9; /* warm nude border */
-      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
-    }
-
-    /* --- Headings --- */
-    h1, h2, h3, h4 {
-      color: #2a2a2a; /* dusty rose */
-      margin-top: 1.6rem;
-      font-weight: 600;
-    }
-
-    /* --- Meta Tags --- */
-    .tag {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      background: #f3d9e0;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      margin-right: 0.3rem;
-      color: #7c4b63;
-    }
-
-    /* --- Tables --- */
-    table {
-      width: 100%;
-      margin: 1rem 0;
-      border-collapse: collapse;
-      background: #fffdfc;
-      font-size: 0.95rem;
-    }
-    table th, table td {
-      padding: 0.7rem;
-      border: 1px solid #eadcd6;
-    }
-    table th {
-      background: #f4e8e2;
-      color: #613e4d;
-    }
-
-    /* --- Callouts --- */
-    .callout {
-      background: #fff4f6;
-      border-left: 4px solid #e3b4c4;
-      padding: 0.9rem 1.1rem;
-      border-radius: 8px;
-      margin: 1.3rem 0;
-    }
-
-    /* --- Preformatted Blocks --- */
-    pre {
-      background: #fff7f5;
-      border: 1px solid #eeded8;
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-
-    /* --- Meta Grid --- */
-    .meta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.7rem 1rem;
-      margin: 1.2rem 0;
-    }
-    .meta-label {
-      font-weight: 600;
-      color: #7a4c58;
-    }
-
-    /* --- Navigation Buttons --- */
-    .btn {
-      background: #e3b4c4;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: 0.2s;
-    }
-    .btn:hover {
-      background: #dca6b7;
-    }
-
-    /* --- Scroll-to-top button --- */
-    .to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #dca6b7;
-      color: #fff;
-      padding: 0.65rem 1rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #8a6d75;
-    }
-  </style>
+  
 </head>
 <body>
 <div class="docs-body">
@@ -137,6 +17,60 @@
     <span class="tag">Risk Prediction</span>
 
     <h1>Model Card: LexiMind Predictive Diagnosis</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-overview">1. Overview</a></li>
+          <li><a href="#2-intended-use-users">2. Intended Use &amp; Users</a></li>
+          <li><a href="#3-how-the-model-works">3. How the Model Works</a></li>
+          <li><a href="#4-training-data-features">4. Training Data &amp; Features</a></li>
+          <li><a href="#5-model-inputs-outputs">5. Model Inputs &amp; Outputs</a></li>
+          <li><a href="#6-performance-illustrative">6. Performance (Illustrative)</a></li>
+          <li><a href="#7-calibration-monitoring-drift">7. Calibration, Monitoring &amp; Drift</a></li>
+          <li><a href="#8-fairness-limitations-known-risks">8. Fairness, Limitations &amp; Known Risks</a></li>
+          <li><a href="#9-responsible-ai-human-oversight">9. Responsible AI &amp; Human Oversight</a></li>
+          <li><a href="#10-deployment-integration-conceptual">10. Deployment &amp; Integration (Conceptual)</a></li>
+          <li><a href="#11-versioning-change-log">11. Versioning &amp; Change Log</a></li>
+          <li><a href="#12-references-contact">12. References &amp; Contact</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>Model Card — LexiMind Predictive Diagnosis | Leslie Writes</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
     <p><em>Author: Leslie Amadi</em></p>
     <hr>
 
@@ -169,7 +103,7 @@
   <main>
     <!-- 1. Overview -->
     <section>
-      <h2>1. Overview</h2>
+      <h2 id="1-overview">1. Overview</h2>
       <p>
         LexiMind Predictive Diagnosis uses patient demographics, lab results, and lifestyle information to estimate
         risk for conditions such as diabetes, heart disease, and kidney disease. The model outputs probabilities that
@@ -183,7 +117,7 @@
 
     <!-- 2. Intended Use & Users -->
     <section>
-      <h2>2. Intended Use & Users</h2>
+      <h2 id="2-intended-use-users">2. Intended Use & Users</h2>
 
       <h3>2.1 Intended Use</h3>
       <ul>
@@ -209,7 +143,7 @@
 
     <!-- 3. How the Model Works -->
     <section>
-      <h2>3. How the Model Works</h2>
+      <h2 id="3-how-the-model-works">3. How the Model Works</h2>
       <p>
         LPD-1.0 is an ensemble model that combines several algorithm families to balance performance, robustness,
         and interpretability:
@@ -250,7 +184,7 @@
 
     <!-- 4. Data & Features -->
     <section>
-      <h2>4. Training Data & Features</h2>
+      <h2 id="4-training-data-features">4. Training Data & Features</h2>
 
       <h3>4.1 Data Sources (Conceptual)</h3>
       <ul>
@@ -276,7 +210,7 @@
 
     <!-- 5. Inputs & Outputs -->
     <section>
-      <h2>5. Model Inputs & Outputs</h2>
+      <h2 id="5-model-inputs-outputs">5. Model Inputs & Outputs</h2>
 
       <h3>5.1 Inputs (Conceptual Schema)</h3>
       <table>
@@ -350,7 +284,7 @@
 
     <!-- 6. Performance -->
     <section>
-      <h2>6. Performance (Illustrative)</h2>
+      <h2 id="6-performance-illustrative">6. Performance (Illustrative)</h2>
       <p>
         The original high-level metric for this model was an overall <strong>accuracy of ~91%</strong>. To reflect
         realistic evaluation for healthcare models, LPD-1.0 is instead characterised using discrimination and
@@ -402,7 +336,7 @@
 
     <!-- 7. Calibration, Monitoring & Drift -->
     <section>
-      <h2>7. Calibration, Monitoring & Drift</h2>
+      <h2 id="7-calibration-monitoring-drift">7. Calibration, Monitoring & Drift</h2>
       <p>
         Because the model outputs probabilities, calibration is important. LPD-1.0 uses post-hoc calibration
         techniques to align predicted risks with observed event rates in the development cohorts.
@@ -416,7 +350,7 @@
 
     <!-- 8. Fairness & Limitations -->
     <section>
-      <h2>8. Fairness, Limitations & Known Risks</h2>
+      <h2 id="8-fairness-limitations-known-risks">8. Fairness, Limitations & Known Risks</h2>
 
       <h3>8.1 Limitations</h3>
       <ul>
@@ -450,7 +384,7 @@
 
     <!-- 9. Responsible Use -->
     <section>
-      <h2>9. Responsible AI & Human Oversight</h2>
+      <h2 id="9-responsible-ai-human-oversight">9. Responsible AI & Human Oversight</h2>
       <p>
         LPD-1.0 is designed to support, not replace, human expertise. Recommended patterns for responsible use:
       </p>
@@ -481,7 +415,7 @@
 
     <!-- 10. Deployment & Integration -->
     <section>
-      <h2>10. Deployment & Integration (Conceptual)</h2>
+      <h2 id="10-deployment-integration-conceptual">10. Deployment & Integration (Conceptual)</h2>
       <p>
         LPD-1.0 is designed to be surfaced via APIs as part of the LexiMind platform. A typical integration pattern:
       </p>
@@ -511,7 +445,7 @@
 
     <!-- 11. Versioning -->
     <section>
-      <h2>11. Versioning & Change Log</h2>
+      <h2 id="11-versioning-change-log">11. Versioning & Change Log</h2>
       <p>Model versions follow a simple <strong>major.minor</strong> convention:</p>
       <ul>
         <li><strong>Major</strong> – substantial changes to model architecture, features, or condition coverage.</li>
@@ -539,7 +473,7 @@
 
     <!-- 12. References & Contact -->
     <section>
-      <h2>12. References & Contact</h2>
+      <h2 id="12-references-contact">12. References & Contact</h2>
       <p>
         For questions about this model card, integration options, or evaluation plans:
       </p>

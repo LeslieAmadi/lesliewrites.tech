@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Orion Feature Store & Data Pipelines | Portfolio — Leslie Amadi</title>
-  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
@@ -20,6 +20,58 @@
   <!-- HEADER -->
   <header class="doc-header">
     <h1>Orion Data Pipelines & Feature Store</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-platform-overview">1. Platform Overview</a></li>
+          <li><a href="#2-high-level-architecture">2. High-Level Architecture</a></li>
+          <li><a href="#3-data-ingestion-pipelines">3. Data Ingestion Pipelines</a></li>
+          <li><a href="#4-transformation-layer">4. Transformation Layer</a></li>
+          <li><a href="#5-feature-store-concepts-behaviour">5. Feature Store: Concepts &amp; Behaviour</a></li>
+          <li><a href="#6-materialization-jobs">6. Materialization Jobs</a></li>
+          <li><a href="#7-feature-registry-governance">7. Feature Registry &amp; Governance</a></li>
+          <li><a href="#8-real-time-feature-fetch-api">8. Real-Time Feature Fetch API</a></li>
+          <li><a href="#9-failure-modes-incident-scenarios">9. Failure Modes &amp; Incident Scenarios</a></li>
+          <li><a href="#10-integration-checklist">10. Integration Checklist</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>Orion Feature Store &amp; Data Pipelines | Portfolio — Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
     <p class="doc-subtitle">
       Design + documentation of a real-time & batch feature store, ingestion pipelines, validation layers,
       transformation workflows, point-in-time correctness, registry governance, and high-volume model training pipelines.
@@ -40,7 +92,7 @@
   <section class="doc-section">
 
     <!-- 1 -->
-    <h2>1. Platform Overview</h2>
+    <h2 id="1-platform-overview">1. Platform Overview</h2>
     <p>
       <strong>Orion</strong> is the central backbone for all machine learning data at the organisation.  
       It provides:
@@ -61,7 +113,7 @@
     </p>
 
     <!-- 2 -->
-    <h2>2. High-Level Architecture</h2>
+    <h2 id="2-high-level-architecture">2. High-Level Architecture</h2>
     <pre><code>         +------------------------------+
          |          Data Sources         |
          +------------------------------+
@@ -105,7 +157,7 @@
     </p>
 
     <!-- 3 -->
-    <h2>3. Data Ingestion Pipelines</h2>
+    <h2 id="3-data-ingestion-pipelines">3. Data Ingestion Pipelines</h2>
 
     <h3>3.1 Batch Ingestion (Daily/Hourly)</h3>
     <p>
@@ -134,7 +186,7 @@
     </ul>
 
     <!-- 4 -->
-    <h2>4. Transformation Layer</h2>
+    <h2 id="4-transformation-layer">4. Transformation Layer</h2>
     <p>
       Transformations convert raw data into reliable, ML-ready features.
     </p>
@@ -157,7 +209,7 @@
     </ul>
 
     <!-- 5 -->
-    <h2>5. Feature Store: Concepts & Behaviour</h2>
+    <h2 id="5-feature-store-concepts-behaviour">5. Feature Store: Concepts & Behaviour</h2>
 
     <h3>5.1 Point-In-Time Correctness</h3>
     <p>This prevents “data leakage” by ensuring:</p>
@@ -184,7 +236,7 @@
     </ul>
 
     <!-- 6 -->
-    <h2>6. Materialization Jobs</h2>
+    <h2 id="6-materialization-jobs">6. Materialization Jobs</h2>
     <p>
       Materialization transfers features from the offline store → online store.
     </p>
@@ -198,7 +250,7 @@
     </ul>
 
     <!-- 7 -->
-    <h2>7. Feature Registry & Governance</h2>
+    <h2 id="7-feature-registry-governance">7. Feature Registry & Governance</h2>
     <p>
       A central registry defines all features, owners, metadata, tests, and schemas.
     </p>
@@ -212,7 +264,7 @@
     </ul>
 
     <!-- 8 -->
-    <h2>8. Real-Time Feature Fetch API</h2>
+    <h2 id="8-real-time-feature-fetch-api">8. Real-Time Feature Fetch API</h2>
     <p>The API serves features to production models.</p>
 
     <pre><code>GET /v1/features?entity_id=12345&features=avg_txn_amt,last_login,fraud_score</code></pre>
@@ -225,7 +277,7 @@
     </ul>
 
     <!-- 9 -->
-    <h2>9. Failure Modes & Incident Scenarios</h2>
+    <h2 id="9-failure-modes-incident-scenarios">9. Failure Modes & Incident Scenarios</h2>
 
     <h3>9.1 Late-Arriving Data</h3>
     Real-world workflow:
@@ -250,7 +302,7 @@
     </ul>
 
     <!-- 10 -->
-    <h2>10. Integration Checklist</h2>
+    <h2 id="10-integration-checklist">10. Integration Checklist</h2>
 
     <ul>
       <li>☑ All features defined in registry</li>

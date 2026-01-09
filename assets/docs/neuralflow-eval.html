@@ -34,6 +34,57 @@
   <!-- HERO -->
   <header class="doc-header">
     <h1>NeuralFlow Evaluation Suite</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-system-overview">1. System Overview</a></li>
+          <li><a href="#2-real-life-scenario-preventing-a-faulty-model-release">2. Real-Life Scenario: Preventing a Faulty Model Release</a></li>
+          <li><a href="#3-architecture">3. Architecture</a></li>
+          <li><a href="#4-evaluation-tasks-methodology">4. Evaluation Tasks &amp; Methodology</a></li>
+          <li><a href="#5-api-reference">5. API Reference</a></li>
+          <li><a href="#6-scorecards-reports">6. Scorecards &amp; Reports</a></li>
+          <li><a href="#7-real-time-monitoring-alerts">7. Real-Time Monitoring &amp; Alerts</a></li>
+          <li><a href="#8-governance-compliance">8. Governance &amp; Compliance</a></li>
+          <li><a href="#9-integration-checklist">9. Integration Checklist</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>NeuralFlow Evaluation Suite | Project — Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
     <p class="doc-subtitle">
       A modular, automated evaluation framework designed for large-scale machine learning systems.
       Includes benchmarking, safety evaluations, regression detection, dataset diagnostics, and real-time model monitoring.
@@ -56,7 +107,7 @@
     <div class="docs-body">
 
     <!-- 1. Overview -->
-    <h2>1. System Overview</h2>
+    <h2 id="1-system-overview">1. System Overview</h2>
     <p>
       The <strong>NeuralFlow Evaluation Suite</strong> is a cloud-based framework for continuously evaluating
       machine learning models in offline, online, and pre-release stages.
@@ -87,7 +138,7 @@
     </p>
 
     <!-- 2. Real-Life Use Case -->
-    <h2>2. Real-Life Scenario: Preventing a Faulty Model Release</h2>
+    <h2 id="2-real-life-scenario-preventing-a-faulty-model-release">2. Real-Life Scenario: Preventing a Faulty Model Release</h2>
     <p>
       Suppose a research team trains a new version of a fraud detection model. It performs slightly better on internal
       accuracy metrics, and the team prepares it for deployment.
@@ -125,7 +176,7 @@
     </em></p>
 
     <!-- 3. Architecture -->
-    <h2>3. Architecture</h2>
+    <h2 id="3-architecture">3. Architecture</h2>
     <pre><code>[ CI/CD Pipeline ]
           |
           v
@@ -154,7 +205,7 @@
     </ul>
 
     <!-- 4. Evaluation Tasks -->
-    <h2>4. Evaluation Tasks & Methodology</h2>
+    <h2 id="4-evaluation-tasks-methodology">4. Evaluation Tasks & Methodology</h2>
     <p>The suite includes over 60 task types, grouped into modules.</p>
 
     <h3>4.1 Benchmark Module</h3>
@@ -205,7 +256,7 @@
     </ul>
 
     <!-- 5. API Endpoints -->
-    <h2>5. API Reference</h2>
+    <h2 id="5-api-reference">5. API Reference</h2>
 
     <h3>5.1 POST /v1/evaluations/run</h3>
     <p>Triggers a full evaluation suite run.</p>
@@ -238,7 +289,7 @@
     <p>Returns drift metrics for monitoring dashboards.</p>
 
     <!-- 6. Reports -->
-    <h2>6. Scorecards & Reports</h2>
+    <h2 id="6-scorecards-reports">6. Scorecards & Reports</h2>
     <p>
       Each evaluation run produces:
     </p>
@@ -256,7 +307,7 @@
     </p>
 
     <!-- 7. Monitoring -->
-    <h2>7. Real-Time Monitoring & Alerts</h2>
+    <h2 id="7-real-time-monitoring-alerts">7. Real-Time Monitoring & Alerts</h2>
     <p>
       After deployment, NeuralFlow monitors the model for:
     </p>
@@ -272,7 +323,7 @@
     </p>
 
     <!-- 8. Governance -->
-    <h2>8. Governance & Compliance</h2>
+    <h2 id="8-governance-compliance">8. Governance & Compliance</h2>
     <p>
       Documentation includes guidelines for handling:
     </p>
@@ -284,7 +335,7 @@
     </ul>
 
     <!-- 9. Integration Checklist -->
-    <h2>9. Integration Checklist</h2>
+    <h2 id="9-integration-checklist">9. Integration Checklist</h2>
     <ul>
       <li>☑ CI/CD connected to evaluation API</li>
       <li>☑ Baseline model defined for comparison</li>

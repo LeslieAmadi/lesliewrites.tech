@@ -1,631 +1,181 @@
+<!-- Rebuilt Portfolio Page with 7 Featured Projects (One Per Category) -->
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | Leslie Amadi</title>
+  <meta name="description" content="Technical writing portfolio by Leslie Amadi — AI/ML systems, API documentation, data assets, workflows, UX writing, and game mechanics.">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 
 <body>
 <div class="page-shell">
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="navbar-inner">
-      <a href="index.html" class="logo">Leslie Amadi</a>
-      <nav class="nav-menu">
+  <!-- NAV -->
+  <nav class="leslie-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-badge">LA</span>
+        <span class="nav-logo-text">Leslie Amadi</span>
+      </a>
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="portfolio.html" class="active">Portfolio</a>
-        <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-      </nav>
+      </div>
+      <a href="contact.html" class="nav-cta">Let’s Talk</a>
+      <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     </div>
-  </header>
+  </nav>
 
-  <!-- LAYOUT -->
-  <main class="portfolio-wrapper">
+  <!-- MAIN CONTENT -->
+  <main class="portfolio-wrapper" style="display:flex; gap:2rem; padding:2rem;">
 
-    <!-- SIDEBAR -->
-    <aside class="portfolio-sidebar">
-      <h3 class="sidebar-title">Work</h3>
-
+    <!-- SIDEBAR FULL -->
+    <aside class="portfolio-sidebar" style="width:280px; background:#fff; padding:1.5rem; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,0.06); height:max-content;">
+      <h3 class="sidebar-title" style="color:#c48a8f; margin-bottom:1rem;">Work</h3>
       <div class="sidebar-accordion">
-
-        <!-- AI & ML SYSTEMS -->
         <div class="accordion-section">
-          <button class="accordion-header" data-section="ai-ml">
-            <span>AI &amp; ML Systems</span>
-            <span class="accordion-icon">▾</span>
-          </button>
-          <ul class="accordion-panel" id="section-ai-ml">
-            <li><a href="assets/docs/leximind-predictive-api.html">LexiMind Predictive Diagnosis</a></li>
-            <li><a href="assets/docs/finsight-risk-api.html">FinSight Fraud Detection Model</a></li>
-            <li><a href="assets/docs/ai-doc-design.html">LexiMind Legal Text Generation</a></li>
-            <li><a href="assets/docs/leximind-assistant.html">LexiMind Assistant Overview</a></li>
-            <li><a href="assets/docs/neuralflow-eval.html">Neural Network Primer</a></li>
-            <li><a href="assets/docs/ai-case-study-healthcare.html">AI Healthcare Case Study</a></li>
-          </ul>
-        </div>
+  <button class="accordion-header" data-section="ai-ml"><span>AI & ML Systems</span><span class="accordion-icon">▾</span></button>
+  <ul class="accordion-panel" id="section-ai-ml">
+    <li><a href="assets/docs/leximind-predictive-api.html">LexiMind Predictive Diagnosis</a></li>
+    <li><a href="assets/docs/finsight-risk-api.html">FinSight Fraud Detection Model</a></li>
+    <li><a href="assets/docs/ai-doc-design.html">LexiMind Legal Text Generation</a></li>
+    <li><a href="assets/docs/leximind-assistant.html">LexiMind Assistant Overview</a></li>
+    <li><a href="assets/docs/neuralflow-eval.html">Neural Network Primer</a></li>
+    <li><a href="assets/docs/ai-case-study-healthcare.html">AI Healthcare Case Study</a></li>
+  </ul>
+</div>
 
-        <!-- API & DEVELOPER EXPERIENCE -->
-        <div class="accordion-section">
-          <button class="accordion-header" data-section="api-dev">
-            <span>API &amp; Developer Experience</span>
-            <span class="accordion-icon">▾</span>
-          </button>
-          <ul class="accordion-panel" id="section-api-dev">
-            <li><a href="assets/docs/leximind-api-reference.html">LexiMind API Reference</a></li>
-            <li><a href="assets/docs/leximind-ai-api-.html">LexiMind AI API (Predictive Diagnosis)</a></li>
-            <li><a href="assets/docs/finsight-risk-guide.html">FinSight Risk Integration Guide</a></li>
-            <li><a href="assets/docs/finsight-risk-api.html">FinSight Risk API</a></li>
-            <li><a href="assets/docs/atlas-developer-platform.html">Atlas Developer Platform</a></li>
-            <li><a href="assets/docs/chatassist-onboarding.html">ChatAssist Customer Onboarding</a></li>
-            <li><a href="assets/docs/chatassist-architecture-regression.html">ChatAssist Architecture &amp; Regression</a></li>
-          </ul>
-        </div>
+<div class="accordion-section">
+  <button class="accordion-header" data-section="api-dev"><span>API & Developer Experience</span><span class="accordion-icon">▾</span></button>
+  <ul class="accordion-panel" id="section-api-dev">
+    <li><a href="assets/docs/leximind-api-reference.html">LexiMind API Reference</a></li>
+    <li><a href="assets/docs/leximind-ai-api-.html">LexiMind AI API (Predictive Diagnosis)</a></li>
+    <li><a href="assets/docs/finsight-risk-guide.html">FinSight Risk Integration Guide</a></li>
+    <li><a href="assets/docs/finsight-risk-api.html">FinSight Risk API</a></li>
+    <li><a href="assets/docs/atlas-developer-platform.html">Atlas Developer Platform</a></li>
+    <li><a href="assets/docs/chatassist-onboarding.html">ChatAssist Customer Onboarding</a></li>
+    <li><a href="assets/docs/chatassist-architecture-regression.html">ChatAssist Architecture & Regression</a></li>
+  </ul>
+</div>
 
-        <!-- DATA & EVALUATION ASSETS -->
-        <div class="accordion-section">
-          <button class="accordion-header" data-section="data-eval">
-            <span>Data &amp; Evaluation Assets</span>
-            <span class="accordion-icon">▾</span>
-          </button>
-          <ul class="accordion-panel" id="section-data-eval">
-            <li><a href="assets/docs/dataset-sheet.html">Dataset Sheet (General)</a></li>
-            <li><a href="assets/docs/patient-outcomes-datasheet.html">Patient Outcomes Datasheet</a></li>
-            <li><a href="assets/docs/lexiwrite-gen1-model-card.html">Model Card: LexiWrite Gen-1</a></li>
-            <li><a href="assets/docs/leximind-model-card.html">Model Card: LexiMind Predictive Diagnosis</a></li>
-            <li><a href="assets/docs/model-evaluation-v2.html">Model Evaluation: Multilingual Chatbot v2.0</a></li>
-          </ul>
-        </div>
+<div class="accordion-section">
+  <button class="accordion-header" data-section="data-eval"><span>Data & Evaluation Assets</span><span class="accordion-icon">▾</span></button>
+  <ul class="accordion-panel" id="section-data-eval">
+    <li><a href="assets/docs/dataset-sheet.html">Dataset Sheet (General)</a></li>
+    <li><a href="assets/docs/patient-outcomes-datasheet.html">Patient Outcomes Datasheet</a></li>
+    <li><a href="assets/docs/lexiwrite-gen1-model-card.html">Model Card: LexiWrite Gen-1</a></li>
+    <li><a href="assets/docs/leximind-model-card.html">Model Card: LexiMind Predictive Diagnosis</a></li>
+    <li><a href="assets/docs/model-evaluation-v2.html">Model Evaluation: Multilingual Chatbot v2.0</a></li>
+  </ul>
+</div>
 
-        <!-- PLATFORM & INFRASTRUCTURE -->
-        <div class="accordion-section">
-          <button class="accordion-header" data-section="platform">
-            <span>Platform &amp; Infrastructure</span>
-            <span class="accordion-icon">▾</span>
-          </button>
-          <ul class="accordion-panel" id="section-platform">
-            <li><a href="assets/docs/helios-model-serving.html">Helios Model Serving Infrastructure</a></li>
-            <li><a href="assets/docs/orion-feature-store.html">Orion Data Pipelines &amp; Feature Store</a></li>
-            <li><a href="assets/docs/lexitech-cloudtrack-tech-doc.html">CloudTrack Monitor Technical Docs</a></li>
-            <li><a href="assets/docs/nimbusshop-platform-guide.html">NimbusShop Platform Guide</a></li>
-            <li><a href="assets/docs/leximind-architecture.html">LexiMind System Architecture</a></li>
-          </ul>
-        </div>
+<div class="accordion-section">
+  <button class="accordion-header" data-section="platform"><span>Platform & Infrastructure</span><span class="accordion-icon">▾</span></button>
+  <ul class="accordion-panel" id="section-platform">
+    <li><a href="assets/docs/helios-model-serving.html">Helios Model Serving Infrastructure</a></li>
+    <li><a href="assets/docs/orion-feature-store.html">Orion Data Pipelines & Feature Store</a></li>
+    <li><a href="assets/docs/lexitech-cloudtrack-tech-doc.html">CloudTrack Monitor Technical Docs</a></li>
+    <li><a href="assets/docs/nimbusshop-platform-guide.html">NimbusShop Platform Guide</a></li>
+    <li><a href="assets/docs/leximind-architecture.html">LexiMind System Architecture</a></li>
+  </ul>
+</div>
 
-        <!-- WORKFLOW & PROCESS DOCS -->
-        <div class="accordion-section">
-          <button class="accordion-header" data-section="workflow">
-            <span>Workflow &amp; Process Docs</span>
-            <span class="accordion-icon">▾</span>
-          </button>
-          <ul class="accordion-panel" id="section-workflow">
-            <li><a href="assets/docs/leximind-workflow.html">Jira Ticket Movement Workflow</a></li>
-            <li><a href="assets/docs/nimbustech-games.html">NimbusTech Integration Process</a></li>
-            <li><a href="assets/docs/incident-response.html">Incident &amp; Response Template</a></li>
-            <li><a href="assets/docs/nimbusshop-platform-guide.html">NimbusShop Daily Ops &amp; Training</a></li>
-          </ul>
-        </div>
+<div class="accordion-section">
+  <button class="accordion-header" data-section="workflow"><span>Workflow & Process Docs</span><span class="accordion-icon">▾</span></button>
+  <ul class="accordion-panel" id="section-workflow">
+    <li><a href="assets/docs/leximind-workflow.html">Jira Ticket Movement Workflow</a></li>
+    <li><a href="assets/docs/nimbustech-games.html">NimbusTech Integration Process</a></li>
+    <li><a href="assets/docs/incident-response.html">Incident & Response Template</a></li>
+    <li><a href="assets/docs/nimbusshop-platform-guide.html">NimbusShop Daily Ops & Training</a></li>
+  </ul>
+</div>
 
-        <!-- UX & PRODUCT WRITING -->
-        <div class="accordion-section">
-          <button class="accordion-header" data-section="ux">
-            <span>UX &amp; Product Writing</span>
-            <span class="accordion-icon">▾</span>
-          </button>
-          <ul class="accordion-panel" id="section-ux">
-            <li><a href="assets/docs/release-notes-v2.0.html">Release Notes: LexiMind v2.0</a></li>
-            <li><a href="assets/docs/ux-sample-empty-state.html">UX Writing: Empty States</a></li>
-            <li><a href="assets/docs/ux-sample-release-notes.html">UX Writing: Release Notes</a></li>
-            <li><a href="assets/docs/game-product-ux-writing.html">Game &amp; Product UX Copy</a></li>
-          </ul>
-        </div>
+<div class="accordion-section">
+  <button class="accordion-header" data-section="ux"><span>UX & Product Writing</span><span class="accordion-icon">▾</span></button>
+  <ul class="accordion-panel" id="section-ux">
+    <li><a href="assets/docs/release-notes-v2.0.html">Release Notes: LexiMind v2.0</a></li>
+    <li><a href="assets/docs/ux-sample-empty-state.html">UX Writing: Empty States</a></li>
+    <li><a href="assets/docs/ux-sample-release-notes.html">UX Writing: Release Notes</a></li>
+    <li><a href="assets/docs/game-product-ux-writing.html">Game & Product UX Copy</a></li>
+  </ul>
+</div>
 
-        <!-- GAMES & MECHANICS -->
-        <div class="accordion-section">
-          <button class="accordion-header" data-section="games">
-            <span>Games &amp; Mechanics</span>
-            <span class="accordion-icon">▾</span>
-          </button>
-          <ul class="accordion-panel" id="section-games">
-            <li><a href="assets/docs/bonus-wheel-feature.html">Crimson Temple – Bonus Wheel</a></li>
-            <li><a href="assets/docs/crimson-temple-free-spins.html">Crimson Temple – Free Spins</a></li>
-            <li><a href="assets/docs/crimson-temple-paytable.html">Crimson Temple – Paytable</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- TOOLS -->
-      <div class="sidebar-block">
-        <h3 class="sidebar-title">Tools</h3>
-        <ul class="sidebar-list">
-          <li>Jira, Confluence, Linear</li>
-          <li>Notion, Google Docs / Sheets</li>
-          <li>Git &amp; GitHub</li>
-          <li>Postman, Insomnia, Swagger / OpenAPI</li>
-          <li>Markdown, HTML / CSS</li>
-          <li>Figma, Miro, Lucidchart</li>
-        </ul>
-      </div>
-
-      <!-- SKILLS -->
-      <div class="sidebar-block">
-        <h3 class="sidebar-title">Skills</h3>
-        <ul class="sidebar-list">
-          <li>AI / ML &amp; data-heavy documentation</li>
-          <li>API &amp; SDK reference design</li>
-          <li>Information architecture &amp; content modelling</li>
-          <li>UX writing &amp; in-product copy</li>
-          <li>Incident reports &amp; postmortems</li>
-          <li>Workflow &amp; process documentation</li>
-          <li>Release notes &amp; change logs</li>
-          <li>Diagramming &amp; visual explanation</li>
-        </ul>
+<div class="accordion-section">
+  <button class="accordion-header" data-section="games"><span>Games & Mechanics</span><span class="accordion-icon">▾</span></button>
+  <ul class="accordion-panel" id="section-games">
+    <li><a href="assets/docs/bonus-wheel-feature.html">Crimson Temple – Bonus Wheel</a></li>
+    <li><a href="assets/docs/crimson-temple-free-spins.html">Crimson Temple – Free Spins</a></li>
+    <li><a href="assets/docs/crimson-temple-paytable.html">Crimson Temple – Paytable</a></li>
+  </ul>
+</div>
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <section class="portfolio-main">
-
-      <!-- Banner -->
-      <div class="portfolio-banner">
-        <h1>Portfolio</h1>
-        <p>Selected documentation work across AI, APIs, platforms, workflows, UX writing, and game mechanics.</p>
+    <!-- PORTFOLIO CONTENT -->
+    <section class="portfolio-main" style="flex:1;">
+      <div class="portfolio-banner" style="margin-bottom:2rem;">
+        <h1 style="color:#c48a8f;">Portfolio</h1>
+        <p style="color:#5a4648;">Seven selected case studies — one from each category.</p>
       </div>
 
-      <!-- PROJECT GRID -->
-      <div class="portfolio-grid">
+      <div class="portfolio-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem;">
+        <a href="assets/docs/leximind-predictive-api.html" class="portfolio-card"><div class="portfolio-card-inner"><h3>LexiMind Predictive Diagnosis</h3><p>Clinical AI classification + API integration for risk scoring.</p><div class="portfolio-tags"><span class="mini-tag">AI</span><span class="mini-tag">ML</span></div><span class="portfolio-cta">Read documentation →</span></div></a>
 
-        <!-- PROJECT 1 -->
-        <a href="assets/docs/leximind-predictive-api.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>LexiMind Predictive Diagnosis</h3>
-            <p>Clinical risk-scoring API and model docs for a hospital-facing AI service.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">AI</span>
-              <span class="mini-tag">API</span>
-              <span class="mini-tag">Model Card</span>
-            </div>
-          </div>
-        </a>
+<a href="assets/docs/leximind-api-reference.html" class="portfolio-card">
+  <div class="portfolio-card-inner">
+    <h3>LexiMind API Reference</h3>
+    <p>Full HTTP reference: endpoints, schemas, auth, and errors.</p>
+    <div class="portfolio-tags"><span class="mini-tag">API</span>
+      <span class="mini-tag">DX</span>
+    </div><span class="portfolio-cta">Read documentation →</span></div></a>
 
-        <!-- PROJECT 2 -->
-        <a href="assets/docs/finsight-risk-api.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>FinSight Fraud Model</h3>
-            <p>Fraud detection model documentation with risk signals, scoring logic, and integration flows.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">AI</span>
-              <span class="mini-tag">Fraud</span>
-              <span class="mini-tag">API Docs</span>
-            </div>
-          </div>
-        </a>
+<a href="assets/docs/leximind-model-card.html" class="portfolio-card">
+  <div class="portfolio-card-inner"><h3>Model Card – Predictive Diagnosis</h3>
+    <p>Data sources, evaluation metrics, risks, and ethical use.</p>
+    <div class="portfolio-tags"><span class="mini-tag">Data</span>
+      <span class="mini-tag">Model Card</span></div>
+      <span class="portfolio-cta">Read documentation →</span>
+    </div></a>
 
-        <!-- PROJECT 3 -->
-        <a href="assets/docs/neuralflow-eval.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Neural Network Primer</h3>
-            <p>Conceptual explainer of neural networks for non-ML stakeholders and product teams.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">AI</span>
-              <span class="mini-tag">Education</span>
-            </div>
-          </div>
-        </a>
+<a href="assets/docs/helios-model-serving.html" class="portfolio-card">
+  <div class="portfolio-card-inner">
+    <h3>Helios Model Serving Infrastructure</h3>
+    <p>Scalable low-latency multi-model serving architecture.</p>
+    <div class="portfolio-tags"><span class="mini-tag">Infra</span><span class="mini-tag">ML Ops</span></div><span class="portfolio-cta">Read documentation →</span></div></a>
 
-        <!-- PROJECT 4 -->
-        <a href="assets/docs/ai-case-study-healthcare.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>AI Case Study – Healthcare</h3>
-            <p>Case study on using ML to reduce chronic illness misdiagnosis and improve outcomes.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Case Study</span>
-              <span class="mini-tag">Healthcare</span>
-            </div>
-          </div>
-        </a>
+<a href="assets/docs/incident-response.html" class="portfolio-card"><div class="portfolio-card-inner"><h3>Incident & Response Template</h3><p>Structured incident report and postmortem workflow.</p><div class="portfolio-tags"><span class="mini-tag">Ops</span><span class="mini-tag">Incident</span></div><span class="portfolio-cta">Read documentation →</span></div></a>
 
-        <!-- PROJECT 5 -->
-        <a href="assets/docs/atlas-developer-platform.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Atlas Developer Flow</h3>
-            <p>End-to-end developer journey from signup to deployment on a unified platform.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">DX</span>
-              <span class="mini-tag">Platform</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 6 -->
-        <a href="assets/docs/chatassist-architecture-regression.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>ChatAssist Architecture &amp; Regression Suite</h3>
-            <p>System architecture and regression testing strategy for a conversational AI assistant.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">AI</span>
-              <span class="mini-tag">Testing</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 7 -->
-        <a href="assets/docs/chatassist-onboarding.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>ChatAssist Customer Onboarding</h3>
-            <p>Customer onboarding flow, quickstarts, and troubleshooting for ChatAssist integrations.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Guide</span>
-              <span class="mini-tag">Onboarding</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 8 -->
-        <a href="assets/docs/dataset-sheet.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Dataset Sheet</h3>
-            <p>Dataset datasheet covering collection, composition, intended use, and ethical risks.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Data</span>
-              <span class="mini-tag">Governance</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 9 -->
-        <a href="assets/docs/finsight-risk-guide.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>FinSight Risk Integration Guide</h3>
-            <p>How-to guide for integrating FinSight’s risk API into a fintech application.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">API</span>
-              <span class="mini-tag">Guide</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 10 -->
-        <a href="assets/docs/helios-model-serving.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Helios Model Serving Infrastructure</h3>
-            <p>Blueprint for low-latency, multi-model serving in production environments.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Infra</span>
-              <span class="mini-tag">ML Ops</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 11 -->
-        <a href="assets/docs/ai-doc-design.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>LexiMind Legal Text Generation Model</h3>
-            <p>Technical overview and safeguards for a legal drafting LLM.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">AI</span>
-              <span class="mini-tag">Safety</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 12 -->
-        <a href="assets/docs/leximind-api-reference.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>LexiMind API Reference</h3>
-            <p>HTTP reference including endpoints, auth, schemas, and error patterns.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">API</span>
-              <span class="mini-tag">Reference</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 13 -->
-        <a href="assets/docs/leximind-architecture.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>LexiMind System Architecture</h3>
-            <p>High-level architecture for the LexiMind predictive diagnosis platform.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Architecture</span>
-              <span class="mini-tag">AI Platform</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 14 -->
-        <a href="assets/docs/leximind-assistant.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>LexiMind Assistant Technical Overview</h3>
-            <p>Design for a retrieval-augmented assistant built on LexiMind models.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Assistant</span>
-              <span class="mini-tag">RAG</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 15 -->
-        <a href="assets/docs/leximind-model-card.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Model Card: LexiMind Predictive Diagnosis</h3>
-            <p>Model card describing purpose, data sources, metrics, and limitations.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Model Card</span>
-              <span class="mini-tag">Responsible AI</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 16 -->
-        <a href="assets/docs/leximind-workflow.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Hallo Games | Jira Ticket Workflow</h3>
-            <p>Ticket movement workflow for integration, QA, and go-live governance.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Process</span>
-              <span class="mini-tag">Jira</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 17 -->
-        <a href="assets/docs/nimbustech-games.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>NimbusTech Customer Onboarding</h3>
-            <p>End-to-end direct integration onboarding process in Jira.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Workflow</span>
-              <span class="mini-tag">Onboarding</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 18 -->
-        <a href="assets/docs/incident-response.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Incident &amp; Response Template</h3>
-            <p>Incident report structure for outages, performance issues, and escalations.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Incident</span>
-              <span class="mini-tag">Postmortem</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 19 -->
-        <a href="assets/docs/leximind-ai-api-.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>LexiMind AI API – Predictive Diagnosis</h3>
-            <p>Combined model, API, and safety documentation for LexiMind risk scoring.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">AI</span>
-              <span class="mini-tag">API</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 20 -->
-        <a href="assets/docs/lexitech-cloudtrack-tech-doc.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>CloudTrack Monitor Technical Documentation</h3>
-            <p>Technical manual for a cloud observability and alerting system.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Infra</span>
-              <span class="mini-tag">Monitoring</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 21 -->
-        <a href="assets/docs/lexiwrite-gen1-model-card.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Model Card: LexiWrite Gen-1</h3>
-            <p>Model card for a generative writing assistant, risks, and mitigations.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Model Card</span>
-              <span class="mini-tag">GenAI</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 22 -->
-        <a href="assets/docs/model-evaluation-v2.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Model Evaluation – Multilingual Chatbot v2.0</h3>
-            <p>Evaluation report with metrics, failure modes, and qualitative review.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Evaluation</span>
-              <span class="mini-tag">Chatbot</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 23 -->
-        <a href="assets/docs/orion-feature-store.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Orion Data Pipelines &amp; Feature Store</h3>
-            <p>Design for production-grade data pipelines and feature store for ML.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Data</span>
-              <span class="mini-tag">ML Ops</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 24 -->
-        <a href="assets/docs/patient-outcomes-datasheet.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Datasheet: Patient Outcomes Dataset</h3>
-            <p>Dataset datasheet for a longitudinal patient outcomes dataset.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Data</span>
-              <span class="mini-tag">Healthcare</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 25 -->
-        <a href="assets/docs/release-notes-v2.0.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Release Notes – LexiMind v2.0</h3>
-            <p>Release notes for a major LexiMind update, with migration guidance.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">UX</span>
-              <span class="mini-tag">Release Notes</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 26 -->
-        <a href="assets/docs/ux-sample-empty-state.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>UX Writing – Empty States</h3>
-            <p>Empty-state UX copy for an AI analytics dashboard and setup flows.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">UX Writing</span>
-              <span class="mini-tag">Product</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 27 -->
-        <a href="assets/docs/ux-sample-release-notes.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>UX Writing – Release Notes</h3>
-            <p>Product-focused release notes for non-technical end users.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">UX Writing</span>
-              <span class="mini-tag">Communication</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 28 -->
-        <a href="assets/docs/game-product-ux-writing.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Game &amp; Product UX Writing</h3>
-            <p>UX copy for in-game flows, modals, and player-facing system messages.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">UX</span>
-              <span class="mini-tag">Games</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 29 -->
-        <a href="assets/docs/nimbusshop-platform-guide.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>NimbusShop Platform Product System Guide</h3>
-            <p>System and user guide for a physical-shop gaming platform.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Platform</span>
-              <span class="mini-tag">Guide</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 30 -->
-        <a href="assets/docs/bonus-wheel-feature.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Crimson Temple – Bonus Wheel</h3>
-            <p>Game mechanic spec for the Crimson Temple bonus wheel feature.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Game Design</span>
-              <span class="mini-tag">Mechanic</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 31 -->
-        <a href="assets/docs/crimson-temple-free-spins.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Crimson Temple – Free Spins</h3>
-            <p>Free spins feature design, triggers, and behaviour for Crimson Temple.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Game Design</span>
-              <span class="mini-tag">Mechanic</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- PROJECT 32 -->
-        <a href="assets/docs/crimson-temple-paytable.html" class="portfolio-card">
-          <div class="portfolio-card-inner">
-            <h3>Crimson Temple – Paytable &amp; Symbols</h3>
-            <p>Paytable, symbol tiers, and payout rules for Crimson Temple.</p>
-            <div class="portfolio-tags">
-              <span class="mini-tag">Game Design</span>
-              <span class="mini-tag">Paytable</span>
-            </div>
-          </div>
-        </a>
-
+<a href="assets/docs/ux-sample-empty-state.html" class="portfolio-card"><div class="portfolio-card-inner"><h3>UX Writing – Empty States</h3><p>Clear, friendly UX copy for dashboards and product flows.</p><div class="portfolio-tags"><span class="mini-tag">UX</span><span class="mini-tag">Product</span></div><span class="portfolio-cta">Read documentation →
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer>
+  <footer style="text-align:center; padding:2rem 0; color:#5a4648;">
     <p>© 2025 Leslie Amadi</p>
   </footer>
 
 </div>
+<!-- ACCORDION SCRIPT --> <script> (function () { const STORAGE_KEY = 'portfolioAccordionState_v1'; 
+let state = {}; try { state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } 
+catch (e) { state = {}; } function saveState() 
+{ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } 
+catch (e) {} } const sections = document.querySelectorAll('.accordion-section'); 
+sections.forEach(function (section, index) { const header = section.querySelector('.accordion-header'); 
+const panel = section.querySelector('.accordion-panel'); 
+if (!header || !panel) return; const id = header.dataset.section || ('section-' + index); 
 
-<!-- ACCORDION SCRIPT -->
-<script>
-(function () {
-  const STORAGE_KEY = 'portfolioAccordionState_v1';
-  let state = {};
-
-  try {
-    state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  } catch (e) {
-    state = {};
-  }
-
-  function saveState() {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    } catch (e) {
-      // ignore storage errors
-    }
-  }
-
-  const sections = document.querySelectorAll('.accordion-section');
-
-  sections.forEach(function (section, index) {
-    const header = section.querySelector('.accordion-header');
-    const panel = section.querySelector('.accordion-panel');
-    if (!header || !panel) return;
-
-    const id = header.dataset.section || ('section-' + index);
-    const isOpen = state[id] !== undefined ? state[id] : (index === 0);
-
-    if (isOpen) {
-      section.classList.add('is-open');
-      panel.style.display = 'block';
-    } else {
-      section.classList.remove('is-open');
-      panel.style.display = 'none';
-    }
-
-    header.addEventListener('click', function () {
-      const nowOpen = !section.classList.contains('is-open');
-      section.classList.toggle('is-open', nowOpen);
-      panel.style.display = nowOpen ? 'block' : 'none';
-      state[id] = nowOpen;
-      saveState();
-    });
-  });
-})();
-</script>
-
-</body>
-</html>
+/* DEFAULT: all closed unless saved in localStorage */ 
+const isOpen = state[id] !== undefined ? state[id] : false; if (isOpen) 
+{ section.classList.add('is-open'); panel.style.display = 'block'; } 
+else { section.classList.remove('is-open'); panel.style.display = 'none'; } 
+header.addEventListener('click', function () { const nowOpen = 
+!section.classList.contains('is-open'); 
+section.classList.toggle('is-open', nowOpen); 
+panel.style.display = nowOpen ? 'block' : 'none'; 
+state[id] = nowOpen; saveState(); }); 
+}); })(); </script> </body> </html>

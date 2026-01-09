@@ -6,7 +6,7 @@
   <title>How to Integrate the FinSight Risk API | Portfolio | Leslie Amadi</title>
 
   <!-- Adjust the path if this file lives elsewhere, e.g. ../../assets/style.css -->
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
@@ -40,6 +40,58 @@
         <span class="tag">REST API</span>
 
         <h1>How to Integrate the FinSight Risk API into Your Application</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-integration-overview">1. Integration Overview</a></li>
+          <li><a href="#2-prerequisites">2. Prerequisites</a></li>
+          <li><a href="#3-environments-base-urls">3. Environments &amp; Base URLs</a></li>
+          <li><a href="#4-authentication">4. Authentication</a></li>
+          <li><a href="#5-request-response-basics">5. Request &amp; Response Basics</a></li>
+          <li><a href="#6-step-by-step-integration">6. Step-by-Step Integration</a></li>
+          <li><a href="#7-error-handling-retry-behaviour">7. Error Handling &amp; Retry Behaviour</a></li>
+          <li><a href="#8-monitoring-logging-observability">8. Monitoring, Logging &amp; Observability</a></li>
+          <li><a href="#9-security-data-protection">9. Security &amp; Data Protection</a></li>
+          <li><a href="#10-go-live-checklist">10. Go-Live Checklist</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>How to Integrate the FinSight Risk API | Portfolio | Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
         <p><em>Implementation guide for engineering teams · Author: Leslie Amadi</em></p>
         <hr>
 
@@ -62,7 +114,7 @@
 
         <!-- 1. Overview -->
         <section id="overview">
-          <h2>1. Integration Overview</h2>
+          <h2 id="1-integration-overview">1. Integration Overview</h2>
           <p>
             At a high level, integrating the FinSight Risk API means:
           </p>
@@ -95,7 +147,7 @@ Your decision logic (approve, block, review)</code></pre>
 
         <!-- 2. Prerequisites -->
         <section id="prerequisites">
-          <h2>2. Prerequisites</h2>
+          <h2 id="2-prerequisites">2. Prerequisites</h2>
           <ul>
             <li>A FinSight account with access to the Risk API.</li>
             <li>An <strong>API key</strong> for the correct environment (staging and/or production).</li>
@@ -106,7 +158,7 @@ Your decision logic (approve, block, review)</code></pre>
 
         <!-- 3. Environments -->
         <section id="environments">
-          <h2>3. Environments &amp; Base URLs</h2>
+          <h2 id="3-environments-base-urls">3. Environments &amp; Base URLs</h2>
           <p>The API is typically exposed in two environments:</p>
           <table>
             <thead>
@@ -137,7 +189,7 @@ Your decision logic (approve, block, review)</code></pre>
 
         <!-- 4. Authentication -->
         <section id="authentication">
-          <h2>4. Authentication</h2>
+          <h2 id="4-authentication">4. Authentication</h2>
           <p>
             FinSight uses <strong>API key–based authentication</strong>. Every request must include an
             <code>Authorization</code> header:
@@ -162,7 +214,7 @@ Content-Type: application/json</code></pre>
 
         <!-- 5. Request & Response Basics -->
         <section id="format">
-          <h2>5. Request &amp; Response Basics</h2>
+          <h2 id="5-request-response-basics">5. Request &amp; Response Basics</h2>
           <ul>
             <li>Protocol: <strong>HTTPS only</strong> (TLS 1.2+).</li>
             <li>Content type: <code>application/json</code>.</li>
@@ -173,7 +225,7 @@ Content-Type: application/json</code></pre>
 
         <!-- 6. Step-by-step Integration -->
         <section id="steps">
-          <h2>6. Step-by-Step Integration</h2>
+          <h2 id="6-step-by-step-integration">6. Step-by-Step Integration</h2>
 
           <h3>6.1 Step 1 — Create a Reusable FinSight Client</h3>
           <p>
@@ -310,7 +362,7 @@ print(client.health())</code></pre>
 
         <!-- 7. Error Handling -->
         <section id="errors">
-          <h2>7. Error Handling &amp; Retry Behaviour</h2>
+          <h2 id="7-error-handling-retry-behaviour">7. Error Handling &amp; Retry Behaviour</h2>
           <p>
             The FinSight API uses standard HTTP status codes plus a structured error payload. Example:
           </p>
@@ -375,7 +427,7 @@ print(client.health())</code></pre>
 
         <!-- 8. Monitoring & Logging -->
         <section id="monitoring">
-          <h2>8. Monitoring, Logging &amp; Observability</h2>
+          <h2 id="8-monitoring-logging-observability">8. Monitoring, Logging &amp; Observability</h2>
           <p>
             In production, treating FinSight as a critical dependency means you must be able to
             observe its behaviour clearly:
@@ -396,7 +448,7 @@ print(client.health())</code></pre>
 
         <!-- 9. Security & Compliance -->
         <section id="security">
-          <h2>9. Security &amp; Data Protection</h2>
+          <h2 id="9-security-data-protection">9. Security &amp; Data Protection</h2>
           <ul>
             <li>Use HTTPS for all traffic; block HTTP at your edge.</li>
             <li>Only send the data required for risk predictions; avoid unnecessary PII.</li>
@@ -407,7 +459,7 @@ print(client.health())</code></pre>
 
         <!-- 10. Go-Live Checklist -->
         <section id="checklist">
-          <h2>10. Go-Live Checklist</h2>
+          <h2 id="10-go-live-checklist">10. Go-Live Checklist</h2>
           <p>Before routing live production traffic through FinSight, confirm that:</p>
           <ul>
             <li>Staging integration is passing end-to-end tests.</li>

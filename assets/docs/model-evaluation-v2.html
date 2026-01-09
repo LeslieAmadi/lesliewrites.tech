@@ -4,61 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Model Evaluation Report Multilingual Chatbot v2.0 | Leslie Writes</title>
-  <link rel="stylesheet" href="../css/docs.css">
+  <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    body {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: #fff;
-      color: #333;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      color: #723f74;
-      margin-top: 1.6rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-    }
-    table th, table td {
-      padding: 0.7rem;
-      border: 1px solid #e9c3ea;
-      font-size: 0.95rem;
-    }
-    .callout {
-      border-left: 4px solid #e4b1cb;
-      background: #fff8fd;
-      padding: 0.9rem 1rem;
-      border-radius: 6px;
-      margin: 1.3rem 0;
-    }
-    .btn {
-      background-color: #e4b1cb;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-    .btn:hover { background-color: #f6bae7; }
-    hr {
-      border: none;
-      border-top: 2px solid #f1d7f5;
-      margin: 1.5rem 0;
-    }
-    pre {
-      background: #fff6fb;
-      padding: 1rem;
-      border-radius: 6px;
-      border: 1px solid #f1d7f5;
-      font-size: 0.95rem;
-      overflow-x: auto;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -66,6 +14,58 @@
 
 <header>
   <h1>Model Evaluation Report: Multilingual Chatbot Model v2.0</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-objective">1. Objective</a></li>
+          <li><a href="#2-evaluation-datasets">2. Evaluation Datasets</a></li>
+          <li><a href="#3-evaluation-metrics">3. Evaluation Metrics</a></li>
+          <li><a href="#4-results-summary">4. Results Summary</a></li>
+          <li><a href="#5-error-analysis">5. Error Analysis</a></li>
+          <li><a href="#6-interpretation-insights">6. Interpretation &amp; Insights</a></li>
+          <li><a href="#7-visual-summary">7. Visual Summary</a></li>
+          <li><a href="#8-recommendations">8. Recommendations</a></li>
+          <li><a href="#9-deployment-readiness">9. Deployment Readiness</a></li>
+          <li><a href="#10-document-metadata">10. Document Metadata</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>Model Evaluation Report Multilingual Chatbot v2.0 | Leslie Writes</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
   <p><em>Prepared by Leslie Amadi — Senior AI Technical Writer</em></p>
   <hr>
 </header>
@@ -73,7 +73,7 @@
 <div class="docs-content">
 
 <!-- SECTION 1 -->
-<h2>1. Objective</h2>
+<h2 id="1-objective">1. Objective</h2>
 <p>
   This report evaluates the performance of the <strong>Multilingual Chatbot Model v2.0</strong>,
   designed for English–German customer service applications. The primary objective is to compare
@@ -87,7 +87,7 @@
 </div>
 
 <!-- SECTION 2 -->
-<h2>2. Evaluation Datasets</h2>
+<h2 id="2-evaluation-datasets">2. Evaluation Datasets</h2>
 <p>
   Three datasets were selected to reflect real-world customer interactions, mixed-language usage,
   and varying levels of conversational complexity.
@@ -137,7 +137,7 @@
 </ul>
 
 <!-- SECTION 3 -->
-<h2>3. Evaluation Metrics</h2>
+<h2 id="3-evaluation-metrics">3. Evaluation Metrics</h2>
 <p>
   The model was tested using industry-standard evaluation metrics for classification and
   conversational agents. Definitions are provided below for clarity.
@@ -178,7 +178,7 @@
 </table>
 
 <!-- SECTION 4 -->
-<h2>4. Results Summary</h2>
+<h2 id="4-results-summary">4. Results Summary</h2>
 <p>
   Overall performance improved significantly over the v1.3 baseline. The model demonstrates
   stronger multilingual intent recognition, reduced hallucinations, and improved handling of
@@ -209,7 +209,7 @@
 </table>
 
 <!-- SECTION 5 -->
-<h2>5. Error Analysis</h2>
+<h2 id="5-error-analysis">5. Error Analysis</h2>
 
 <h3>5.1 Frequent Error Types</h3>
 <ul>
@@ -239,7 +239,7 @@ Actual C3     19   24  801
 </pre>
 
 <!-- SECTION 6 -->
-<h2>6. Interpretation & Insights</h2>
+<h2 id="6-interpretation-insights">6. Interpretation & Insights</h2>
 <ul>
   <li><strong>Improved domain generalisation:</strong> v2.0 handles new product categories better.</li>
   <li><strong>Tone consistency improved:</strong> Fewer abrupt or robotic responses.</li>
@@ -248,7 +248,7 @@ Actual C3     19   24  801
 </ul>
 
 <!-- SECTION 7 -->
-<h2>7. Visual Summary</h2>
+<h2 id="7-visual-summary">7. Visual Summary</h2>
 <pre>
 MODEL PERFORMANCE OVER TIME
 v1.0  ████████████ 82%
@@ -257,7 +257,7 @@ v2.0  ███████████████████████ 91.5
 </pre>
 
 <!-- SECTION 8 -->
-<h2>8. Recommendations</h2>
+<h2 id="8-recommendations">8. Recommendations</h2>
 <ul>
   <li>Add datasets for <strong>German slang and informal expressions</strong>.</li>
   <li>Introduce <strong>Hungarian</strong> and <strong>Ukrainian</strong> low-resource evaluations.</li>
@@ -267,7 +267,7 @@ v2.0  ███████████████████████ 91.5
 </ul>
 
 <!-- SECTION 9 -->
-<h2>9. Deployment Readiness</h2>
+<h2 id="9-deployment-readiness">9. Deployment Readiness</h2>
 <p>The model meets the minimum thresholds for deployment to staging environments:</p>
 <ul>
   <li>Accuracy > 90%</li>
@@ -277,7 +277,7 @@ v2.0  ███████████████████████ 91.5
 </ul>
 
 <!-- SECTION 10 -->
-<h2>10. Document Metadata</h2>
+<h2 id="10-document-metadata">10. Document Metadata</h2>
 <p><strong>Date:</strong> 7 November 2025<br>
    <strong>Author:</strong> Leslie Amadi<br>
    <strong>Version:</strong> 2.0

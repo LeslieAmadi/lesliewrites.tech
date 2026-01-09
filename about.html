@@ -6,6 +6,110 @@
   <title>About | Leslie Amadi</title>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
+<style>
+  .skills-sidebar.card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    max-width: 320px;
+  }
+  .skills-sidebar summary {
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  .skills-sidebar h3 {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #444;
+  }
+  .skills-sidebar ul {
+    margin-left: 1rem;
+  }
+  .skills-sidebar li {
+    margin-bottom: 0.4rem;
+  }
+  /* Brand Palette — soft, girly, vibrant */
+  :root {
+    --brand-pink: #f7c6e0;
+    --brand-rose: #f2a7c3;
+    --brand-lilac: #d7c7f9;
+    --brand-deep: #d1a8c9;
+  }
+
+  /* Premium Typography */
+  body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    letter-spacing: 0.3px;
+  }
+  h1, h2, h3, summary {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+  }
+
+  /* Sidebar Card Styling */
+  .skills-sidebar.card {
+    background: var(--brand-lilac);
+    border: 1px solid var(--brand-rose);
+    padding: 1.8rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    max-width: 320px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .skills-sidebar.card:hover {
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+
+  /* Slide-In Animation for Mobile */
+  @media (max-width: 750px) {
+    .skills-sidebar.card {
+      position: fixed;
+      right: -100%;
+      top: 0;
+      height: 100%;
+      width: 75%;
+      padding-top: 4rem;
+      transition: right 0.5s ease;
+      z-index: 999;
+    }
+    .skills-sidebar.card.mobile-open {
+      right: 0;
+    }
+    .skills-sidebar.card summary {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--brand-rose);
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      color: white;
+    }
+  }
+
+  /* AI/Tech Glow Border */
+  .skills-sidebar.card {
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  .skills-sidebar.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--brand-pink), var(--brand-lilac), var(--brand-rose));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+</style>
 
 <body>
 <div class="page-shell">
@@ -32,30 +136,56 @@
       <div class="hero-col">
         <h1>About Me</h1>
         <p>
-          Welcome to my virtual world! I'm <strong>Leslie Amadi</strong>, a technical writer and AI communicator with a love for making advanced
-          systems feel calm, readable, and welcoming. My work spans AI/ML documentation, developer content, and
-          product writing that supports real-world engineering teams.
+          I’m <strong>Leslie Amadi</strong>, a technical writer who creates clear, structured documentation that helps teams work smoothly.
+          I focus on process guides, SOPs, workflow documentation, and beginner-friendly technical content—with a growing interest
+          in AI and machine learning.
         </p>
         <p>
-          I focus on clarity, responsible communication, and turning complex machine learning concepts into
-          documentation that feels warm yet professional.
+          I enjoy turning complex tasks into approachable, organised information that supports calm, confident work.
         </p>
-        <p>I've built this website to showcase my webdevelopment skills and AI/ML learning journey</p>
       </div>
 
-      <!-- RIGHT -->
-      <div class="hero-col">
-        <img src="assets/images/profile-pic.png" alt="Photo of Leslie Amadi" class="about-img">
-      </div>
+      <!-- RIGHT SIDEBAR -->
+      <aside class="skills-sidebar card">
+        <details open>
+          <summary>Skills</summary>
+          <h3>Technical Writing Skills</h3>
+          <ul>
+            <li>Process documentation</li>
+            <li>SOP creation</li>
+            <li>API documentation</li>
+            <li>User manuals</li>
+            <li>Knowledge base articles</li>
+          </ul>
+
+          <h3>Tools</h3>
+          <ul>
+            <li>Confluence</li>
+            <li>Notion</li>
+            <li>Google Workspace</li>
+            <li>Markdown</li>
+            <li>Draw.io / diagrams</li>
+            <li>GitHub (beginner)</li>
+          </ul>
+
+          <h3>Technical</h3>
+          <ul>
+            <li>Python (intermediate)</li>
+            <li>Machine learning fundamentals</li>
+            <li>AI workflow understanding</li>
+          </ul>
+        </details>
+      </aside>
 
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer>
+    <footer>
     <p>© 2025 Leslie Amadi</p>
   </footer>
 
 </div>
 </body>
 </html>
+

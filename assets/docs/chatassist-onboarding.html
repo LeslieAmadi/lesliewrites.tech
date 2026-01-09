@@ -4,173 +4,9 @@
   <meta charset="utf-8">
   <title>ChatAssist AI — Technical Onboarding & Integration Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/docs.css">
+  <link rel="stylesheet" href="../styles.css">
   
-  <style>
-    body {
-      max-width: 900px;
-      margin: 2rem auto;
-      background-color: #fff;
-      color: #333;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3, h4 {
-      color: #723f74;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h1 {
-      font-size: 2.1rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-    }
-
-    h4 {
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    ul, ol {
-      margin-left: 1.2rem;
-    }
-
-    p {
-      margin: 0.6rem 0;
-    }
-
-    code {
-      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.9rem;
-      background: #fdf1fb;
-      padding: 0.1rem 0.3rem;
-      border-radius: 4px;
-    }
-
-    pre {
-      background: #241422;
-      color: #fdf4fb;
-      padding: 1rem 1.2rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-size: 0.9rem;
-      margin: 1rem 0;
-      white-space: pre;
-    }
-
-    pre code {
-      background: transparent;
-      padding: 0;
-    }
-
-    .btn {
-      background-color: #e4b1cb;
-      color: rgb(252, 236, 236);
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #f6bae7;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid #f1d7f5;
-      margin: 1.5rem 0;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9em;
-      color: #777;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 0.1rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid #f1c5e4;
-      color: #7b396e;
-      background: #fff6fb;
-      margin-right: 0.4rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 0.6rem 1.2rem;
-      margin: 1rem 0 1.6rem;
-      font-size: 0.9rem;
-    }
-
-    .meta-label {
-      font-weight: 600;
-      color: #555;
-      margin-right: 0.3rem;
-    }
-
-    .callout {
-      border-left: 4px solid #e4b1cb;
-      background: #fff7fd;
-      padding: 0.8rem 1rem;
-      border-radius: 6px;
-      margin: 1.2rem 0;
-      font-size: 0.9rem;
-    }
-
-    .diagram {
-      border-radius: 10px;
-      border: 1px dashed #f1c5e4;
-      background: #fffafd;
-      padding: 1rem 1.2rem;
-      margin: 1rem 0 1.6rem;
-      font-size: 0.9rem;
-    }
-
-    .diagram-title {
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: #723f74;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 1rem 0;
-      font-size: 0.9rem;
-    }
-
-    th, td {
-      border: 1px solid #f1d7f5;
-      padding: 0.5rem 0.6rem;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: #fdf2ff;
-      font-weight: 600;
-      color: #4e274f;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -183,6 +19,58 @@
         <span class="tag">Onboarding</span>
 
         <h1>ChatAssist AI — Technical Onboarding &amp; Integration Guide</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-introduction">1. Introduction</a></li>
+          <li><a href="#2-system-overview-architecture">2. System Overview &amp; Architecture</a></li>
+          <li><a href="#3-requirements">3. Requirements</a></li>
+          <li><a href="#4-onboarding-setup-flow">4. Onboarding &amp; Setup Flow</a></li>
+          <li><a href="#5-how-chatassist-ai-works-agent-experience">5. How ChatAssist AI Works (Agent Experience)</a></li>
+          <li><a href="#6-optional-api-webhook-integrations">6. Optional API &amp; Webhook Integrations</a></li>
+          <li><a href="#7-best-practices">7. Best Practices</a></li>
+          <li><a href="#8-troubleshooting-error-handling">8. Troubleshooting &amp; Error Handling</a></li>
+          <li><a href="#9-security-data-handling">9. Security &amp; Data Handling</a></li>
+          <li><a href="#10-contact-support">10. Contact &amp; Support</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>ChatAssist AI — Technical Onboarding &amp; Integration Guide</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
         <p><em>For Customer Support &amp; Platform Teams · LexiTech</em></p>
         <hr>
 
@@ -217,7 +105,7 @@
 
       <!-- 1. Introduction -->
       <section>
-        <h2>1. Introduction</h2>
+        <h2 id="1-introduction">1. Introduction</h2>
         <p>
           ChatAssist AI plugs into your existing help centre and suggests draft responses for incoming tickets based
           on:
@@ -235,7 +123,7 @@
 
       <!-- 2. System Overview & Architecture -->
       <section>
-        <h2>2. System Overview &amp; Architecture</h2>
+        <h2 id="2-system-overview-architecture">2. System Overview &amp; Architecture</h2>
         <p>
           At a high level, ChatAssist AI consists of a web dashboard, helpdesk connectors, and a suggestion engine backed
           by large language models and a retrieval layer over your knowledge base.
@@ -269,7 +157,7 @@
 
       <!-- 3. Requirements -->
       <section>
-        <h2>3. Requirements</h2>
+        <h2 id="3-requirements">3. Requirements</h2>
         <p>To onboard ChatAssist AI for your team, you’ll need:</p>
         <ul>
           <li>An <strong>organisation admin account</strong> in LexiTech.</li>
@@ -282,7 +170,7 @@
 
       <!-- 4. Onboarding & Setup Flow -->
       <section>
-        <h2>4. Onboarding &amp; Setup Flow</h2>
+        <h2 id="4-onboarding-setup-flow">4. Onboarding &amp; Setup Flow</h2>
 
         <h3>4.1 Step 1 — Log In</h3>
         <p>
@@ -326,7 +214,7 @@
 
       <!-- 5. How ChatAssist Works -->
       <section>
-        <h2>5. How ChatAssist AI Works (Agent Experience)</h2>
+        <h2 id="5-how-chatassist-ai-works-agent-experience">5. How ChatAssist AI Works (Agent Experience)</h2>
         <p>
           For agents, ChatAssist appears directly inside the ticket view of your helpdesk. It reads the conversation
           and suggests a draft reply the agent can review and edit.
@@ -353,7 +241,7 @@
 
       <!-- 6. Optional API & Webhooks -->
       <section>
-        <h2>6. Optional API &amp; Webhook Integrations</h2>
+        <h2 id="6-optional-api-webhook-integrations">6. Optional API &amp; Webhook Integrations</h2>
         <p>
           For advanced use cases, ChatAssist can be used via API to generate suggestions outside the standard
           helpdesk widgets (e.g. internal tools, custom dashboards).
@@ -391,7 +279,7 @@
 
       <!-- 7. Best Practices -->
       <section>
-        <h2>7. Best Practices</h2>
+        <h2 id="7-best-practices">7. Best Practices</h2>
         <ul>
           <li><strong>Always review suggestions</strong> before sending – the agent remains responsible for final wording.</li>
           <li><strong>Keep your knowledge base up to date</strong> so ChatAssist has the best possible context.</li>
@@ -402,7 +290,7 @@
 
       <!-- 8. Troubleshooting & Error Handling -->
       <section>
-        <h2>8. Troubleshooting &amp; Error Handling</h2>
+        <h2 id="8-troubleshooting-error-handling">8. Troubleshooting &amp; Error Handling</h2>
         <p>
           The most common issues and resolutions are listed below.
         </p>
@@ -437,7 +325,7 @@
 
       <!-- 9. Security & Data Handling -->
       <section>
-        <h2>9. Security &amp; Data Handling</h2>
+        <h2 id="9-security-data-handling">9. Security &amp; Data Handling</h2>
         <p>
           ChatAssist AI is designed to operate within typical SaaS security expectations for customer support tools.
         </p>
@@ -450,7 +338,7 @@
 
       <!-- 10. Contact & Support -->
       <section>
-        <h2>10. Contact &amp; Support</h2>
+        <h2 id="10-contact-support">10. Contact &amp; Support</h2>
         <p>
           For onboarding help, integration questions or incidents, reach out to:
         </p>

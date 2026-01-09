@@ -5,129 +5,9 @@
   <title>LexiMind Assistant – Technical Overview</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Global docs stylesheet -->
-  <link rel="stylesheet" href="../css/docs.css" />
+  <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    /* --- Global Page Background (old book, ivory blush) --- */
-    body {
-      margin: 0;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      background: #f7f2ec; /* ✨ Soft ivory blush */
-      color: #333;
-    }
-
-    /* --- Document Container with Border --- */
-    .docs-body {
-      background: #fff9f7; /* Off-white blush */
-      max-width: 900px;
-      margin: auto;
-      padding: 2.5rem;
-      border-radius: 14px;
-      border: 1.5px solid #e8d4c9; /* warm nude border */
-      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
-    }
-
-    /* --- Headings --- */
-    h1, h2, h3, h4 {
-      color: #2a2a2a; /* dusty rose */
-      margin-top: 1.6rem;
-      font-weight: 600;
-    }
-
-    /* --- Meta Tags --- */
-    .tag {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      background: #f3d9e0;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      margin-right: 0.3rem;
-      color: #7c4b63;
-    }
-
-    /* --- Tables --- */
-    table {
-      width: 100%;
-      margin: 1rem 0;
-      border-collapse: collapse;
-      background: #fffdfc;
-      font-size: 0.95rem;
-    }
-    table th, table td {
-      padding: 0.7rem;
-      border: 1px solid #eadcd6;
-    }
-    table th {
-      background: #f4e8e2;
-      color: #613e4d;
-    }
-
-    /* --- Callouts --- */
-    .callout {
-      background: #fff4f6;
-      border-left: 4px solid #e3b4c4;
-      padding: 0.9rem 1.1rem;
-      border-radius: 8px;
-      margin: 1.3rem 0;
-    }
-
-    /* --- Preformatted Blocks --- */
-    pre {
-      background: #fff7f5;
-      border: 1px solid #eeded8;
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-
-    /* --- Meta Grid --- */
-    .meta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.7rem 1rem;
-      margin: 1.2rem 0;
-    }
-    .meta-label {
-      font-weight: 600;
-      color: #7a4c58;
-    }
-
-    /* --- Navigation Buttons --- */
-    .btn {
-      background: #e3b4c4;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: 0.2s;
-    }
-    .btn:hover {
-      background: #dca6b7;
-    }
-
-    /* --- Scroll-to-top button --- */
-    .to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #dca6b7;
-      color: #fff;
-      padding: 0.65rem 1rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #8a6d75;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -137,6 +17,57 @@
     <span class="tag">Internal Tooling</span>
 
     <h1>LexiMind Assistant Technical Overview</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-system-architecture">1. System Architecture</a></li>
+          <li><a href="#2-nlp-pipeline">2. NLP Pipeline</a></li>
+          <li><a href="#3-api-design-usage">3. API Design &amp; Usage</a></li>
+          <li><a href="#4-core-workflows">4. Core Workflows</a></li>
+          <li><a href="#5-performance-evaluation">5. Performance &amp; Evaluation</a></li>
+          <li><a href="#6-error-handling-observability">6. Error Handling &amp; Observability</a></li>
+          <li><a href="#7-extensibility-roadmap">7. Extensibility &amp; Roadmap</a></li>
+          <li><a href="#8-security-compliance">8. Security &amp; Compliance</a></li>
+          <li><a href="#9-appendix">9. Appendix</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>LexiMind Assistant – Technical Overview</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
     <p>
       LexiMind Assistant is an internal-facing, AI-powered writing and support assistant designed to help teams draft documentation,
       summarise customer tickets, and generate knowledge base content with consistent tone and structure.
@@ -169,7 +100,7 @@
   <main>
     <!-- 1. High-Level Architecture -->
     <section id="architecture">
-      <h2>1. System Architecture</h2>
+      <h2 id="1-system-architecture">1. System Architecture</h2>
 
       <p>
         LexiMind Assistant follows a modular, service-oriented architecture. The assistant is exposed through a stateless HTTP API,
@@ -220,7 +151,7 @@ Response to client</code></pre>
 
     <!-- 2. NLP Pipeline -->
     <section id="nlp-pipeline">
-      <h2>2. NLP Pipeline</h2>
+      <h2 id="2-nlp-pipeline">2. NLP Pipeline</h2>
 
       <p>
         The NLP pipeline transforms raw user input into a safe, context-aware response. Each stage is observable and can be
@@ -280,7 +211,7 @@ Response to client</code></pre>
 
     <!-- 3. API Design -->
     <section id="api">
-      <h2>3. API Design &amp; Usage</h2>
+      <h2 id="3-api-design-usage">3. API Design &amp; Usage</h2>
 
       <p>
         LexiMind Assistant is exposed as a JSON-over-HTTP API. Clients should treat it as a stateless service:
@@ -353,7 +284,7 @@ Response to client</code></pre>
 
     <!-- 4. Workflows -->
     <section id="workflows">
-      <h2>4. Core Workflows</h2>
+      <h2 id="4-core-workflows">4. Core Workflows</h2>
 
       <h3>4.1 Documentation Drafting Workflow</h3>
 
@@ -378,7 +309,7 @@ Response to client</code></pre>
 
     <!-- 5. Performance -->
     <section id="performance">
-      <h2>5. Performance &amp; Evaluation</h2>
+      <h2 id="5-performance-evaluation">5. Performance &amp; Evaluation</h2>
 
       <p>
         Performance is tracked across three dimensions: latency, reliability, and response quality.
@@ -435,7 +366,7 @@ Response to client</code></pre>
 
     <!-- 6. Error Handling -->
     <section id="error-handling">
-      <h2>6. Error Handling &amp; Observability</h2>
+      <h2 id="6-error-handling-observability">6. Error Handling &amp; Observability</h2>
 
       <p>
         The system is designed to fail loudly and traceably rather than silently degrade. All requests are tagged with
@@ -498,7 +429,7 @@ Response to client</code></pre>
 
     <!-- 7. Extensibility & Roadmap -->
     <section id="extensibility">
-      <h2>7. Extensibility &amp; Roadmap</h2>
+      <h2 id="7-extensibility-roadmap">7. Extensibility &amp; Roadmap</h2>
 
       <h3>7.1 Extension Points</h3>
 
@@ -529,7 +460,7 @@ Response to client</code></pre>
 
     <!-- 8. Security -->
     <section id="security">
-      <h2>8. Security &amp; Compliance</h2>
+      <h2 id="8-security-compliance">8. Security &amp; Compliance</h2>
 
       <p>
         LexiMind Assistant is deployed in the internal cloud environment and inherits the organisation’s baseline security controls.
@@ -563,7 +494,7 @@ Response to client</code></pre>
 
     <!-- 9. Appendix -->
     <section id="appendix">
-      <h2>9. Appendix</h2>
+      <h2 id="9-appendix">9. Appendix</h2>
 
       <h3>9.1 Related Documents</h3>
       <ul>

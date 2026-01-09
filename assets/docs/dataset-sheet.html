@@ -4,93 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dataset Datasheet — Customer Support Chatbot Corpus | Leslie Writes</title>
-  <link rel="stylesheet" href="../css/docs.css" />
+  <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    body {
-      max-width: 900px;
-      margin: 2rem auto;
-      background-color: #fff;
-      color: #333;
-      padding: 2rem;
-      font-family: "Poppins", sans-serif;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3, h4 {
-      color: #723f74;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.2rem; }
-
-    ul, ol { margin-left: 1.2rem; }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid #f1c5e4;
-      background: #fff6fb;
-      color: #7b396e;
-      margin-right: 0.4rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.6rem 1.2rem;
-      margin: 1rem 0;
-      font-size: 0.9rem;
-    }
-
-    .meta-label {
-      color: #4e274f;
-      font-weight: 600;
-      margin-right: 0.3rem;
-    }
-
-    .callout {
-      border-left: 4px solid #e4b1cb;
-      background: #fff8fd;
-      padding: 0.8rem 1rem;
-      border-radius: 6px;
-      margin: 1.2rem 0;
-      font-size: 0.9rem;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid #f1d7f5;
-      margin: 1.5rem 0;
-    }
-
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    .btn {
-      background-color: #e4b1cb;
-      color: rgb(252, 236, 236);
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #f6bae7;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -102,6 +18,55 @@
     <span class="tag">Conversational AI</span>
 
     <h1>Dataset Datasheet: Customer Support Chatbot Corpus</h1>
+    <nav class="docs-toc docs-toc-dropdown">
+      <details open>
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#1-motivation">1. Motivation</a></li>
+          <li><a href="#2-composition">2. Composition</a></li>
+          <li><a href="#3-collection-process">3. Collection Process</a></li>
+          <li><a href="#4-recommended-uses">4. Recommended Uses</a></li>
+          <li><a href="#5-not-recommended-for">5. Not Recommended For</a></li>
+          <li><a href="#6-ethical-considerations">6. Ethical Considerations</a></li>
+          <li><a href="#7-maintenance-updates">7. Maintenance &amp; Updates</a></li>
+        </ol>
+      </details>
+    </nav>
+    <section class="doc-meta-grid">
+      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Overview</h3>
+          <p>This document describes <strong>Dataset Datasheet — Customer Support Chatbot Corpus | Leslie Writes</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>My Role</h3>
+          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Audience</h3>
+          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Scope</h3>
+          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+        </div>
+      </div>
+      <div class="doc-meta-row">
+        <div class="doc-meta-item">
+          <h3>Prerequisites</h3>
+          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
+        </div>
+        <div class="doc-meta-item">
+          <h3>Impact</h3>
+          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
+        </div>
+      </div>
+    </section>
+
+
     <p><em>By Leslie Amadi</em></p>
     <hr>
 
@@ -120,7 +85,7 @@
   <main>
     <!-- 1. Motivation -->
     <section>
-      <h2>1. Motivation</h2>
+      <h2 id="1-motivation">1. Motivation</h2>
       <p>
         The Customer Support Chatbot Corpus was created to support the development of a 
         multilingual, production-grade customer service assistant capable of understanding and 
@@ -134,7 +99,7 @@
 
     <!-- 2. Composition -->
     <section>
-      <h2>2. Composition</h2>
+      <h2 id="2-composition">2. Composition</h2>
       <ul>
         <li><strong>Data Type:</strong> Text conversations (user messages + agent responses)</li>
         <li><strong>Total Size:</strong> 120,000 dialogue pairs</li>
@@ -152,7 +117,7 @@
 
     <!-- 3. Collection Process -->
     <section>
-      <h2>3. Collection Process</h2>
+      <h2 id="3-collection-process">3. Collection Process</h2>
       <p>
         Data was compiled from anonymised customer service chat logs contributed by partner companies.
         All text was manually cleaned and checked by trained annotators to remove noise, formatting issues, 
@@ -176,7 +141,7 @@
 
     <!-- 4. Recommended Uses -->
     <section>
-      <h2>4. Recommended Uses</h2>
+      <h2 id="4-recommended-uses">4. Recommended Uses</h2>
       <ul>
         <li>Training intent recognition or classification models</li>
         <li>Fine-tuning LLMs for customer service tone and clarity</li>
@@ -186,7 +151,7 @@
 
     <!-- 5. Not Recommended For -->
     <section>
-      <h2>5. Not Recommended For</h2>
+      <h2 id="5-not-recommended-for">5. Not Recommended For</h2>
       <ul>
         <li>Sentiment analysis — text is largely neutral and templated</li>
         <li>Legal, medical, or high-risk chatbots — domain is not relevant</li>
@@ -196,7 +161,7 @@
 
     <!-- 6. Ethical Considerations -->
     <section>
-      <h2>6. Ethical Considerations</h2>
+      <h2 id="6-ethical-considerations">6. Ethical Considerations</h2>
       <p>
         Because the dataset reflects real customer interactions, certain linguistic or stylistic 
         biases may be present. The tone leans toward polite, formal service language, which may 
@@ -220,7 +185,7 @@
 
     <!-- 7. Maintenance -->
     <section>
-      <h2>7. Maintenance & Updates</h2>
+      <h2 id="7-maintenance-updates">7. Maintenance & Updates</h2>
 
       <ul>
         <li><strong>Version:</strong> 1.2</li>
