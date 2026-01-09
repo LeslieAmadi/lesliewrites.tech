@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What I’m Learning | Leslie Amadi</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+<div class="page-shell">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">LA</span>
+        <span class="logo-text">Leslie Amadi</span>
+      </a>
+
+      <div class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="learning.html" class="active">Learning</a>
+        <a href="contact.html" class="nav-cta">Let’s Talk</a>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / INTRO -->
+  <main class="hero-box">
+    <div class="hero-box-inner">
+
+      <h1>What I’m Learning Right Now</h1>
+      <p>
+        This page is a living record of what I’m currently exploring, practising, and thinking about.
+        I keep it here as a way of staying honest about my growth and connected to the systems I document.
+      </p>
+
+      <p>
+        I don’t see learning as something separate from my work.
+        Every concept I study and every tool I practise with shapes how I approach technical writing —
+        especially when working with complex systems, data, and emerging technologies.
+      </p>
+
+    </div>
+  </main>
+
+  <!-- THIS MONTH / RECENTLY -->
+  <section class="section section-soft">
+    <div class="container">
+      <h2>This Month</h2>
+
+      <div class="strip">
+        <div class="strip-card">
+          <div class="strip-title">System Thinking in AI</div>
+          <p>
+            I’ve been focusing on understanding how AI systems behave end-to-end —
+            from data inputs and model evaluation to deployment, monitoring, and documentation for responsible use.
+          </p>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-title">Full-Stack Foundations</div>
+          <p>
+            Strengthening my programming skills by working across both front-end and back-end concepts,
+            with a focus on how applications are structured, how data flows through systems, and how documentation fits into real development workflows.
+          </p>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-title">Documentation as Design</div>
+          <p>
+            Exploring how structure, hierarchy, and language choices affect how people understand systems —
+            not just what the system does, but how safely and confidently it can be used.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CURRENT FOCUS -->
+<section class="section">
+  <div class="container">
+    <h2>Current Focus</h2>
+
+    <div id="current-focus"></div>
+    <p id="focus-timestamp" class="featured-meta"></p>
+  </div>
+</section>
+
+
+        <div class="strip-card">
+          <div class="strip-title">Full-Stack Programming</div>
+          <p>
+            Learning how applications are built across the stack — from user interfaces to server logic and data layers —
+            so I can better document how real systems behave, integrate, and scale.
+          </p>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-title">System Architecture & Infrastructure</div>
+          <p>
+            Studying how modern platforms are structured — from data pipelines and feature stores
+            to model serving, monitoring, and operational workflows.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINI CASE STUDIES -->
+  <section class="section section-soft">
+    <div class="container">
+      <h2>What I’m Practising (Mini Case Studies)</h2>
+
+      <div class="strip">
+        <div class="strip-card">
+          <div class="strip-title">Documenting an AI Workflow</div>
+          <p>
+            I recently mapped out a fictional AI classification system end-to-end:
+            data sources, preprocessing steps, model behaviour, evaluation metrics, and operational constraints.
+            The goal was not just to describe the system, but to make its risks, assumptions, and limitations visible.
+          </p>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-title">Full-Stack Feature Walkthrough</div>
+          <p>
+            I’ve been building and documenting a small full-stack feature —
+            tracing how user actions on the interface connect to backend logic and data handling.
+            Writing the documentation alongside the code helped me understand where developers actually need clarity.
+          </p>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-title">Operational Process Design</div>
+          <p>
+            I created a workflow document for a simulated incident-response process,
+            focusing on clarity under pressure: what happens, who is responsible, and what decisions need to be documented for accountability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- REFLECTION -->
+  <section class="section section-soft">
+    <div class="container">
+      <h2>Why I Keep This Page</h2>
+
+      <p>
+        I keep this page as a reminder that good documentation grows out of curiosity, practice, and real systems.
+        It helps me stay grounded in the work itself — not just the output.
+      </p>
+
+      <p>
+        Whether I’m studying AI governance, writing about infrastructure, or learning how full-stack applications are built,
+        my goal remains the same: to create documentation that is technically accurate, human-centred,
+        and genuinely useful for the people who rely on it.
+      </p>
+
+      <a href="portfolio.html" class="btn-leslie">View My Work →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Leslie Amadi</p>
+  </footer>
+
+</div>
+
+<script>
+  const monthlyFocus = [
+    {
+      month: "January",
+      title: "Documenting full-stack systems",
+      description: "Working on end-to-end documentation that connects UI flows, backend services, APIs, and database structure into one cohesive system narrative.",
+      impact: "Demonstrates system-level thinking and real-world technical accuracy.",
+      link: "portfolio.html"
+    },
+    {
+      month: "February",
+      title: "Operational workflows & process design",
+      description: "Creating clear SOPs and internal documentation for multi-step business processes, approvals, and cross-team dependencies.",
+      impact: "Improves alignment, reduces ambiguity, and supports scalable operations.",
+      link: "portfolio.html"
+    },
+    {
+      month: "March",
+      title: "Responsible AI documentation",
+      description: "Practising how to document model assumptions, evaluation metrics, limitations, and governance considerations in production systems.",
+      impact: "Builds trust, transparency, and decision-ready AI documentation.",
+      link: "portfolio.html"
+    },
+    {
+      month: "April",
+      title: "Developer experience & platform usability",
+      description: "Focusing on how APIs, tools, and internal platforms are documented to reduce friction and improve adoption for technical teams.",
+      impact: "Positions documentation as part of the product experience.",
+      link: "portfolio.html"
+    }
+  ];
+
+  const now = new Date();
+  const currentMonthIndex = now.getMonth(); // 0–11
+  const focus = monthlyFocus[currentMonthIndex % monthlyFocus.length];
+
+  const container = document.getElementById("current-focus");
+  const timestamp = document.getElementById("focus-timestamp");
+
+  container.innerHTML = `
+    <a href="${focus.link}" class="featured-learning-card">
+      <h3>${focus.title}</h3>
+      <p>${focus.description}</p>
+      <p class="featured-meta">Why this matters: ${focus.impact}</p>
+      <span class="featured-cta">View related work →</span>
+    </a>
+  `;
+
+  const monthYear = now.toLocaleString('en-GB', { month: 'long', year: 'numeric' });
+  timestamp.textContent = `Updated: ${monthYear}`;
+</script>
+
+</body>
+</html>

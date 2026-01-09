@@ -6,110 +6,6 @@
   <title>About | Leslie Amadi</title>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
-<style>
-  .skills-sidebar.card {
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    max-width: 320px;
-  }
-  .skills-sidebar summary {
-    font-weight: 600;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-bottom: 1rem;
-  }
-  .skills-sidebar h3 {
-    margin-top: 1rem;
-    font-size: 1rem;
-    color: #444;
-  }
-  .skills-sidebar ul {
-    margin-left: 1rem;
-  }
-  .skills-sidebar li {
-    margin-bottom: 0.4rem;
-  }
-  /* Brand Palette — soft, girly, vibrant */
-  :root {
-    --brand-pink: #f7c6e0;
-    --brand-rose: #f2a7c3;
-    --brand-lilac: #d7c7f9;
-    --brand-deep: #d1a8c9;
-  }
-
-  /* Premium Typography */
-  body {
-    font-family: "Inter", "Segoe UI", sans-serif;
-    letter-spacing: 0.3px;
-  }
-  h1, h2, h3, summary {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-  }
-
-  /* Sidebar Card Styling */
-  .skills-sidebar.card {
-    background: var(--brand-lilac);
-    border: 1px solid var(--brand-rose);
-    padding: 1.8rem;
-    border-radius: 14px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-    max-width: 320px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
-  .skills-sidebar.card:hover {
-    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-    transform: translateY(-2px);
-  }
-
-  /* Slide-In Animation for Mobile */
-  @media (max-width: 750px) {
-    .skills-sidebar.card {
-      position: fixed;
-      right: -100%;
-      top: 0;
-      height: 100%;
-      width: 75%;
-      padding-top: 4rem;
-      transition: right 0.5s ease;
-      z-index: 999;
-    }
-    .skills-sidebar.card.mobile-open {
-      right: 0;
-    }
-    .skills-sidebar.card summary {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: var(--brand-rose);
-      padding: 0.7rem 1rem;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-      color: white;
-    }
-  }
-
-  /* AI/Tech Glow Border */
-  .skills-sidebar.card {
-    border: 2px solid transparent;
-    background-clip: padding-box;
-  }
-  .skills-sidebar.card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 2px;
-    background: linear-gradient(135deg, var(--brand-pink), var(--brand-lilac), var(--brand-rose));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-</style>
 
 <body>
 <div class="page-shell">
@@ -117,67 +13,153 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="navbar-inner">
-      <a href="index.html" class="logo">Leslie Amadi</a>
+      <a href="index.html" class="logo">
+        <span class="logo-badge">LA</span>
+        <span class="logo-text">Leslie Amadi</span>
+      </a>
       <nav class="nav-menu">
         <a href="index.html">Home</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog.html">Blog</a>
         <a href="about.html" class="active">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="learning.html">Learning</a>
+        <a href="contact.html" class="nav-cta">Let’s Talk</a>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
       </nav>
     </div>
   </header>
 
-  <!-- HERO ABOUT CONTAINER -->
+  <!-- ABOUT ME -->
   <main class="hero-box">
-    <div class="hero-box-inner two-col">
+    <div class="hero-box-inner">
 
-      <!-- LEFT -->
-      <div class="hero-col">
-        <h1>About Me</h1>
-        <p>
-          I’m <strong>a technical writer</strong>, who creates clear, structured documentation that helps teams work smoothly.
-          I focus on process guides, SOPs, workflow documentation, and beginner-friendly technical content—with a growing interest
-          in AI and machine learning.
-        </p>
-        <p>
-          I enjoy turning complex tasks into approachable, organised information that supports calm, confident work.
-        </p>
-      </div>
+      <h1>About Me</h1>
 
-      <!-- RIGHT SIDEBAR -->
-      <aside class="skills-sidebar card">
-        <details open>
-          <summary>Skills</summary>
+      <p>
+        Hello, I’m Leslie a technical writer working in the IT industry. I enjoy documenting complex systems because it 
+        allows me to understand products from both the engineering and user perspective.
+      </p>
+      <p>
+        🌸 You can probably tell a lot about me just from the way this site looks. I’m playful but professional, 
+        and I wanted my website to express that balance. It reflects the fun, bubbly, dreamy and romantic side of who I am, 
+        while still staying grounded in thoughtful, well-structured work.
+      </p>
 
-          <h3>Tools</h3>
-          <ul>
-            <li>Confluence</li>
-            <li>Notion</li>
-            <li>Google Workspace</li>
-            <li>Markdown</li>
-            <li>Draw.io / diagrams</li>
-            <li>GitHub (beginner)</li>
-          </ul>
+      <p>
+        I’m especially interested in responsible AI, full-stack systems, and clear system design. 
+        My focus is on turning complexity into calm, structured documentation that supports confident decisions and safe technology.
+      </p>
 
-          <h3>Technical</h3>
-          <ul>
-            <li>Python (intermediate)</li>
-            <li>Machine learning fundamentals</li>
-            <li>AI workflow understanding</li>
-          </ul>
-        </details>
-      </aside>
+      <p>
+        My journey has shaped how I work. Born in Nigeria, I moved to Hungary at 15, later lived in Ukraine, and relocated to Germany during the war.
+         Today, I’m building a stable life here learning German, learning to drive, making new friends, and growing into the next chapter of my career.
+      </p>
+
+      <p>
+        Outside of work, I enjoy learning new subjects, ice skating, cooking seafood from different cultures, reading, writing, and listening to podcasts.
+         On weekends, I often spend time catching up with my siblings and my mum back home staying grounded in where I come from while building where I’m going.
+      </p>
+
+      <a href="assets/Leslie_Amadi_CV.pdf" class="btn-leslie" download>Download My CV →</a>
 
     </div>
   </main>
 
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <section class="section">
+    <div class="container">
+      <h2>Professional Experience</h2>
+
+      <div class="strip premium-experience">
+
+        <!-- PROFILE -->
+        <details class="strip-card premium-card">
+          <summary class="strip-title">Professional Profile</summary>
+          <p>
+            I specialise in documenting complex systems across AI, software platforms, APIs, and internal operations.
+            My work connects engineering, product, and business stakeholders through structured, accurate,
+            and human-centred technical communication.
+          </p>
+        </details>
+
+        <!-- TECHNICAL WRITING -->
+        <details class="strip-card premium-card">
+          <summary class="strip-title">Technical Writing & Communication</summary>
+          <ul>
+            <li>Product manuals, repair guides, and user documentation</li>
+            <li>SDK documentation, API references, and developer guides</li>
+            <li>Case studies, internal & external training material</li>
+            <li>Market requirements documents (MRDs)</li>
+            <li>Structured documentation for complex systems</li>
+          </ul>
+          <a href="portfolio.html" class="experience-link">View related projects →</a>
+        </details>
+
+        <!-- AI / ML -->
+        <details class="strip-card premium-card">
+          <summary class="strip-title">AI & Machine Learning Documentation</summary>
+          <ul>
+            <li>Data pipelines and model training documentation</li>
+            <li>Algorithm explanations for user-facing content</li>
+            <li>ML system integration notes and architecture walkthroughs</li>
+            <li>Model evaluation, governance, and responsible AI practices</li>
+          </ul>
+          <a href="portfolio.html" class="experience-link">View AI case studies →</a>
+        </details>
+
+        <!-- TOOLS -->
+        <details class="strip-card premium-card">
+          <summary class="strip-title">Tools & Technologies</summary>
+          <ul>
+            <li>Docusaurus, MadCap Flare, Docs-as-Code, DITA XML</li>
+            <li>HTML, CSS, JavaScript, React</li>
+            <li>GitHub, Perforce, ATOM</li>
+            <li>Figma, Miro, Draw.io</li>
+            <li>Jira, Confluence, CRM/CMS platforms</li>
+            <li>Agile & Scrum environments</li>
+          </ul>
+          <a href="portfolio.html" class="experience-link">See documentation workflows →</a>
+        </details>
+
+        <!-- EDUCATION -->
+        <details class="strip-card premium-card">
+          <summary class="strip-title">Education & Certifications</summary>
+          <ul>
+            <li>Technical Writer HQ Certificate – 2023</li>
+            <li>IT Support Certificate, Coursera – October 2022</li>
+            <li>4 Technical Writing Certifications, Udemy – August 2021</li>
+            <li>Web Development, Agile & Scrum Certification, GoIT Academy (Kyiv) – May 2021</li>
+          </ul>
+        </details>
+
+        <!-- LANGUAGES -->
+        <details class="strip-card premium-card">
+          <summary class="strip-title">Spoken Languages</summary>
+          <ul>
+            <li>English — Advanced Professional Proficiency</li>
+            <li>Russian — Intermediate Proficiency</li>
+            <li>Ukrainian — Conversational</li>
+            <li>German — Intermediate Proficiency</li>
+          </ul>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <section class="section">
+    <div class="container">
+      <h2>Social Media</h2>
+    </div>
+  </section>
+
   <!-- FOOTER -->
-    <footer>
+  <footer>
     <p>© 2025 Leslie Amadi</p>
   </footer>
 
 </div>
 </body>
 </html>
-

@@ -5,190 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Leslie Amadi</title>
   <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- FONT AWESOME ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<style>
-/* Matching Portfolio Navbar Styles */
-.leslie-nav {
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  padding: 1rem 0;
-}
-.nav-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  color: #c48a8f;
-  text-decoration: none;
-}
-.nav-logo-badge {
-  background: #f4e3dd;
-  color: #c48a8f;
-  padding: 0.4rem 0.6rem;
-  border-radius: 6px;
-  font-weight: 700;
-}
-.nav-links a {
-  margin: 0 0.7rem;
-  color: #333;
-  text-decoration: none;
-  font-weight: 500;
-}
-.nav-links a.active {
-  color: #c48a8f;
-  border-bottom: 2px solid #c48a8f;
-}
-.nav-cta {
-  background: #f2a7c3;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-.nav-cta:hover {
-  background: #d77aa6;
-}
-.nav-toggle { display: none; }
-@media (max-width: 780px) {
-  .nav-links { display: none; }
-  .nav-toggle { display: block; }
-}
-</style>
-<style>
-  /* Fancy & Elegant Contact Styling */
-  .contact-hero {
-    text-align: center;
-    padding: 4rem 1rem 2rem;
-    background: linear-gradient(135deg, #f3d5d0, #f4e3dd);
-    color: #c48a8f;
-  }
-  .contact-hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
-  }
-  .contact-hero .subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    padding: 3rem;
-  }
-
-  .contact-info {
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    animation: fadeIn 0.6s ease;
-  }
-  .contact-info h2 {
-    margin-bottom: 1rem;
-    color: #c48a8f;
-  }
-
-  .contact-details ul li {
-    margin-bottom: 0.3rem;
-  }
-
-  .contact-form-card {
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
-    animation: slideUp 0.7s ease;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1.2rem;
-    border-radius: 10px;
-    border: 1px solid #e5e5e5;
-    transition: all 0.3s ease;
-  }
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    outline: none;
-    border-color: #f4e3dd;
-    box-shadow: 0 0 8px rgba(215,199,249,0.6);
-  }
-
-  .btn-accent {
-    background: #f2a7c3;
-    border: none;
-    color: white;
-    padding: 0.9rem 1.8rem;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: 0.3s ease;
-  }
-  .btn-accent:hover {
-    background: #d77aa6;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-  }
-
-  /* Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Mobile Responsive */
-  @media (max-width: 780px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-      padding: 1.5rem;
-    }
-  }
-</style>
 
 <body>
 <div class="page-shell">
 
   <!-- NAVBAR -->
-  <nav class="leslie-nav">
-  <div class="nav-container">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-badge">LA</span>
-      <span class="nav-logo-text">Leslie Amadi</span>
-    </a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">LA</span>
+        <span class="logo-text">Leslie Amadi</span>
+      </a>
+
+      <div class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="learning.html">Learning</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
     </div>
-    <a href="contact.html" class="nav-cta">Let’s Talk</a>
-    <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
-  </div>
-</nav>
+  </nav>
 
   <!-- CONTACT HERO -->
   <section class="contact-hero">
     <h1>Let’s Work Together</h1>
-    <p class="subtitle">Clear, concise documentation for AI, engineering, and product teams.</p>
+    <p class="subtitle">Clear, simplified & concise documentation for complex systems.</p>
   </section>
 
   <!-- CONTACT GRID -->
@@ -197,22 +44,62 @@
     <!-- LEFT INFO PANEL -->
     <div class="contact-info">
       <h2>Get In Touch</h2>
-      <p>If you're building AI systems, APIs, platforms, or user experiences, 
-        I can help you craft documentation that feels calm, elegant, and technically sound.</p>
+      <p>
+        If you’re building AI systems, developer platforms, or internal processes and need documentation that is clear, structured,
+        and genuinely usable, I’d love to hear about your project.
+      </p>
 
-      <div class="contact-details">
-        <p><strong>Email:</strong><br>
-        <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
+      <p>
+        I work with product, engineering, and operations teams to make complex systems understandable without oversimplifying
+        or losing technical depth.
+      </p>
 
-        <p><strong>Location:</strong><br>
-        Remote / Europe/EMEA ( I do not require working visa)</p>
+      <!-- SOCIAL / CONTACT PANEL -->
+      <div class="contact-social-panel">
 
-        <p><strong>Specialties:</strong></p>
+        <h3>Contact & Profiles</h3>
+
+        <div class="social-buttons">
+
+          <!-- EMAIL -->
+          <a href="mailto:hello@lesliewrites.tech" class="social-btn email">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Email Me</span>
+          </a>
+
+          <!-- LINKEDIN -->
+          <a href="https://www.linkedin.com/in/leslie-a-86ab251b3" target="_blank" class="social-btn linkedin">
+            <i class="fa-brands fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+
+          <!-- INSTAGRAM -->
+          <a href="https://www.instagram.com/yourhandle" target="_blank" class="social-btn instagram">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+
+          <!-- CALENDLY -->
+          <a href="https://calendly.com/yourcalendlylink" target="_blank" class="social-btn calendly">
+            <i class="fa-regular fa-calendar"></i>
+            <span>Book a Call</span>
+          </a>
+
+          <!-- DOWNLOAD CV -->
+          <a href="assets/Leslie-Amadi-CV.pdf" class="social-btn download" download>
+            <i class="fa-solid fa-download"></i>
+            <span>Download CV</span>
+          </a>
+
+        </div>
+
+        <h3>I Can Help With</h3>
         <ul>
-          <li>AI & ML documentation</li>
-          <li>API & developer experience</li>
-          <li>Process & workflow design</li>
-          <li>Model cards & evaluation</li>
+          <li>AI & machine learning documentation</li>
+          <li>API references & developer experience</li>
+          <li>System architecture & infrastructure docs</li>
+          <li>Process, workflow & operational documentation</li>
+          <li>Model cards, evaluation & responsible AI</li>
           <li>UX & product writing</li>
         </ul>
       </div>
@@ -228,7 +115,7 @@
         <input type="email" name="email" required>
 
         <label>Your Message</label>
-        <textarea name="message" rows="6" required></textarea>
+        <textarea name="message" rows="6" required placeholder="Tell me a little about your project, team, or the kind of documentation you need."></textarea>
 
         <button type="submit" class="btn-accent">Send Message</button>
       </form>
