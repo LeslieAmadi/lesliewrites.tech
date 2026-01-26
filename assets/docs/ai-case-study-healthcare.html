@@ -41,18 +41,6 @@
 
 <main class="content-shell">
 
-<section id="document-control">
-  <h2>Document Control</h2>
-  <table>
-    <tr><th>Field</th><th>Value</th></tr>
-    <tr><td>Author</td><td>Leslie Amadi</td></tr>
-    <tr><td>Version</td><td>1.1</td></tr>
-    <tr><td>Last Updated</td><td>Nov 2025</td></tr>
-    <tr><td>impact</td></tr>
-    <tr><td>Role</td></tr>
-  </table>
-</section>
-
     <!-- INLINE SLIM TOC -->
     <nav class="inline-toc" style="margin:1.5rem 0; padding:1rem; background:var(--panel-bg); border-radius:12px; border:1px solid var(--rose-soft); font-size:0.9rem;">
       <strong style="color:var(--rose-dark);">On this page:</strong>
@@ -73,96 +61,183 @@
     
 
 
-<section id="overview">
-  <h2>Overview</h2>
-  <p>This case study documents how a mid-sized healthcare provider deployed a predictive diagnosis AI system to reduce misdiagnosis, improve workflow efficiency, and support clinical decision making. The project included ML development, API deployment, monitoring, and clinician onboarding.</p>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Driven Clinical Decision Support | Case Study – Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="doc-header">
+  <h1>AI-Driven Clinical Decision Support System</h1>
+  <p class="doc-subtitle">
+    Enterprise documentation for a predictive diagnosis platform designed to reduce misdiagnosis,
+    improve clinician efficiency, and support safe AI adoption in healthcare environments.
+  </p>
+  <a href="#executive-summary" class="btn">View Executive Summary</a>
+</header>
+
+<div class="breadcrumb-nav">
+  <a href="../../portfolio.html" class="btn-secondary btn">← Back to Portfolio</a>
+</div>
+
+<main class="content-shell">
+
+<section id="document-control">
+  <h2>Document Control</h2>
+  <table>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>Author</td><td>Leslie Amadi</td></tr>
+    <tr><td>Role</td><td>Senior Technical Writer (AI & Healthcare)</td></tr>
+    <tr><td>Document Type</td><td>Architecture & Case Study Documentation</td></tr>
+    <tr><td>Version</td><td>2.0</td></tr>
+    <tr><td>Last Updated</td><td>November 2025</td></tr>
+    <tr><td>Audience</td><td>Clinical Leadership, Engineering, Compliance, Product</td></tr>
+  </table>
 </section>
 
-<section id="problem">
-  <h2>The Problem</h2>
-  <p>Clinicians struggled with:</p>
+<nav class="inline-toc">
+  <strong>On this page:</strong>
+  <a href="#executive-summary">Executive Summary</a> ·
+  <a href="#business-context">Business Context</a> ·
+  <a href="#solution-overview">Solution Overview</a> ·
+  <a href="#system-design">System Design</a> ·
+  <a href="#governance">Governance & Risk</a> ·
+  <a href="#outcomes">Outcomes & Metrics</a> ·
+  <a href="#lessons">Key Learnings</a>
+</nav>
+
+<section id="executive-summary">
+  <h2>Executive Summary</h2>
+  <p>
+    This case study documents the design, deployment, and governance of an AI-driven clinical
+    decision support system implemented by a mid-sized healthcare provider.
+    The platform augments clinician judgement by surfacing early-stage diagnostic risk indicators
+    from longitudinal patient data.
+  </p>
+  <p>
+    As the senior technical writer on the initiative, I led the creation of end-to-end
+    documentation covering system architecture, model behaviour, risk mitigation,
+    and clinician-facing guidance—ensuring regulatory alignment, clinical trust,
+    and long-term system maintainability.
+  </p>
+</section>
+
+<section id="business-context">
+  <h2>Business & Clinical Context</h2>
+  <p>
+    The organisation faced increasing diagnostic complexity driven by rising patient volumes,
+    fragmented historical records, and time-constrained clinical workflows.
+    Leadership identified misdiagnosis risk and clinician burnout as strategic concerns.
+  </p>
+
   <ul>
-    <li>High patient loads (avg. 120 patients/day per department)</li>
-    <li>Subtle early-stage indicators often overlooked</li>
-    <li>Lengthy manual review of lab results and longitudinal data</li>
-    <li>Inconsistent diagnostic accuracy across departments</li>
+    <li>Average clinician workload exceeded 120 patients per day</li>
+    <li>Early-stage indicators were frequently buried in longitudinal data</li>
+    <li>Diagnostic accuracy varied significantly across departments</li>
+    <li>Manual data synthesis limited time for patient interaction</li>
   </ul>
 </section>
 
-<section id="solution">
-  <h2>The AI Solution</h2>
-  <p>The team developed a supervised ML model combining:</p>
+<section id="solution-overview">
+  <h2>Solution Overview</h2>
+  <p>
+    The solution introduced a supervised machine learning platform that produces
+    interpretable risk scores to support—rather than replace—clinical decision making.
+    The system was explicitly designed with human-in-the-loop safeguards and explainability
+    as first-class requirements.
+  </p>
+
+  <h3>Model Strategy</h3>
   <ul>
-    <li>Logistic Regression for fast baseline scoring</li>
-    <li>Random Forest for interpretable feature ranking</li>
-    <li>Neural Networks for complex pattern recognition in multi‑year patient datasets</li>
+    <li><strong>Logistic Regression</strong> for baseline transparency and calibration</li>
+    <li><strong>Random Forest</strong> for feature importance and robustness</li>
+    <li><strong>Neural Networks</strong> for complex temporal pattern recognition</li>
   </ul>
-  <p>The system produced a risk score (0–1) with supporting explainability factors.</p>
+
+  <p>
+    Outputs were normalised into a single risk score (0–1) accompanied by
+    clinician-readable explanatory factors.
+  </p>
 </section>
 
-<section id="implementation">
-  <h2>Implementation</h2>
-  <h3>Data</h3>
-  <ul>
-    <li>78,000 anonymised patient records</li>
-    <li>Lab results, vitals, lifestyle data, diagnoses</li>
-    <li>Data cleaned & validated in collaboration with hospital compliance</li>
-  </ul>
+<section id="system-design">
+  <h2>High-Level System Design</h2>
 
-  <h3>Model Lifecycle</h3>
-  <ol>
-    <li>Data cleaning & transformation</li>
-    <li>Feature selection using SHAP values</li>
-    <li>80/20 split evaluation</li>
-    <li>Hyperparameter tuning via grid search</li>
-    <li>Deployment via a secure hospital-facing REST API</li>
-  </ol>
-
-  <h3>API Integration</h3>
-  <p>The hospital's EMR queried:</p>
   <pre>
-POST /predict
-{
-  "patient_id": 23871,
-  "features": { ... }
-}
+Patient Records
+   ↓
+Secure ETL Pipeline
+   ↓
+Feature Engineering Layer
+   ↓
+ML Inference Service
+   ↓
+Risk Score & Explainability API
+   ↓
+Electronic Medical Record (EMR)
+   ↓
+Clinician Review & Decision
   </pre>
+
+  <p>
+    All integrations complied with healthcare data protection requirements,
+    with anonymisation and access controls enforced at every layer.
+  </p>
 </section>
 
-<section id="risks">
-  <h2>Risks & Mitigations</h2>
+<section id="governance">
+  <h2>Governance, Risk & Compliance</h2>
+
   <ul>
-    <li><strong>Bias risk:</strong> mitigated using stratified sampling + SHAP audit</li>
-    <li><strong>Over-reliance:</strong> UI enforced mandatory clinician review</li>
-    <li><strong>Model drift:</strong> weekly monitoring with threshold alerts</li>
+    <li><strong>Bias Management:</strong> Stratified sampling, demographic audits, SHAP-based reviews</li>
+    <li><strong>Over-Reliance Risk:</strong> Mandatory clinician confirmation before action</li>
+    <li><strong>Model Drift:</strong> Continuous monitoring with alert thresholds</li>
+    <li><strong>Data Governance:</strong> Compliance-approved pipelines and audit trails</li>
   </ul>
+
+  <p>
+    Documentation played a critical role in aligning engineering, compliance,
+    and clinical leadership around acceptable risk thresholds and operational safeguards.
+  </p>
 </section>
 
-<section id="metrics">
-  <h2>Results & Metrics</h2>
+<section id="outcomes">
+  <h2>Outcomes & Measured Impact</h2>
+
   <ul>
-    <li><strong>Accuracy:</strong> 91%</li>
-    <li><strong>False negatives reduced:</strong> 23% improvement</li>
-    <li><strong>Readmissions down:</strong> 18% reduction</li>
-    <li><strong>Avg. clinician time saved:</strong> 2.8 hours/week</li>
+    <li><strong>Diagnostic accuracy:</strong> 91%</li>
+    <li><strong>False negatives reduced:</strong> 23%</li>
+    <li><strong>Hospital readmissions:</strong> 18% reduction</li>
+    <li><strong>Clinician time saved:</strong> ~2.8 hours per week</li>
   </ul>
+
+  <p>
+    Beyond quantitative gains, clinician trust increased significantly due to
+    transparent documentation and explainability-first design.
+  </p>
 </section>
 
 <section id="lessons">
-  <h2>Lessons Learned</h2>
+  <h2>Key Learnings</h2>
+
   <ul>
-    <li>Human‑in‑the‑loop validation remains essential</li>
-    <li>Explainability drives clinician trust</li>
-    <li>Strong data governance accelerates ML deployment</li>
+    <li>AI adoption succeeds when documentation addresses human concerns—not just systems</li>
+    <li>Explainability is a trust requirement, not a feature</li>
+    <li>Early documentation alignment accelerates regulatory approval</li>
+    <li>Senior technical writing functions as organisational risk management</li>
   </ul>
 </section>
 
-<section id="architecture">
-  <h2>System Architecture (Simplified)</h2>
-  <pre>
-Patient Data → ETL → ML Model → Risk Score API → EMR System → Clinician Review
-  </pre>
-</section>
+</main>
+
+</body>
+</html>
+
 
 </main>
 
