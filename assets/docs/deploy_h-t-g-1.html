@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How-To | Deploying a Secure ML API Service | Leslie Amadi</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="logo">Leslie Amadi</div>
+    <nav class="nav-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../portfolio.html" class="active">Portfolio</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tag-row">
+  <span class="tag">How-To</span>
+  <span class="tag">ML Operations</span>
+  <span class="tag">Platform Security</span>
+  <span class="tag">Production Systems</span>
+</div>
+
+<header class="doc-header">
+  <h1>Deploying a Secure ML API Service</h1>
+  <p class="doc-subtitle">
+    A practical guide to operationalising machine intelligence as a secure,
+    governable, production-grade platform service.
+  </p>
+</header>
+
+<div class="breadcrumb-nav">
+  <a href="../../portfolio.html" class="btn-secondary btn">← Back to Portfolio</a>
+</div>
+
+<main class="content-shell">
+
+<nav class="inline-toc">
+  <strong>On this page:</strong>
+  <a href="#objective">Objective</a> ·
+  <a href="#principles">Security Foundations</a> ·
+  <a href="#execution">Execution Path</a> ·
+  <a href="#verification">System Verification</a> ·
+  <a href="#governance">Operational Governance</a>
+</nav>
+
+<section id="objective">
+  <h2>Objective</h2>
+
+  <p>
+    This guide shows how to deploy a machine learning service as a secure API —
+    not as a prototype endpoint, but as a production-grade platform component.
+  </p>
+
+  <p>
+    The goal is not simply availability.  
+    The goal is controlled access, system trust, and long-term operational stability.
+  </p>
+
+  <p>
+    Deployment is treated here as a governance activity, not a technical task.
+  </p>
+</section>
+
+<section id="principles">
+  <h2>Security Foundations</h2>
+
+  <p>
+    Secure deployment begins with architectural intent, not tooling.
+  </p>
+
+  <p>
+    Before implementation, establish the following principles:
+  </p>
+
+  <ul>
+    <li>Access is always authenticated</li>
+    <li>Communication is always encrypted</li>
+    <li>Services are never directly exposed</li>
+    <li>Observability is built-in, not added later</li>
+    <li>Control layers exist between users and models</li>
+  </ul>
+
+  <p>
+    These principles define the security posture of the system.
+  </p>
+</section>
+
+<section id="execution">
+  <h2>Execution Path</h2>
+
+  <p>
+    We now implement the deployment as a controlled platform service.
+  </p>
+
+  <ol>
+    <li>
+      <strong>Containerise the model service</strong><br/>
+      Package the model and inference logic into an isolated runtime environment.
+    </li>
+
+    <li>
+      <strong>Establish network boundaries</strong><br/>
+      Place the service inside protected network zones.
+    </li>
+
+    <li>
+      <strong>Apply authentication and access control</strong><br/>
+      Enforce identity verification for every request.
+    </li>
+
+    <li>
+      <strong>Deploy behind a managed gateway</strong><br/>
+      Route all traffic through a controlled access layer.
+    </li>
+
+    <li>
+      <strong>Attach observability services</strong><br/>
+      Enable logging, metrics, and health monitoring.
+    </li>
+
+    <li>
+      <strong>Enable encrypted communication</strong><br/>
+      Secure all data in transit.
+    </li>
+  </ol>
+
+  <p>
+    At this stage, the model is no longer a component —
+    it is now a governed service.
+  </p>
+</section>
+
+<section id="verification">
+  <h2>System Verification</h2>
+
+  <p>
+    Verify that the service is operational and controlled.
+  </p>
+
+  <pre>GET /health</pre>
+
+  <pre>
+{ "status": "healthy" }
+  </pre>
+
+  <p>
+    The system should now be:
+  </p>
+
+  <ul>
+    <li>Reachable</li>
+    <li>Authenticated</li>
+    <li>Encrypted</li>
+    <li>Observable</li>
+    <li>Governed</li>
+  </ul>
+
+  <p>
+    Availability is only one signal.  
+    Control is the real success metric.
+  </p>
+</section>
+
+<section id="governance">
+  <h2>Operational Governance</h2>
+
+  <p>
+    A secure deployment is not complete without governance.
+  </p>
+
+  <p>
+    Establish the operational layer:
+  </p>
+
+  <ul>
+    <li>Access review policies</li>
+    <li>Credential rotation schedules</li>
+    <li>Incident response procedures</li>
+    <li>Security audit trails</li>
+    <li>Versioned deployment policies</li>
+  </ul>
+
+  <p>
+    This creates continuity.
+  </p>
+
+  <p>
+    The service becomes not just deployed —  
+    it becomes managed, governed, and trusted.
+  </p>
+
+  <p>
+    Security becomes a system property, not a configuration setting.
+  </p>
+</section>
+
+</main>
+
+</body>
+</html>

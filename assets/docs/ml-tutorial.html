@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial | Building an Explainable ML Pipeline – Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="logo">Leslie Amadi</div>
+    <nav class="nav-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../portfolio.html" class="active">Portfolio</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tag-row">
+  <span class="tag">Tutorial</span>
+  <span class="tag">AI Learning</span>
+  <span class="tag">Explainable ML</span>
+  <span class="tag">Foundations</span>
+</div>
+
+<header class="doc-header">
+  <h1>Building an Explainable ML Prediction Pipeline</h1>
+  <p class="doc-subtitle">
+    A guided learning experience that leads from raw data to interpretable predictions.
+  </p>
+  <a href="#lesson-start" class="btn">Start the Lesson</a>
+</header>
+
+<div class="breadcrumb-nav">
+  <a href="../../portfolio.html" class="btn-secondary btn">← Back to Portfolio</a>
+</div>
+
+<main class="content-shell">
+
+<section id="lesson-start">
+  <h2>The Goal</h2>
+  <p>
+    In this lesson, we will create a simple prediction pipeline that transforms raw data into
+    a meaningful risk score. By the end, we will see data move through each stage and observe
+    how predictions are formed and explained.
+  </p>
+</section>
+
+<section>
+  <h2>Step 1 — Creating Our Data Input</h2>
+  <p>We begin by creating a simple dataset.</p>
+
+  <pre>
+age, bmi, blood_pressure
+45, 27.3, 135
+61, 31.8, 150
+39, 22.4, 120
+  </pre>
+
+  <p>
+    Notice how each row represents a person.  
+    This is the first moment where data becomes structure.
+  </p>
+</section>
+
+<section>
+  <h2>Step 2 — Passing Data Through the Model</h2>
+  <p>Now we send the data into a simple prediction function.</p>
+
+  <pre>
+predict_risk(age, bmi, blood_pressure)
+  </pre>
+
+  <p>
+    After a moment, the system returns a score between 0 and 1.
+  </p>
+
+  <pre>
+0.72
+  </pre>
+
+  <p>
+    You will notice that the output is a single number.
+    This is the transformation point: complexity becomes signal.
+  </p>
+</section>
+
+<section>
+  <h2>Step 3 — Observing Explainability</h2>
+  <p>We now request the explanation output.</p>
+
+  <pre>
+explain_prediction()
+  </pre>
+
+  <pre>
+BMI: 42%
+Blood Pressure: 38%
+Age: 20%
+  </pre>
+
+  <p>
+    Notice how the prediction now becomes interpretable.
+    The system is no longer a black box — it becomes readable.
+  </p>
+</section>
+
+<section>
+  <h2>What We Have Built</h2>
+  <p>
+    We have created a complete learning loop:
+  </p>
+
+  <ul>
+    <li>Raw data</li>
+    <li>Structured input</li>
+    <li>Prediction output</li>
+    <li>Explainable reasoning</li>
+  </ul>
+
+  <p>
+    You have experienced how data becomes meaning.
+  </p>
+</section>
+
+<section>
+  <h2>Repeat the Experience</h2>
+  <p>
+    Try changing one value in the dataset.
+    Run the same steps again.
+    Watch how the score changes.
+    Watch how the explanation changes.
+  </p>
+
+  <p>
+    This repetition builds intuition.
+  </p>
+</section>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial | Understanding API Flow – Leslie Amadi</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="logo">Leslie Amadi</div>
+    <nav class="nav-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../portfolio.html" class="active">Portfolio</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tag-row">
+  <span class="tag">Tutorial</span>
+  <span class="tag">API Learning</span>
+  <span class="tag">Systems Thinking</span>
+  <span class="tag">Foundations</span>
+</div>
+
+<header class="doc-header">
+  <h1>Understanding System Communication Through APIs</h1>
+  <p class="doc-subtitle">
+    A guided lesson in how systems talk to each other.
+  </p>
+  <a href="#lesson-start" class="btn">Start the Lesson</a>
+</header>
+
+<div class="breadcrumb-nav">
+  <a href="../../portfolio.html" class="btn-secondary btn">← Back to Portfolio</a>
+</div>
+
+<main class="content-shell">
+
+<section id="lesson-start">
+  <h2>The Goal</h2>
+  <p>
+    In this lesson, we will send a request, observe a response,
+    and experience how systems communicate.
+  </p>
+</section>
+
+<section>
+  <h2>Step 1 — Creating a Request</h2>
+
+  <pre>
+POST /risk-score
+{
+  "age": 52,
+  "bmi": 29.4,
+  "blood_pressure": 142
+}
+  </pre>
+
+  <p>
+    You have just created a message.
+    This message is the beginning of system communication.
+  </p>
+</section>
+
+<section>
+  <h2>Step 2 — Observing the Response</h2>
+
+  <pre>
+{
+  "risk_score": 0.68
+}
+  </pre>
+
+  <p>
+    The system has answered.
+    You sent structure.
+    You received meaning.
+  </p>
+</section>
+
+<section>
+  <h2>Step 3 — Adding Context</h2>
+
+  <pre>
+GET /risk-score/explanation
+  </pre>
+
+  <pre>
+{
+  "contributors": {
+    "bmi": 40,
+    "blood_pressure": 37,
+    "age": 23
+  }
+}
+  </pre>
+
+  <p>
+    Now the response becomes understandable.
+    The system is no longer silent — it speaks.
+  </p>
+</section>
+
+<section>
+  <h2>What We Have Built</h2>
+  <ul>
+    <li>A request</li>
+    <li>A response</li>
+    <li>An interpretation layer</li>
+    <li>A meaning loop</li>
+  </ul>
+
+  <p>
+    This is system communication.
+  </p>
+</section>
+
+<section>
+  <h2>Repeat the Interaction</h2>
+  <p>
+    Change a value.
+    Send the request again.
+    Observe the response.
+    Observe the explanation.
+  </p>
+
+  <p>
+    This repetition builds system intuition.
+  </p>
+</section>
+
+</main>
+
+</body>
+</html>

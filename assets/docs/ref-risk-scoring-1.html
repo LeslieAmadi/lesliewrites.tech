@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reference | Risk Scoring API | Leslie Amadi</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="logo">Leslie Amadi</div>
+    <nav class="nav-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../portfolio.html" class="active">Portfolio</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tag-row">
+  <span class="tag">Reference</span>
+  <span class="tag">API</span>
+  <span class="tag">Prediction Service</span>
+  <span class="tag">System Contract</span>
+</div>
+
+<header class="doc-header">
+  <h1>Risk Scoring API</h1>
+  <p class="doc-subtitle">
+    Authoritative system contract for predictive risk evaluation services.
+  </p>
+</header>
+
+<div class="breadcrumb-nav">
+  <a href="../../portfolio.html" class="btn-secondary btn">← Back to Portfolio</a>
+</div>
+
+<main class="content-shell">
+
+<nav class="inline-toc">
+  <strong>On this page:</strong>
+  <a href="#endpoint">Endpoint</a> ·
+  <a href="#request">Request Schema</a> ·
+  <a href="#response">Response Schema</a> ·
+  <a href="#errors">Error Model</a> ·
+  <a href="#guarantees">System Guarantees</a>
+</nav>
+
+<section id="endpoint">
+  <h2>Endpoint</h2>
+  <pre>POST /risk-score</pre>
+
+  <p>
+    Accepts structured input data and returns a normalised predictive risk score.
+  </p>
+</section>
+
+<section id="request">
+  <h2>Request Schema</h2>
+
+  <pre>
+{
+  "age": number,
+  "bmi": number,
+  "bp": number
+}
+  </pre>
+
+  <p>
+    All fields are required.  
+    All values must conform to validated numeric ranges.
+  </p>
+</section>
+
+<section id="response">
+  <h2>Response Schema</h2>
+
+  <pre>
+{
+  "risk_score": number,
+  "confidence": number
+}
+  </pre>
+
+  <p>
+    <strong>risk_score</strong> — Normalised prediction value (0–1)  
+    <br/>
+    <strong>confidence</strong> — Model confidence level (0–1)
+  </p>
+</section>
+
+<section id="errors">
+  <h2>Error Model</h2>
+
+  <pre>
+{
+  "error_code": string,
+  "message": string,
+  "trace_id": string
+}
+  </pre>
+
+  <p>
+    Errors are deterministic, traceable, and auditable.
+  </p>
+</section>
+
+<section id="guarantees">
+  <h2>System Guarantees</h2>
+
+  <ul>
+    <li>Schema stability</li>
+    <li>Versioned evolution</li>
+    <li>Backward compatibility</li>
+    <li>Deterministic response structure</li>
+    <li>Auditability of outputs</li>
+  </ul>
+
+  <p>
+    This API functions as a system contract between platform services and consuming applications.
+  </p>
+</section>
+
+</main>
+
+</body>
+</html>

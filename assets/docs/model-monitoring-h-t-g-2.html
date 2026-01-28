@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How-To | Implementing Model Monitoring | Leslie Amadi</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="logo">Leslie Amadi</div>
+    <nav class="nav-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../portfolio.html" class="active">Portfolio</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tag-row">
+  <span class="tag">How-To</span>
+  <span class="tag">ML Operations</span>
+  <span class="tag">Model Governance</span>
+  <span class="tag">Reliability Engineering</span>
+</div>
+
+<header class="doc-header">
+  <h1>Implementing Model Monitoring</h1>
+  <p class="doc-subtitle">
+    A practical guide to operationalising trust, stability, and reliability in production ML systems.
+  </p>
+</header>
+
+<div class="breadcrumb-nav">
+  <a href="../../portfolio.html" class="btn-secondary btn">← Back to Portfolio</a>
+</div>
+
+<main class="content-shell">
+
+<nav class="inline-toc">
+  <strong>On this page:</strong>
+  <a href="#objective">Objective</a> ·
+  <a href="#foundations">Foundations</a> ·
+  <a href="#execution">Execution Path</a> ·
+  <a href="#governance">Governance Loop</a>
+</nav>
+
+<section id="objective">
+  <h2>Objective</h2>
+
+  <p>
+    This guide shows how to implement model monitoring as a continuous operational capability —
+    not as a one-time configuration task.
+  </p>
+
+  <p>
+    The goal is not simply visibility.  
+    The goal is reliability, accountability, and long-term system stability.
+  </p>
+
+  <p>
+    Monitoring transforms a model from a deployed artefact into a governed system.
+  </p>
+</section>
+
+<section id="foundations">
+  <h2>Establishing Monitoring Foundations</h2>
+
+  <p>
+    Before instrumentation, the system must have a baseline of meaning.
+  </p>
+
+  <p>
+    We begin by defining what “normal” looks like.
+  </p>
+
+  <ul>
+    <li>Define baseline performance metrics</li>
+    <li>Establish acceptable variance ranges</li>
+    <li>Identify critical model behaviours</li>
+    <li>Map model outputs to business risk</li>
+  </ul>
+
+  <p>
+    This creates the reference frame against which change becomes visible.
+  </p>
+</section>
+
+<section id="execution">
+  <h2>Execution Path</h2>
+
+  <p>
+    We now instrument the system so behaviour becomes observable.
+  </p>
+
+  <ol>
+    <li>
+      <strong>Enable inference logging</strong>  
+      Capture inputs, outputs, and prediction metadata.
+    </li>
+
+    <li>
+      <strong>Configure drift detection</strong>  
+      Monitor changes in data distribution and model response patterns.
+    </li>
+
+    <li>
+      <strong>Define alert thresholds</strong>  
+      Establish boundaries where human review is triggered.
+    </li>
+
+    <li>
+      <strong>Connect monitoring to response</strong>  
+      Ensure alerts map to real operational actions.
+    </li>
+
+    <li>
+      <strong>Integrate observability tooling</strong>  
+      Centralise logs, metrics, and model health signals.
+    </li>
+  </ol>
+
+  <p>
+    At this point, the system becomes observable, not just operational.
+  </p>
+</section>
+
+<section id="governance">
+  <h2>Creating the Governance Loop</h2>
+
+  <p>
+    Monitoring without response is noise.
+  </p>
+
+  <p>
+    A monitoring system only becomes meaningful when it feeds governance.
+  </p>
+
+  <ul>
+    <li>Establish regular review cadences</li>
+    <li>Define ownership of model health</li>
+    <li>Formalise escalation paths</li>
+    <li>Document intervention procedures</li>
+    <li>Version monitoring policies</li>
+  </ul>
+
+  <p>
+    This closes the loop:
+  </p>
+
+  <p>
+    <strong>Observation → Interpretation → Decision → Action → Review</strong>
+  </p>
+
+  <p>
+    At this stage, the model is no longer just monitored.  
+    It is governed.
+  </p>
+
+  <p>
+    Reliability becomes a system property, not a hope.
+  </p>
+</section>
+
+</main>
+
+</body>
+</html>

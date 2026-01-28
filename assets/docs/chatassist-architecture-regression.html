@@ -1,80 +1,93 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatAssist AI Architecture & Regression Suite | Leslie Writes</title>
-  <link rel="stylesheet" href="../styles.css">
-
-  
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ChatAssist AI Architecture & Regression Suite | Leslie Amadi</title>
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
-  <div class="docs-body">
 
-    <header>
-      <h1>ChatAssist AI Architecture & Regression Suite</h1>
-    <nav class="docs-toc docs-toc-dropdown">
-      <details open>
-        <summary>On this page</summary>
-        <ol>
-          <li><a href="#1-high-level-model-architecture">1. High-Level Model Architecture</a></li>
-          <li><a href="#2-evaluation-pipeline-architecture">2. Evaluation Pipeline Architecture</a></li>
-          <li><a href="#3-regression-testing-template">3. Regression Testing Template</a></li>
-          <li><a href="#4-version-to-version-comparison-v1-0-v1-3-v2-0">4. Version-to-Version Comparison (v1.0 → v1.3 → v2.0)</a></li>
-        </ol>
-      </details>
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="logo">Leslie Amadi</div>
+    <nav class="nav-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../portfolio.html" class="active">Portfolio</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
     </nav>
-    <section class="doc-meta-grid">
-      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Overview</h3>
-          <p>This document describes <strong>ChatAssist AI Architecture &amp; Regression Suite | Leslie Writes</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
-        </div>
-        <div class="doc-meta-item">
-          <h3>My Role</h3>
-          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
-        </div>
-      </div>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Audience</h3>
-          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
-        </div>
-        <div class="doc-meta-item">
-          <h3>Scope</h3>
-          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
-        </div>
-      </div>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Prerequisites</h3>
-          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
-        </div>
-        <div class="doc-meta-item">
-          <h3>Impact</h3>
-          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
-        </div>
-      </div>
-    </section>
+  </div>
+</header>
 
+<div class="tag-row">
+  <span class="tag">AI Architecture</span>
+  <span class="tag">Regression Testing</span>
+  <span class="tag">Model Governance</span>
+  <span class="tag">Platform Reliability</span>
+</div>
 
-      <p><em>Prepared by Leslie Amadi | Senior AI Technical Writer</em></p>
-      <hr>
-    </header>
+<header class="doc-header">
+  <h1>ChatAssist AI Architecture & Regression Suite</h1>
+  <p class="doc-subtitle">
+    Enterprise documentation describing system architecture, evaluation pipelines,
+    and regression governance for a multilingual AI platform.
+  </p>
+</header>
 
-    <div class="docs-content">
+<div class="breadcrumb-nav">
+  <a href="../../portfolio.html" class="btn-secondary btn">← Back to Portfolio</a>
+</div>
 
-      <!-- SECTION 1 -->
-      <h2 id="1-high-level-model-architecture">1. High-Level Model Architecture</h2>
-      <p>
-        The following ASCII architecture diagram represents the internal structure of the 
-        <strong>Multilingual Chatbot Model v2.0</strong>.  
-        This visualisation is suitable for documentation, GitHub READMEs, and import into diagram tools such as Draw.io or Excalidraw.
-      </p>
+<main class="content-shell">
 
-      <pre>
+<nav class="inline-toc">
+  <strong>On this page:</strong>
+  <a href="#overview">Overview</a> ·
+  <a href="#architecture">High-Level Model Architecture</a> ·
+  <a href="#evaluation">Evaluation Pipeline Architecture</a> ·
+  <a href="#regression">Regression Testing Framework</a> ·
+  <a href="#comparison">Version-to-Version Comparison</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2>System Overview</h2>
+
+  <p>
+    This document defines the architecture and governance structure of the
+    <strong>ChatAssist AI platform</strong>.
+  </p>
+
+  <p>
+    It is designed as a long-term system reference — not only describing
+    how the model functions, but how it is evaluated, controlled,
+    evolved, and trusted over time.
+  </p>
+
+  <p>
+    The documentation treats AI not as a feature, but as infrastructure.
+  </p>
+
+  <p>
+    As the senior technical writer on this system, I designed the documentation
+    as a shared operational language between engineering, product, and operations —
+    enabling stability, safety, and scalable evolution.
+  </p>
+</section>
+
+<!-- SECTION 1 -->
+<section id="architecture">
+  <h2>High-Level Model Architecture</h2>
+
+  <p>
+    The ChatAssist platform is structured as a layered cognitive system,
+    where meaning is progressively refined through transformation stages.
+  </p>
+
+  <pre>
 +----------------------------------------------------------+
 |                   MULTILINGUAL CHATBOT MODEL             |
 +----------------------------------------------------------+
@@ -124,16 +137,20 @@
         +-----------------------------+
         | Output: Model Response      |
         +-----------------------------+
-      </pre>
+  </pre>
 
-      <!-- SECTION 2 -->
-      <h2 id="2-evaluation-pipeline-architecture">2. Evaluation Pipeline Architecture</h2>
-      <p>
-        The evaluation pipeline automates comparative testing across different model versions  
-        (v1.0 → v1.3 → v2.0), ensuring consistent performance measurement.
-      </p>
+</section>
 
-      <pre>
+<!-- SECTION 2 -->
+<section id="evaluation">
+  <h2>Evaluation Pipeline Architecture</h2>
+
+  <p>
+    The evaluation pipeline automates comparative testing across different model versions  
+    (v1.0 → v1.3 → v2.0), ensuring consistent performance measurement.
+  </p>
+
+  <pre>
                     +-----------------------+
                     |  Test Dataset Loader  |
                     +-----------------------+
@@ -167,69 +184,75 @@
                         +-----------+
                         | Dashboard |
                         +-----------+
-      </pre>
+  </pre>
 
-      <!-- SECTION 3 -->
-      <h2 id="3-regression-testing-template">3. Regression Testing Template</h2>
-      <p>This regression suite ensures that every new model release maintains or improves quality without introducing regressions.</p>
+</section>
 
-      <h3>3.1 Scope</h3>
-      <ul>
-        <li>Intent classification accuracy</li>
-        <li>Multilingual fluency (EN/DE)</li>
-        <li>Tone consistency</li>
-        <li>Hallucination reduction</li>
-        <li>Latency and cost</li>
-      </ul>
+<!-- SECTION 3 -->
+<section id="regression">
+  <h2>Regression Testing Template</h2>
 
-      <h3>3.2 Test Categories</h3>
+  <p>
+    This regression suite ensures that every new model release maintains or improves quality without introducing regressions.
+  </p>
 
-      <h4>Intent Classification Tests</h4>
-      <table>
-        <thead>
-          <tr><th>Test ID</th><th>Description</th><th>Expected Output</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>IC-01</td><td>Recognise billing queries</td><td>Correct intent</td></tr>
-          <tr><td>IC-02</td><td>Technical troubleshooting</td><td>Correct intent</td></tr>
-          <tr><td>IC-03</td><td>Ambiguous queries</td><td>Highest-probability valid intent</td></tr>
-        </tbody>
-      </table>
+  <h3>Scope</h3>
+  <ul>
+    <li>Intent classification accuracy</li>
+    <li>Multilingual fluency (EN/DE)</li>
+    <li>Tone consistency</li>
+    <li>Hallucination reduction</li>
+    <li>Latency and cost</li>
+  </ul>
 
-      <h4>Multilingual Robustness</h4>
-      <table>
-        <thead>
-          <tr><th>ID</th><th>Language</th><th>Scenario</th><th>Expectation</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>MLR-01</td><td>German</td><td>Formal inquiry</td><td>Correct and fluent</td></tr>
-          <tr><td>MLR-02</td><td>German</td><td>Colloquial</td><td>Reasonable interpretation</td></tr>
-          <tr><td>MLR-03</td><td>English</td><td>Emotional tone</td><td>Soft, empathetic reply</td></tr>
-        </tbody>
-      </table>
+  <h3>Test Categories</h3>
 
-      <h4>Hallucination Tests</h4>
-      <table>
-        <thead>
-          <tr><th>ID</th><th>Case</th><th>Expected Behaviour</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>HL-01</td><td>Unsupported product</td><td>Safe fallback</td></tr>
-          <tr><td>HL-02</td><td>Incorrect facts</td><td>Ask for clarification</td></tr>
-          <tr><td>HL-03</td><td>Unsafe content</td><td>Block + safe response</td></tr>
-        </tbody>
-      </table>
+  <h4>Intent Classification Tests</h4>
+  <table>
+    <thead>
+      <tr><th>Test ID</th><th>Description</th><th>Expected Output</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>IC-01</td><td>Recognise billing queries</td><td>Correct intent</td></tr>
+      <tr><td>IC-02</td><td>Technical troubleshooting</td><td>Correct intent</td></tr>
+      <tr><td>IC-03</td><td>Ambiguous queries</td><td>Highest-probability valid intent</td></tr>
+    </tbody>
+  </table>
 
-      <h3>3.3 Pass/Fail Criteria</h3>
-      <ul>
-        <li>No accuracy drop > 2%</li>
-        <li>No new hallucinations introduced</li>
-        <li>Latency must not increase by >10%</li>
-        <li>Safety tests must pass 100%</li>
-      </ul>
+  <h4>Multilingual Robustness</h4>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Language</th><th>Scenario</th><th>Expectation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>MLR-01</td><td>German</td><td>Formal inquiry</td><td>Correct and fluent</td></tr>
+      <tr><td>MLR-02</td><td>German</td><td>Colloquial</td><td>Reasonable interpretation</td></tr>
+      <tr><td>MLR-03</td><td>English</td><td>Emotional tone</td><td>Soft, empathetic reply</td></tr>
+    </tbody>
+  </table>
 
-      <h3>3.4 Execution Log Template</h3>
-      <pre>
+  <h4>Hallucination Tests</h4>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Case</th><th>Expected Behaviour</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>HL-01</td><td>Unsupported product</td><td>Safe fallback</td></tr>
+      <tr><td>HL-02</td><td>Incorrect facts</td><td>Ask for clarification</td></tr>
+      <tr><td>HL-03</td><td>Unsafe content</td><td>Block + safe response</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pass/Fail Criteria</h3>
+  <ul>
+    <li>No accuracy drop > 2%</li>
+    <li>No new hallucinations introduced</li>
+    <li>Latency must not increase by >10%</li>
+    <li>Safety tests must pass 100%</li>
+  </ul>
+
+  <h3>Execution Log Template</h3>
+  <pre>
 Model Version: ____________
 Date: ____________
 Tester: ____________
@@ -242,57 +265,53 @@ Status: PASS / FAIL
 
 Notes:
 _________________________________________________________
-      </pre>
+  </pre>
 
-      <!-- SECTION 4 -->
-      <h2 id="4-version-to-version-comparison-v1-0-v1-3-v2-0">4. Version-to-Version Comparison (v1.0 → v1.3 → v2.0)</h2>
+</section>
 
-      <table>
-        <thead>
-          <tr><th>Metric</th><th>v1.0</th><th>v1.3</th><th>v2.0</th><th>Δ 1.3 → 2.0</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Accuracy</td><td>82%</td><td>87%</td><td><strong>91.5%</strong></td><td>+4.5%</td></tr>
-          <tr><td>Precision</td><td>77%</td><td>82%</td><td><strong>88%</strong></td><td>+6%</td></tr>
-          <tr><td>Recall</td><td>73%</td><td>78%</td><td><strong>84%</strong></td><td>+6%</td></tr>
-          <tr><td>F1 Score</td><td>75%</td><td>80%</td><td><strong>86%</strong></td><td>+6%</td></tr>
-          <tr><td>Hallucination Rate</td><td>14%</td><td>9%</td><td><strong>5.8%</strong></td><td>-3.2%</td></tr>
-        </tbody>
-      </table>
+<!-- SECTION 4 -->
+<section id="comparison">
+  <h2>Version-to-Version Comparison (v1.0 → v1.3 → v2.0)</h2>
 
-      <h3>ASCII Comparison Chart</h3>
-      <pre>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>v1.0</th><th>v1.3</th><th>v2.0</th><th>Δ 1.3 → 2.0</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Accuracy</td><td>82%</td><td>87%</td><td><strong>91.5%</strong></td><td>+4.5%</td></tr>
+      <tr><td>Precision</td><td>77%</td><td>82%</td><td><strong>88%</strong></td><td>+6%</td></tr>
+      <tr><td>Recall</td><td>73%</td><td>78%</td><td><strong>84%</strong></td><td>+6%</td></tr>
+      <tr><td>F1 Score</td><td>75%</td><td>80%</td><td><strong>86%</strong></td><td>+6%</td></tr>
+      <tr><td>Hallucination Rate</td><td>14%</td><td>9%</td><td><strong>5.8%</strong></td><td>-3.2%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>ASCII Comparison Chart</h3>
+  <pre>
 MODEL PERFORMANCE OVER TIME (Accuracy)
 
 v1.0  | ████████████░░░░░░    82%
 v1.3  | ███████████████░░     87%
 v2.0  | ██████████████████    91.5%
-      </pre>
+  </pre>
 
-      <pre>
+  <pre>
 HALLUCINATION RATE (lower is better)
 
 v1.0  | ██████████ 14%
 v1.3  | ██████░░░ 9%
 v2.0  | ███░░░░░ 5.8%
-      </pre>
+  </pre>
 
-      <h3>Version Change Notes</h3>
-      <ul>
-        <li><strong>v1.0 → v1.3:</strong> Added multilingual embeddings, first hallucination filter.</li>
-        <li><strong>v1.3 → v2.0:</strong> Full data refresh, tone-control decoder, 32% fewer hallucinations.</li>
-      </ul>
+  <h3>Version Change Notes</h3>
+  <ul>
+    <li><strong>v1.0 → v1.3:</strong> Added multilingual embeddings, first hallucination filter.</li>
+    <li><strong>v1.3 → v2.0:</strong> Full data refresh, tone-control decoder, 32% fewer hallucinations.</li>
+  </ul>
 
-      <p class="mt-2">
-        <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
-      </p>
+</section>
 
-    </div>
+</main>
 
-    <footer class="footer">
-      <p>© 2025 Leslie Amadi — All Rights Reserved.</p>
-    </footer>
-
-  </div>
 </body>
 </html>

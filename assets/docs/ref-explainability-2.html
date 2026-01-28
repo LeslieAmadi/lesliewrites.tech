@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reference | Explainability API | Leslie Amadi</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="logo">Leslie Amadi</div>
+    <nav class="nav-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../portfolio.html" class="active">Portfolio</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tag-row">
+  <span class="tag">Reference</span>
+  <span class="tag">API</span>
+  <span class="tag">Explainability</span>
+  <span class="tag">Interpretability Service</span>
+</div>
+
+<header class="doc-header">
+  <h1>Explainability API</h1>
+  <p class="doc-subtitle">
+    Authoritative service contract for model interpretability and prediction transparency.
+  </p>
+</header>
+
+<div class="breadcrumb-nav">
+  <a href="../../portfolio.html" class="btn-secondary btn">← Back to Portfolio</a>
+</div>
+
+<main class="content-shell">
+
+<nav class="inline-toc">
+  <strong>On this page:</strong>
+  <a href="#endpoint">Endpoint</a> ·
+  <a href="#request">Request Parameters</a> ·
+  <a href="#response">Response Schema</a> ·
+  <a href="#errors">Error Model</a> ·
+  <a href="#governance">Governance Properties</a>
+</nav>
+
+<section id="endpoint">
+  <h2>Endpoint</h2>
+  <pre>GET /risk-score/explain</pre>
+
+  <p>
+    Returns interpretability data for the most recent prediction request.
+  </p>
+</section>
+
+<section id="request">
+  <h2>Request Parameters</h2>
+
+  <pre>
+{
+  "prediction_id": string
+}
+  </pre>
+
+  <p>
+    The prediction identifier links explanation output to a specific inference event.
+  </p>
+</section>
+
+<section id="response">
+  <h2>Response Schema</h2>
+
+  <pre>
+{
+  "contributors": {
+    "bmi": percentage,
+    "bp": percentage,
+    "age": percentage
+  }
+}
+  </pre>
+
+  <p>
+    Each contributor represents relative influence on the prediction outcome.
+  </p>
+</section>
+
+<section id="errors">
+  <h2>Error Model</h2>
+
+  <pre>
+{
+  "error_code": string,
+  "message": string,
+  "trace_id": string
+}
+  </pre>
+
+  <p>
+    Errors are traceable, auditable, and linked to inference events.
+  </p>
+</section>
+
+<section id="governance">
+  <h2>Governance Properties</h2>
+
+  <ul>
+    <li>Traceability of predictions</li>
+    <li>Explainability audit trails</li>
+    <li>Interpretability guarantees</li>
+    <li>Model transparency controls</li>
+    <li>Human-review enablement</li>
+  </ul>
+
+  <p>
+    This service functions as a trust layer between automation and human decision-making.
+  </p>
+</section>
+
+</main>
+
+</body>
+</html>
