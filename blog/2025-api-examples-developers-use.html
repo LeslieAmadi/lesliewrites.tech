@@ -1,83 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Leslie Amadi — Technical Writer specializing in AI, UX, API Docs, and SEO-friendly content.">
-    <meta name="keywords" content="Technical Writing, AI Documentation, UX Writing, API Documentation, SEO Writing">
-    <meta name="author" content="Leslie Amadi">
-    <title>How to Write API Examples Developers Actually Use</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Examples Developers Actually Use | Leslie Amadi</title>
+  <meta name="description" content="Most API examples look complete on the page and fall apart the moment a developer tries to run them. Here is what separates examples that work from ones that create debugging sessions nobody asked for." />
+  <meta property="og:title" content="API Examples Developers Actually Use | Leslie Amadi" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body>
+<div class="page-shell">
 
-<header>
-    <nav class="navbar">
-        <h1 class="logo">Leslie Writes</h1>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../portfolio.html">Portfolio</a></li>
-            <li><a href="../blog.html" class="active">Blog</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../index.html" class="logo"><span class="logo-badge">LA</span><span class="logo-text">Technical Writer<br>Leslie Amadi</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="nav-menu">
+        <a href="../index.html">Home</a><a href="../portfolio.html">Portfolio</a>
+        <a href="../blog.html" class="active">Blog</a><a href="../about.html">About</a>
+        <a href="../learning.html">Learning</a><a href="../contact.html" class="nav-cta">Let's Talk</a>
+      </div>
+    </div>
+  </nav>
 
-<main class="blog-post">
-    <article>
-        <h1>How to Write API Examples Developers Actually Use</h1>
-        <p class="post-meta">Published on March 2025 · API Documentation</p>
+  <div class="article-shell">
+    <a href="../blog.html" class="article-back">← Back to Blog</a>
+    <div class="article-meta">
+      <span class="article-category">API Documentation</span>
+      <span class="article-date">March 2025</span>
+      <span class="article-read-time">10 min read</span>
+    </div>
+    <h1 class="article-title">API Examples Developers Actually Use</h1>
+    <p class="article-standfirst">
+      Most API examples look complete on the page. They have the right syntax, the right structure, the right shape. 
+      Then a developer copies one, runs it, and nothing works. A missing header. A placeholder nobody replaced. 
+      A response that bears no resemblance to what the endpoint actually returns. Any one of these transforms a helpful example 
+      into a frustration and a frustrated developer trusts your documentation a little less from that moment on.
+    </p>
+    <hr class="article-divider" />
 
-        <p>API documentation is only useful if developers can copy, paste, and immediately run it. That’s why strong API examples are practical, realistic, and complete — not theoretical.</p>
+    <div class="article-body">
 
-        <h2>✅ What Makes a Great API Example?</h2>
-        <ul>
-            <li><strong>Realistic values</strong> — Replace placeholders like <code>&lt;API_KEY&gt;</code> with believable sample values.</li>
-            <li><strong>Ready to copy and run</strong> — No missing headers, unexplained variables, or hidden steps.</li>
-            <li><strong>Clear response output</strong> — Show both success and failure responses.</li>
-        </ul>
+      <p>
+        There is a moment I have seen play out many times across developer onboarding sessions, internal documentation 
+        reviews, and support queues: an engineer reads an API example, tries to run it, and something breaks. 
+        They spend ten, fifteen, sometimes thirty minutes investigating. Eventually they discover the issue was not in 
+        their code or their environment it was in the example itself. A value that was never realistic. 
+        A header that was quietly omitted. A response that was invented rather than captured from the actual API.
+      </p>
 
-        <h2>🛠 Example of a Useful API Call</h2>
-        <pre>
-curl -X POST "https://api.example.com/v1/payments" \
+      <p>
+        They fix the problem and move on. But something has shifted. The documentation has become a source of suspicion rather 
+        than confidence. Every example that follows gets scrutinised a little more carefully. Every response gets cross-checked. 
+        The cognitive overhead of working with the API quietly doubles.
+      </p>
+
+      <p>
+        This is the real cost of poor API examples not the fifteen minutes lost debugging a single call, but the tax placed 
+        on every interaction with the documentation that follows. Writing examples that actually work is one of the 
+        highest-leverage investments a technical writer can make in developer experience. Here is what that looks like in 
+        practice.
+      </p>
+
+      <h2>The structural problem: examples written from memory</h2>
+
+      <p>
+        Most bad API examples share the same origin story. A developer or technical writer constructs an example from their 
+        knowledge of the API rather than from a live call against a real endpoint. They know the basic structure, they know which 
+        fields are required, they know roughly what a response looks like. They write something that looks correct.
+      </p>
+
+      <p>
+        The problem is that "looks correct" and "is correct" diverge in ways that only become visible when someone actually 
+        runs the code. Required headers get forgotten because they are so automatic to the person writing the example that 
+        they don't think to include them. Response fields appear in the wrong order, or include fields that don't exist, 
+        or omit fields that always appear. Error codes are invented rather than documented from the actual error responses the 
+        API returns.
+      </p>
+
+      <p>
+        The discipline that prevents this is simple and non-negotiable: every example in your documentation should be generated by 
+        running the actual call against a real test environment, capturing the actual response, and using those as the basis for the documented example. Not a reconstruction. The real thing.
+      </p>
+
+      <div class="callout">
+        <span class="callout-label">The only acceptable test</span>
+        <p>
+          Before any API example is published, a person who has never worked on that endpoint should be able to copy the example exactly as written, run it against the test environment,
+           and receive a response that matches the documented response. If they cannot, the example is not ready.
+        </p>
+      </div>
+
+      <h2>Placeholder values: the single most common failure</h2>
+
+      <p>
+        Placeholder values <code>YOUR_API_KEY</code>, <code>&lt;ACCESS_TOKEN&gt;</code>, <code>INSERT_CUSTOMER_ID_HERE</code> 
+        are the most common source of developer frustration in API documentation. They are used with good intentions: the writer
+         knows they cannot publish real credentials, so they mark the spot where the developer needs to substitute their own.
+      </p>
+
+      <p>
+        The problem is that placeholders communicate nothing about what should go there. What format is the API key? How long is it? 
+        What characters does it contain? Where do I find it? A developer who has never used this API before cannot answer any of these 
+        questions from the placeholder alone.
+      </p>
+
+      <p>
+        The solution is realistic test values values that are obviously fictional but structurally authentic. 
+        A good test API key looks like a real API key from the same system. It follows the same prefix convention, the same length, 
+        the same character set. It sets expectations. It shows the developer what to look for when they retrieve their own credentials.
+      </p>
+
+      <div class="compare-grid">
+        <div class="compare-bad">
+          <span class="compare-label">❌ Placeholder communicates nothing</span>
+          <p><code>Authorization: Bearer YOUR_API_KEY</code></p>
+          <p style="margin-top:0.6rem;font-size:0.82rem;">Developer copies this. Gets a 401. Spends fifteen minutes wondering if their key is wrong before 
+            realising the placeholder is the problem. They are now frustrated and slightly less trusting of the documentation.</p>
+        </div>
+        <div class="compare-good">
+          <span class="compare-label">✅ Realistic test value sets clear expectations</span>
+          <p><code>Authorization: Bearer sk_test_51Lx9C0Xexample123</code></p>
+          <p style="margin-top:0.6rem;font-size:0.82rem;">Developer immediately understands the key format: the <code>sk_test_</code> prefix, 
+            the approximate length, the character set. They know their own key will look similar. They replace this value confidently.</p>
+        </div>
+      </div>
+
+      <p>
+        The test values you use in examples should be obviously fictional a developer should never mistake them for real credentials 
+        but they should be structurally indistinguishable from real values at a glance. The format is the information.
+      </p>
+
+      <h2>A complete example: request and response together</h2>
+
+      <p>
+        An API example that shows only the request is half an example. Developers need to see what success looks like before 
+        they can evaluate whether their own implementation is working correctly. Without a documented expected response, 
+        a developer who receives any response has no way to know if it is the right one.
+      </p>
+
+      <p>
+        Here is what a complete payment creation example looks like when it is written with the developer's experience in mind. 
+        Every field is present. The response matches what the endpoint actually returns. The values are realistic enough to set 
+        accurate expectations about format and type.
+      </p>
+
+<pre>curl -X POST "https://api.example.com/v1/payments" \
      -H "Authorization: Bearer sk_test_51Lx9C0Xexample123" \
      -H "Content-Type: application/json" \
+     -H "Idempotency-Key: idem_key_20250312_001" \
      -d '{
-         "amount": 5000,
-         "currency": "GBP",
-         "customer_id": "cus_00123"
-     }'
-        </pre>
+       "amount": 5000,
+       "currency": "EUR",
+       "customer_id": "cus_00123",
+       "description": "Invoice #1042",
+       "metadata": {
+         "order_id": "ord_789"
+       }
+     }'</pre>
 
-        <h3>✅ Sample Response:</h3>
-        <pre>
+      <p>Expected response HTTP 201 Created:</p>
+
+<pre>{
+  "id": "pay_98765",
+  "object": "payment",
+  "status": "succeeded",
+  "amount": 5000,
+  "currency": "EUR",
+  "customer_id": "cus_00123",
+  "description": "Invoice #1042",
+  "metadata": {
+    "order_id": "ord_789"
+  },
+  "idempotency_key": "idem_key_20250312_001",
+  "created_at": "2025-03-12T10:15:30Z",
+  "updated_at": "2025-03-12T10:15:30Z"
+}</pre>
+
+      <p>
+        Notice that the response includes every field from the request, plus the fields the API adds: the payment ID, the object type, the status, 
+        timestamps, and the idempotency key echo. A developer who sees this response in the documentation can write their parsing logic, 
+        their success handling, and their logging before they have made a single real API call. That is documentation doing its job.
+      </p>
+
+      <h2>Error responses deserve the same care</h2>
+
+      <p>
+        Most API documentation shows the happy path and stops there. This is a significant omission. Developers spend a substantial 
+        proportion of their integration time handling errors. Authentication failures, validation errors, rate limits, network timeouts 
+        these are not edge cases. They are the expected experience of building against a real API. If your documentation does not show what 
+        errors look like, you are leaving developers to guess.
+      </p>
+
+      <p>
+        Guessing at error shapes leads to fragile error handling. A developer who does not know your error response format writes code 
+        that breaks the first time they hit a 422. A developer who has seen your error format documented can write robust error handling 
+        before they encounter a single real failure.
+      </p>
+
+<pre># Authentication failure — 401 Unauthorized
 {
-    "status": "success",
-    "payment_id": "pay_98765",
-    "amount": 5000,
-    "currency": "GBP",
-    "created_at": "2025-03-12T10:15:30Z"
+  "error": {
+    "code": "authentication_failed",
+    "message": "The API key provided is invalid, expired, or has been revoked.",
+    "doc_url": "https://docs.example.com/errors/authentication_failed",
+    "status": 401
+  }
 }
-        </pre>
 
-        <h2>⚠ Common Mistakes to Avoid</h2>
-        <ul>
-            <li>❌ Writing fictional endpoints that don’t actually exist.</li>
-            <li>❌ Using Latin placeholder text or variables that confuse developers.</li>
-            <li>❌ Providing CURL requests without headers, response, or real context.</li>
-        </ul>
+# Validation error — 422 Unprocessable Entity
+{
+  "error": {
+    "code": "validation_error",
+    "message": "Request validation failed.",
+    "param": "amount",
+    "detail": "The 'amount' field is required and must be a positive integer representing the amount in the smallest currency unit.",
+    "doc_url": "https://docs.example.com/errors/validation_error",
+    "status": 422
+  }
+}
 
-        <h2>🚀 Final Tip</h2>
-        <p>The best API examples help developers succeed in under five minutes — without guessing, Googling, or debugging.</p>
+# Rate limit exceeded — 429 Too Many Requests
+{
+  "error": {
+    "code": "rate_limit_exceeded",
+    "message": "You have exceeded the rate limit of 100 requests per minute.",
+    "retry_after": 23,
+    "doc_url": "https://docs.example.com/errors/rate_limit_exceeded",
+    "status": 429
+  }
+}</pre>
 
-        <a href="../blog.html" class="back-link">← Back to Blog</a>
-    </article>
-</main>
+      <p>
+        Three error cases. Each one tells the developer exactly what went wrong, points to extended documentation, and in the rate limit case 
+        tells them exactly how long to wait before retrying. This is error documentation that respects the developer's time and treats them as 
+        capable of handling failures gracefully when given the right information.
+      </p>
 
-<footer>
-    <p>© 2025 Leslie Amadi · All Rights Reserved</p>
-</footer>
+      <h2>The idempotency conversation no one is having</h2>
 
+      <p>
+        One of the most underserved topics in API documentation is idempotency the property that allows a request to be safely 
+        retried if the response is uncertain. When a developer sends a payment request and the network drops before they receive a response, 
+        they face a critical question: did the payment go through? If they retry without an idempotency key, they may create a duplicate charge. 
+        If they do not retry, they may miss a successful payment.
+      </p>
+
+      <p>
+        Idempotency keys solve this, but only if developers know about them and understand how to use them. If your API supports 
+        idempotency, document it prominently in the quickstart, in the payment creation example, and in its own dedicated guide. 
+        The cost of a developer not understanding idempotency is measured in duplicate charges, angry customers, and support escalations. 
+        The cost of documenting it well is a few hours of writing time.
+      </p>
+
+      <h2>Code samples in multiple languages</h2>
+
+      <p>
+        curl is the universal language of API documentation it is readable, it is language-agnostic, and it translates 
+        directly to any HTTP client. But many developers integrating your API will be working in Python, JavaScript, Go, or Ruby. 
+        Providing examples in the languages your users actually work in dramatically reduces the cognitive overhead of integration.
+      </p>
+
+      <p>
+        A Python developer looking at a curl example is doing mental translation work throughout. They know the curl command, 
+        they understand the API, but they are still one layer of abstraction away from the code they need to write. 
+        A Python example removes that layer. The same payment creation call, in the language they are working in, gets them 
+        from documentation to running code in significantly less time.
+      </p>
+
+      <p>
+        You do not need examples in every language. Identify the two or three languages your users most commonly use this is 
+        almost always visible in your support queries and community discussions and provide working examples in those. 
+        Maintained examples in three languages are worth more than unmaintained examples in ten.
+      </p>
+
+      <h2>The test that cannot be skipped</h2>
+
+      <p>
+        Every API example in your documentation should pass a simple test: a developer who has never used this API before should be able to 
+        copy the example exactly as written, substitute their own test credentials, and receive a successful response without needing to look 
+        anything else up.
+      </p>
+
+      <p>
+        Running this test yourself, as the technical writer, is not optional. It is the work. The five minutes it takes to copy your own example, 
+        run it against a test environment, and verify the response is the investment that determines whether the documentation is trustworthy. Every time you skip that step, you are making a bet that no one will notice the difference. In my experience, someone always does.
+      </p>
+
+    </div>
+
+    <hr class="article-divider" />
+
+    <div class="author-bio">
+      <img src="../assets/images/profile-image.png" alt="Leslie Amadi" />
+      <div class="author-bio-text">
+        <p><strong>Leslie Amadi</strong>Senior Technical Writer and AI Documentation Specialist based in Hamburg, Germany.
+             I write about documentation craft, AI systems, and developer experience. 
+             <a href="../contact.html" style="color:#b48d74;font-weight:500;">Get in touch →</a></p>
+      </div>
+    </div>
+    <div class="mt-md"><a href="../blog.html" class="btn-leslie">← More articles</a></div>
+  </div>
+
+  <footer><p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p></footer>
+</div>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-menu');
+  if(toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+</script>
 </body>
 </html>

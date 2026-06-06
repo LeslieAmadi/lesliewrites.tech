@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing Model Cards That Matter | Leslie Amadi</title>
+  <meta name="description" content="A practical guide to writing AI model cards that engineers, product teams, and regulators can actually rely on." />
+  <meta property="og:title" content="Writing Model Cards That Matter | Leslie Amadi" />
+  <meta property="og:description" content="Most model cards fail before anyone reads them. Here's how to write ones that actually work." />
+  <meta property="og:url" content="https://leslieamadi.github.io/lesliewrites.tech/blog/model-cards.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png" />
+  <link rel="stylesheet" href="../assets/css/styles.css"/>
+
+  <style>
+    .article-shell {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 6rem;
+    }
+
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: #b48d74;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      transition: opacity 0.15s;
+    }
+    .article-back:hover { opacity: 0.7; }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .article-category {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #b48d74;
+      background: #fdf0ea;
+      border: 1px solid #edd5c5;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .article-date {
+      font-size: 0.82rem;
+      color: #8b8682;
+    }
+
+    .article-read-time {
+      font-size: 0.82rem;
+      color: #8b8682;
+    }
+
+    .article-title {
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: #3a3734;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .article-standfirst {
+      font-size: 1.1rem;
+      color: #6a6764;
+      line-height: 1.7;
+      border-left: 3px solid #b48d74;
+      padding-left: 1.25rem;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    .article-divider {
+      border: none;
+      border-top: 1px solid #ede0d8;
+      margin: 2.5rem 0;
+    }
+
+    .article-body h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #3a3734;
+      margin: 2.5rem 0 0.75rem;
+      letter-spacing: -0.3px;
+    }
+
+    .article-body h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #5a4648;
+      margin: 1.75rem 0 0.5rem;
+    }
+
+    .article-body p {
+      font-size: 1rem;
+      color: #5a5756;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .article-body strong {
+      color: #3a3734;
+      font-weight: 600;
+    }
+
+    /* Callout box */
+    .callout {
+      background: linear-gradient(135deg, #fdf6f2, #f7ede6);
+      border: 1px solid #edd5c5;
+      border-left: 4px solid #b48d74;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #5a4648;
+      line-height: 1.7;
+    }
+
+    .callout-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #b48d74;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Section card */
+    .section-card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #ede0d8;
+      border-radius: 18px;
+      padding: 1.5rem 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .section-card h3 {
+      margin-top: 0;
+      color: #3a3734;
+    }
+
+    /* Field list */
+    .field-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .field-list li {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid #f0e8e4;
+      font-size: 0.93rem;
+      color: #5a5756;
+      line-height: 1.55;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 1rem;
+    }
+
+    .field-list li:last-child { border-bottom: none; }
+
+    .field-name {
+      font-weight: 600;
+      color: #3a3734;
+      font-size: 0.88rem;
+    }
+
+    /* Bad vs good comparison */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .compare-bad,
+    .compare-good {
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+    }
+
+    .compare-bad {
+      background: #fdf0f0;
+      border: 1px solid #f5c5c5;
+    }
+
+    .compare-good {
+      background: #f0fdf4;
+      border: 1px solid #b5dfc5;
+    }
+
+    .compare-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.6rem;
+    }
+
+    .compare-bad .compare-label   { color: #c0392b; }
+    .compare-good .compare-label  { color: #27a060; }
+
+    .compare-bad p,
+    .compare-good p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0;
+      font-style: italic;
+    }
+
+    /* Author bio */
+    .author-bio {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #ede0d8;
+      border-radius: 18px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .author-bio img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e0cdb8;
+      flex-shrink: 0;
+    }
+
+    .author-bio-text p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #6a6764;
+      line-height: 1.55;
+    }
+
+    .author-bio-text strong {
+      display: block;
+      color: #3a3734;
+      font-size: 0.93rem;
+      margin-bottom: 0.2rem;
+    }
+
+    @media (max-width: 580px) {
+      .compare-grid { grid-template-columns: 1fr; }
+      .field-list li { grid-template-columns: 1fr; gap: 0.25rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-shell">
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-badge">LA</span>
+        <span class="logo-text">Technical Writer<br>Leslie Amadi</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu">
+        <a href="../index.html">Home</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../blog.html" class="active">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../learning.html">Learning</a>
+        <a href="../contact.html" class="nav-cta">Let's Talk</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="article-shell">
+
+    <a href="../blog.html" class="article-back">← Back to Blog</a>
+
+    <div class="article-meta">
+      <span class="article-category">AI Documentation</span>
+      <span class="article-date">June 2025</span>
+      <span class="article-read-time">8 min read</span>
+    </div>
+
+    <h1 class="article-title">Writing Model Cards That Matter</h1>
+
+    <p class="article-standfirst">
+      Most model cards fail before anyone reads them. They exist to satisfy a checklist,
+      not to communicate. Here's how to write ones that engineers, product teams,
+      and regulators can actually rely on.
+    </p>
+
+    <hr class="article-divider" />
+
+    <div class="article-body">
+
+      <p>
+        Model cards were introduced by Google researchers in 2019 as a framework for transparent
+        AI documentation. The idea was simple: every deployed model should come with a structured
+        document explaining what it does, how it was trained, where it works well, and crucially,
+        where it does not. Six years later, model cards are widely adopted and widely misused.
+      </p>
+
+      <p>
+        The problem is not that teams don't write them. Most do. The problem is that the resulting
+        documents read like legal disclaimers: dense, defensive, and written for no particular
+        reader. They describe a model the way a warranty card describes a toaster. Nobody reads
+        them. Nobody trusts them. And when something goes wrong in production, nobody can find
+        the information they needed.
+      </p>
+
+      <p>
+        Good model card documentation is a different discipline entirely. It requires the same
+        skills as any serious technical writing understanding your audience, making deliberate
+        structural choices, and being honest about what you do and do not know. This guide is
+        about doing that well.
+      </p>
+
+      <h2>Why most model cards fail</h2>
+
+      <p>
+        Before writing better model cards, it helps to understand why existing ones tend to fall
+        short. There are three failure modes that appear again and again.
+      </p>
+
+      <p>
+        <strong>They are written after the fact.</strong> Documentation produced at the end of a
+        development cycle reflects what the team remembers, not what actually happened. Evaluation
+        decisions, dataset choices, and known limitations get summarised or quietly omitted because
+        the people who made those decisions have moved on to the next project.
+      </p>
+
+      <p>
+        <strong>They have no clear audience.</strong> A model card written for a compliance
+        officer looks very different from one written for an integrating engineer. When the author
+        has not decided who they are writing for, the document tries to serve everyone and ends up
+        serving no one. The language is simultaneously too technical for a non-specialist and too
+        vague for someone who actually needs to implement the system.
+      </p>
+
+      <p>
+        <strong>They confuse description with communication.</strong> Listing an accuracy figure
+        is description. Explaining what that figure means for a specific use case, in plain language,
+        with context about the evaluation conditions that is communication. Most model cards
+        do the former and call it done.
+      </p>
+
+      <div class="callout">
+        <div class="callout-label">The core principle</div>
+        <p>
+          A model card is not a technical specification. It is a communication document.
+          Its job is to give a specific reader the information they need to make a confident,
+          informed decision about whether and how to use this model.
+        </p>
+      </div>
+
+      <h2>Know your reader before you write a word</h2>
+
+      <p>
+        The most important decision you make when writing a model card is choosing your primary
+        reader. In practice, model cards are read by several different audiences and each
+        needs something different from the document.
+      </p>
+
+      <div class="section-card">
+        <h3>Who reads model cards and what they need</h3>
+        <ul class="field-list">
+          <li>
+            <span class="field-name">Engineers integrating the model</span>
+            <span>Input/output formats, latency characteristics, API behaviour, known edge cases, and what happens when the model fails or returns low-confidence results.</span>
+          </li>
+          <li>
+            <span class="field-name">Product managers</span>
+            <span>Intended use cases, out-of-scope uses, performance across relevant user segments, and the risk profile of deployment decisions.</span>
+          </li>
+          <li>
+            <span class="field-name">Compliance and legal teams</span>
+            <span>Training data provenance, evaluation methodology, bias testing results, and documentation of known limitations and mitigations.</span>
+          </li>
+          <li>
+            <span class="field-name">External researchers and auditors</span>
+            <span>Reproducibility information, dataset details, evaluation benchmarks, and honest assessment of the model's limitations.</span>
+          </li>
+          <li>
+            <span class="field-name">End users (where applicable)</span>
+            <span>What the model is designed to do, what it is not designed to do, and how to interpret its outputs.</span>
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Most model cards will have a primary audience and several secondary ones. Write for the
+        primary reader first, then make sure the document is structured so secondary readers can
+        navigate to what they need without wading through content that is not relevant to them.
+      </p>
+
+      <h2>The sections that actually matter</h2>
+
+      <p>
+        The original model card framework proposed by Mitchell et al. included nine sections.
+        Many organisations have adapted this into their own templates. What follows is not a
+        rigid prescription it is a description of what good model card documentation covers,
+        and why each element matters.
+      </p>
+
+      <h3>Model overview</h3>
+      <p>
+        One paragraph. What does this model do, in plain language? What problem was it built to
+        solve? Who built it and when? This section should be readable by someone with no technical
+        background in under thirty seconds. If it takes longer, rewrite it.
+      </p>
+
+      <h3>Intended use</h3>
+      <p>
+        Be specific about what this model is designed to do, and equally specific about what it
+        is not. The out-of-scope uses section is not a legal formality it is often the most
+        useful part of the document for engineers and product teams trying to make deployment
+        decisions. Vague language here causes real harm downstream.
+      </p>
+
+      <div class="compare-grid">
+        <div class="compare-bad">
+          <div class="compare-label">❌ Vague</div>
+          <p>"This model should not be used for high-stakes decisions."</p>
+        </div>
+        <div class="compare-good">
+          <div class="compare-label">✅ Specific</div>
+          <p>"This model is not validated for use in medical diagnosis, credit scoring, or any context where an incorrect prediction could result in harm to an individual."</p>
+        </div>
+      </div>
+
+      <h3>Training data</h3>
+      <p>
+        Where did the training data come from? How was it collected, filtered, and preprocessed?
+        What is known about its demographic composition? What is not known? This section requires
+        honesty about gaps. A model card that claims comprehensive data documentation while
+        glossing over unknown provenance is not transparent it is theatre.
+      </p>
+
+      <h3>Evaluation results</h3>
+      <p>
+        Raw performance metrics without context are nearly useless. An accuracy figure means
+        nothing without knowing what dataset it was measured on, what the baseline was, and
+        how performance varies across different subgroups, languages, or conditions. Always
+        include disaggregated evaluation results where possible.
+      </p>
+
+      <div class="compare-grid">
+        <div class="compare-bad">
+          <div class="compare-label">❌ Context-free</div>
+          <p>"The model achieves 94.2% accuracy on the test set."</p>
+        </div>
+        <div class="compare-good">
+          <div class="compare-label">✅ Contextualised</div>
+          <p>"The model achieves 94.2% accuracy on the internal test set (n=12,000, English-language only). Accuracy drops to 81.3% on the multilingual validation set. Performance on low-resource languages has not been evaluated."</p>
+        </div>
+      </div>
+
+      <h3>Limitations and risks</h3>
+      <p>
+        This is the section most authors either skip or sanitise into meaninglessness. It is also
+        the section that matters most when something goes wrong. Write it as if you are briefing
+        a colleague who is about to deploy this model in production for the first time. What do
+        they need to know? What should they watch for? What has already gone wrong in testing
+        that they should be aware of?
+      </p>
+
+      <div class="callout">
+        <div class="callout-label">A useful test</div>
+        <p>
+          Read your limitations section and ask: if this model caused harm in production, would
+          this document have given a reasonable engineer enough information to anticipate that risk?
+          If the answer is no, the section is not finished.
+        </p>
+      </div>
+
+      <h3>Ethical considerations</h3>
+      <p>
+        Describe the ethical review process if one was conducted. Identify any fairness concerns
+        that were raised and how they were addressed or note honestly that they remain open.
+        This section should not read like a public relations statement. It should read like a
+        genuine accounting of the decisions that were made and the values that guided them.
+      </p>
+
+      <h2>Writing style that actually works</h2>
+
+      <p>
+        Model cards suffer from the same writing problems as most technical documentation: passive
+        voice, hedge-laden language, and a tendency to describe what was done rather than what
+        it means. A few concrete principles help.
+      </p>
+
+      <p>
+        <strong>Use active voice for decisions and passive voice for processes.</strong>
+        "We excluded data from users under 18" is clearer than "Data from users under 18 was
+        excluded." The active voice makes clear that a human made a deliberate choice which
+        matters for accountability.
+      </p>
+
+      <p>
+        <strong>Define every metric the first time you use it.</strong> Not every reader knows
+        what F1 score measures or why precision matters more than recall in a particular context.
+        One sentence of context transforms a number into information.
+      </p>
+
+      <p>
+        <strong>Write limitations as if you mean them.</strong> "The model may occasionally
+        produce unexpected results" tells the reader nothing. "The model consistently
+        underperforms on text containing domain-specific medical terminology, with error rates
+        approximately 3x higher than the overall average" tells them something they can act on.
+      </p>
+
+      <p>
+        <strong>Keep the overview short and the detail rich.</strong> The first section should
+        be readable in under a minute. Everything after it can go deep because readers who
+        need that depth will look for it, and readers who do not can stop reading.
+      </p>
+
+      <h2>Model cards in practice</h2>
+
+      <p>
+        The best model cards are living documents. They are updated when the model is retrained,
+        when new evaluation results become available, or when a deployment surfaces a previously
+        unknown limitation. Building that update process into your documentation workflow from
+        the start rather than treating the model card as a one-time deliverable is what
+        separates documentation that remains useful from documentation that quietly goes stale.
+      </p>
+
+      <p>
+        If you are working with a team that has never written model cards before, start with the
+        three sections that deliver the most immediate value: intended use, evaluation results,
+        and limitations. A model card that covers those three things honestly is more useful than
+        a complete nine-section document where every field contains a placeholder or a hedge.
+      </p>
+
+      <p>
+        The goal is not compliance. The goal is communication giving the people who will build
+        with, deploy, and be affected by this model the information they need to do that responsibly.
+        That is what makes a model card matter.
+      </p>
+
+    </div>
+
+    <hr class="article-divider" />
+
+    <!-- Author bio -->
+    <div class="author-bio">
+      <img src="../assets/images/profile-image.png" alt="Leslie Amadi" />
+      <div class="author-bio-text">
+        <p>
+          <strong>Leslie Amadi</strong>
+          Senior Technical Writer and AI Documentation Specialist based in Hamburg, Germany.
+          I write about documentation craft, AI systems, and developer experience.
+          <a href="../contact.html" style="color:#b48d74;font-weight:500;">Get in touch →</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Back to blog -->
+    <div style="margin-top:2rem;">
+      <a href="../blog.html" class="btn-leslie">← More articles</a>
+    </div>
+
+  </div><!-- /article-shell -->
+
+  <footer>
+    <p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
+  </footer>
+
+</div>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-menu');
+  if (toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+</script>
+</body>
+</html>

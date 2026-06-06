@@ -1,72 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Leslie Amadi — Technical Writer specializing in AI, UX, API Docs, and SEO-friendly content.">
-    <meta name="keywords" content="Technical Writing, AI Documentation, UX Writing, API Documentation, SEO Writing">
-    <meta name="author" content="Leslie Amadi">
-    <title>How to Write an API Quickstart Guide</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Write an API Quickstart Guide | Leslie Amadi</title>
+  <meta name="description" content="A quickstart guide has one job: get a developer to their first successful API call in under five minutes. Most fail that test. Here is how to write one that does not." />
+  <meta property="og:title" content="How to Write an API Quickstart Guide | Leslie Amadi" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body>
+<div class="page-shell">
 
-<header>
-    <nav class="navbar">
-        <h1 class="logo">Leslie Writes</h1>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../portfolio.html">Portfolio</a></li>
-            <li><a href="../blog.html" class="active">Blog</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../index.html" class="logo"><span class="logo-badge">LA</span><span class="logo-text">Technical Writer<br>Leslie Amadi</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="nav-menu">
+        <a href="../index.html">Home</a><a href="../portfolio.html">Portfolio</a>
+        <a href="../blog.html" class="active">Blog</a><a href="../about.html">About</a>
+        <a href="../learning.html">Learning</a><a href="../contact.html" class="nav-cta">Let's Talk</a>
+      </div>
+    </div>
+  </nav>
 
-<main class="blog-post">
-    <article>
-        <h1>How to Write an API Quickstart Guide</h1>
-        <p class="post-meta">Published on January 2025 · API Documentation</p>
+  <div class="article-shell">
+    <a href="../blog.html" class="article-back">← Back to Blog</a>
+    <div class="article-meta">
+      <span class="article-category">API Documentation</span>
+      <span class="article-date">January 2025</span>
+      <span class="article-read-time">11 min read</span>
+    </div>
+    <h1 class="article-title">How to Write an API Quickstart Guide</h1>
+    <p class="article-standfirst">
+      A quickstart guide has one job: get a developer to their first successful API call in under five minutes. That sounds simple. 
+      It is deceptively hard to execute well. Most quickstarts fail not because the API is complicated, but because the documentation 
+      treats the quickstart as a condensed reference guide comprehensive, cautious, and completely wrong for the moment.
+    </p>
+    <hr class="article-divider" />
 
-        <p>A great API quickstart helps developers make their first successful request in under 5 minutes. It skips theory and gets straight to action.</p>
+    <div class="article-body">
 
-        <h2>✅ What a Quickstart Guide Should Include</h2>
-        <ul>
-            <li>🔹 <strong>Prerequisites</strong> — What the developer needs (API key, account, tools).</li>
-            <li>🔹 <strong>Authentication</strong> — First example showing how to authenticate.</li>
-            <li>🔹 <strong>Your First Request</strong> — A simple API call with real values.</li>
-            <li>🔹 <strong>Sample Response</strong> — Show exactly what success looks like.</li>
-            <li>🔹 <strong>What to do next</strong> — Guide users to endpoints, SDKs, or tutorials.</li>
-        </ul>
+      <p>
+        Developer experience lives or dies in the first ten minutes. That is not a metaphor it is something you can measure. 
+        Every minute that passes between a developer discovering your API and making their first successful call is a minute in 
+        which doubt accumulates. The quickstart guide is the document that determines whether that doubt resolves into confidence or 
+        compounds into abandonment.
+      </p>
 
-        <h2>🛠 Example Structure</h2>
-        <pre>
-1. Sign up at https://api.example.com
-2. Go to Dashboard → Copy your API Key
-3. Make your first request:
+      <p>
+        I have spent significant time studying how developers interact with API documentation watching them work through quickstarts, 
+        reading the questions that appear in developer forums, reviewing the support tickets that come in during the first 48 hours after signup. 
+        The patterns are remarkably consistent. The quickstarts that work share a set of qualities that have nothing to do with how technically 
+        sophisticated the underlying API is. The quickstarts that fail share a different set of qualities that appear across products, companies, and industries.
+      </p>
 
-curl -X GET "https://api.example.com/v1/users" \
-     -H "Authorization: Bearer YOUR_API_KEY"
-        </pre>
+      <p>
+        This is what I have learned from that process.
+      </p>
 
-        <h2>📦 Include Real Values, Not Placeholders</h2>
-        <p>Instead of using <code>&lt;API_KEY&gt;</code>, use realistic examples like:</p>
-        <pre>
-Authorization: Bearer sk_test_51Lx9C0X9example123
-        </pre>
-        <p>This helps developers copy, paste, and succeed faster.</p>
+      <h2>The fundamental misunderstanding about quickstarts</h2>
 
-        <h2>🚀 Final Tip</h2>
-        <p>Keep it short. If it takes more than 5 minutes to make a request, it’s not a quickstart — it’s a tutorial.</p>
+      <p>
+        The most common mistake in quickstart writing is treating the document as a condensed version of the full documentation. 
+        The logic seems reasonable: a developer needs an overview of authentication, an introduction to the main endpoints, 
+        some guidance on error handling, and pointers to advanced features. Put all of that in a streamlined format, and you have a quickstart.
+      </p>
 
-        <a href="../blog.html" class="back-link">← Back to Blog</a>
-    </article>
-</main>
+      <p>
+        You do not have a quickstart. You have an abbreviated reference guide with the word "quickstart" in the title. Developers approaching 
+        it with the expectation of getting to a first successful call in minutes will find themselves wading through conceptual explanations, option 
+        comparisons, and capability overviews that are all accurate and none of which help them right now.
+      </p>
 
-<footer>
-    <p>© 2025 Leslie Amadi · All Rights Reserved</p>
-</footer>
+      <p>
+        A quickstart is not a reduced version of the documentation. It is a fundamentally different document with a fundamentally different goal. Its only job is to get a developer from nothing to one successful API call. Everything that does not serve that goal directly does not belong in the quickstart 
+        it belongs in the full documentation, linked from the end of the quickstart once the developer has succeeded.
+      </p>
 
+      <div class="callout">
+        <span class="callout-label">The five-minute test</span>
+        <p>
+          Time yourself following your own quickstart guide from a clean starting point. If it takes more than five minutes to make a successful call, 
+          something needs to be cut or simplified not explained more thoroughly. Thoroughness is the enemy of a good quickstart.
+        </p>
+      </div>
+
+      <h2>Prerequisites: be honest and be specific</h2>
+
+      <p>
+        The prerequisites section of a quickstart is often written as a defensive measure a list of everything a developer might conceivably need, 
+        so that no one can say the documentation failed to warn them. This approach serves the documentation's authors, not the developers reading it.
+      </p>
+
+      <p>
+        An effective prerequisites section lists only what is genuinely required to complete this specific guide. 
+        If a developer can follow the quickstart using only curl and a browser, do not list three SDK options, two runtime environments, 
+        and a package manager. List curl and a browser.
+      </p>
+
+      <p>
+        Being specific is equally important. "API access" is not a prerequisite it is a vague gesture toward one. 
+        "A registered account at dashboard.example.com with at least one project created" is a prerequisite. 
+        "Your test API key from Settings → API Keys → Create Key" is a prerequisite. The developer should be able to read your 
+        prerequisites list and know with certainty, before they start, whether they can complete the guide.
+      </p>
+
+      <h2>The anatomy of a quickstart that works</h2>
+
+      <p>
+        After reviewing hundreds of developer quickstarts across the industry, I have found that the ones that consistently succeed follow the same basic structure. 
+        Not because there is only one way to write a quickstart, but because this structure reflects the actual psychological journey a developer takes from uncertainty to confidence.
+      </p>
+
+      <ol class="steps-list">
+        <li><strong>Prerequisites what you need before you start.</strong> Specific, honest, and limited to this guide. No future-proofing, no coverage of advanced scenarios.</li>
+        <li><strong>Get your credentials exactly where to find them.</strong> Include the navigation path, or a screenshot if the dashboard is complex. Assume the developer has never logged into your dashboard before.</li>
+        <li><strong>Make your first call one request, the simplest possible thing.</strong> Ideally a read operation or a ping endpoint something that cannot have side effects and always succeeds when authenticated correctly.</li>
+        <li><strong>Show what success looks like.</strong> The exact expected response, captured from a real test environment. Not an approximation. The real thing.</li>
+        <li><strong>Make a second call something that demonstrates actual value.</strong> The first call proves authentication works. The second call shows the developer something the API can actually do for them.</li>
+        <li><strong>What to do next two or three concrete paths forward.</strong> The full API reference. The core concepts guide. The most common use case tutorial. Not a comprehensive sitemap. Two or three clear choices.</li>
+      </ol>
+
+      <h2>A complete quickstart example</h2>
+
+      <p>
+        Here is what this structure looks like rendered in practice. This is a fictional but realistic payment API quickstart, 
+        written at the level of specificity a developer actually needs.
+      </p>
+
+      <h3>Before you start</h3>
+      <ul>
+        <li>A registered account at <code>dashboard.example.com</code></li>
+        <li>Your test API key found under <strong>Settings → API Keys</strong></li>
+        <li>curl installed, or any HTTP client you prefer</li>
+      </ul>
+      <p>Test keys are prefixed with <code>sk_test_</code> and will never charge real cards or trigger real transactions.</p>
+
+      <h3>Step 1 Verify your credentials work</h3>
+      <p>Before anything else, confirm your API key is valid. This call returns nothing except a confirmation that you are authenticated 
+        it is safe to run as many times as you need.</p>
+
+<pre>curl -X GET "https://api.example.com/v1/ping" \
+     -H "Authorization: Bearer sk_test_51Lx9C0Xexample123"</pre>
+
+      <p>If your key is valid, you will see:</p>
+
+<pre>{
+  "status": "ok",
+  "authenticated": true,
+  "environment": "test",
+  "account_id": "acc_0019"
+}</pre>
+
+      <p>If you see a 401 response, double-check that you copied your full API key including any prefix and that there are no trailing spaces.</p>
+
+      <h3>Step 2 Create your first payment</h3>
+      <p>Amounts are in the smallest unit of the currency so 5000 represents €50.00 in EUR, or £50.00 in GBP. This matters: sending 50 when 
+        you mean €50.00 will create a €0.50 transaction.</p>
+
+<pre>curl -X POST "https://api.example.com/v1/payments" \
+     -H "Authorization: Bearer sk_test_51Lx9C0Xexample123" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "amount": 5000,
+       "currency": "EUR",
+       "description": "My first test payment"
+     }'</pre>
+
+      <p>Expected response — HTTP 201:</p>
+
+<pre>{
+  "id": "pay_test_001",
+  "status": "succeeded",
+  "amount": 5000,
+  "currency": "EUR",
+  "description": "My first test payment",
+  "created_at": "2025-01-14T09:22:11Z"
+}</pre>
+
+      <p>The <code>id</code> field is your payment reference — you will use it to retrieve, update, or refund this payment. Keep it.</p>
+
+      <h3>Step 3 — Retrieve the payment you just created</h3>
+      <p>Replace <code>pay_test_001</code> with the <code>id</code> from your response above.</p>
+
+<pre>curl -X GET "https://api.example.com/v1/payments/pay_test_001" \
+     -H "Authorization: Bearer sk_test_51Lx9C0Xexample123"</pre>
+
+      <p>You have now authenticated, created a resource, and retrieved it by ID. That is the core pattern the entire API follows.</p>
+
+      <h2>The most common quickstart failures</h2>
+
+      <p>
+        <strong>Opening with a wall of concepts.</strong> Three paragraphs explaining what REST means, why the API uses JSON, and the 
+        history of the versioning scheme do not help a developer make their first call. They belong in a concepts guide that the developer 
+        can read after they have succeeded. Opening with concepts signals that the documentation was written for the author's comfort, not the reader's.
+      </p>
+
+      <p>
+        <strong>Requiring too much setup before the first request.</strong> If a developer has to install a package manager, install an 
+        SDK, configure a local environment, and set environment variables before they can make any request at all, the barrier to that 
+        first success is too high. Make the first call achievable with the minimum possible setup ideally just curl and an API key. 
+        Advanced setup can come later.
+      </p>
+
+      <p>
+        <strong>Not addressing the most common failure mode.</strong> For most APIs, that failure mode is authentication. A clear, specific note about 
+        what a 401 response means and the most common reasons it occurs wrong key, missing header, wrong environment can prevent the majority of 
+        support tickets that come in during the first 24 hours.
+      </p>
+
+      <p>
+        <strong>Ending without a next step.</strong> A developer who has just made their first successful API call is at peak engagement. 
+        They have just experienced your API working. They want to do more. A quickstart that ends without pointing them clearly toward what 
+        comes next is wasting the moment of highest motivation in the developer journey. Make the next step as specific as the quickstart itself.
+      </p>
+
+      <h2>On the five-minute rule</h2>
+
+      <p>
+        The five-minute benchmark is not arbitrary. It reflects the typical attention span of a developer evaluating a new API the window in which 
+        they are willing to invest effort before they form a judgment about whether the integration is going to be worth the work.
+      </p>
+
+      <p>
+        A developer who succeeds in five minutes is a developer who has had a good first experience. They are more likely to recommend 
+        the API to colleagues, more likely to reach for it again when they have a problem it could solve, more likely to tolerate the 
+        friction that comes later when they encounter a genuinely complex integration challenge. That goodwill is earned in the quickstart. 
+        It is one of the most valuable things a documentation team can produce.
+      </p>
+
+    </div>
+
+    <hr class="article-divider" />
+    <div class="author-bio">
+      <img src="../assets/images/profile-image.png" alt="Leslie Amadi" />
+      <div class="author-bio-text">
+        <p><strong>Leslie Amadi</strong>Senior Technical Writer and AI Documentation Specialist based in Hamburg, Germany. 
+            I write about documentation craft, AI systems, and developer experience. 
+            <a href="../contact.html" style="color:#b48d74;font-weight:500;">Get in touch →</a></p>
+      </div>
+    </div>
+    <div class="mt-md"><a href="../blog.html" class="btn-leslie">← More articles</a></div>
+  </div>
+
+  <footer><p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p></footer>
+</div>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-menu');
+  if(toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+</script>
 </body>
 </html>

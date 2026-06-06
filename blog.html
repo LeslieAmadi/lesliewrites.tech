@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Leslie Amadi</title>
-  <meta name="description" content="Thoughts on technical writing, AI communication, APIs, and documentation craft." />
+  <meta name="description" content="Writing about documentation craft, AI systems, APIs, UX writing, and developer experience by Leslie Amadi, Senior Technical Writer." />
   <meta property="og:title" content="Blog | Leslie Amadi" />
-  <meta property="og:description" content="Thoughts on technical writing, AI communication, APIs, and documentation craft." />
+  <meta property="og:description" content="Writing about documentation craft, AI systems, APIs, UX writing, and developer experience." />
   <meta property="og:url" content="https://leslieamadi.github.io/lesliewrites.tech/blog.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png" />
@@ -21,9 +21,7 @@
         <span class="logo-badge">LA</span>
         <span class="logo-text">Technical Writer<br>Leslie Amadi</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       <div class="nav-menu">
         <a href="index.html">Home</a>
         <a href="portfolio.html">Portfolio</a>
@@ -36,42 +34,109 @@
   </nav>
 
   <main>
-    <h1 style="margin-bottom:0.5rem;">Blog</h1>
-    <p style="max-width:580px;margin-bottom:2.5rem;">
-      Thoughts on technical writing, AI communication, APIs, and documentation craft.
-    </p>
-
-    <div class="strip">
-
-      <div class="strip-card">
-        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:#b48d74;margin-bottom:0.5rem;">AI Documentation</p>
-        <div class="strip-title">Writing Model Cards That Matter</div>
-        <p>How to communicate model risks, intended use, limitations, and evaluation in a way that engineers, product teams, and regulators can all rely on.</p>
-        <span class="chip" style="margin-top:0.5rem;display:inline-block;">Coming soon</span>
-      </div>
-
-      <div class="strip-card">
-        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:#b48d74;margin-bottom:0.5rem;">Communication &amp; Craft</p>
-        <div class="strip-title">Humanising AI Documentation</div>
-        <p>Writing for clarity, warmth, and user understanding — without sacrificing technical depth or accuracy.</p>
-        <span class="chip" style="margin-top:0.5rem;display:inline-block;">Coming soon</span>
-      </div>
-
-      <div class="strip-card">
-        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:#b48d74;margin-bottom:0.5rem;">Developer Experience</p>
-        <div class="strip-title">API Docs: Beyond Reference Tables</div>
-        <p>Guides, workflows, and developer-centred narratives that help engineers integrate confidently — not just look up endpoints.</p>
-        <span class="chip" style="margin-top:0.5rem;display:inline-block;">Coming soon</span>
-      </div>
-
+    <div class="blog-header">
+      <h1>Blog</h1>
+      <p>Writing about documentation craft, AI systems, APIs, UX writing, and developer experience from someone who works in these areas every day.</p>
     </div>
 
-    <div class="hero-copy" style="max-width:540px;margin-top:2.5rem;">
-      <h3>Want to know when articles go live?</h3>
-      <p style="margin:0.5rem 0 1rem;">Drop me a message and I'll let you know when the first post is published.</p>
-      <a href="contact.html" class="btn-leslie">Get in touch <span class="arrow">→</span></a>
+    <div class="blog-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ai">AI Documentation</button>
+      <button class="filter-btn" data-filter="api">API Documentation</button>
+      <button class="filter-btn" data-filter="ux">UX Writing</button>
+      <button class="filter-btn" data-filter="seo">SEO &amp; Content</button>
+      <button class="filter-btn" data-filter="security">Security</button>
     </div>
 
+    <div class="blog-grid" id="blogGrid">
+
+      <a href="blog/explaining-ai.html" class="blog-card" data-category="ai">
+        <div class="blog-card-category">AI Documentation</div>
+        <h3>Explaining AI Clearly: A Technical Writer's Perspective</h3>
+        <p>AI systems are reshaping how we work and make decisions. The writers who can explain them accurately, honestly, 
+          and without condescension are doing the most important communication work of this decade.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">June 2025</span>
+          <span class="blog-card-read">14 min read →</span>
+        </div>
+      </a>
+
+      <a href="blog/model-card.html" class="blog-card" data-category="ai">
+        <div class="blog-card-category">AI Documentation</div>
+        <h3>Writing Model Cards That Matter</h3>
+        <p>Most model cards exist to satisfy a checklist, not to communicate. Here is how to write ones that engineers, product teams, and 
+          regulators can actually rely on and why most existing ones fail before anyone reads them.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">June 2025</span>
+          <span class="blog-card-read">8 min read →</span>
+        </div>
+      </a>
+
+      <a href="blog/2025-api-examples-developers-use.html" class="blog-card" data-category="api">
+        <div class="blog-card-category">API Documentation</div>
+        <h3>API Examples Developers Actually Use</h3>
+        <p>Most API examples look complete on the page and fall apart the moment a developer runs them. Here is what separates examples that work from ones that 
+          create debugging sessions nobody asked for.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">March 2025</span>
+          <span class="blog-card-read">10 min read →</span>
+        </div>
+      </a>
+
+      <a href="blog/2025-api-quickstart-guide.html" class="blog-card" data-category="api">
+        <div class="blog-card-category">API Documentation</div>
+        <h3>How to Write an API Quickstart Guide</h3>
+        <p>A quickstart guide has one job: get a developer to their first successful API call in under five minutes. Most fail that test not 
+          because the API is complicated, but because the documentation makes the wrong assumptions about what developers need right now.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">January 2025</span>
+          <span class="blog-card-read">11 min read →</span>
+        </div>
+      </a>
+
+      <a href="blog/2025-microcopy-onboarding.html" class="blog-card" data-category="ux">
+        <div class="blog-card-category">UX Writing</div>
+        <h3>Microcopy That Improves Onboarding Completion</h3>
+        <p>Onboarding drop-off is one of the most studied problems in product design and one of the least honestly diagnosed. 
+          The words are almost never examined. Here is what happens when they are.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">March 2025</span>
+          <span class="blog-card-read">10 min read →</span>
+        </div>
+      </a>
+
+      <a href="blog/ux-writing-vs-copywriting.html" class="blog-card" data-category="ux">
+        <div class="blog-card-category">UX Writing</div>
+        <h3>UX Writing vs Copywriting What Is the Difference?</h3>
+        <p>Both disciplines use words to move people but toward completely different ends. Understanding the difference changes how you 
+          approach every writing task that lives at or near a product.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">January 2025</span>
+          <span class="blog-card-read">11 min read →</span>
+        </div>
+      </a>
+
+      <a href="blog/seo-writing-for-humans.html" class="blog-card" data-category="seo">
+        <div class="blog-card-category">SEO &amp; Content Strategy</div>
+        <h3>SEO Writing for Humans, Not Algorithms</h3>
+        <p>The content that ranks consistently well is almost never the content written to rank well. It is content written to be genuinely useful to a specific person with a specific question. Here is what that means in practice.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">February 2025</span>
+          <span class="blog-card-read">11 min read →</span>
+        </div>
+      </a>
+
+      <a href="blog/2025-what-is-2fa.html" class="blog-card" data-category="security">
+        <div class="blog-card-category">Security Documentation</div>
+        <h3>What Is Two-Factor Authentication And Why Does It Actually Matter?</h3>
+        <p>Most users who do not have 2FA enabled have not made a considered security decision. The setup process confused them, the benefit felt abstract, or the recovery scenario frightened them. The documentation failed them.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">November 2025</span>
+          <span class="blog-card-read">10 min read →</span>
+        </div>
+      </a>
+
+    </div>
   </main>
 
   <footer>
@@ -82,7 +147,18 @@
 <script>
   const toggle = document.querySelector('.nav-toggle');
   const menu   = document.querySelector('.nav-menu');
-  if (toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  if(toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const filter = this.dataset.filter;
+      document.querySelectorAll('.blog-card').forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+      });
+    });
+  });
 </script>
 </body>
 </html>
