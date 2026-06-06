@@ -1,69 +1,88 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Leslie Amadi</title>
-  <link rel="stylesheet" href="assets/styles.css">
+  <meta name="description" content="Thoughts on technical writing, AI communication, APIs, and documentation craft." />
+  <meta property="og:title" content="Blog | Leslie Amadi" />
+  <meta property="og:description" content="Thoughts on technical writing, AI communication, APIs, and documentation craft." />
+  <meta property="og:url" content="https://leslieamadi.github.io/lesliewrites.tech/blog.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-
 <body>
-  <div class="page-shell">
+<div class="page-shell">
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-      <div class="navbar-inner">
-        <a href="index.html" class="logo">
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
         <span class="logo-badge">LA</span>
-        <span class="logo-text">Leslie Amadi</span>
+        <span class="logo-text">Technical Writer<br>Leslie Amadi</span>
       </a>
-  
-        <nav class="nav-menu">
-          <a href="index.html">Home</a>
-          <a href="portfolio.html">Portfolio</a>
-          <a href="blog.html" class="active">Blog</a>
-          <a href="about.html">About</a>
-          <a href="learning.html">Learning</a>
-          <a href="contact.html" class="nav-cta">Let’s Talk</a>
-    <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
-        </nav>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="about.html">About</a>
+        <a href="learning.html">Learning</a>
+        <a href="contact.html" class="nav-cta">Let's Talk</a>
       </div>
-    </header>
+    </div>
+  </nav>
 
-    <!-- BLOG HEADER -->
-    <section class="hero-copy fade-in" style="margin-top:2rem;">
-      <h1>Blog</h1>
-      <p>Thoughts on technical writing, AI communication, APIs, and documentation craft.</p>
-    </section>
+  <main>
+    <h1 style="margin-bottom:0.5rem;">Blog</h1>
+    <p style="max-width:580px;margin-bottom:2.5rem;">
+      Thoughts on technical writing, AI communication, APIs, and documentation craft.
+    </p>
 
-    <!-- BLOG POSTS -->
-    <section class="strip fade-in">
+    <div class="strip">
 
-      <article class="strip-card">
+      <div class="strip-card">
+        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:#b48d74;margin-bottom:0.5rem;">AI Documentation</p>
         <div class="strip-title">Writing Model Cards That Matter</div>
-        <p>How to communicate model risks, intended use, limitations and evaluation.</p>
-        <a href="#" class="strip-link">Read →</a>
-      </article>
+        <p>How to communicate model risks, intended use, limitations, and evaluation in a way that engineers, product teams, and regulators can all rely on.</p>
+        <span class="chip" style="margin-top:0.5rem;display:inline-block;">Coming soon</span>
+      </div>
 
-      <article class="strip-card">
+      <div class="strip-card">
+        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:#b48d74;margin-bottom:0.5rem;">Communication &amp; Craft</p>
         <div class="strip-title">Humanising AI Documentation</div>
-        <p>Writing for clarity, warmth, and user understanding.</p>
-        <a href="#" class="strip-link">Read →</a>
-      </article>
+        <p>Writing for clarity, warmth, and user understanding — without sacrificing technical depth or accuracy.</p>
+        <span class="chip" style="margin-top:0.5rem;display:inline-block;">Coming soon</span>
+      </div>
 
-      <article class="strip-card">
+      <div class="strip-card">
+        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:#b48d74;margin-bottom:0.5rem;">Developer Experience</p>
         <div class="strip-title">API Docs: Beyond Reference Tables</div>
-        <p>Guides, workflows, and developer-centred narratives.</p>
-        <a href="#" class="strip-link">Read →</a>
-      </article>
+        <p>Guides, workflows, and developer-centred narratives that help engineers integrate confidently — not just look up endpoints.</p>
+        <span class="chip" style="margin-top:0.5rem;display:inline-block;">Coming soon</span>
+      </div>
 
-    </section>
+    </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2025 Leslie Amadi · <a href="mailto:pkirally44@gmail.com">hello@lesliewrites.tech</a></p>
-    </footer>
+    <div class="hero-copy" style="max-width:540px;margin-top:2.5rem;">
+      <h3>Want to know when articles go live?</h3>
+      <p style="margin:0.5rem 0 1rem;">Drop me a message and I'll let you know when the first post is published.</p>
+      <a href="contact.html" class="btn-leslie">Get in touch <span class="arrow">→</span></a>
+    </div>
 
-  </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
+  </footer>
+
+</div>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-menu');
+  if (toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+</script>
 </body>
 </html>

@@ -1,133 +1,168 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Leslie Amadi</title>
-  <link rel="stylesheet" href="assets/styles.css">
-
-  <!-- FONT AWESOME ICONS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="Get in touch with Leslie Amadi — Technical Writer specialising in AI, API, and developer documentation." />
+  <meta property="og:title" content="Let's Work Together | Leslie Amadi" />
+  <meta property="og:description" content="Clear, structured documentation for AI systems, developer platforms, and internal processes." />
+  <meta property="og:url" content="https://leslieamadi.github.io/lesliewrites.tech/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-
 <body>
 <div class="page-shell">
 
-  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="navbar-inner">
       <a href="index.html" class="logo">
         <span class="logo-badge">LA</span>
-        <span class="logo-text">Leslie Amadi</span>
+        <span class="logo-text">Technical Writer<br>Leslie Amadi</span>
       </a>
-
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
       <div class="nav-menu">
         <a href="index.html">Home</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
         <a href="learning.html">Learning</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="contact.html" class="active nav-cta">Let's Talk</a>
       </div>
     </div>
   </nav>
 
-  <!-- CONTACT HERO -->
-  <section class="contact-hero">
-    <h1>Let’s Work Together</h1>
-    <p class="subtitle">Clear, simplified & concise documentation for complex systems.</p>
-  </section>
+  <main>
 
-  <!-- CONTACT GRID -->
-  <main class="contact-grid">
-
-    <!-- LEFT INFO PANEL -->
-    <div class="contact-info">
-      <h2>Get In Touch</h2>
-      <p>
-        If you’re building AI systems, developer platforms, or internal processes and need documentation that is clear, structured,
-        and genuinely usable, I’d love to hear about your project.
-      </p>
-
-      <p>
-        I work with product, engineering, and operations teams to make complex systems understandable without oversimplifying
-        or losing technical depth.
-      </p>
-
-      <!-- SOCIAL / CONTACT PANEL -->
-      <div class="contact-social-panel">
-
-        <h3>Contact & Profiles</h3>
-
-        <div class="social-buttons">
-
-          <!-- EMAIL -->
-          <a href="mailto:angelalora16@gmail.com" class="social-btn email">
-            <i class="fa-solid fa-envelope"></i>
-            <span>Email Me</span>
-          </a>
-
-          <!-- LINKEDIN -->
-          <a href="https://www.linkedin.com/in/leslie-a-86ab251b3" target="_blank" class="social-btn linkedin">
-            <i class="fa-brands fa-linkedin"></i>
-            <span>LinkedIn</span>
-          </a>
-
-          <!-- INSTAGRAM -->
-          <a href="https://www.instagram.com/yourhandle" target="_blank" class="social-btn instagram">
-            <i class="fa-brands fa-instagram"></i>
-            <span>Instagram</span>
-          </a>
-
-          <!-- Phone -->
-          <a href="https://calendly.com/yourcalendlylink" target="_blank" class="social-btn calendly">
-            <i class="fa-regular fa-calendar"></i>
-            <span>Book a Call</span>
-          </a>
-
-          <!-- DOWNLOAD CV -->
-          <a href="assets/Leslie-Amadi-CV.pdf" class="social-btn download" download>
-            <i class="fa-solid fa-download"></i>
-            <span>Download CV</span>
-          </a>
-
-        </div>
-
-        <h3>I Can Help With</h3>
-        <ul>
-          <li>AI & machine learning documentation</li>
-          <li>API references & developer experience</li>
-          <li>System architecture & infrastructure docs</li>
-          <li>Process, workflow & operational documentation</li>
-          <li>Model cards, evaluation & responsible AI</li>
-          <li>UX & product writing</li>
-        </ul>
-      </div>
+    <div class="contact-hero">
+      <h1>Let's Work Together</h1>
+      <p class="subtitle">Clear, structured documentation for complex systems — AI, APIs, and beyond.</p>
     </div>
 
-    <!-- RIGHT FORM PANEL -->
-    <div class="contact-form-card">
-      <form action="https://formspree.io/f/xblqjdwa" method="post" class="contact-form">
-        <label>Your Name</label>
-        <input type="text" name="name" required>
+    <div class="contact-grid">
 
-        <label>Your Email</label>
-        <input type="email" name="email" required>
+      <!-- Left: info + social -->
+      <div class="contact-info contact-social-panel">
+        <h2>Get In Touch</h2>
+        <p>
+          If you're building AI systems, developer platforms, or internal processes and need
+          documentation that is clear, structured, and genuinely usable — I'd love to hear
+          about your project.
+        </p>
+        <p>
+          I work with product, engineering, and operations teams to make complex systems
+          understandable without losing technical depth.
+        </p>
 
-        <label>Your Message</label>
-        <textarea name="message" rows="6" required placeholder="Tell me a little about your project, team, or the kind of documentation you need."></textarea>
+        <h3 style="margin-top:1.5rem;margin-bottom:0.75rem;color:#c48a8f;">I Can Help With</h3>
+        <ul style="padding-left:1.2rem;color:#6a6764;line-height:2;">
+          <li>AI &amp; machine learning documentation</li>
+          <li>API references &amp; developer experience</li>
+          <li>System architecture &amp; infrastructure docs</li>
+          <li>Process, workflow &amp; operational documentation</li>
+          <li>Model cards, evaluation &amp; responsible AI</li>
+          <li>UX &amp; product writing</li>
+        </ul>
 
-        <button type="submit" class="btn-accent">Send Message</button>
-      </form>
+        <div class="social-buttons" style="margin-top:2rem;">
+          <a href="mailto:hello@lesliewrites.tech" class="social-btn email">✉ Email Me</a>
+          <a href="https://www.linkedin.com/in/leslie-a-86ab251b3" target="_blank" rel="noopener" class="social-btn linkedin">in LinkedIn</a>
+          <a href="assets/Leslie_Amadi_SeniorTechnicalWriter_v3.pdf" download class="social-btn download">↓ Download CV</a>
+          <!--
+            Uncomment when ready:
+            <a href="https://www.instagram.com/YOUR_HANDLE" target="_blank" class="social-btn instagram">Instagram</a>
+            <a href="https://calendly.com/YOUR_LINK" target="_blank" class="social-btn calendly">📅 Book a Call</a>
+          -->
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="contact-form-card">
+        <h2 style="color:#c48a8f;margin-bottom:1.25rem;">Send a Message</h2>
+
+        <!--
+          ACTIVATE THIS FORM:
+          1. Go to formspree.io — sign up free
+          2. Create a new form → copy your endpoint URL
+          3. Replace YOUR_FORMSPREE_ENDPOINT below with your real URL
+        -->
+        <form id="contact-form" class="contact-form"
+              action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT"
+              method="POST">
+
+          <input type="hidden" name="_replyto" value="hello@lesliewrites.tech" />
+          <input type="hidden" name="_subject" value="New message from lesliewrites.tech" />
+          <input type="text"   name="_gotcha"  style="display:none" />
+
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5"
+                    placeholder="Tell me about your project..." required></textarea>
+
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;border-radius:18px;">
+            Send Message →
+          </button>
+
+          <div class="form-msg success" id="msg-success">
+            ✅ Message sent — thank you! I'll be in touch within 1–2 business days.
+          </div>
+          <div class="form-msg error" id="msg-error">
+            Something went wrong. Please email me at
+            <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a>
+          </div>
+        </form>
+      </div>
+
     </div>
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Leslie Amadi</p>
+    <p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
   </footer>
 
 </div>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-menu');
+  if (toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+
+  const form       = document.getElementById('contact-form');
+  const successMsg = document.getElementById('msg-success');
+  const errorMsg   = document.getElementById('msg-error');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const btn = form.querySelector('[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        successMsg.style.display = 'block';
+        errorMsg.style.display   = 'none';
+        btn.textContent = 'Sent ✓';
+      } else { throw new Error(); }
+    } catch {
+      errorMsg.style.display   = 'block';
+      successMsg.style.display = 'none';
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    }
+  });
+</script>
 </body>
 </html>
