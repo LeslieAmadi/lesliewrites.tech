@@ -83,6 +83,12 @@ img {
   display: block;
 }
 
+.about-photo {
+  border-radius: 20px !important;
+  object-fit: cover;
+  object-position: top;
+}
+
 /* ── 6. Layout shells ────────────────────────────────────── */
 .container {
   width: 90%;
@@ -550,7 +556,7 @@ a:hover { opacity: 0.8; }
 
 /* ── 13. Portfolio ───────────────────────────────────────── */
 .portfolio-banner { margin-bottom: 2rem; }
-.portfolio-banner h1 { color: #c48a8f; }
+.portfolio-banner h1 { color: #593236; }
 
 .portfolio-wrapper {
   display: grid;
