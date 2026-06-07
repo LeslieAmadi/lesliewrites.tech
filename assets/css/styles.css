@@ -1,8 +1,4 @@
-/* ============================================================
-   styles.css — Leslie Amadi · lesliewrites.tech
-   Single master stylesheet — all pages, all components
-   Merged & deduplicated — June 2025
-   ============================================================ */
+
 
 /* ── 1. Google Fonts ─────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -286,7 +282,7 @@ code {
 }
 
 .btn-accent {
-  background: #3a3734;
+  background: #171512;
   color: #fff;
   box-shadow: var(--shadow-soft);
 }
@@ -440,9 +436,25 @@ code {
   gap: 1rem;
 }
 
-.hero-panel-header       { display: flex; justify-content: space-between; align-items: center; }
-.hero-panel-breadcrumb   { font-size: 0.75rem; color: var(--text-secondary); opacity: 0.9; }
-.hero-panel-avatar       { width: 30px; height: 30px; background: #f7e7dd; border-radius: 50%; border: 1px solid rgba(0,0,0,0.05); }
+.hero-panel-header       
+{ display: flex; justify-content:
+  space-between; 
+  align-items: center; 
+}
+
+.hero-panel-breadcrumb   
+{ font-size: 0.75rem; 
+  color: var(--text-secondary); 
+  opacity: 0.9; 
+}
+
+.hero-panel-avatar       
+{ width: 30px; 
+  height: 30px; 
+  background: #f7e7dd; 
+  border-radius: 50%; 
+  border: 1px solid rgba(0,0,0,0.05); 
+}
 
 .hero-panel-search-shell {
   background: #f6f2ee;
@@ -506,7 +518,10 @@ code {
   color: var(--text-secondary);
   transition: 0.25s ease;
 }
-.strip-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.strip-card:hover 
+{ transform: translateY(-3px); 
+  box-shadow: var(--shadow-md); 
+}
 
 .strip-title {
   font-size: 0.9rem;
@@ -526,11 +541,28 @@ code {
 }
 
 /* ── 14. Portfolio ───────────────────────────────────────── */
-.portfolio-banner         { margin-bottom: 2rem; }
-.portfolio-banner h1      { color: #c48a8f; }
-.portfolio-wrapper        { display: grid; grid-template-columns: 260px 1fr; gap: 2.5rem; margin-top: 2.5rem; }
-.breadcrumbs              { font-size: 0.85rem; margin-bottom: 1.2rem; color: #5a4648; }
-.breadcrumbs span         { opacity: 0.6; }
+.portfolio-banner { 
+  margin-bottom: 2rem; 
+}
+.portfolio-banner h1 {
+   color: #723f43; 
+  }
+.portfolio-wrapper {
+   display: grid; 
+   grid-template-columns: 260px 1fr; 
+   gap: 2.5rem; 
+   margin-top: 2.5rem; 
+  }
+
+.breadcrumbs { 
+  font-size: 0.85rem; 
+  margin-bottom: 1.2rem; 
+  color: #5a4648; 
+}
+
+.breadcrumbs span { 
+  opacity: 0.6; 
+}
 
 #docSearch {
   width: 100%;

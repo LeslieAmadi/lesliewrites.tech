@@ -49,7 +49,7 @@
     <p class="article-standfirst">
       AI systems are reshaping how we work, make decisions, and understand the world. The writers who can explain them clearly 
       accurately, honestly, and without condescension are doing some of the most important communication work of this decade. 
-      Most are not doing it well enough. Here is how to do it better.
+      If I am to contribute my two cents, here is how I'd like to communicate it.
     </p>
 
     <hr class="article-divider" />
@@ -58,7 +58,7 @@
 
       <p>
         I want to start with something that might sound counterintuitive: the problem with most AI writing is not that it is too technical. 
-        It is that it is not honest enough.
+        It is that it's main strength and weakness can get lost in communication.
       </p>
 
       <p>
@@ -155,7 +155,9 @@
       </div>
 
       <p>
-        Each of these requires different language, different analogies, different caveats, and different honesty about limitations. Writing about a decision tree as if it were a neural network, or describing a language model as if it "knows" things in the way a database knows facts, produces fundamental misunderstanding that no amount of clear prose can compensate for.
+        Each of these requires different language, different analogies, different caveats, and different honesty about limitations. 
+        Writing about a decision tree as if it were a neural network, or describing a language model as if it "knows" things in the way a database knows facts,
+         produces fundamental misunderstanding that no amount of clear prose can compensate for.
       </p>
 
       <h2>Step 2 Start with consequences, not components</h2>
@@ -168,7 +170,8 @@
       </p>
 
       <p>
-        This is not the same as burying the technical detail. The technical detail matters and it belongs in the documentation. But the structural question is what comes first, what establishes the frame through which everything else is understood.
+        This is not the same as burying the technical detail. The technical detail matters and it belongs in the documentation. But the structural question is what comes first, 
+        what establishes the frame through which everything else is understood.
       </p>
 
       <div class="compare-grid">
@@ -235,7 +238,8 @@
       <p>
         Most AI writing avoids this language because it feels like it undermines confidence in the technology. In practice, the opposite is true. 
         Readers who understand that an AI system produces a confidence score of 0.73 for a given prediction, and who understand what that means, 
-        are better positioned to use that output appropriately than readers who have been told the system "identifies" or "detects" something — language that implies a certainty the system does not actually have.
+        are better positioned to use that output appropriately than readers who have been told the system "identifies" or "detects" something 
+        language that implies a certainty the system does not actually have.
       </p>
 
       <p>
@@ -271,17 +275,19 @@
       <h2>Step 5 Document what the system gets wrong</h2>
 
       <p>
-        This is the section that most AI documentation either omits or buries in a footnote. It is also the most important section for any reader who is going to use the system in a real-world context.
+        This is the section that most AI documentation either omits or buries in a footnote. It is also the most important section for any reader who is going to 
+        use the system in a real-world context.
       </p>
 
       <p>
-        Every AI system has failure modes. Every model trained on real-world data inherits the biases and gaps in that data. Every system performs differently across different demographic groups, 
-        languages, geographic regions, lighting conditions, input formats, and edge cases. The question is not whether your system has these characteristics it does. The question is whether you document them.
+        Every AI system has failure modes. Every model trained on real-world data inherits the biases and gaps in that data. Every system performs differently across 
+        different demographic groups, languages, geographic regions, lighting conditions, input formats, and edge cases. The question is not whether your system has these characteristics it does. 
+        The question is whether you document them.
       </p>
 
       <p>
-        Documentation that describes only the successes of a system is not honest documentation. It is marketing copy with a different typeface. And it causes real harm because readers who are not warned 
-        about failure modes will discover them in deployment, at a cost they could not have anticipated.
+        Documentation that describes only the successes of a system is not honest documentation. It is marketing copy with a different typeface. And it causes real 
+        harm because readers who are not warned about failure modes will discover them in deployment, at a cost they could not have anticipated.
       </p>
 
       <div class="callout">
@@ -308,15 +314,15 @@
       <div class="example-box">
         <span class="ex-label">Example: Explaining transformer attention three layers</span>
         <p>
-          <strong>Layer 1 — Plain language (no assumptions):</strong><br>
+          <strong>Layer 1. Plain language (no assumptions):</strong><br>
           "When processing a sentence, this model considers every word in relation to every other word not just the words immediately adjacent to it. 
           This helps it understand that 'bank' in 'river bank' means something different from 'bank' in 'savings bank.'"<br><br>
 
-          <strong>Layer 2 — Conceptual (assumes basic familiarity):</strong><br>
+          <strong>Layer 2. Conceptual (assumes basic familiarity):</strong><br>
           "The attention mechanism assigns a weight to each word in the input sequence relative to every other word. These weights determine how much influence 
           each word has on the model's interpretation of each other word. The weights are learned during training and vary by context."<br><br>
 
-          <strong>Layer 3 — Technical (for practitioners):</strong><br>
+          <strong>Layer 3. Technical (for practitioners):</strong><br>
           "Multi-head self-attention computes attention weights as softmax(QK<sup>T</sup>/√d<sub>k</sub>)V, where Q, K, and V are learned projections of the input. 
           Multiple attention heads allow the model to attend to different aspects of the input simultaneously, with outputs concatenated and linearly projected."
         </p>
@@ -327,11 +333,11 @@
         three can get there without finding the journey condescending.
       </p>
 
-      <h2>Step 7 — Write about AI governance and responsible use</h2>
+      <h2>Step 7. Write about AI governance and responsible use</h2>
 
       <p>
         In 2025, no piece of AI documentation is complete without addressing the governance context in which the system operates. This is not optional 
-        it is now a regulatory and ethical expectation in many jurisdictions, and an increasingly significant factor in procurement decisions across industries.
+        it is now a regulatory and ethical expectation in many jurisdictions, especially in Europe, and an increasingly significant factor in procurement decisions across industries.
       </p>
 
       <p>
@@ -432,7 +438,9 @@
       </p>
 
       <p>
-        <strong>Regulatory pressure</strong> is increasing globally. The EU AI Act is the most comprehensive framework currently in force, but similar legislation is advancing in the UK, US, Canada, and across Asia-Pacific. Each framework creates documentation requirements — and penalties for non-compliance — that make good AI documentation a legal necessity rather than an optional best practice.
+        <strong>Regulatory pressure</strong> is increasing globally. The EU AI Act is the most comprehensive framework currently in force, but similar legislation is 
+        advancing in the UK, US, Canada, and across Asia-Pacific. Each framework creates documentation requirements and penalties for non-compliance that make good AI 
+        documentation a legal necessity rather than an optional best practice.
       </p>
 
       <p>
