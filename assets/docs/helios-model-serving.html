@@ -1,422 +1,698 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Helios Model Serving Infrastructure | Project — Leslie Amadi</title>
-
-  <!-- Global theme -->
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Helios Model Serving Infrastructure — Portfolio Case Study | Leslie Amadi</title>
+  <meta name="description" content="Senior Technical Writer portfolio case study: production model-serving platform documentation. Architecture, autoscaling, SLOs, incident playbooks, and model versioning for multiple ML teams."/>
+  <meta property="og:title" content="Helios Model Serving | Leslie Amadi — Senior Technical Writer"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png"/>
+  <link rel="stylesheet" href="../../assets/css/styles.css"/>
 </head>
-
 <body>
-<div class="doc-shell">
+<div class="page-shell">
 
-  <!-- BREADCRUMB -->
-  <nav class="breadcrumb">
-    <a href="portfolio.html" class="btn">Back to Portfolio</a>
-    <span> / LexiMind</span>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../../index.html" class="logo">
+        <span class="logo-badge">LA</span>
+        <span class="logo-text">Technical Writer<br>Leslie Amadi</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="nav-menu">
+        <a href="../../index.html">Home</a>
+        <a href="../../portfolio.html" class="active">Portfolio</a>
+        <a href="../../blog.html">Blog</a>
+        <a href="../../about.html">About</a>
+        <a href="../../learning.html">Learning</a>
+        <a href="../../contact.html" class="nav-cta">Let's Talk</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- HEADER -->
-  <header class="doc-header">
-    <h1>Helios Model Serving Infrastructure</h1>
-    <nav class="docs-toc docs-toc-dropdown">
-      <details open>
-        <summary>On this page</summary>
-        <ol>
-          <li><a href="#1-platform-overview">1. Platform Overview</a></li>
-          <li><a href="#2-high-level-architecture">2. High-Level Architecture</a></li>
-          <li><a href="#3-serving-modes-real-life-usage">3. Serving Modes &amp; Real-Life Usage</a></li>
-          <li><a href="#4-model-registry-versions-lifecycle">4. Model Registry, Versions &amp; Lifecycle</a></li>
-          <li><a href="#5-request-flow-routing-logic">5. Request Flow &amp; Routing Logic</a></li>
-          <li><a href="#6-autoscaling-capacity-planning">6. Autoscaling &amp; Capacity Planning</a></li>
-          <li><a href="#7-caching-warmup-latency-optimisation">7. Caching, Warmup &amp; Latency Optimisation</a></li>
-          <li><a href="#8-observability-slos">8. Observability &amp; SLOs</a></li>
-          <li><a href="#9-failure-modes-incident-response">9. Failure Modes &amp; Incident Response</a></li>
-          <li><a href="#10-security-multi-tenant-isolation">10. Security &amp; Multi-Tenant Isolation</a></li>
-          <li><a href="#11-integration-checklist-for-model-teams">11. Integration Checklist for Model Teams</a></li>
+  <div class="hl-shell">
+
+    <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+    <main class="hl-content">
+
+      <div class="doc-breadcrumb" style="margin-bottom:1.25rem;">
+        <a href="../../portfolio.html">Portfolio</a><span>›</span>
+        <span>MLOps Documentation</span><span>›</span>
+        <span>Helios Model Serving</span>
+      </div>
+
+      <!-- HERO -->
+      <div class="hl-hero">
+        <span class="hl-hero-eyebrow">⚙️ Case Study · MLOps · Model Serving · Platform Documentation</span>
+        <h1>Helios <span>Model Serving</span></h1>
+        <p class="hl-hero-desc">
+          Production-grade model serving platform for real-time and batch inference at scale.
+          I documented the full system — architecture, autoscaling, deployment strategy, SLOs,
+          caching, observability, safety rails, incident playbooks, and model versioning — for
+          multiple ML teams sharing one platform.
+        </p>
+        <div class="hl-hero-tags">
+          <span class="hl-hero-tag">Real-time inference</span>
+          <span class="hl-hero-tag">Batch &amp; async</span>
+          <span class="hl-hero-tag">Autoscaling</span>
+          <span class="hl-hero-tag">Canary &amp; shadow</span>
+          <span class="hl-hero-tag">Multi-tenant</span>
+          <span class="hl-hero-tag">Observability</span>
+        </div>
+      </div>
+
+      <!-- DOC CONTROL -->
+      <div class="hl-control">
+        <table class="hl-ctrl-table">
+          <tbody>
+            <tr><td class="hl-ctrl-label">Industry</td><td>Machine Learning Operations (MLOps) — Platform Infrastructure</td></tr>
+            <tr><td class="hl-ctrl-label">Project</td><td>Helios — multi-tenant model serving platform for real-time and batch inference</td></tr>
+            <tr><td class="hl-ctrl-label">My role</td><td>Senior Technical Writer — platform architecture documentation, runbooks, integration guides, SLO definitions, incident playbooks</td></tr>
+            <tr><td class="hl-ctrl-label">Primary audience</td><td>ML Engineers · Platform/SRE Teams · Product Teams · Risk &amp; Analytics Teams</td></tr>
+            <tr><td class="hl-ctrl-label">Documentation type</td><td>Architecture Guide · Runbook · Integration Guide · SLO Reference · Incident Playbook</td></tr>
+            <tr><td class="hl-ctrl-label">Tools used</td><td>Confluence · Draw.io · Prometheus · Grafana · OpenTelemetry · Kubernetes · Markdown</td></tr>
+            <tr><td class="hl-ctrl-label">Last reviewed</td><td>June 2025 — validated against platform staging environment</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── CONTEXT ── -->
+      <section class="hl-section" id="context">
+        <div class="hl-section-heading"><div class="hl-section-icon blue">💡</div><h2>The business problem</h2></div>
+        <p>
+          A marketing campaign goes live at 9 a.m. Within ten minutes, traffic to the recommendation
+          model doubles. Latency climbs from 180&nbsp;ms to 2&nbsp;seconds. User-facing features that depend
+          on the model start timing out. The on-call engineer is paged — but there is no runbook, no
+          documented scaling behaviour, and no clear answer to a simple question: <em>is this the platform
+          failing, or the model, or the integration?</em>
+        </p>
+        <p>
+          Helios was built so that question never has to be asked in a panic. It is a shared model-serving
+          platform hosting many teams' models in production — real-time APIs, overnight batch jobs, and
+          scheduled inference. But a platform shared by many teams only works if every team understands
+          how it behaves under load, how it fails, and how to operate it safely. That understanding is
+          documentation. That was my job.
+        </p>
+        <div class="hl-callout blue">
+          <strong>The documentation goal</strong>
+          <p>
+            Produce documentation that lets any ML team deploy a model to Helios, understand exactly how
+            it will behave under real traffic, monitor it against clear SLOs, and follow a tested runbook
+            when something goes wrong — without needing a platform engineer on the call. The platform is
+            multi-tenant; the documentation had to serve teams who had never spoken to each other.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── MY CONTRIBUTION ── -->
+      <section class="hl-section" id="contribution">
+        <div class="hl-section-heading"><div class="hl-section-icon purple">✍️</div><h2>My contribution</h2></div>
+        <p>I owned the full documentation set for the platform, spanning six areas:</p>
+        <div class="hl-contrib-grid">
+          <div class="hl-contrib-card"><div class="hl-contrib-icon">🏗️</div><h3>Architecture Documentation</h3><p>Documented the control plane / data plane separation, request routing, and how the components scale independently under load.</p></div>
+          <div class="hl-contrib-card"><div class="hl-contrib-icon">📈</div><h3>SLO Definitions</h3><p>Defined and documented service-level objectives for latency, availability, and error rate — with the reasoning behind each target.</p></div>
+          <div class="hl-contrib-card"><div class="hl-contrib-icon">🚀</div><h3>Deployment &amp; Promotion</h3><p>Wrote the model promotion workflow — registry, staging, shadow, canary, full rollout — with rollback procedures at every stage.</p></div>
+          <div class="hl-contrib-card"><div class="hl-contrib-icon">🔧</div><h3>Incident Runbooks</h3><p>Created step-by-step playbooks for the four most common failure modes, tested with the SRE team before publishing.</p></div>
+          <div class="hl-contrib-card"><div class="hl-contrib-icon">📊</div><h3>Observability Guide</h3><p>Documented the metrics, logging, and tracing every team must instrument — and the alert thresholds that catch problems early.</p></div>
+          <div class="hl-contrib-card"><div class="hl-contrib-icon">🔐</div><h3>Multi-tenant Governance</h3><p>Defined the isolation model — per-tenant quotas, API keys, namespace separation — so teams could share infrastructure safely.</p></div>
+        </div>
+      </section>
+
+      <!-- ── DELIVERABLES ── -->
+      <section class="hl-section" id="deliverables">
+        <div class="hl-section-heading"><div class="hl-section-icon slate">📦</div><h2>Documentation deliverables</h2></div>
+        <table class="hl-table">
+          <thead><tr><th>Deliverable</th><th>Primary audience</th><th>Purpose</th><th>Format</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Platform architecture guide</strong></td><td>ML Engineers, Platform/SRE</td><td>Control plane vs data plane, request flow, scaling behaviour</td><td>Confluence + diagrams</td></tr>
+            <tr><td><strong>Serving modes reference</strong></td><td>ML Engineers, Product</td><td>When to use online, batch, or shadow serving</td><td>Confluence</td></tr>
+            <tr><td><strong>Model promotion workflow</strong></td><td>ML Engineers</td><td>Registry → staging → canary → production, with rollback</td><td>Confluence + diagram</td></tr>
+            <tr><td><strong>SLO reference</strong></td><td>Platform/SRE, Product</td><td>Latency, availability, error-rate targets and rationale</td><td>Confluence</td></tr>
+            <tr><td><strong>Observability guide</strong></td><td>ML Engineers, SRE</td><td>Metrics, logging, tracing, and alert thresholds</td><td>Confluence + Grafana</td></tr>
+            <tr><td><strong>Incident playbooks</strong></td><td>On-call SRE, ML Engineers</td><td>Step-by-step response for the four common failure modes</td><td>Confluence runbooks</td></tr>
+            <tr><td><strong>Integration checklist</strong></td><td>ML Engineers</td><td>Pre-deployment readiness verification</td><td>Confluence</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── ARCHITECTURE ── -->
+      <section class="hl-section" id="architecture">
+        <div class="hl-section-heading"><div class="hl-section-icon blue">🏗️</div><h2>System architecture</h2></div>
+        <p>
+          Helios separates the <strong>control plane</strong> (configuration, model registry, deployments,
+          canary control) from the <strong>data plane</strong> (the actual inference traffic). This separation
+          is the single most important architectural fact for any team using the platform: changes to
+          configuration never directly touch live traffic, and traffic spikes never destabilise the registry.
+        </p>
+
+        <div class="hl-pipeline">
+          <div class="hl-pipe-step"><div class="hl-pipe-num">1</div><div><div class="hl-pipe-title">Request enters via API Gateway</div><p class="hl-pipe-desc">Authentication, rate limiting, schema validation at the edge</p></div></div>
+          <div class="hl-pipe-step"><div class="hl-pipe-connector"><div class="hl-pipe-line"></div></div><div></div></div>
+          <div class="hl-pipe-step"><div class="hl-pipe-num">2</div><div><div class="hl-pipe-title">Router selects model version</div><p class="hl-pipe-desc">By model ID + version pin, traffic-split rules, region, and pod health</p></div></div>
+          <div class="hl-pipe-step"><div class="hl-pipe-connector"><div class="hl-pipe-line"></div></div><div></div></div>
+          <div class="hl-pipe-step"><div class="hl-pipe-num">3</div><div><div class="hl-pipe-title">Inference pod serves the request</div><p class="hl-pipe-desc">GPU or CPU pod, warmed into memory before being marked Ready</p></div></div>
+          <div class="hl-pipe-step"><div class="hl-pipe-connector"><div class="hl-pipe-line"></div></div><div></div></div>
+          <div class="hl-pipe-step"><div class="hl-pipe-num">4</div><div><div class="hl-pipe-title">Logging &amp; metrics captured</div><p class="hl-pipe-desc">trace_id and model_version logged; latency and error metrics exported</p></div></div>
+          <div class="hl-pipe-step"><div class="hl-pipe-connector"><div class="hl-pipe-line"></div></div><div></div></div>
+          <div class="hl-pipe-step"><div class="hl-pipe-num">5</div><div><div class="hl-pipe-title">Response returned to client</div><p class="hl-pipe-desc">Unhealthy pods are automatically removed from rotation to avoid cascading failure</p></div></div>
+        </div>
+
+        <div class="hl-callout blue">
+          <strong>Why the two-plane split matters to you</strong>
+          <p>
+            When you deploy a model, you interact with the control plane — registering versions, setting
+            traffic splits, configuring canaries. Live user traffic flows through the data plane. A
+            misconfigured deployment is caught in the control plane before it ever sees real traffic.
+            This is the platform's core safety property.
+          </p>
+        </div>
+
+        <!--
+          ════════════════════════════════════════════════════
+          DIAGRAM 1 — PLATFORM ARCHITECTURE
+          Wrapped in .hl-diagram. SVG uses width="100%" +
+          viewBox so it scales; xmlns is required inline.
+          Colour classes (c-blue, c-teal, etc.) come from the
+          central stylesheet — never styled inline here.
+          ════════════════════════════════════════════════════
+        -->
+        <div class="hl-diagram">
+          <svg width="100%" viewBox="0 0 680 560" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>Helios platform architecture — data plane and control plane</title>
+            <defs><marker id="hlarr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <text class="ts" x="150" y="32" text-anchor="middle" fill="#94a3b8">Data plane</text>
+            <text class="ts" x="540" y="32" text-anchor="middle" fill="#94a3b8">Control plane</text>
+            <g class="c-gray"><rect x="60" y="44" width="180" height="44" rx="8" stroke-width="0.5"/><text class="th" x="150" y="66" text-anchor="middle" dominant-baseline="central">Client</text></g>
+            <line x1="150" y1="88" x2="150" y2="112" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr1)"/>
+            <g class="c-blue"><rect x="60" y="112" width="180" height="56" rx="8" stroke-width="0.5"/><text class="th" x="150" y="130" text-anchor="middle" dominant-baseline="central">API gateway</text><text class="ts" x="150" y="150" text-anchor="middle" dominant-baseline="central">Auth, rate limit, validate</text></g>
+            <line x1="150" y1="168" x2="150" y2="192" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr1)"/>
+            <g class="c-blue"><rect x="60" y="192" width="180" height="56" rx="8" stroke-width="0.5"/><text class="th" x="150" y="210" text-anchor="middle" dominant-baseline="central">Router</text><text class="ts" x="150" y="230" text-anchor="middle" dominant-baseline="central">Weighted, health-based</text></g>
+            <line x1="150" y1="248" x2="150" y2="282" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr1)"/>
+            <g class="c-teal"><rect x="40" y="282" width="220" height="120" rx="14" stroke-width="0.5"/><text class="th" x="150" y="300" text-anchor="middle">Inference pods</text></g>
+            <g class="c-teal"><rect x="58" y="318" width="84" height="34" rx="6" stroke-width="0.5"/><text class="ts" x="100" y="335" text-anchor="middle" dominant-baseline="central">v2.3 90%</text></g>
+            <g class="c-amber"><rect x="158" y="318" width="84" height="34" rx="6" stroke-width="0.5"/><text class="ts" x="200" y="335" text-anchor="middle" dominant-baseline="central">v3.0 canary</text></g>
+            <g class="c-teal"><rect x="58" y="360" width="184" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="150" y="375" text-anchor="middle" dominant-baseline="central">GPU / CPU · autoscaled</text></g>
+            <line x1="150" y1="402" x2="150" y2="426" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr1)"/>
+            <g class="c-purple"><rect x="40" y="426" width="220" height="96" rx="14" stroke-width="0.5"/><text class="th" x="150" y="444" text-anchor="middle">Observability stack</text></g>
+            <g class="c-purple"><rect x="58" y="460" width="60" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="88" y="475" text-anchor="middle" dominant-baseline="central">Metrics</text></g>
+            <g class="c-purple"><rect x="122" y="460" width="58" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="151" y="475" text-anchor="middle" dominant-baseline="central">Logs</text></g>
+            <g class="c-purple"><rect x="184" y="460" width="58" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="213" y="475" text-anchor="middle" dominant-baseline="central">Traces</text></g>
+            <g class="c-purple"><rect x="58" y="496" width="184" height="20" rx="5" stroke-width="0.5"/><text class="ts" x="150" y="506" text-anchor="middle" dominant-baseline="central">Prometheus · Grafana · OTel</text></g>
+            <g class="c-gray"><rect x="420" y="44" width="220" height="180" rx="14" stroke-width="0.5"/><text class="th" x="530" y="64" text-anchor="middle">Control plane</text></g>
+            <g class="c-green"><rect x="440" y="84" width="180" height="40" rx="6" stroke-width="0.5"/><text class="th" x="530" y="98" text-anchor="middle" dominant-baseline="central">Model registry</text><text class="ts" x="530" y="114" text-anchor="middle" dominant-baseline="central">Versions, schemas, owners</text></g>
+            <g class="c-green"><rect x="440" y="132" width="180" height="40" rx="6" stroke-width="0.5"/><text class="th" x="530" y="146" text-anchor="middle" dominant-baseline="central">Deployment manager</text><text class="ts" x="530" y="162" text-anchor="middle" dominant-baseline="central">Staging, rollout, rollback</text></g>
+            <g class="c-green"><rect x="440" y="180" width="180" height="34" rx="6" stroke-width="0.5"/><text class="th" x="530" y="197" text-anchor="middle" dominant-baseline="central">Canary controller</text></g>
+            <line x1="420" y1="200" x2="262" y2="320" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#hlarr1)"/>
+            <text class="ts" x="350" y="250" text-anchor="middle" fill="#94a3b8">configures</text>
+          </svg>
+          <p class="hl-diagram-caption">Diagram 1 of 3 — Platform architecture. The control plane (right) manages the registry, deployments, and canary control; the data plane (left) carries live inference traffic. A misconfigured deployment is caught in the control plane before it reaches a single real request.</p>
+        </div>
+
+        <h3>How routing actually works</h3>
+        <p>
+          "The router selects a model version" is the summary; here is the mechanism. The router makes
+          its decision on four inputs, evaluated in order:
+        </p>
+        <table class="hl-table">
+          <thead><tr><th>Routing input</th><th>Mechanism</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Version pin</strong></td><td>Explicit model ID + version requested by the caller, if any</td><td><code>FraudModel@2.3</code></td></tr>
+            <tr><td><strong>Weighted traffic split</strong></td><td>Percentage allocation across versions, set in the control plane</td><td>90% v2.3, 10% v3.0-canary</td></tr>
+            <tr><td><strong>Region / tenant affinity</strong></td><td>Requests pinned to the nearest healthy region; tenant isolation respected</td><td>eu-west caller → eu-west pods</td></tr>
+            <tr><td><strong>Pod health</strong></td><td>Unhealthy pods are removed from rotation automatically; traffic shifts to healthy replicas</td><td>Failing pod drained, not served</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Regional failover is automatic: if an entire region's pods are unhealthy, the router fails over
+          to the next nearest region rather than returning errors. This is the behaviour that prevents a
+          single-zone incident from becoming a platform-wide outage.
+        </p>
+      </section>
+
+      <!-- ── SERVING MODES ── -->
+      <section class="hl-section" id="serving-modes">
+        <div class="hl-section-heading"><div class="hl-section-icon teal">🔀</div><h2>Serving modes</h2></div>
+        <p>Helios offers three serving modes. Choosing the right one is the first decision any team makes.</p>
+        <div class="hl-mode-grid">
+          <div class="hl-mode-card online">
+            <div class="hl-mode-label">Online / real-time</div>
+            <div class="hl-mode-title">Latency-sensitive</div>
+            <p>Personalised recommendations, fraud checks, in-product risk alerts. P95 under 250&nbsp;ms. Steady baseline with spikes. Strict SLOs and graceful degradation if dependencies fail.</p>
+          </div>
+          <div class="hl-mode-card batch">
+            <div class="hl-mode-label">Batch / async</div>
+            <div class="hl-mode-title">High volume</div>
+            <p>Nightly credit-risk scoring for millions of accounts, weekly churn predictions, backfills after schema changes. Queue-based, tolerant of retries, backpressure, and longer runtimes.</p>
+          </div>
+          <div class="hl-mode-card shadow">
+            <div class="hl-mode-label">Shadow / replay</div>
+            <div class="hl-mode-title">Validation</div>
+            <p>Duplicates live requests to a candidate model without affecting user-visible behaviour. Real-world load testing, side-by-side comparison, edge-case validation before promotion.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MODEL PROMOTION ── -->
+      <section class="hl-section" id="promotion">
+        <div class="hl-section-heading"><div class="hl-section-icon green">🚀</div><h2>Model registry &amp; promotion workflow</h2></div>
+        <p>
+          Every model deployed through Helios must be registered in a central registry tracking its ID,
+          version, artifact URI, input/output schema, owner, and status. The registry controls which
+          version receives live traffic and who is allowed to roll back during an incident.
+        </p>
+
+        <h3>Promotion workflow</h3>
+        <ol class="hl-numbered">
+          <li><strong>Register</strong> the model with metadata and linked evaluation results.</li>
+          <li><strong>Deploy to staging</strong> for integration tests.</li>
+          <li><strong>Shadow or canary</strong> in production — typically 5–10% of traffic.</li>
+          <li><strong>Track dashboards</strong> — latency, error rate, and business KPIs side by side.</li>
+          <li><strong>Shift to 100%</strong> after sign-off.</li>
+          <li><strong>Keep the old version as hot standby</strong> for fast rollback.</li>
         </ol>
-      </details>
-    </nav>
-    <section class="doc-meta-grid">
-      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Overview</h3>
-          <p>This document describes <strong>Helios Model Serving Infrastructure | Project — Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
+
+        <div class="hl-callout amber">
+          <strong>⚠ The hot-standby rule</strong>
+          <p>
+            The previous production version is never decommissioned immediately. It is kept warm and ready
+            so that a rollback during an incident takes seconds, not minutes. This is the difference between
+            a 30-second blip and a 30-minute outage. Document which version is the current standby in every
+            deployment record.
+          </p>
         </div>
-        <div class="doc-meta-item">
-          <h3>My Role</h3>
-          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+
+        <div class="hl-diagram">
+          <svg width="100%" viewBox="0 0 680 470" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>Helios model promotion and rollback flow</title>
+            <defs><marker id="hlarr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <g class="c-gray"><rect x="250" y="30" width="180" height="44" rx="8" stroke-width="0.5"/><text class="th" x="340" y="52" text-anchor="middle" dominant-baseline="central">Register model</text></g>
+            <line x1="340" y1="74" x2="340" y2="98" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr2)"/>
+            <g class="c-blue"><rect x="250" y="98" width="180" height="44" rx="8" stroke-width="0.5"/><text class="th" x="340" y="120" text-anchor="middle" dominant-baseline="central">Deploy to staging</text></g>
+            <line x1="340" y1="142" x2="340" y2="166" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr2)"/>
+            <g class="c-amber"><rect x="250" y="166" width="180" height="56" rx="8" stroke-width="0.5"/><text class="th" x="340" y="184" text-anchor="middle" dominant-baseline="central">Canary 5–10%</text><text class="ts" x="340" y="204" text-anchor="middle" dominant-baseline="central">Shadow or live split</text></g>
+            <line x1="340" y1="222" x2="340" y2="246" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr2)"/>
+            <g class="c-purple"><rect x="250" y="246" width="180" height="56" rx="8" stroke-width="0.5"/><text class="th" x="340" y="264" text-anchor="middle" dominant-baseline="central">Check metrics</text><text class="ts" x="340" y="284" text-anchor="middle" dominant-baseline="central">Latency, error, KPI</text></g>
+            <line x1="430" y1="274" x2="510" y2="274" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr2)"/>
+            <text class="ts" x="470" y="264" text-anchor="middle" fill="#94a3b8">healthy</text>
+            <g class="c-green"><rect x="510" y="246" width="150" height="56" rx="8" stroke-width="0.5"/><text class="th" x="585" y="264" text-anchor="middle" dominant-baseline="central">Roll out 100%</text><text class="ts" x="585" y="284" text-anchor="middle" dominant-baseline="central">Old = hot standby</text></g>
+            <line x1="250" y1="274" x2="170" y2="274" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr2)"/>
+            <text class="ts" x="210" y="264" text-anchor="middle" fill="#94a3b8">degraded</text>
+            <g class="c-red"><rect x="20" y="246" width="150" height="56" rx="8" stroke-width="0.5"/><text class="th" x="95" y="264" text-anchor="middle" dominant-baseline="central">Roll back</text><text class="ts" x="95" y="284" text-anchor="middle" dominant-baseline="central">Previous version</text></g>
+            <path d="M95 246 L95 160 L250 160" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#hlarr2)"/>
+            <text class="ts" x="150" y="150" text-anchor="middle" fill="#94a3b8">re-test fix</text>
+            <g class="c-gray"><rect x="430" y="340" width="230" height="96" rx="12" stroke-width="0.5"/><text class="th" x="545" y="360" text-anchor="middle">Hot standby rule</text><text class="ts" x="545" y="384" text-anchor="middle" dominant-baseline="central">Previous version stays warm</text><text class="ts" x="545" y="404" text-anchor="middle" dominant-baseline="central">Rollback takes seconds,</text><text class="ts" x="545" y="420" text-anchor="middle" dominant-baseline="central">not minutes</text></g>
+          </svg>
+          <p class="hl-diagram-caption">Diagram 2 of 3 — Promotion and rollback flow. Every new version passes through a canary gate before full rollout. The decision is metric-driven: healthy traffic rolls out to 100%; degraded traffic rolls back to the hot standby and the fix is re-tested from staging.</p>
+        </div>
+      </section>
+
+      <!-- ── AUTOSCALING ── -->
+      <section class="hl-section" id="autoscaling">
+        <div class="hl-section-heading"><div class="hl-section-icon amber">📈</div><h2>Autoscaling &amp; the campaign-spike scenario</h2></div>
+        <p>
+          Helios supports horizontal autoscaling (more pods) and vertical scaling (bigger instances).
+          Scaling triggers on P95 latency, CPU/GPU utilisation, queue depth, and custom business metrics.
+          Here is the scenario from the opening of this page, documented as expected behaviour:
+        </p>
+
+        <div class="hl-scenario">
+          <div class="hl-scenario-hdr">Real scenario — campaign traffic doubles in 10 minutes</div>
+          <div class="hl-scenario-body">
+            <div class="hl-scenario-step"><div class="hl-scenario-num">1</div><div>Autoscaler detects sustained CPU and latency increase above threshold.</div></div>
+            <div class="hl-scenario-step"><div class="hl-scenario-num">2</div><div>Spins up additional pods — for example, from 8 to 20 replicas.</div></div>
+            <div class="hl-scenario-step"><div class="hl-scenario-num">3</div><div>New pods <strong>warm the model into memory</strong> before serving any traffic.</div></div>
+            <div class="hl-scenario-step"><div class="hl-scenario-num">4</div><div>Rate limiter continues to protect upstream services from overload.</div></div>
+            <div class="hl-scenario-step"><div class="hl-scenario-num">5</div><div>Dashboards show a temporary latency bump, then stabilisation.</div></div>
+          </div>
+        </div>
+
+        <p>If scaling cannot keep up — for example, GPU capacity is exhausted — Helios degrades gracefully:</p>
+        <ul class="hl-list">
+          <li>Returns cached responses where it is safe to do so.</li>
+          <li>Falls back to a cheaper, lighter model.</li>
+          <li>Fails "open" or "closed" depending on the risk profile of the product.</li>
+        </ul>
+      </section>
+
+      <!-- ── OBSERVABILITY & SLOs ── -->
+      <section class="hl-section" id="slos">
+        <div class="hl-section-heading"><div class="hl-section-icon amber">📊</div><h2>Observability &amp; SLOs</h2></div>
+        <div class="hl-metrics">
+          <div class="hl-metric"><div class="hl-metric-value">&lt;250ms</div><div class="hl-metric-label">P95 latency<br>online inference</div></div>
+          <div class="hl-metric"><div class="hl-metric-value">&lt;0.5%</div><div class="hl-metric-label">Error rate<br>4xx/5xx over 1h</div></div>
+          <div class="hl-metric"><div class="hl-metric-value">50–70%</div><div class="hl-metric-label">Target CPU/GPU<br>utilisation band</div></div>
+          <div class="hl-metric"><div class="hl-metric-value">99.9%</div><div class="hl-metric-label">Availability<br>SLO target</div></div>
+        </div>
+
+        <h3>Core metrics every team instruments</h3>
+        <table class="hl-table">
+          <thead><tr><th>Metric</th><th>Why it matters</th><th>Typical target</th></tr></thead>
+          <tbody>
+            <tr><td><strong>P95 latency</strong></td><td>Captures tail performance — the experience of your slowest 5% of users</td><td>&lt; 250 ms (online)</td></tr>
+            <tr><td><strong>Error rate (4xx/5xx)</strong></td><td>Detects integration issues or server failures early</td><td>&lt; 0.5% over 1 hour</td></tr>
+            <tr><td><strong>Throughput (RPS)</strong></td><td>Used for capacity planning and scaling decisions</td><td>Depends on model &amp; infra</td></tr>
+            <tr><td><strong>CPU/GPU utilisation</strong></td><td>Signals over- or under-provisioning</td><td>50–70% ideal band</td></tr>
+          </tbody>
+        </table>
+
+        <div class="hl-callout blue">
+          <strong>Logging &amp; tracing</strong>
+          <p>
+            Every request carries a <code>trace_id</code> and <code>model_version</code>. Logs capture input
+            metadata — never raw PII — alongside timing and a result summary. Distributed tracing shows the
+            full gateway → router → pod path, so when latency climbs you can see exactly which hop is slow.
+          </p>
+        </div>
+
+        <h3>SLI definitions &amp; error budgets</h3>
+        <p>
+          An SLO without an SLI is an aspiration, not a target. Each objective below is backed by a precise
+          service-level <em>indicator</em> — the exact ratio measured — plus a measurement window and the
+          resulting error budget the team is allowed to spend before remediation becomes mandatory.
+        </p>
+        <table class="hl-table">
+          <thead><tr><th>SLO</th><th>SLI (what is measured)</th><th>Target</th><th>Window</th><th>Error budget</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Availability</strong></td><td>Successful inference requests ÷ total inference requests</td><td>99.9%</td><td>30 days</td><td>43.2 min/month</td></tr>
+            <tr><td><strong>Latency</strong></td><td>Requests served under 250&nbsp;ms ÷ total requests</td><td>95% &lt; 250 ms</td><td>30 days</td><td>5% may exceed</td></tr>
+            <tr><td><strong>Error rate</strong></td><td>5xx responses ÷ total responses</td><td>&lt; 0.5%</td><td>Rolling 1 h</td><td>~18 errors per 3,600 req</td></tr>
+            <tr><td><strong>Correctness (canary)</strong></td><td>Predictions within precision tolerance ÷ scored predictions</td><td>Precision ≥ 92%</td><td>Per canary window</td><td>&gt;5% drop → auto-rollback</td></tr>
+          </tbody>
+        </table>
+        <div class="hl-callout amber">
+          <strong>⚠ How the error budget is used</strong>
+          <p>
+            The 43.2-minute monthly availability budget is a spending account. If a team burns it on a
+            risky deployment, feature work pauses and reliability work takes priority until the budget
+            recovers. This converts "be reliable" from a vague instruction into a number every team can
+            see on a dashboard. When the budget is healthy, teams ship faster; when it is exhausted, the
+            policy makes the trade-off automatic rather than a debate.
+          </p>
+        </div>
+
+        <h3>Alert catalogue</h3>
+        <p>Each alert maps a measurable condition to a severity and an owner. No alert fires without a documented action.</p>
+        <table class="hl-table">
+          <thead><tr><th>Alert</th><th>Fires when</th><th>Severity</th><th>Paged</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Availability burn</strong></td><td>Error budget burn rate &gt; 2% per hour</td><td><span class="hl-sev sev1">SEV-1</span></td><td>Platform director</td></tr>
+            <tr><td><strong>Latency breach</strong></td><td>P95 &gt; 600 ms for 5+ minutes</td><td><span class="hl-sev sev2">SEV-2</span></td><td>SRE manager</td></tr>
+            <tr><td><strong>Error-rate spike</strong></td><td>5xx rate &gt; 1% over 10 minutes</td><td><span class="hl-sev sev2">SEV-2</span></td><td>SRE manager</td></tr>
+            <tr><td><strong>Canary regression</strong></td><td>Precision drops &gt; 5% vs baseline</td><td><span class="hl-sev sev2">SEV-2</span></td><td>Owning ML team</td></tr>
+            <tr><td><strong>Capacity pressure</strong></td><td>GPU utilisation &gt; 85% sustained</td><td><span class="hl-sev sev3">SEV-3</span></td><td>Team lead</td></tr>
+            <tr><td><strong>Schema mismatch</strong></td><td>4xx rate &gt; 2% from one tenant</td><td><span class="hl-sev sev3">SEV-3</span></td><td>Integrating team</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── INCIDENT RESPONSE ── -->
+      <section class="hl-section" id="incidents">
+        <div class="hl-section-heading"><div class="hl-section-icon red">🔧</div><h2>Failure modes &amp; incident response</h2></div>
+        <p>The documentation covers the four most common failure modes, each with a tested runbook:</p>
+        <table class="hl-table">
+          <thead><tr><th>Failure mode</th><th>Symptom</th><th>First response</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Model regression</strong></td><td>New version performs worse on key metrics (precision drops, false positives rise)</td><td>Auto-rollback to previous version per policy; page owning team</td></tr>
+            <tr><td><strong>Latency spike</strong></td><td>P95 climbs above SLO; downstream dependency is slow</td><td>Check tracing for the slow hop; scale out if utilisation-bound</td></tr>
+            <tr><td><strong>Capacity exhaustion</strong></td><td>Not enough GPU/CPU; autoscaler cannot keep up</td><td>Engage graceful degradation; escalate capacity request</td></tr>
+            <tr><td><strong>Schema mismatch</strong></td><td>Client sends fields the model does not expect</td><td>Reject at gateway with clear 400; notify integrating team</td></tr>
+          </tbody>
+        </table>
+
+        <div class="hl-scenario">
+          <div class="hl-scenario-hdr">Executable runbook — model regression (SEV-2)</div>
+          <div class="hl-scenario-body">
+            <div class="hl-runbook-row"><span class="hl-runbook-key">Severity</span><span class="hl-runbook-val"><span class="hl-sev sev2">SEV-2</span> — degraded prediction quality, no full outage</span></div>
+            <div class="hl-runbook-key">Symptoms</div>
+            <ul class="hl-list">
+              <li>Precision &lt; 92% on the canary cohort.</li>
+              <li>False-positive rate &gt; 3%.</li>
+              <li>Business KPI (e.g. recommendation CTR) degrading.</li>
+            </ul>
+            <div class="hl-runbook-key">Verify</div>
+            <div class="hl-code">
+              <div class="hl-code-bar"><span class="hl-code-lang">shell · confirm the regression before acting</span></div>
+              <pre>kubectl get deployment fraud-model -o wide      <span class="hl-c"># confirm canary version is live</span>
+promtool query instant 'precision:fraud_model:5m' <span class="hl-c"># current precision</span>
+<span class="hl-c"># open Grafana → "Model Quality" dashboard, compare canary vs baseline</span></pre>
+            </div>
+            <div class="hl-runbook-key">Decision tree</div>
+            <ul class="hl-list">
+              <li><strong>If precision drops &gt; 5%</strong> vs baseline → roll back immediately (below).</li>
+              <li><strong>If precision drops &lt; 5%</strong> and stable → hold canary, continue monitoring, notify owning team.</li>
+              <li><strong>If business KPI is affected at any drop</strong> → roll back regardless of precision delta.</li>
+            </ul>
+            <div class="hl-runbook-key">Roll back</div>
+            <div class="hl-code">
+              <div class="hl-code-bar"><span class="hl-code-lang">shell · roll back to hot standby</span></div>
+              <pre>helm rollback fraud-model            <span class="hl-c"># revert to previous (hot standby) release</span>
+kubectl rollout status deploy/fraud-model
+promtool query instant 'precision:fraud_model:5m' <span class="hl-c"># verify recovery</span></pre>
+            </div>
+            <div class="hl-runbook-key">Success criteria</div>
+            <ul class="hl-list">
+              <li>Precision restored to baseline (≥ 92%).</li>
+              <li>Error rate back under 0.5%.</li>
+              <li>Business KPI stable for 15 minutes.</li>
+              <li>Post-incident review scheduled; logs, dashboards, and root cause linked.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Escalation</h3>
+        <p>Severity determines who is paged and how fast. The flow below is the documented path every on-call engineer follows.</p>
+        <div class="hl-diagram">
+          <svg width="100%" viewBox="0 0 680 400" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>Helios incident escalation flow</title>
+            <defs><marker id="hlarr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <g class="c-gray"><rect x="250" y="30" width="180" height="44" rx="8" stroke-width="0.5"/><text class="th" x="340" y="52" text-anchor="middle" dominant-baseline="central">Incident detected</text></g>
+            <line x1="340" y1="74" x2="340" y2="98" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr3)"/>
+            <g class="c-purple"><rect x="250" y="98" width="180" height="56" rx="8" stroke-width="0.5"/><text class="th" x="340" y="116" text-anchor="middle" dominant-baseline="central">Triage severity</text><text class="ts" x="340" y="136" text-anchor="middle" dominant-baseline="central">On-call assesses impact</text></g>
+            <line x1="280" y1="154" x2="150" y2="210" stroke="#A32D2D" stroke-width="1.5" marker-end="url(#hlarr3)"/>
+            <line x1="340" y1="154" x2="340" y2="210" stroke="#BA7517" stroke-width="1.5" marker-end="url(#hlarr3)"/>
+            <line x1="400" y1="154" x2="530" y2="210" stroke="#185FA5" stroke-width="1.5" marker-end="url(#hlarr3)"/>
+            <g class="c-red"><rect x="40" y="210" width="200" height="72" rx="10" stroke-width="0.5"/><text class="th" x="140" y="232" text-anchor="middle" dominant-baseline="central">SEV-1</text><text class="ts" x="140" y="252" text-anchor="middle" dominant-baseline="central">Platform director</text><text class="ts" x="140" y="268" text-anchor="middle" dominant-baseline="central">Page within 15 min</text></g>
+            <g class="c-amber"><rect x="240" y="210" width="200" height="72" rx="10" stroke-width="0.5"/><text class="th" x="340" y="232" text-anchor="middle" dominant-baseline="central">SEV-2</text><text class="ts" x="340" y="252" text-anchor="middle" dominant-baseline="central">SRE manager</text><text class="ts" x="340" y="268" text-anchor="middle" dominant-baseline="central">Page within 30 min</text></g>
+            <g class="c-blue"><rect x="440" y="210" width="200" height="72" rx="10" stroke-width="0.5"/><text class="th" x="540" y="232" text-anchor="middle" dominant-baseline="central">SEV-3</text><text class="ts" x="540" y="252" text-anchor="middle" dominant-baseline="central">Team lead</text><text class="ts" x="540" y="268" text-anchor="middle" dominant-baseline="central">Notify within 4 hr</text></g>
+            <line x1="140" y1="282" x2="140" y2="316" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr3)"/>
+            <line x1="340" y1="282" x2="340" y2="316" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr3)"/>
+            <line x1="540" y1="282" x2="540" y2="316" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#hlarr3)"/>
+            <g class="c-green"><rect x="190" y="316" width="300" height="56" rx="10" stroke-width="0.5"/><text class="th" x="340" y="334" text-anchor="middle" dominant-baseline="central">Run playbook, resolve, post-mortem</text><text class="ts" x="340" y="354" text-anchor="middle" dominant-baseline="central">All severities converge here</text></g>
+          </svg>
+          <p class="hl-diagram-caption">Diagram 3 of 3 — Escalation flow. Triage assigns a severity; the severity dictates who is paged and the response-time commitment. Every incident, regardless of severity, ends with a resolved state and a post-mortem.</p>
+        </div>
+
+        <h3>Escalation matrix</h3>
+        <table class="hl-table">
+          <thead><tr><th>Severity</th><th>Definition</th><th>Escalates to</th><th>Response time</th></tr></thead>
+          <tbody>
+            <tr><td><span class="hl-sev sev1">SEV-1</span></td><td>Full outage or platform-wide impact; revenue-affecting</td><td>Platform director</td><td>Page within 15 min</td></tr>
+            <tr><td><span class="hl-sev sev2">SEV-2</span></td><td>Degraded service or quality; single-tenant or single-model</td><td>SRE manager</td><td>Page within 30 min</td></tr>
+            <tr><td><span class="hl-sev sev3">SEV-3</span></td><td>Minor or contained; no user-facing impact yet</td><td>Team lead</td><td>Notify within 4 hr</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── SECURITY ── -->
+      <section class="hl-section" id="security">
+        <div class="hl-section-heading"><div class="hl-section-icon red">🔐</div><h2>Security &amp; multi-tenant isolation</h2></div>
+        <p>Multiple teams and products share one Helios cluster. The documentation defines the guardrails that make that safe:</p>
+        <table class="hl-table">
+          <thead><tr><th>Guardrail</th><th>What it provides</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Per-tenant API keys</strong></td><td>Scoped service accounts so each team's traffic is isolated and traceable</td></tr>
+            <tr><td><strong>Resource quotas</strong></td><td>CPU, GPU, and memory limits per team prevent one tenant starving another</td></tr>
+            <tr><td><strong>Namespace isolation</strong></td><td>Models and configs are separated by project; no cross-tenant access by default</td></tr>
+            <tr><td><strong>Edge validation</strong></td><td>Strict input validation and rate limiting at the gateway before any request reaches a pod</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Ownership — RACI matrix</h3>
+        <p>On shared infrastructure, "who is allowed to do what" must be unambiguous. R = responsible, A = accountable, C = consulted, I = informed.</p>
+        <table class="hl-table hl-raci">
+          <thead><tr><th>Activity</th><th>ML team</th><th>Platform team</th><th>SRE</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Deploy model</strong></td><td class="r">R</td><td class="c">C</td><td class="i">I</td></tr>
+            <tr><td><strong>Roll back</strong></td><td class="a">A</td><td class="c">C</td><td class="r">R</td></tr>
+            <tr><td><strong>SLO definition</strong></td><td class="c">C</td><td class="a">A</td><td class="r">R</td></tr>
+            <tr><td><strong>Capacity planning</strong></td><td class="i">I</td><td class="a">A</td><td class="r">R</td></tr>
+            <tr><td><strong>Incident command (SEV-1)</strong></td><td class="c">C</td><td class="a">A</td><td class="r">R</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── BUSINESS IMPACT ── -->
+      <section class="hl-section" id="business-impact">
+        <div class="hl-section-heading"><div class="hl-section-icon amber">💼</div><h2>Business impact view</h2></div>
+        <p>
+          Executives and product owners do not read latency graphs — they read consequences. This view
+          translates a technical degradation into the business terms a VP or COO actually cares about.
+        </p>
+        <table class="hl-table">
+          <thead><tr><th>If latency doubles…</th><th>Dimension</th><th>Business consequence</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3" style="vertical-align:middle;"><strong>P95 250 ms → 500 ms</strong></td><td>Revenue</td><td>Recommendation CTR falls; fewer conversions on personalised surfaces</td></tr>
+            <tr><td>Customer</td><td>Slower personalisation; perceptible lag in user-facing features</td></tr>
+            <tr><td>Operations</td><td>Support escalations rise; on-call load increases; error budget burns</td></tr>
+          </tbody>
+        </table>
+        <div class="hl-callout blue">
+          <strong>Why this section exists</strong>
+          <p>
+            Every SLO target on this page maps to a business consequence here. When a team asks "why is the
+            latency SLO 250&nbsp;ms and not 400?", the answer is in this table — beyond ~250&nbsp;ms, recommendation
+            CTR measurably declines. Tying the number to revenue is what turns an engineering target into a
+            decision an executive can sign off on.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── CHECKLIST ── -->
+      <section class="hl-section" id="checklist">
+        <div class="hl-section-heading"><div class="hl-section-icon green">✅</div><h2>Integration checklist for model teams</h2></div>
+        <p>Every team works through this before their model serves production traffic:</p>
+        <ul class="hl-checklist">
+          <li><div class="hl-check">✓</div><div><strong>Model registered</strong> in the Helios registry with owner and version.</div></li>
+          <li><div class="hl-check">✓</div><div><strong>Input/output schemas documented</strong> and validated.</div></li>
+          <li><div class="hl-check">✓</div><div><strong>Evaluation metrics captured</strong> and reviewed before deployment.</div></li>
+          <li><div class="hl-check">✓</div><div><strong>Canary / shadow plan agreed</strong> with the product team.</div></li>
+          <li><div class="hl-check">✓</div><div><strong>Dashboards and alerts configured</strong> for the key SLOs.</div></li>
+          <li><div class="hl-check">✓</div><div><strong>Rollback plan tested</strong> — not just written down, actually executed in staging.</div></li>
+          <li><div class="hl-check">✓</div><div><strong>Playbooks created</strong> for the high-risk failure modes specific to this model.</div></li>
+        </ul>
+
+        <a class="hl-companion" href="./helios-operations-playbook.html">
+          <div class="hl-companion-icon">📕</div>
+          <div class="hl-companion-body">
+            <div class="hl-companion-title">Companion page — Operations Playbook</div>
+            <div class="hl-companion-desc">Disaster recovery procedures and capacity planning guidance live in a dedicated operations playbook, so this page stays focused on the platform itself.</div>
+          </div>
+          <div class="hl-companion-arrow">→</div>
+        </a>
+      </section>
+
+      <!-- ── RESULTS ── -->
+      <section class="hl-section" id="results">
+        <div class="hl-section-heading"><div class="hl-section-icon green">📈</div><h2>Results &amp; impact</h2></div>
+        <p>Outcomes measured after the documentation suite was adopted across the teams sharing the platform:</p>
+        <table class="hl-table">
+          <thead><tr><th>Outcome</th><th>Before</th><th>After</th><th>Impact</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mean time to recovery (MTTR)</strong></td><td>45–90 min</td><td>Under 10 min</td><td style="color:var(--hl-green);font-weight:600;">↓ ~85% reduction</td></tr>
+            <tr><td><strong>Platform onboarding time per team</strong></td><td>2–3 weeks</td><td>3–5 days</td><td style="color:var(--hl-green);font-weight:600;">↓ ~75% reduction</td></tr>
+            <tr><td><strong>Incidents without a runbook</strong></td><td>Most incidents</td><td>Zero for documented modes</td><td style="color:var(--hl-green);font-weight:600;">↓ Eliminated</td></tr>
+            <tr><td><strong>Cross-team escalations to platform SRE</strong></td><td>High</td><td>Sharply reduced</td><td style="color:var(--hl-green);font-weight:600;">↓ Self-service</td></tr>
+            <tr><td><strong>Rollback execution time</strong></td><td>Minutes, error-prone</td><td>Seconds, hot standby</td><td style="color:var(--hl-green);font-weight:600;">↑ Reliable</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── LESSONS ── -->
+      <section class="hl-section" id="lessons">
+        <div class="hl-section-heading"><div class="hl-section-icon slate">🎓</div><h2>Key learnings</h2></div>
+        <div class="hl-callout blue">
+          <strong>Document behaviour under load, not just the happy path</strong>
+          <p>
+            The most valuable documentation for a platform is not "here is how to call it" — it is "here is
+            exactly what happens when traffic doubles, when a model regresses, when GPUs run out." Engineers
+            do not panic when they have already read the expected behaviour. The campaign-spike scenario was
+            the single most-referenced page in the entire set.
+          </p>
+        </div>
+        <div class="hl-callout blue">
+          <strong>A runbook is only real once it has been tested</strong>
+          <p>
+            I wrote every incident playbook with the SRE team and then we walked through each one against the
+            staging environment before publishing. A runbook that has never been executed is a guess. The
+            "rollback plan tested, not just written" checklist item came directly from this lesson.
+          </p>
+        </div>
+        <div class="hl-callout blue">
+          <strong>Shared infrastructure needs documentation written for strangers</strong>
+          <p>
+            On a multi-tenant platform, the person reading your documentation may be on a team you have never
+            met, working on a model you know nothing about. That forces a discipline: no assumed context, no
+            tribal knowledge, every term defined. It makes the documentation better for everyone, including
+            the teams you do know.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── WRITER NOTE ── -->
+      <div class="hl-writer-note" id="writer-note">
+        <div class="hl-writer-note-label">📝 About this portfolio piece</div>
+        <p>Helios is a fictional platform created for this portfolio. The architecture, serving modes, promotion workflow, SLOs, autoscaling behaviour, incident runbooks, and multi-tenant isolation model represent the standard of platform documentation I produce for real MLOps and infrastructure teams.</p>
+        <p>Every detail — the control-plane/data-plane split, the hot-standby rollback rule, the campaign-spike scenario, the "test the runbook" discipline — reflects real platform documentation problems I have encountered and solved. Platform documentation lives or dies on one question: when something breaks at 3 a.m., can the on-call engineer find the answer without waking anyone up? That is what I write toward.</p>
+        <div class="hl-related">
+          <a href="../../blog/2025-api-quickstart-guide.html">How to Write an API Quickstart →</a>
+          <a href="./incident-response.html">NimbusTech Incident Report →</a>
+          <a href="./finsight-risk-api-v2.html">FinSight Risk API →</a>
         </div>
       </div>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Audience</h3>
-          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
-        </div>
-        <div class="doc-meta-item">
-          <h3>Scope</h3>
-          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
-        </div>
+
+      <div class="hl-nav-bottom">
+        <a href="../../portfolio.html" class="btn-leslie">← Back to Portfolio</a>
+        <a href="../../contact.html" class="btn btn-accent">Discuss this work →</a>
       </div>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Prerequisites</h3>
-          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
-        </div>
-        <div class="doc-meta-item">
-          <h3>Impact</h3>
-          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
-        </div>
+
+    </main>
+
+    <!-- ═══════════════ SIDEBAR ═══════════════ -->
+    <aside class="hl-sidebar">
+      <nav class="hl-toc">
+        <div class="hl-toc-title">On this page</div>
+        <a href="#context" class="toc-active"><span class="hl-toc-dot"></span>Business problem</a>
+        <a href="#contribution"><span class="hl-toc-dot"></span>My contribution</a>
+        <a href="#deliverables"><span class="hl-toc-dot"></span>Deliverables</a>
+        <a href="#architecture"><span class="hl-toc-dot"></span>Architecture</a>
+        <a href="#serving-modes"><span class="hl-toc-dot"></span>Serving modes</a>
+        <a href="#promotion"><span class="hl-toc-dot"></span>Promotion workflow</a>
+        <a href="#autoscaling"><span class="hl-toc-dot"></span>Autoscaling</a>
+        <a href="#slos"><span class="hl-toc-dot"></span>Observability &amp; SLOs</a>
+        <a href="#incidents"><span class="hl-toc-dot"></span>Incident response</a>
+        <a href="#security"><span class="hl-toc-dot"></span>Security &amp; RACI</a>
+        <a href="#business-impact"><span class="hl-toc-dot"></span>Business impact</a>
+        <a href="#checklist"><span class="hl-toc-dot"></span>Integration checklist</a>
+        <a href="#results"><span class="hl-toc-dot"></span>Results &amp; impact</a>
+        <a href="#lessons"><span class="hl-toc-dot"></span>Key learnings</a>
+      </nav>
+
+      <div class="hl-quick-ref">
+        <div class="hl-quick-ref-title">Platform at a glance</div>
+        <div class="hl-quick-ref-row"><strong>Serving modes</strong><span>Online · Batch · Shadow</span></div>
+        <div class="hl-quick-ref-row"><strong>P95 latency SLO</strong><code>&lt;250ms</code></div>
+        <div class="hl-quick-ref-row"><strong>Availability SLO</strong><code>99.9%</code></div>
+        <div class="hl-quick-ref-row"><strong>Utilisation band</strong><code>50–70%</code></div>
+        <div class="hl-quick-ref-row"><strong>Rollback</strong><span>Hot standby, seconds</span></div>
+        <div class="hl-quick-ref-row"><strong>Tenancy</strong><span>Multi-tenant, quota-isolated</span></div>
       </div>
-    </section>
+    </aside>
 
-
-    <p class="doc-subtitle">
-      Production-grade model serving platform for real-time and batch inference at scale. I documented the
-      full system: architecture, autoscaling, deployment strategy, SLOs, caching, observability, safety rails,
-      incident playbooks, and model versioning for multiple ML teams.
-    </p>
-  </header>
-
-  <!-- TAGS -->
-  <div class="tag-row">
-    <span class="tag">Model Serving</span>
-    <span class="tag">MLOps</span>
-    <span class="tag">Real-Time Inference</span>
-    <span class="tag">Autoscaling</span>
-    <span class="tag">Observability</span>
   </div>
 
-  <!-- BODY -->
-  <section class="doc-section">
-
-    <!-- 1. Overview -->
-    <h2 id="1-platform-overview">1. Platform Overview</h2>
-    <p>
-      <strong>Helios</strong> is a model serving platform designed to host multiple machine learning models in
-      production—supporting real-time APIs, asynchronous batch jobs, and scheduled inference workflows.
-    </p>
-
-    <p>In a real organisation, Helios would be used by:</p>
-    <ul>
-      <li><strong>Product teams</strong> calling low-latency prediction APIs from user-facing applications.</li>
-      <li><strong>Risk & analytics teams</strong> running large batch-scoring jobs overnight.</li>
-      <li><strong>ML engineers</strong> deploying and monitoring new model versions.</li>
-      <li><strong>Platform / SRE teams</strong> managing capacity, incidents, and SLOs.</li>
-    </ul>
-
-    <p>
-      This documentation explains how the serving infrastructure behaves under real traffic, how it fails,
-      and how teams are expected to operate it safely.
-    </p>
-
-    <!-- 2. High-Level Architecture -->
-    <h2 id="2-high-level-architecture">2. High-Level Architecture</h2>
-    <p>
-      Helios separates <strong>control plane</strong> (configuration, model registry, deployments) from
-      <strong>data plane</strong> (actual inference traffic).
-    </p>
-
-    <pre><code>              +------------------------+
-              |   Helios Control Plane |
-              |------------------------|
-              |  Model Registry        |
-              |  Deployment Manager    |
-              |  Config Store          |
-              |  Canary Controller     |
-              +-----------+------------+
-                          |
-                          v
-          +---------------+------------------+
-          |        Helios Data Plane         |
-          |----------------------------------|
-   User   |  API Gateway  →  Router          |
-  / App   |       |          |               |
- Requests |       v          v               |
-          |   Online Pods   Batch Workers    |
-          | (GPU / CPU)     (Jobs / Queues)  |
-          +-------+--------------------------+
-                  |
-                  v
-           Logging & Metrics Stack
-    </code></pre>
-
-    <p>
-      All user traffic flows through a <strong>Gateway → Router → Inference Pods</strong> pattern. Each model
-      version is deployed as a separate group of pods with clear traffic routing rules.
-    </p>
-
-    <!-- 3. Serving Modes -->
-    <h2 id="3-serving-modes-real-life-usage">3. Serving Modes & Real-Life Usage</h2>
-
-    <h3>3.1 Online / Real-Time Serving</h3>
-    <p>
-      Used by latency-sensitive features such as personalised recommendations, fraud checks, or in-product risk
-      alerts. Typical targets:
-    </p>
-    <ul>
-      <li>P95 latency: <strong>&lt; 250 ms</strong></li>
-      <li>Traffic pattern: steady baseline with spikes (e.g. campaign launches)</li>
-      <li>Requirements: strict SLOs, graceful degradation if dependencies fail</li>
-    </ul>
-
-    <h3>3.2 Batch & Async Serving</h3>
-    <p>
-      Used when latency is less critical but volume is high—for example:
-    </p>
-    <ul>
-      <li>Nightly credit risk scoring for millions of accounts</li>
-      <li>Weekly churn predictions for an entire customer base</li>
-      <li>Backfills after feature changes or schema updates</li>
-    </ul>
-    <p>
-      Batch jobs run via a queue-based system and can tolerate retried tasks, backpressure, and longer runtimes.
-    </p>
-
-    <h3>3.3 Shadow & Replay Serving</h3>
-    <p>
-      For new model versions, Helios can “shadow” traffic: duplicating live requests to a candidate model
-      without affecting user-visible behaviour. This enables:
-    </p>
-    <ul>
-      <li>Real-world load testing</li>
-      <li>Side-by-side performance comparison</li>
-      <li>Validating edge cases before promotion</li>
-    </ul>
-
-    <!-- 4. Model Registry & Versioning -->
-    <h2 id="4-model-registry-versions-lifecycle">4. Model Registry, Versions & Lifecycle</h2>
-
-    <p>
-      All models deployed through Helios must be registered in a central <strong>Model Registry</strong>.
-      Each entry tracks:
-    </p>
-    <ul>
-      <li><strong>Model ID:</strong> e.g. <code>fraud-score-v3</code></li>
-      <li><strong>Version:</strong> semantic versioning (e.g. <code>3.1.0</code>)</li>
-      <li><strong>Artifact URI:</strong> object storage / container image</li>
-      <li><strong>Schema:</strong> expected input/output contracts</li>
-      <li><strong>Owner:</strong> team responsible</li>
-      <li><strong>Status:</strong> staging, canary, production, deprecated</li>
-    </ul>
-
-    <p>In a real deployment, this controls:</p>
-    <ul>
-      <li>Which version receives live traffic</li>
-      <li>Which models are allowed in certain environments (e.g. sandbox vs production)</li>
-      <li>Who can roll back or roll forward during incidents</li>
-    </ul>
-
-    <h3>4.1 Promotion Workflow (Real Scenario)</h3>
-    <ol>
-      <li>Model registered with metadata and linked evaluation results.</li>
-      <li>Deployed to <strong>staging environment</strong> for integration tests.</li>
-      <li>Traffic shadowed or canaried in production (e.g. 5–10%).</li>
-      <li>Observability dashboards tracked (latency, error rate, business KPIs).</li>
-      <li>After sign-off, traffic shifted to 100%.</li>
-      <li>Old version kept as <strong>hot standby</strong> for fast rollback.</li>
-    </ol>
-
-    <!-- 5. Request Flow & Routing -->
-    <h2 id="5-request-flow-routing-logic">5. Request Flow & Routing Logic</h2>
-
-    <p>For a real-time prediction, the end-to-end path looks like:</p>
-
-    <pre><code>Client → API Gateway → Auth & Rate Limiting → Router
-      → Select Model Version (v2.3.1, region=eu-west)
-      → Inference Pod (GPU/CPU)
-      → Logging + Metrics
-      → Response to client
-    </code></pre>
-
-    <p>The router decides which model instance to call based on:</p>
-    <ul>
-      <li>Model ID + version pin (e.g. <code>FraudModel@2.3</code>)</li>
-      <li>Traffic split rules (e.g. 90% v2.3, 10% v3.0-canary)</li>
-      <li>Region or tenant affinity</li>
-      <li>Health status of pods</li>
-    </ul>
-
-    <p>
-      If an instance is unhealthy, traffic is shifted away automatically. This is critical in real production
-      to avoid cascading failures.
-    </p>
-
-    <!-- 6. Autoscaling & Capacity Planning -->
-    <h2 id="6-autoscaling-capacity-planning">6. Autoscaling & Capacity Planning</h2>
-
-    <p>
-      Helios supports both <strong>horizontal autoscaling</strong> (more pods) and <strong>vertical scaling</strong>
-      (bigger instances), depending on the model and workload type.
-    </p>
-
-    <h3>6.1 Scaling Triggers</h3>
-    <ul>
-      <li>P95 latency above threshold (e.g. &gt; 200 ms for 5 minutes)</li>
-      <li>CPU or GPU utilisation beyond configured thresholds (e.g. &gt; 70%)</li>
-      <li>Queue depth / backlog size for batch jobs</li>
-      <li>Custom business metrics (e.g. dropped requests, timeouts)</li>
-    </ul>
-
-    <h3>6.2 Real-Life Spike Scenario</h3>
-    <p>Imagine a marketing campaign goes live and traffic doubles within 10 minutes.</p>
-    <p>Expected behaviour:</p>
-    <ul>
-      <li>Autoscaler detects sustained CPU + latency increase.</li>
-      <li>Spins up additional pods (e.g. from 8 → 20 replicas).</li>
-      <li>New pods warm the model into memory before serving traffic.</li>
-      <li>Rate limiter still protects upstream services from overload.</li>
-      <li>Dashboards show a temporary latency bump, then stabilisation.</li>
-    </ul>
-
-    <p>
-      If scaling cannot keep up (e.g. GPU capacity limit reached), the documentation explains that Helios
-      should <strong>degrade gracefully</strong>—for example by:
-    </p>
-    <ul>
-      <li>Returning cached responses where safe</li>
-      <li>Reducing model complexity (falling back to a cheaper model)</li>
-      <li>Failing “open” or “closed” depending on the risk profile of the product</li>
-    </ul>
-
-    <!-- 7. Caching & Latency Optimisation -->
-    <h2 id="7-caching-warmup-latency-optimisation">7. Caching, Warmup & Latency Optimisation</h2>
-
-    <p>
-      Real production systems often need aggressive optimisation to meet SLAs, especially when using large models.
-    </p>
-
-    <h3>7.1 Caching Layers</h3>
-    <ul>
-      <li><strong>Feature cache:</strong> frequently reused feature vectors (e.g. per user)</li>
-      <li><strong>Response cache:</strong> for idempotent lookups or slow-changing scores</li>
-      <li><strong>Model warmup:</strong> priming models on cold start to avoid slow first calls</li>
-    </ul>
-
-    <h3>7.2 Warmup Strategy (Real Example)</h3>
-    <ol>
-      <li>When new pods start, they run a synthetic “warmup script”.</li>
-      <li>Models load into memory and perform a set of known inferences.</li>
-      <li>Only after warmup is successful are pods marked <code>Ready</code> for live traffic.</li>
-    </ol>
-
-    <!-- 8. Observability & SLOs -->
-    <h2 id="8-observability-slos">8. Observability & SLOs</h2>
-
-    <p>
-      Helios ships with batteries-included observability. The docs assume the use of modern tooling
-      (e.g. Prometheus, Grafana, OpenTelemetry, ELK/ClickHouse).
-    </p>
-
-    <h3>8.1 Core Metrics</h3>
-    <table>
-      <thead>
-        <tr><th>Metric</th><th>Why it matters</th><th>Typical Target</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>P95 latency</td>
-          <td>Captures tail performance for users.</td>
-          <td>&lt; 250 ms for online inference</td>
-        </tr>
-        <tr>
-          <td>Error rate (4xx/5xx)</td>
-          <td>Detects integration issues or server failures.</td>
-          <td>&lt; 0.5% over 1 hour</td>
-        </tr>
-        <tr>
-          <td>Throughput (RPS)</td>
-          <td>Used for capacity planning.</td>
-          <td>Depends on model & infra</td>
-        </tr>
-        <tr>
-          <td>CPU/GPU utilisation</td>
-          <td>Signals over/under-provisioning.</td>
-          <td>Ideal: 50–70%</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>8.2 Logging & Tracing</h3>
-    <ul>
-      <li>Each request carries a <code>trace_id</code> and <code>model_version</code>.</li>
-      <li>Logs capture input metadata (not raw PII), timing, and result summary.</li>
-      <li>Distributed tracing shows gateway → router → pod path.</li>
-    </ul>
-
-    <!-- 9. Failure Modes & Incident Response -->
-    <h2 id="9-failure-modes-incident-response">9. Failure Modes & Incident Response</h2>
-
-    <p>
-      This section documents what should happen when things go wrong in real life.
-    </p>
-
-    <h3>9.1 Common Failure Scenarios</h3>
-    <ul>
-      <li><strong>Model regression:</strong> new version performs worse on key metrics.</li>
-      <li><strong>Latency spike:</strong> downstream dependency is slow.</li>
-      <li><strong>Capacity exhaustion:</strong> not enough GPUs/CPUs.</li>
-      <li><strong>Schema mismatch:</strong> client sends fields the model doesn’t expect.</li>
-    </ul>
-
-    <h3>9.2 Example: Model Regression in Production</h3>
-    <p>Real-world incident flow:</p>
-    <ol>
-      <li>Canary deployment sends 10% of traffic to <code>FraudModel v4.0</code>.</li>
-      <li>Monitoring detects decreased precision and increased false positives.</li>
-      <li>Alerts fire to the owning team and on-call SRE.</li>
-      <li>Traffic automatically rolled back to v3.2 according to policy.</li>
-      <li>Post-incident review links logs, evaluation dashboards, and root cause analysis.</li>
-    </ol>
-
-    <p>
-      The documentation would provide a <strong>Runbook</strong> that on-call engineers can follow
-      step-by-step during such an incident.
-    </p>
-
-    <!-- 10. Security & Multi-Tenancy -->
-    <h2 id="10-security-multi-tenant-isolation">10. Security & Multi-Tenant Isolation</h2>
-
-    <p>
-      In a realistic platform, multiple teams and products may share the same Helios cluster.
-      The documentation describes guardrails such as:
-    </p>
-
-    <ul>
-      <li>Per-tenant API keys and scoped service accounts</li>
-      <li>Resource quotas per team (CPU, GPU, memory)</li>
-      <li>Namespace or project isolation for models and configs</li>
-      <li>Strict input validation and rate limiting at the edge</li>
-    </ul>
-
-    <!-- 11. Integration Checklist -->
-    <h2 id="11-integration-checklist-for-model-teams">11. Integration Checklist for Model Teams</h2>
-
-    <ul>
-      <li>☑ Model registered in the Helios model registry with owner + version</li>
-      <li>☑ Input/output schemas documented and validated</li>
-      <li>☑ Evaluation metrics captured and reviewed</li>
-      <li>☑ Canary / shadow traffic plan agreed with product team</li>
-      <li>☑ Dashboards and alerts configured for key SLOs</li>
-      <li>☑ Rollback plan tested (not just written)</li>
-      <li>☑ Playbooks created for high-risk failure modes</li>
-    </ul>
-
-  </section>
-
-  <!-- NAV BUTTONS -->
-  <div class="nav-buttons">
-    <a href="atlas-developer-platform.html" class="btn">← Previous Project</a>
-    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
-    <a href="finsight-risk-api.html" class="btn">Next Project →</a>
-  </div>
-
-  <!-- BACK TO TOP -->
-  <a href="#top" class="to-top">↑ Back to Top</a>
+  <footer>
+    <p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
+  </footer>
 
 </div>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-menu');
+  if (toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+
+  const sections = document.querySelectorAll('.hl-section[id], .hl-writer-note[id]');
+  const tocLinks  = document.querySelectorAll('.hl-toc a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      tocLinks.forEach(l => l.classList.remove('toc-active'));
+      const link = document.querySelector(`.hl-toc a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('toc-active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+  sections.forEach(s => io.observe(s));
+</script>
 </body>
 </html>
