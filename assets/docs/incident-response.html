@@ -1,280 +1,388 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Incident & Response Report | Leslie Amadi</title>
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Incident Response Report Portfolio Case Study | Leslie Amadi</title>
+  <meta name="description" content="Lead Technical Writer portfolio case study: a major-incident post-incident report. Timeline, impact, 
+  root cause analysis with 5 Whys, corrective actions, RACI, and preventive measures for a payment-platform outage."/>
+  <meta property="og:title" content="Incident Response Report | Leslie Amadi"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png"/>
+  <link rel="stylesheet" href="../../assets/css/styles.css"/>
 </head>
-
 <body>
-  <div class="page-shell">
+<div class="page-shell">
 
-    <!-- SIDEBAR -->
-    <aside class="doc-sidebar">
-      <h2 id="portfolio">Portfolio</h2>
-      <nav class="sidebar-nav">
-        <a href="../../portfolio.html">← Back to Portfolio</a>
-        <a href="../incident-response.html" class="active">Incident & Response Report</a>
-      </nav>
-    </aside>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../../index.html" class="logo">
+        <span class="logo-badge">LA</span>
+        <span class="logo-text">Technical Writer<br>Leslie Amadi</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="nav-menu">
+        <a href="../../index.html">Home</a>
+        <a href="../../portfolio.html" class="active">Portfolio</a>
+        <a href="../../blog.html">Blog</a>
+        <a href="../../about.html">About</a>
+        <a href="../../learning.html">Learning</a>
+        <a href="../../contact.html" class="nav-cta">Let's Talk</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- MAIN CONTENT -->
-    <main class="doc-content">
+  <div class="ir-shell">
+    <main class="ir-content">
 
-      <h1>NimbusTech Solutions – Incident & Response Report</h1>
-    <nav class="docs-toc docs-toc-dropdown">
-      <details open>
-        <summary>On this page</summary>
-        <ol>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#document-control">Document Control</a></li>
-          <li><a href="#1-incident-summary">1. Incident Summary</a></li>
-          <li><a href="#2-incident-details">2. Incident Details</a></li>
-          <li><a href="#3-impact-assessment">3. Impact Assessment</a></li>
-          <li><a href="#4-timeline-of-events">4. Timeline of Events</a></li>
-          <li><a href="#5-actions-taken">5. Actions Taken</a></li>
-          <li><a href="#6-communication-log">6. Communication Log</a></li>
-          <li><a href="#7-root-cause-analysis-rca">7. Root Cause Analysis (RCA)</a></li>
-          <li><a href="#8-long-term-preventive-measures">8. Long-Term Preventive Measures</a></li>
-          <li><a href="#9-post-incident-validation">9. Post-Incident Validation</a></li>
-          <li><a href="#10-raci-matrix">10. RACI Matrix</a></li>
-          <li><a href="#11-references">11. References</a></li>
-          <li><a href="#12-document-history">12. Document History</a></li>
-        </ol>
-      </details>
-    </nav>
-    <section class="doc-meta-grid">
-      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Overview</h3>
-          <p>This document describes <strong>Incident &amp; Response Report | Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
-        </div>
-        <div class="doc-meta-item">
-          <h3>My Role</h3>
-          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+      <div class="doc-breadcrumb" style="margin-bottom:1.25rem;">
+        <a href="../../portfolio.html">Portfolio</a><span>&rsaquo;</span>
+        <span>Process &amp; Operations</span><span>&rsaquo;</span>
+        <span>Incident Response Report</span>
+      </div>
+
+      <div class="ir-hero">
+        <span class="ir-hero-eyebrow">&#128680; Case Study &middot; Incident Management &middot; SRE &middot; Post-Incident Review</span>
+        <h1>NimbusTech <span>Incident Response Report</span></h1>
+        <p class="ir-hero-desc">
+          A Severity-1 payment outage, documented the way a mature engineering organisation documents one:
+          a precise timeline, honest impact, a root-cause analysis that reaches the real cause, and
+          preventive measures that stop it recurring. This is the post-incident report for the NimbusTech
+          Payment Processing Service &mdash; written to be blameless, auditable, and actually acted on.
+        </p>
+        <div class="ir-hero-tags">
+          <span class="ir-hero-tag">Sev-1 outage</span>
+          <span class="ir-hero-tag">Timeline</span>
+          <span class="ir-hero-tag">Root cause (5 Whys)</span>
+          <span class="ir-hero-tag">RACI</span>
+          <span class="ir-hero-tag">Preventive measures</span>
+          <span class="ir-hero-tag">PSD2</span>
         </div>
       </div>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Audience</h3>
-          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+
+      <div class="ir-control">
+        <table class="ir-ctrl-table">
+          <tbody>
+            <tr><td class="ir-ctrl-label">Document title</td><td>NPPS API Latency &amp; Outage &mdash; Major Incident Report</td></tr>
+            <tr><td class="ir-ctrl-label">Incident type</td><td>Partial outage / performance degradation</td></tr>
+            <tr><td class="ir-ctrl-label">Severity</td><td>Severity 1 (Critical)</td></tr>
+            <tr><td class="ir-ctrl-label">My role</td><td>Lead Technical Writer &mdash; post-incident report, RCA structure, RACI</td></tr>
+            <tr><td class="ir-ctrl-label">Owner / approver</td><td>SRE Team / Head of Platform Engineering</td></tr>
+            <tr><td class="ir-ctrl-label">Window</td><td>14 Feb 2025, 09:12&ndash;11:48 UTC (2h 36m)</td></tr>
+            <tr><td class="ir-ctrl-label">Version</td><td>1.0 &middot; Final</td></tr>
+            <tr><td class="ir-ctrl-label">Last reviewed</td><td>June 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="ir-section" id="summary">
+        <div class="ir-section-heading"><div class="ir-section-icon red">&#127919;</div><h2>Incident summary</h2></div>
+        <p>
+          On 14 February 2025, the NimbusTech <strong>Payment Processing Service (NPPS)</strong> suffered
+          severe latency spikes followed by intermittent failures. Around <strong>31% of customer
+          transactions</strong> failed or timed out during the window. The trigger was a database
+          connection-pool exhaustion that followed a routine infrastructure scaling event.
+        </p>
+        <p>
+          The incident lasted <strong>2 hours 36 minutes</strong> and was classified <strong>Severity 1
+          (Critical)</strong> for its customer impact, financial transaction failures, and direct disruption
+          to partner APIs.
+        </p>
+        <div class="ir-callout red">
+          <strong>Why this report matters as much as the fix</strong>
+          <p>
+            The outage was resolved in under three hours. The report exists to ensure it never happens again
+            and that the response is defensible to partners and regulators. A good post-incident report is a
+            blameless record that turns one bad day into permanent organisational learning that's
+            what this document is built to do.
+          </p>
         </div>
-        <div class="doc-meta-item">
-          <h3>Scope</h3>
-          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+      </section>
+
+      <section class="ir-section" id="contribution">
+        <div class="ir-section-heading"><div class="ir-section-icon blue">&#9997;&#65039;</div>
+        <h2>My contribution</h2></div>
+        <p>I owned the post-incident documentation that turned a chaotic morning into a structured, auditable record:</p>
+        <div class="ir-cards">
+          <div class="ir-card"><div class="ir-card-icon">&#9201;&#65039;</div>
+          <h3>Timeline reconstruction</h3>
+          <p>Assembled a precise, minute-by-minute timeline from monitoring, logs, and responder accounts.</p></div>
+          <div class="ir-card"><div class="ir-card-icon">&#128202;</div>
+          <h3>Impact assessment</h3>
+          <p>Quantified functional, financial, compliance, and reputational impact in plain terms.</p></div>
+          <div class="ir-card"><div class="ir-card-icon">&#128269;</div>
+          <h3>Root cause analysis</h3>
+          <p>Structured the RCA with a 5-Whys chain that reached the real, systemic cause.</p></div>
+          <div class="ir-card"><div class="ir-card-icon">&#128737;&#65039;</div>
+          <h3>Preventive measures</h3>
+          <p>Translated the root cause into concrete, ownable actions that close the gap.</p></div>
+          <div class="ir-card"><div class="ir-card-icon">&#128101;</div>
+          <h3>RACI &amp; comms log</h3>
+          <p>Documented who did what and how stakeholders were kept informed throughout.</p></div>
+          <div class="ir-card"><div class="ir-card-icon">&#9989;</div>
+          <h3>Validation</h3>
+          <p>Recorded the post-incident checks that confirmed a genuine, stable recovery.</p></div>
+        </div>
+      </section>
+
+      <section class="ir-section" id="details">
+        <div class="ir-section-heading"><div class="ir-section-icon purple">&#128203;</div><h2>Incident details</h2></div>
+        <table class="ir-table">
+          <tbody>
+            <tr><td class="ir-key">Start time</td><td>14 Feb 2025 &mdash; 09:12 UTC</td></tr>
+            <tr><td class="ir-key">Detection</td><td>Automated monitoring alert &mdash; latency SLA breach (P95 &gt; 3.2s)</td></tr>
+            <tr><td class="ir-key">Affected systems</td><td>NPPS API gateway, Postgres cluster (payments-db-03), Redis cache</td></tr>
+            <tr><td class="ir-key">Impacted customers</td><td>EU retail banking clients, partner merchants, mobile-app users</td></tr>
+            <tr><td class="ir-key">Severity</td><td>Critical (Sev-1)</td></tr>
+            <tr><td class="ir-key">Initial trigger</td><td>DB connection-pool exhaustion following an autoscaling event</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="ir-section" id="impact">
+        <div class="ir-section-heading"><div class="ir-section-icon red">&#128201;</div><h2>Impact assessment</h2></div>
+        <table class="ir-table">
+          <thead><tr><th>Dimension</th><th>Impact</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Functional</strong></td><td>3&ndash;6 second latency spikes, then 500 / 504 errors.</td></tr>
+            <tr><td><strong>Financial</strong></td><td>~4,800 failed transactions; reconciliation required; ~&euro;27,000 in delayed settlements.</td></tr>
+            <tr><td><strong>Compliance</strong></td><td>PSD2 response-time thresholds breached for EU partners.</td></tr>
+            <tr><td><strong>Reputational</strong></td><td>Multiple enterprise clients reported outages; support backlog rose ~42% during the window.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="ir-section" id="timeline">
+        <div class="ir-section-heading"><div class="ir-section-icon amber">&#9201;&#65039;</div><h2>Timeline of events</h2></div>
+        <p>The timeline is the spine of any incident report. The diagram shows the shape of the response &mdash; detection, a false lead, the real diagnosis, 
+          the fix, and recovery.</p>
+
+        <div class="ir-diagram">
+          <svg width="100%" viewBox="0 0 680 250" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>Incident timeline</title>
+            <defs><marker id="irarr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <line x1="40" y1="125" x2="650" y2="125" stroke="#94a3b8" stroke-width="2"/>
+            <!-- nodes -->
+            <circle cx="80" cy="125" r="7" class="c-red"/>
+            <text class="th" x="80" y="100" text-anchor="middle">09:12</text>
+            <text class="ts" x="80" y="158" text-anchor="middle">Alert fires</text>
+            <circle cx="210" cy="125" r="7" class="c-amber"/>
+            <text class="th" x="210" y="100" text-anchor="middle">09:21</text>
+            <text class="ts" x="210" y="158" text-anchor="middle">Wrong lead:</text>
+            <text class="ts" x="210" y="173" text-anchor="middle">"partner issue"</text>
+            <circle cx="345" cy="125" r="7" class="c-blue"/>
+            <text class="th" x="345" y="100" text-anchor="middle">10:22</text>
+            <text class="ts" x="345" y="158" text-anchor="middle">Root cause found:</text>
+            <text class="ts" x="345" y="173" text-anchor="middle">DB 5&rarr;3 nodes</text>
+            <circle cx="480" cy="125" r="7" class="c-green"/>
+            <text class="th" x="480" y="100" text-anchor="middle">10:31</text>
+            <text class="ts" x="480" y="158" text-anchor="middle">Fix: restore</text>
+            <text class="ts" x="480" y="173" text-anchor="middle">to 5 nodes</text>
+            <circle cx="615" cy="125" r="7" class="c-green"/>
+            <text class="th" x="615" y="100" text-anchor="middle">11:48</text>
+            <text class="ts" x="615" y="158" text-anchor="middle">Resolved</text>
+          </svg>
+          <p class="ir-diagram-caption">The incident's shape: ~9 minutes to detect, but an hour chasing a wrong hypothesis (an external partner) before the real 
+            cause a silently downscaled database cluster was found at 10:22. The fix took 9 minutes; full stabilisation took until 11:48.</p>
+        </div>
+
+        <table class="ir-table">
+          <thead><tr><th>Time (UTC)</th><th>Event</th><th>Actor</th></tr></thead>
+          <tbody>
+            <tr><td>09:12</td><td>Latency alert triggered (P95 &gt; 3.2s)</td><td>Monitoring</td></tr>
+            <tr><td>09:15</td><td>SRE acknowledges, begins investigation</td><td>SRE on-call</td></tr>
+            <tr><td>09:21</td><td>Initial (wrong) hypothesis: external partner bottleneck</td><td>SRE</td></tr>
+            <tr><td>09:32</td><td>Connection-pool errors found in Postgres logs</td><td>SRE</td></tr>
+            <tr><td>09:41</td><td>Escalated to Database Engineering</td><td>SRE</td></tr>
+            <tr><td>10:22</td><td>Root cause: autoscaler cut DB nodes 5&rarr;3 unexpectedly</td><td>DB Eng</td></tr>
+            <tr><td>10:31</td><td>Hot-fix: restore cluster to 5 nodes</td><td>DB Eng</td></tr>
+            <tr><td>11:06</td><td>Latency begins to stabilise</td><td>SRE</td></tr>
+            <tr><td>11:48</td><td>Incident resolved; monitoring green</td><td>SRE Lead</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="ir-section" id="actions">
+        <div class="ir-section-heading"><div class="ir-section-icon green">&#128295;</div><h2>Actions taken</h2></div>
+        <table class="ir-table">
+          <thead><tr><th>Type</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Immediate</strong></td><td>Raised API-gateway timeouts 3s&rarr;6s to reduce cascading failures; enabled degraded mode routing through cached transaction state.</td></tr>
+            <tr><td><strong>Corrective</strong></td><td>Restored DB cluster node count, rebalanced connections, and updated pool config to prevent exhaustion during autoscaling.</td></tr>
+            <tr><td><strong>Workaround</strong></td><td>Temporary Redis-based fallback served pre-authorised transactions while the cluster stabilised.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="ir-section" id="rca">
+        <div class="ir-section-heading"><div class="ir-section-icon purple">&#128269;</div><h2>Root cause analysis</h2></div>
+        <p>
+          The surface trigger was connection-pool exhaustion. But a good RCA doesn't stop at the symptom &mdash;
+          it keeps asking <em>why</em> until it reaches something a process change can fix. The 5-Whys chain
+          walks from the visible failure down to the real, systemic cause.
+        </p>
+
+        <div class="ir-diagram">
+          <svg width="100%" viewBox="0 0 680 360" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>5 Whys root cause chain</title>
+            <defs><marker id="irarr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <g class="c-red"><rect x="120" y="14" width="440" height="44" rx="8" stroke-width="0.5"/>
+              <text class="ts" x="340" y="36" text-anchor="middle" dominant-baseline="central">Symptom: ~31% of transactions failed</text></g>
+            <line x1="340" y1="58" x2="340" y2="76" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#irarr2)"/>
+            <g class="c-amber"><rect x="120" y="76" width="440" height="40" rx="8" stroke-width="0.5"/>
+              <text class="ts" x="340" y="96" text-anchor="middle" dominant-baseline="central">Why? The API connection pool was exhausted</text></g>
+            <line x1="340" y1="116" x2="340" y2="132" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#irarr2)"/>
+            <g class="c-amber"><rect x="120" y="132" width="440" height="40" rx="8" stroke-width="0.5"/>
+              <text class="ts" x="340" y="152" text-anchor="middle" dominant-baseline="central">Why? The DB cluster scaled down 5&rarr;3 nodes</text></g>
+            <line x1="340" y1="172" x2="340" y2="188" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#irarr2)"/>
+            <g class="c-amber"><rect x="120" y="188" width="440" height="40" rx="8" stroke-width="0.5"/>
+              <text class="ts" x="340" y="208" text-anchor="middle" dominant-baseline="central">Why? Autoscaling thresholds were too aggressive</text></g>
+            <line x1="340" y1="228" x2="340" y2="244" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#irarr2)"/>
+            <g class="c-amber"><rect x="120" y="244" width="440" height="40" rx="8" stroke-width="0.5"/>
+              <text class="ts" x="340" y="264" text-anchor="middle" dominant-baseline="central">Why? Tuned for weekend patterns, not weekday peak</text></g>
+            <line x1="340" y1="284" x2="340" y2="300" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#irarr2)"/>
+            <g class="c-purple"><rect x="80" y="300" width="520" height="50" rx="8" stroke-width="0.5"/>
+              <text class="th" x="340" y="318" text-anchor="middle" dominant-baseline="central">Root cause: no cross-team review for scaling-policy changes</text>
+              <text class="ts" x="340" y="337" text-anchor="middle" dominant-baseline="central">&mdash; a process gap, not a one-off mistake</text></g>
+          </svg>
+          <p class="ir-diagram-caption">The 5-Whys chain. Each answer becomes the next question, walking from the visible symptom down to a systemic root cause: a change-management gap that let a scaling policy ship without SRE review. Fixing the symptom wouldn't prevent recurrence; fixing the process does.</p>
+        </div>
+
+        <div class="ir-callout purple">
+          <strong>Stop at the cause you can fix with a process, not a person</strong>
+          <p>
+            The discipline of the 5 Whys is to keep going past &ldquo;someone misconfigured the autoscaler&rdquo;
+            &mdash; which invites blame and fixes nothing &mdash; to &ldquo;our change process allowed an
+            unreviewed scaling change.&rdquo; The second is blameless, systemic, and actionable. That shift is
+            what separates a report that prevents recurrence from one that just assigns fault.
+          </p>
+        </div>
+      </section>
+
+      <section class="ir-section" id="prevention">
+        <div class="ir-section-heading"><div class="ir-section-icon green">&#128737;&#65039;</div><h2>Long-term preventive measures</h2></div>
+        <p>Each measure maps directly to the root cause and its contributing factors &mdash; not a wish list, but the specific changes that close this exact gap.</p>
+        <table class="ir-table">
+          <thead><tr><th>Measure</th><th>Closes</th></tr></thead>
+          <tbody>
+            <tr><td>SRE-approved autoscaling policy with a min-node lock</td><td>Silent downscaling below safe capacity</td></tr>
+            <tr><td>Real-time alerts on infrastructure downscaling events</td><td>The blind spot that delayed diagnosis</td></tr>
+            <tr><td>Automated connection-pool tuning based on cluster size</td><td>Pool config that assumed a fixed cluster</td></tr>
+            <tr><td>Mandatory cross-team review for infra config changes</td><td>The root-cause process gap</td></tr>
+            <tr><td>Monthly resilience testing for payment databases</td><td>Undetected capacity assumptions</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="ir-section" id="validation">
+        <div class="ir-section-heading"><div class="ir-section-icon green">&#9989;</div><h2>Post-incident validation</h2></div>
+        <p>A resolution isn't confirmed until it's validated. The report records the evidence that recovery was real and stable, not just quiet.</p>
+        <table class="ir-table">
+          <thead><tr><th>Check</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Monitoring</td><td>Latency back to 200&ndash;300ms; error rate &lt; 0.04%.</td></tr>
+            <tr><td>QA validation</td><td>Regression tests passed for all payment flows.</td></tr>
+            <tr><td>Customer confirmation</td><td>Enterprise banking partners confirmed stable recovery and successful retries.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="ir-section" id="raci">
+        <div class="ir-section-heading"><div class="ir-section-icon amber">&#128101;</div><h2>RACI matrix</h2></div>
+        <p>Who was Responsible, Accountable, Consulted, and Informed across the response the clarity that prevents the &ldquo;I thought you had it&rdquo; 
+          failure mode mid-incident.</p>
+        <table class="ir-table">
+          <thead><tr><th>Task</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+          <tbody>
+            <tr><td>Incident detection</td><td>SRE</td><td>SRE Lead</td><td>Payments Eng</td><td>Exec team</td></tr>
+            <tr><td>Root cause analysis</td><td>DB Eng</td><td>Head of Platform</td><td>SRE</td><td>Compliance</td></tr>
+            <tr><td>Customer communication</td><td>Support</td><td>Support Lead</td><td>SRE / Legal</td><td>Partners</td></tr>
+            <tr><td>Final approval</td><td>Head of Platform</td><td>CTO</td><td>SRE</td><td>All teams</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="ir-section" id="learnings">
+        <div class="ir-section-heading"><div class="ir-section-icon amber">&#128161;</div><h2>Key learnings</h2></div>
+        <div class="ir-callout amber"><strong>The first hypothesis is often wrong.</strong><p>An hour went to chasing an external-partner theory. A good report records 
+          the wrong lead too it's where the lesson about faster diagnosis lives.
+        </p></div>
+        <div class="ir-callout purple"><strong>Drive the RCA to a process, not a person.</strong><p>The root cause wasn't a bad config  it was a review gap that 
+          let the config ship. That's the only level at which prevention is real.
+        </p></div>
+        <div class="ir-callout green"><strong>A resolution isn't done until it's validated.</strong><p>Monitoring, QA, and customer confirmation together turn &ldquo;it 
+          looks fine now&rdquo; into a defensible close.
+        </p></div>
+      </section>
+
+      <div class="ir-writer-note" id="writer-note">
+        <div class="ir-writer-note-label">&#128221; Writer's note</div>
+        <p>The hardest and most valuable part of an incident report is the root-cause analysis, because it's where an organisation decides whether to blame a person or fix a 
+          system. I structured the RCA explicitly as a 5-Whys chain so the document 
+          <em>walks</em> the reader from symptom to systemic cause, rather than just asserting one.
+        </p>
+        <p>I also deliberately kept the wrong first hypothesis in the timeline. A sanitised report that pretends the team went straight to the answer teaches nothing; 
+          the hour spent on a false lead is exactly where the lesson about detection and diagnosis lives. Honesty is what makes a post-incident report blameless and 
+          useful instead of defensive.
+        </p>
+        <div class="ir-related">
+          <a href="./helios-operations-playbook.html">Helios Operations Playbook &rarr;</a>
+          <a href="./nimbusshop-guide.html">NimbusShop Platform Guide &rarr;</a>
         </div>
       </div>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Prerequisites</h3>
-          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
-        </div>
-        <div class="doc-meta-item">
-          <h3>Impact</h3>
-          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
-        </div>
-      </div>
-    </section>
 
-
-      <p class="doc-subtitle">Full post-incident analysis of a production outage affecting the Nimbus Payment Processing Service (NPPS).</p>
-
-      <section>
-        <h2 id="document-control">Document Control</h2>
-        <ul class="doc-meta">
-          <li><strong>Document Title:</strong> NPPS API Latency & Outage Major Incident Report</li>
-          <li><strong>Incident Type:</strong> Partial Outage / Performance Degradation</li>
-          <li><strong>Owner:</strong> SRE Team NimbusTech Solutions</li>
-          <li><strong>Approver:</strong> Head of Platform Engineering</li>
-          <li><strong>Department:</strong> Platform Engineering • SRE • Payments Team</li>
-          <li><strong>Version:</strong> 1.0</li>
-          <li><strong>Status:</strong> Final</li>
-          <li><strong>Incident Start:</strong> 14 Feb 2025 – 09:12 UTC</li>
-          <li><strong>Incident End:</strong> 14 Feb 2025 – 11:48 UTC</li>
-          <li><strong>Last Updated:</strong> 15 Feb 2025</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 id="1-incident-summary">1. Incident Summary</h2>
-        <p>
-          On 14 February 2025, NimbusTech experienced a major incident where the <strong>Payment Processing Service (NPPS)</strong>
-          exhibited severe latency spikes followed by intermittent request failures. Approximately <strong>31% of customer transactions</strong>
-          failed or timed out during the incident window. The issue originated from a misconfigured database connection pool
-          following a routine infrastructure scaling event. 
-        </p>
-        <p>
-          The incident lasted <strong>2 hours 36 minutes</strong> and was classified as <strong>Severity 1 (Critical)</strong> due to customer impact,
-          financial transaction failure, and direct disruption to partner APIs.
-        </p>
-      </section>
-
-      <section>
-        <h2 id="2-incident-details">2. Incident Details</h2>
-        <table>
-          <tr><th>Field</th><th>Description</th></tr>
-          <tr><td>Start Time</td><td>14 Feb 2025 – 09:12 UTC</td></tr>
-          <tr><td>Detection Method</td><td>Automated monitoring alert (Datadog) – Latency SLA breach</td></tr>
-          <tr><td>Affected Systems</td><td>NPPS API Gateway, Postgres Cluster (payments-db-03), Redis cache</td></tr>
-          <tr><td>Impacted Customers</td><td>EU Retail Banking Clients, Partner Merchants, Mobile App Users</td></tr>
-          <tr><td>Severity Level</td><td>Critical</td></tr>
-          <tr><td>Root Trigger (initial)</td><td>Database connection pool exhaustion following autoscaling event</td></tr>
-        </table>
-      </section>
-
-      <section>
-        <h2 id="3-impact-assessment">3. Impact Assessment</h2>
-        <ul>
-          <li><strong>Functional impact:</strong> NPPS API experienced 3–6 second latency spikes, followed by 500/504 errors.</li>
-          <li><strong>Financial impact:</strong> Approx. 4,800 failed transactions; reconciliation required; estimated €27,000 in delayed settlements.</li>
-          <li><strong>Compliance exposure:</strong> PSD2 response-time thresholds breached for EU partners.</li>
-          <li><strong>Reputational impact:</strong> Multiple enterprise clients reported outages; support backlog increased by 42% during the incident.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 id="4-timeline-of-events">4. Timeline of Events</h2>
-        <table>
-          <tr><th>Time (UTC)</th><th>Event</th><th>Actor</th></tr>
-
-          <tr><td>09:12</td><td>Latency alert triggered for NPPS API (95th percentile > 3.2s)</td><td>Monitoring System</td></tr>
-          <tr><td>09:15</td><td>SRE acknowledges and begins investigation</td><td>SRE On-call</td></tr>
-          <tr><td>09:21</td><td>Initial hypothesis: external partner bottleneck</td><td>SRE</td></tr>
-          <tr><td>09:32</td><td>Connection pool errors detected in Postgres logs</td><td>SRE</td></tr>
-          <tr><td>09:41</td><td>Issue escalated to Database Engineering</td><td>SRE</td></tr>
-          <tr><td>10:05</td><td>Connection pool manually flushed; no improvement</td><td>DB Engineer</td></tr>
-          <tr><td>10:22</td><td>Root cause identified: autoscaler reduced DB node count from 5 → 3 unexpectedly</td><td>DB Engineering</td></tr>
-          <tr><td>10:31</td><td>Hot-fix applied: restore DB cluster to 5 nodes</td><td>DB Engineering</td></tr>
-          <tr><td>11:06</td><td>API latency begins to stabilise</td><td>SRE</td></tr>
-          <tr><td>11:48</td><td>Incident resolved; monitoring green</td><td>SRE Lead</td></tr>
-        </table>
-      </section>
-
-      <section>
-        <h2 id="5-actions-taken">5. Actions Taken</h2>
-
-        <h3>5.1 Immediate Actions</h3>
-        <ul>
-          <li>Increased API gateway timeouts from 3s → 6s to reduce cascading failures</li>
-          <li>Enabled degraded mode to route requests through cached transaction state</li>
-        </ul>
-
-        <h3>5.2 Corrective Actions</h3>
-        <p>
-          Database Engineering restored the cluster node count and rebalanced connections.  
-          SRE updated the connection pool configuration to prevent exhaustion during autoscaling.
-        </p>
-
-        <h3>5.3 Temporary Workarounds</h3>
-        <p>
-          A temporary Redis-based fallback was implemented to serve pre-authorised transactions while the
-          database cluster stabilised.
-        </p>
-      </section>
-
-      <section>
-        <h2 id="6-communication-log">6. Communication Log</h2>
-        <table>
-          <tr><th>Time</th><th>Channel</th><th>Recipient</th><th>Summary</th></tr>
-          <tr><td>09:25</td><td>Slack</td><td>Platform Eng</td><td>Initial alert shared; investigation started.</td></tr>
-          <tr><td>09:50</td><td>Email</td><td>Enterprise Customers</td><td>Notification of degraded performance.</td></tr>
-          <tr><td>10:40</td><td>Slack</td><td>Executive Team</td><td>Root cause identified; fix in progress.</td></tr>
-          <tr><td>12:05</td><td>Email</td><td>All Customers</td><td>Resolution notice and reconciliation steps.</td></tr>
-        </table>
-      </section>
-
-      <section>
-        <h2 id="7-root-cause-analysis-rca">7. Root Cause Analysis (RCA)</h2>
-
-        <h3>7.1 Root Cause</h3>
-        <p>
-          A misconfigured autoscaling policy reduced the database cluster size from 5 → 3 nodes during low
-          overnight traffic. When traffic increased at peak hours, the reduced cluster capacity caused connection
-          bottlenecks, draining the API’s connection pool and triggering cascading latencies.
-        </p>
-
-        <h3>7.2 Contributing Factors</h3>
-        <ul>
-          <li>Connection pool settings were tuned for a 5-node cluster only.</li>
-          <li>Autoscaler thresholds had not been validated against weekday peak load.</li>
-          <li>Lack of alerting on unexpected infrastructure downscaling.</li>
-        </ul>
-
-        <h3>7.3 5 Whys Analysis</h3>
-        <ol>
-          <li>Why? → Because the database cluster unexpectedly scaled down.</li>
-          <li>Why? → Because autoscaling thresholds were too aggressive.</li>
-          <li>Why? → Because they were configured for weekend patterns, not weekdays.</li>
-          <li>Why? → Because the autoscaling policy was updated without SRE review.</li>
-          <li>Why? → Because change-management rules did not include cross-team review for scaling policies.</li>
-        </ol>
-
-        <h3>7.4 Evidence & Logs</h3>
-        <p>Included in internal Jira ticket: DB-1228 (not publicly shared).</p>
-      </section>
-
-      <section>
-        <h2 id="8-long-term-preventive-measures">8. Long-Term Preventive Measures</h2>
-        <ul>
-          <li>Implement SRE-approved autoscaling policy with min-node lock.</li>
-          <li>Deploy real-time alerts for infrastructure downscaling events.</li>
-          <li>Introduce automated connection pool tuning based on cluster size.</li>
-          <li>Mandatory cross-team review for infra configuration changes.</li>
-          <li>Monthly resilience testing for all payment-related databases.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 id="9-post-incident-validation">9. Post-Incident Validation</h2>
-
-        <h3>9.1 Monitoring Results</h3>
-        <p>Latency averages returned to 200–300ms; error rate <0.04%.</p>
-
-        <h3>9.2 QA Validation</h3>
-        <p>Regression tests passed for all payment flows.</p>
-
-        <h3>9.3 Customer Confirmation</h3>
-        <p>All enterprise banking partners confirmed stable recovery and successful transaction retries.</p>
-      </section>
-
-      <section>
-        <h2 id="10-raci-matrix">10. RACI Matrix</h2>
-        <table>
-          <tr><th>Task</th><th>R</th><th>A</th><th>C</th><th>I</th></tr>
-          <tr><td>Incident Detection</td><td>SRE</td><td>SRE Lead</td><td>Payments Eng</td><td>Exec Team</td></tr>
-          <tr><td>Root Cause Analysis</td><td>DB Eng</td><td>Head of Platform</td><td>SRE</td><td>Compliance</td></tr>
-          <tr><td>Customer Communication</td><td>Support</td><td>Support Lead</td><td>SRE / Legal</td><td>Partners</td></tr>
-          <tr><td>Final Approval</td><td>Head of Platform</td><td>CTO</td><td>SRE</td><td>All Teams</td></tr>
-        </table>
-      </section>
-
-      <section>
-        <h2 id="11-references">11. References</h2>
-        <ul>
-          <li>Datadog Monitoring Dashboard – NPPS API</li>
-          <li>Postgres Cluster Logs – payments-db-03</li>
-          <li>Incident Jira Ticket – INC-2049</li>
-          <li>Autoscaling Policy Documentation</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 id="12-document-history">12. Document History</h2>
-        <table>
-          <tr><th>Version</th><th>Date</th><th>Author</th><th>Change Description</th></tr>
-          <tr><td>1.0</td><td>15 Feb 2025</td><td>Leslie Amadi</td><td>Initial public portfolio version</td></tr>
-        </table>
-      </section>
-
-      <div class="nav-buttons">
-        <a href="../../portfolio.html" class="btn">← Back to Portfolio</a>
+      <div class="ir-nav-bottom">
+        <a href="../../portfolio.html" class="btn-leslie">&larr; Back to Portfolio</a>
+        <a href="../../contact.html" class="btn btn-accent">Discuss this work &rarr;</a>
       </div>
 
     </main>
 
+    <aside class="ir-sidebar">
+      <nav class="ir-toc">
+        <div class="ir-toc-title">On this page</div>
+        <a href="#summary" class="toc-active"><span class="ir-toc-dot"></span>Incident summary</a>
+        <a href="#contribution"><span class="ir-toc-dot"></span>My contribution</a>
+        <a href="#details"><span class="ir-toc-dot"></span>Incident details</a>
+        <a href="#impact"><span class="ir-toc-dot"></span>Impact assessment</a>
+        <a href="#timeline"><span class="ir-toc-dot"></span>Timeline</a>
+        <a href="#actions"><span class="ir-toc-dot"></span>Actions taken</a>
+        <a href="#rca"><span class="ir-toc-dot"></span>Root cause (5 Whys)</a>
+        <a href="#prevention"><span class="ir-toc-dot"></span>Preventive measures</a>
+        <a href="#validation"><span class="ir-toc-dot"></span>Validation</a>
+        <a href="#raci"><span class="ir-toc-dot"></span>RACI matrix</a>
+        <a href="#learnings"><span class="ir-toc-dot"></span>Key learnings</a>
+      </nav>
+      <div class="ir-quick-ref">
+        <div class="ir-quick-ref-title">Incident at a glance</div>
+        <div class="ir-quick-ref-row"><strong>Severity</strong><span>Sev-1 critical</span></div>
+        <div class="ir-quick-ref-row"><strong>Duration</strong><span>2h 36m</span></div>
+        <div class="ir-quick-ref-row"><strong>Impact</strong><span>~31% txns failed</span></div>
+        <div class="ir-quick-ref-row"><strong>Root cause</strong><code>process gap</code></div>
+      </div>
+    </aside>
   </div>
+
+  <footer>
+    <p>&copy; 2025 Leslie Amadi &middot; <a href="https://mail.google.com/mail/?view=cm&fs=1&to=angelalora16@gmail.com">hello@lesliewrites.tech</a></p>
+  </footer>
+
+</div>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-menu');
+  if (toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  const sections = document.querySelectorAll('.ir-section[id], .ir-writer-note[id]');
+  const tocLinks  = document.querySelectorAll('.ir-toc a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      tocLinks.forEach(l => l.classList.remove('toc-active'));
+      const link = document.querySelector(`.ir-toc a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('toc-active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+  sections.forEach(s => io.observe(s));
+</script>
 </body>
 </html>
-

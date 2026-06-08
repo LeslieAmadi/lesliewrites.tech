@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Helios Operations Playbook — Disaster Recovery &amp; Capacity Planning | Leslie Amadi</title>
-  <meta name="description" content="Companion operations playbook for the Helios model-serving platform: disaster recovery procedures, RTO/RPO targets, failover runbook, and capacity planning guidance."/>
+  <title>Helios Operations Playbook Disaster Recovery & Capacity Planning | Leslie Amadi</title>
+  <meta name="description" content="Companion operations playbook for the Helios model-serving platform: disaster recovery procedures, 
+  RTO/RPO targets, failover runbook, and capacity planning guidance."/>
   <meta property="og:title" content="Helios Operations Playbook | Leslie Amadi"/>
   <meta property="og:type" content="article"/>
   <link rel="stylesheet" href="../../assets/css/styles.css"/>
@@ -59,7 +60,7 @@
       <a class="hl-companion" href="./helios-model-serving.html">
         <div class="hl-companion-icon">←</div>
         <div class="hl-companion-body">
-          <div class="hl-companion-title">Back to the main page — Helios Model Serving</div>
+          <div class="hl-companion-title">Back to the main page Helios Model Serving</div>
           <div class="hl-companion-desc">Architecture, serving modes, promotion workflow, SLOs, incident response, and governance.</div>
         </div>
       </a>
@@ -82,7 +83,7 @@
           <thead><tr><th>Term</th><th>Definition</th><th>Helios target</th></tr></thead>
           <tbody>
             <tr><td><strong>RTO</strong></td><td>Maximum acceptable time to restore service after an incident</td><td>Under 15 minutes for a regional failover</td></tr>
-            <tr><td><strong>RPO</strong></td><td>Maximum acceptable data loss, measured in time</td><td>Under 5 minutes — model artifacts and registry state</td></tr>
+            <tr><td><strong>RPO</strong></td><td>Maximum acceptable data loss, measured in time</td><td>Under 5 minutes model artifacts and registry state</td></tr>
             <tr><td><strong>Active-active</strong></td><td>Multiple regions serving live traffic simultaneously</td><td>Three regions; any one can absorb another's load</td></tr>
           </tbody>
         </table>
@@ -102,7 +103,7 @@
         </table>
 
         <div class="hl-scenario">
-          <div class="hl-scenario-hdr">Executable runbook — regional failover (SEV-1)</div>
+          <div class="hl-scenario-hdr">Executable runbook regional failover (SEV-1)</div>
           <div class="hl-scenario-body">
             <div class="hl-runbook-row"><span class="hl-runbook-key">Severity</span><span class="hl-runbook-val"><span class="hl-sev sev1">SEV-1</span> — region down, user-facing impact</span></div>
             <div class="hl-runbook-key">Symptoms</div>
@@ -151,7 +152,7 @@ helios-ctl traffic verify --region eu-central  <span class="hl-c"># confirm upta
         <div class="hl-section-heading"><div class="hl-section-icon teal">📐</div><h2>Capacity planning</h2></div>
         <p>
           Capacity planning is the discipline of having enough headroom to absorb growth and spikes
-          <em>before</em> they happen — without paying for idle GPUs all year. Helios plans capacity on a
+          <em>before</em> they happen without paying for idle GPUs all year. Helios plans capacity on a
           rolling basis using three inputs: baseline demand, growth trend, and peak multiplier.
         </p>
 
@@ -171,7 +172,7 @@ helios-ctl traffic verify --region eu-central  <span class="hl-c"># confirm upta
           <p>
             Provision so that <strong>baseline demand × peak multiplier</strong> still lands inside the
             50–70% utilisation band. If a model runs at 60% utilisation at median load with a 2× campaign
-            multiplier, it has no burst headroom — a campaign will saturate it. The capacity plan flags any
+            multiplier, it has no burst headroom a campaign will saturate it. The capacity plan flags any
             model whose projected peak would exceed 85% utilisation and schedules additional capacity before
             the next quarter.
           </p>
@@ -192,7 +193,7 @@ helios-ctl traffic verify --region eu-central  <span class="hl-c"># confirm upta
           <p>
             The campaign-spike incident on the main page is exactly what this check prevents. Before any
             marketing launch, the product team declares the expected traffic multiplier and the platform team
-            confirms the headroom exists — or provisions it. A documented check turns "we hope it scales" into
+            confirms the headroom exists or provisions it. A documented check turns "we hope it scales" into
             "we verified it scales." This single procedure closes the loop on the opening scenario of the whole
             Helios documentation set.
           </p>
@@ -202,8 +203,11 @@ helios-ctl traffic verify --region eu-central  <span class="hl-c"># confirm upta
       <!-- ── WRITER NOTE ── -->
       <div class="hl-writer-note" id="writer-note">
         <div class="hl-writer-note-label">📝 About this companion page</div>
-        <p>This operations playbook is the companion to the main Helios documentation. I split disaster recovery and capacity planning into their own page deliberately: the main architecture document should be readable in one sitting, and operational reference material is consulted at different moments — during an incident, or during quarterly planning — by different people.</p>
-        <p>That split is itself a documentation decision. A 12,000-word page that tries to be both an introduction and an operations manual serves neither purpose well. Two linked, focused documents — one to understand the platform, one to operate it under pressure — is how mature documentation estates are actually structured.</p>
+        <p>This operations playbook is the companion to the main Helios documentation. I split disaster recovery and capacity planning into their own page deliberately: 
+          the main architecture document should be readable in one sitting, and operational reference material is consulted at different moments during an incident, or 
+          during quarterly planning by different people.</p>
+        <p>That split is itself a documentation decision. A 12,000-word page that tries to be both an introduction and an operations manual serves neither purpose well. 
+          Two linked, focused documents one to understand the platform, one to operate it under pressure is how mature documentation estates are actually structured.</p>
         <div class="hl-related">
           <a href="./helios-model-serving.html">← Helios Model Serving (main page)</a>
           <a href="./incident-response.html">NimbusTech Incident Report →</a>
@@ -236,7 +240,7 @@ helios-ctl traffic verify --region eu-central  <span class="hl-c"># confirm upta
   </div>
 
   <footer>
-    <p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
+    <p>© 2025 Leslie Amadi · <a href="https://mail.google.com/mail/?view=cm&fs=1&to=angelalora16@gmail.com">hello@lesliewrites.tech</a></p>
   </footer>
 
 </div>
