@@ -1,363 +1,481 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NeuralFlow Evaluation Suite | Project — Leslie Amadi</title>
-
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeuralFlow Evaluation Suite — Portfolio Case Study | Leslie Amadi</title>
+  <meta name="description" content="Senior Technical Writer portfolio case study: documenting an ML model evaluation suite. Offline metrics, slice and fairness analysis, calibration, drift, shadow testing, and a regression gate that catches what offline metrics miss."/>
+  <meta property="og:title" content="NeuralFlow Evaluation Suite | Leslie Amadi — Senior Technical Writer"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png"/>
+  <link rel="stylesheet" href="../../assets/css/styles.css"/>
 </head>
-
 <body>
 <div class="page-shell">
 
- <!-- NAVBAR -->
- <header class="navbar">
-  <div class="navbar-inner">
-    <div class="logo">Leslie Amadi</div>
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="portfolio.html" class="active">Portfolio</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-  <!-- BREADCRUMB -->
-  <nav class="breadcrumb">
-    <a href="portfolio.html" class="btn">Back to Portfolio</a>
-    <span> / LexiMind</span>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../../index.html" class="logo">
+        <span class="logo-badge">LA</span>
+        <span class="logo-text">Technical Writer<br>Leslie Amadi</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="nav-menu">
+        <a href="../../index.html">Home</a>
+        <a href="../../portfolio.html" class="active">Portfolio</a>
+        <a href="../../blog.html">Blog</a>
+        <a href="../../about.html">About</a>
+        <a href="../../learning.html">Learning</a>
+        <a href="../../contact.html" class="nav-cta">Let's Talk</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="doc-header">
-    <h1>NeuralFlow Evaluation Suite</h1>
-    <nav class="docs-toc docs-toc-dropdown">
-      <details open>
-        <summary>On this page</summary>
-        <ol>
-          <li><a href="#1-system-overview">1. System Overview</a></li>
-          <li><a href="#2-real-life-scenario-preventing-a-faulty-model-release">2. Real-Life Scenario: Preventing a Faulty Model Release</a></li>
-          <li><a href="#3-architecture">3. Architecture</a></li>
-          <li><a href="#4-evaluation-tasks-methodology">4. Evaluation Tasks &amp; Methodology</a></li>
-          <li><a href="#5-api-reference">5. API Reference</a></li>
-          <li><a href="#6-scorecards-reports">6. Scorecards &amp; Reports</a></li>
-          <li><a href="#7-real-time-monitoring-alerts">7. Real-Time Monitoring &amp; Alerts</a></li>
-          <li><a href="#8-governance-compliance">8. Governance &amp; Compliance</a></li>
-          <li><a href="#9-integration-checklist">9. Integration Checklist</a></li>
-        </ol>
-      </details>
-    </nav>
-    <section class="doc-meta-grid">
-      <h2 class="doc-meta-title">Role &amp; Outcomes</h2>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Overview</h3>
-          <p>This document describes <strong>NeuralFlow Evaluation Suite | Project — Leslie Amadi</strong> and is written from the perspective of a technical writer supporting engineers, product, and operations.</p>
-        </div>
-        <div class="doc-meta-item">
-          <h3>My Role</h3>
-          <p>Planned the structure, authored the documentation, and aligned the content with stakeholders so it can be used as a repeatable reference and onboarding asset.</p>
+  <div class="nf-shell">
+
+    <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+    <main class="nf-content">
+
+      <div class="doc-breadcrumb" style="margin-bottom:1.25rem;">
+        <a href="../../portfolio.html">Portfolio</a><span>›</span>
+        <span>MLOps Documentation</span><span>›</span>
+        <span>NeuralFlow Evaluation Suite</span>
+      </div>
+
+      <!-- HERO -->
+      <div class="nf-hero">
+        <span class="nf-hero-eyebrow">📊 Case Study · MLOps · Model Evaluation · ML Quality</span>
+        <h1>NeuralFlow <span>Evaluation Suite</span></h1>
+        <p class="nf-hero-desc">
+          A model evaluation platform that decides whether a new machine-learning model is safe to ship.
+          I documented the full methodology — offline metrics, slice and fairness analysis, calibration,
+          drift detection, shadow testing, and the regression gate that catches what a single accuracy
+          number hides.
+        </p>
+        <div class="nf-hero-tags">
+          <span class="nf-hero-tag">Offline metrics</span>
+          <span class="nf-hero-tag">Slice analysis</span>
+          <span class="nf-hero-tag">Calibration</span>
+          <span class="nf-hero-tag">Fairness</span>
+          <span class="nf-hero-tag">Drift detection</span>
+          <span class="nf-hero-tag">Shadow testing</span>
         </div>
       </div>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Audience</h3>
-          <p>Primarily software engineers, data/ML practitioners, and product or operations teams who need a clear view of behaviour, integration steps, and edge cases.</p>
+
+      <!-- DOC CONTROL -->
+      <div class="nf-control">
+        <table class="nf-ctrl-table">
+          <tbody>
+            <tr><td class="nf-ctrl-label">Industry</td><td>Machine Learning Operations (MLOps) — Model Quality &amp; Evaluation</td></tr>
+            <tr><td class="nf-ctrl-label">Project</td><td>NeuralFlow Evaluation Suite — pre-deployment model assessment platform</td></tr>
+            <tr><td class="nf-ctrl-label">My role</td><td>Lead Technical Writer — methodology documentation, metric definitions, runbooks</td></tr>
+            <tr><td class="nf-ctrl-label">Audience</td><td>ML engineers, data scientists, model reviewers, platform &amp; product teams</td></tr>
+            <tr><td class="nf-ctrl-label">Doc type</td><td>Methodology reference + evaluation playbook</td></tr>
+            <tr><td class="nf-ctrl-label">Tools</td><td>Python, scikit-learn, Evidently, Prometheus, Grafana, model registry</td></tr>
+            <tr><td class="nf-ctrl-label">Version</td><td>1.0</td></tr>
+            <tr><td class="nf-ctrl-label">Last reviewed</td><td>June 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── BUSINESS PROBLEM ── -->
+      <section class="nf-section" id="problem">
+        <div class="nf-section-heading"><div class="nf-section-icon red">🎯</div><h2>The business problem</h2></div>
+        <p>
+          A data science team ships a fraud-detection model. On the offline test set it scores a
+          <strong>ROC AUC of 0.91</strong> — comfortably better than the model currently in production.
+          Everyone signs off. It goes live on a Tuesday.
+        </p>
+        <p>
+          By Friday, the support queue is filling with complaints: legitimate customers in one region are
+          being blocked at checkout, while a new class of fraud is slipping through untouched. The model
+          that looked excellent on paper is quietly underperforming in production at an effective AUC closer
+          to <strong>0.78</strong>. Nobody did anything wrong — the offline number was real. It just wasn't
+          the whole truth.
+        </p>
+        <div class="nf-callout red">
+          <strong>The gap this suite exists to close</strong>
+          <p>
+            A single headline metric on a static test set cannot tell you whether a model is safe to ship.
+            It says nothing about which <em>subgroups</em> the model fails, whether its confidence scores are
+            <em>honest</em>, or how it behaves on <em>live data that has shifted</em> since the test set was
+            captured. The NeuralFlow Evaluation Suite is the methodology that surfaces those blind spots
+            before a model reaches a single real customer — and the documentation is what makes that
+            methodology repeatable across every team.
+          </p>
         </div>
-        <div class="doc-meta-item">
-          <h3>Scope</h3>
-          <p>In scope: product behaviour, configuration, integration flows, and operational considerations. Out of scope: commercial terms, team processes, and non-technical marketing copy.</p>
+      </section>
+
+      <!-- ── MY CONTRIBUTION ── -->
+      <section class="nf-section" id="contribution">
+        <div class="nf-section-heading"><div class="nf-section-icon blue">✍️</div><h2>My contribution</h2></div>
+        <p>I owned the documentation that turns evaluation from a per-team art into a shared, auditable discipline:</p>
+        <div class="nf-cards">
+          <div class="nf-card"><div class="nf-card-icon">📐</div><h3>Methodology reference</h3><p>Defined every stage of the evaluation pipeline so any team runs the same assessment the same way.</p></div>
+          <div class="nf-card"><div class="nf-card-icon">📊</div><h3>Metric definitions</h3><p>Wrote precise, plain-language definitions of each metric — what it measures, when it lies, and what target to hold.</p></div>
+          <div class="nf-card"><div class="nf-card-icon">⚖️</div><h3>Fairness &amp; slice guidance</h3><p>Documented how to define subgroups and read per-slice results without drawing unsafe conclusions.</p></div>
+          <div class="nf-card"><div class="nf-card-icon">🚦</div><h3>Regression gate criteria</h3><p>Specified the exact pass/fail rules that decide whether a candidate model is promoted or blocked.</p></div>
+          <div class="nf-card"><div class="nf-card-icon">📋</div><h3>Executable runbook</h3><p>A step-by-step evaluation runbook with real commands a reviewer follows for every candidate.</p></div>
+          <div class="nf-card"><div class="nf-card-icon">🔭</div><h3>Drift &amp; monitoring</h3><p>Connected pre-deployment evaluation to post-deployment monitoring so the picture stays honest over time.</p></div>
+        </div>
+      </section>
+
+      <!-- ── DELIVERABLES ── -->
+      <section class="nf-section" id="deliverables">
+        <div class="nf-section-heading"><div class="nf-section-icon green">📦</div><h2>What I delivered</h2></div>
+        <table class="nf-table">
+          <thead><tr><th>Deliverable</th><th>Purpose</th><th>Audience</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Evaluation methodology reference</strong></td><td>The canonical description of every evaluation stage and gate</td><td>ML engineers, reviewers</td></tr>
+            <tr><td><strong>Metric catalogue</strong></td><td>Definition, formula intuition, and target for each metric</td><td>Data scientists, reviewers</td></tr>
+            <tr><td><strong>Slice &amp; fairness guide</strong></td><td>How to define subgroups and interpret per-slice results</td><td>Data scientists, product</td></tr>
+            <tr><td><strong>Evaluation runbook</strong></td><td>Executable step-by-step assessment for a candidate model</td><td>Model reviewers</td></tr>
+            <tr><td><strong>Regression gate spec</strong></td><td>Exact promote / block criteria</td><td>Platform, reviewers</td></tr>
+            <tr><td><strong>Drift monitoring guide</strong></td><td>Post-deployment checks that extend evaluation into production</td><td>Platform, SRE</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── PIPELINE ── -->
+      <section class="nf-section" id="pipeline">
+        <div class="nf-section-heading"><div class="nf-section-icon purple">🔄</div><h2>The evaluation pipeline</h2></div>
+        <p>
+          Every candidate model passes through four stages in sequence. Each stage answers a different
+          question, and a model has to satisfy all of them — not just the first — before it earns a
+          promotion decision.
+        </p>
+
+        <div class="nf-diagram">
+          <svg width="100%" viewBox="0 0 680 250" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>NeuralFlow evaluation pipeline</title>
+            <defs><marker id="nfarr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <g class="c-gray"><rect x="20" y="90" width="120" height="56" rx="8" stroke-width="0.5"/><text class="th" x="80" y="110" text-anchor="middle" dominant-baseline="central">Candidate</text><text class="ts" x="80" y="130" text-anchor="middle" dominant-baseline="central">New model</text></g>
+            <line x1="140" y1="118" x2="170" y2="118" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#nfarr1)"/>
+            <g class="c-purple"><rect x="170" y="40" width="150" height="56" rx="8" stroke-width="0.5"/><text class="th" x="245" y="60" text-anchor="middle" dominant-baseline="central">Offline metrics</text><text class="ts" x="245" y="80" text-anchor="middle" dominant-baseline="central">ROC, PR AUC</text></g>
+            <g class="c-purple"><rect x="170" y="140" width="150" height="56" rx="8" stroke-width="0.5"/><text class="th" x="245" y="160" text-anchor="middle" dominant-baseline="central">Slice + fairness</text><text class="ts" x="245" y="180" text-anchor="middle" dominant-baseline="central">Subgroup checks</text></g>
+            <line x1="320" y1="68" x2="360" y2="100" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#nfarr1)"/>
+            <line x1="320" y1="168" x2="360" y2="136" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#nfarr1)"/>
+            <g class="c-purple"><rect x="360" y="90" width="140" height="56" rx="8" stroke-width="0.5"/><text class="th" x="430" y="110" text-anchor="middle" dominant-baseline="central">Calibration</text><text class="ts" x="430" y="130" text-anchor="middle" dominant-baseline="central">Are probs honest?</text></g>
+            <line x1="500" y1="118" x2="530" y2="118" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#nfarr1)"/>
+            <g class="c-amber"><rect x="530" y="90" width="130" height="56" rx="8" stroke-width="0.5"/><text class="th" x="595" y="110" text-anchor="middle" dominant-baseline="central">Shadow run</text><text class="ts" x="595" y="130" text-anchor="middle" dominant-baseline="central">Live, no risk</text></g>
+          </svg>
+          <p class="nf-diagram-caption">Diagram 1 of 3 — The evaluation pipeline. Offline metrics and slice/fairness analysis run in parallel on the test set; calibration checks whether the model's confidence is trustworthy; the shadow run exposes the model to live traffic without affecting any real decision.</p>
+        </div>
+
+        <h3>Why the order matters</h3>
+        <p>
+          The stages are deliberately sequenced from cheapest to most expensive. Offline metrics are fast
+          and catch obvious failures early. Slice analysis runs on the same data but asks a harder question.
+          Calibration is meaningless if the model already failed the first two. And the shadow run — the only
+          stage that touches live traffic — runs last, because it is the most costly to set up and you only
+          want to spend it on a candidate that has already earned it.
+        </p>
+      </section>
+
+      <!-- ── OFFLINE METRICS ── -->
+      <section class="nf-section" id="metrics">
+        <div class="nf-section-heading"><div class="nf-section-icon purple">📏</div><h2>Offline metrics — and where each one lies</h2></div>
+        <p>
+          The most important thing the documentation does here is not list metrics — it explains the
+          <em>failure mode</em> of each one. A reviewer who knows when a metric lies is worth more than one
+          who can recite its formula.
+        </p>
+        <table class="nf-table">
+          <thead><tr><th>Metric</th><th>What it measures</th><th>When it lies</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Accuracy</strong></td><td>Fraction of predictions that are correct</td><td>On imbalanced data — 99% "not fraud" gets 99% accuracy by predicting nothing</td></tr>
+            <tr><td><strong>ROC AUC</strong></td><td>Ranking quality across all thresholds</td><td>Looks healthy even when the operating threshold you actually use performs badly</td></tr>
+            <tr><td><strong>PR AUC</strong></td><td>Precision/recall trade-off on the positive class</td><td>Rarely — which is why it's preferred for rare-event problems like fraud</td></tr>
+            <tr><td><strong>Precision</strong></td><td>Of flagged cases, how many were real</td><td>Can be gamed by flagging only the most obvious cases</td></tr>
+            <tr><td><strong>Recall</strong></td><td>Of real cases, how many were caught</td><td>Can be gamed by flagging almost everything</td></tr>
+          </tbody>
+        </table>
+        <div class="nf-callout blue">
+          <strong>The headline-metric trap</strong>
+          <p>
+            The fraud model from the opening scenario had a strong ROC AUC. But ROC AUC averages performance
+            across every possible threshold — including thresholds nobody uses in production. At the single
+            threshold the business actually operated, precision had collapsed for one customer segment. The
+            metric wasn't wrong; it was answering a question nobody was asking.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── SLICE & FAIRNESS ── -->
+      <section class="nf-section" id="slices">
+        <div class="nf-section-heading"><div class="nf-section-icon amber">⚖️</div><h2>Slice &amp; fairness analysis</h2></div>
+        <p>
+          An aggregate metric hides the variance underneath it. A model with 0.91 AUC overall might score
+          0.94 on the majority segment and 0.71 on a smaller one. The average looks fine; the experience for
+          that smaller segment does not. Slice analysis is the discipline of always looking underneath the
+          average.
+        </p>
+        <table class="nf-table">
+          <thead><tr><th>Segment</th><th>AUC</th><th>Precision @ threshold</th><th>Read</th></tr></thead>
+          <tbody>
+            <tr><td>Overall</td><td>0.91</td><td>0.88</td><td><span class="nf-badge ok">Looks healthy</span></td></tr>
+            <tr><td>Region A (majority)</td><td>0.94</td><td>0.92</td><td><span class="nf-badge ok">Strong</span></td></tr>
+            <tr><td>Region B (minority)</td><td>0.71</td><td>0.54</td><td><span class="nf-badge bad">Hidden failure</span></td></tr>
+            <tr><td>New customers</td><td>0.79</td><td>0.66</td><td><span class="nf-badge warn">Watch</span></td></tr>
+          </tbody>
+        </table>
+        <div class="nf-callout amber">
+          <strong>⚠ How to read a slice without over-reading it</strong>
+          <p>
+            A low score on a thin slice can be noise, not a real regression — a segment with only a few
+            hundred examples produces unstable metrics. The documentation is explicit about this: a slice
+            result is only actionable when the slice has enough samples for the metric to be stable, and a
+            regression matters when it is both large <em>and</em> consistent across evaluation runs. Reading
+            one noisy slice as a crisis is as harmful as ignoring a real one.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── CALIBRATION ── -->
+      <section class="nf-section" id="calibration">
+        <div class="nf-section-heading"><div class="nf-section-icon green">🎯</div><h2>Calibration — are the probabilities honest?</h2></div>
+        <p>
+          A model that outputs "0.8" should be right about 80% of the time when it says 0.8. If it is right
+          95% of the time, it is <em>under-confident</em>; if 60%, it is <em>over-confident</em>. This matters
+          enormously when a downstream system makes decisions off the probability — a fraud threshold, a
+          treatment recommendation, a loan cut-off. A discriminating-but-miscalibrated model can rank cases
+          perfectly and still hand the business numbers it cannot trust.
+        </p>
+        <div class="nf-callout green">
+          <strong>Why calibration earns its own stage</strong>
+          <p>
+            ROC AUC is invariant to calibration — you can take a well-ranked model, distort all its
+            probabilities, and the AUC will not move at all. So a model can pass the metric stage and still be
+            lying about its confidence. Calibration is the only check that catches this, which is why it sits
+            as a distinct gate rather than being folded into the headline metrics.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── THE GAP ── -->
+      <section class="nf-section" id="gap">
+        <div class="nf-section-heading"><div class="nf-section-icon red">🕳️</div><h2>The offline-to-online gap</h2></div>
+        <p>
+          Even a model that passes offline metrics, slice analysis, and calibration can still fail in
+          production — because production data is not the test set. This is the single most important concept
+          the documentation teaches, and it is why the shadow run exists.
+        </p>
+
+        <div class="nf-diagram">
+          <svg width="100%" viewBox="0 0 680 300" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>The offline-to-online evaluation gap</title>
+            <defs><marker id="nfarr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <g class="c-green"><rect x="30" y="50" width="200" height="80" rx="12" stroke-width="0.5"/><text class="th" x="130" y="74" text-anchor="middle" dominant-baseline="central">Offline test set</text><text class="ts" x="130" y="96" text-anchor="middle" dominant-baseline="central">ROC AUC 0.91</text><text class="ts" x="130" y="114" text-anchor="middle" dominant-baseline="central">Looks production-ready</text></g>
+            <g class="c-red"><rect x="450" y="50" width="200" height="80" rx="12" stroke-width="0.5"/><text class="th" x="550" y="74" text-anchor="middle" dominant-baseline="central">Live traffic</text><text class="ts" x="550" y="96" text-anchor="middle" dominant-baseline="central">Effective AUC 0.78</text><text class="ts" x="550" y="114" text-anchor="middle" dominant-baseline="central">Quietly underperforms</text></g>
+            <line x1="230" y1="90" x2="448" y2="90" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#nfarr2)"/>
+            <text class="ts" x="340" y="78" text-anchor="middle" fill="#94a3b8">deploy</text>
+            <g class="c-amber"><rect x="170" y="180" width="340" height="90" rx="12" stroke-width="0.5"/><text class="th" x="340" y="202" text-anchor="middle">What offline evaluation never saw</text><text class="ts" x="340" y="226" text-anchor="middle" dominant-baseline="central">New segments · shifted input distribution</text><text class="ts" x="340" y="246" text-anchor="middle" dominant-baseline="central">delayed labels · feedback loops</text></g>
+            <line x1="340" y1="130" x2="340" y2="178" stroke="#BA7517" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#nfarr2)"/>
+            <text class="ts" x="392" y="156" text-anchor="middle" fill="#94a3b8">the gap</text>
+          </svg>
+          <p class="nf-diagram-caption">Diagram 2 of 3 — The evaluation gap. The offline test set is a frozen snapshot; live traffic keeps moving. New user segments, shifted input distributions, delayed labels, and feedback loops all degrade real performance in ways a static test set can never reveal.</p>
+        </div>
+
+        <h3>The shadow run closes the gap</h3>
+        <p>
+          A shadow run sends a copy of real production traffic to the candidate model without using its
+          output for any real decision. The candidate sees exactly what the live model sees — current data,
+          current segments, current distribution — and its predictions are logged and compared. It is the
+          only evaluation stage that tests the model against the world as it actually is right now, which is
+          why it runs last and why a large shadow-vs-offline gap is treated as a blocking signal.
+        </p>
+      </section>
+
+      <!-- ── DRIFT ── -->
+      <section class="nf-section" id="drift">
+        <div class="nf-section-heading"><div class="nf-section-icon blue">🔭</div><h2>Drift — evaluation doesn't stop at deployment</h2></div>
+        <p>
+          A model that was correct on launch day slowly stops being correct as the world moves. Evaluation
+          therefore extends past deployment into continuous monitoring. The documentation distinguishes the
+          two kinds of drift because they call for different responses.
+        </p>
+        <table class="nf-table">
+          <thead><tr><th>Drift type</th><th>What changes</th><th>Signal</th><th>Response</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Data drift</strong></td><td>The input distribution moves; labels unchanged</td><td>Feature distributions diverge from training</td><td>Investigate; often a re-training trigger</td></tr>
+            <tr><td><strong>Concept drift</strong></td><td>The relationship between input and outcome changes</td><td>Accuracy falls though inputs look normal</td><td>Re-train on recent data; the old pattern is stale</td></tr>
+          </tbody>
+        </table>
+        <div class="nf-callout blue">
+          <strong>Closing the loop</strong>
+          <p>
+            Drift monitoring is what connects this suite to a serving platform like Helios. The evaluation
+            suite decides whether a model is safe to ship; drift monitoring decides when a shipped model has
+            drifted far enough to be re-evaluated. Together they form a continuous loop rather than a one-time
+            gate — which is the difference between a model that is checked once and a model that stays honest.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── RUNBOOK ── -->
+      <section class="nf-section" id="runbook">
+        <div class="nf-section-heading"><div class="nf-section-icon purple">📋</div><h2>Executable runbook — evaluating a candidate</h2></div>
+        <p>The methodology is only useful if a reviewer can act on it. This is the runbook a model reviewer follows for every candidate, with real commands.</p>
+        <div class="nf-scenario">
+          <div class="nf-scenario-hdr">Runbook — assess a candidate model for promotion</div>
+          <div class="nf-scenario-body">
+            <div class="nf-runbook-key">1 · Run offline metrics</div>
+            <div class="nf-code">
+              <div class="nf-code-bar"><span class="nf-code-lang">shell · score against the held-out test set</span></div>
+              <pre>neuralflow eval offline --model candidate@1.4 --dataset test-holdout
+<span class="nf-c"># outputs ROC AUC, PR AUC, precision/recall at the operating threshold</span></pre>
+            </div>
+            <div class="nf-runbook-key">2 · Run slice + fairness analysis</div>
+            <div class="nf-code">
+              <div class="nf-code-bar"><span class="nf-code-lang">shell · break results down by segment</span></div>
+              <pre>neuralflow eval slices --model candidate@1.4 --by region,customer_age
+<span class="nf-c"># flags any slice that regresses beyond tolerance vs the production model</span></pre>
+            </div>
+            <div class="nf-runbook-key">3 · Check calibration</div>
+            <div class="nf-code">
+              <div class="nf-code-bar"><span class="nf-code-lang">shell · are the probabilities honest?</span></div>
+              <pre>neuralflow eval calibration --model candidate@1.4
+<span class="nf-c"># reports expected calibration error (ECE); reliability curve saved to report</span></pre>
+            </div>
+            <div class="nf-runbook-key">4 · Run a shadow test</div>
+            <div class="nf-code">
+              <div class="nf-code-bar"><span class="nf-code-lang">shell · mirror live traffic, decide nothing</span></div>
+              <pre>neuralflow shadow start --model candidate@1.4 --duration 24h
+neuralflow shadow report --model candidate@1.4
+<span class="nf-c"># compares shadow performance to the offline estimate</span></pre>
+            </div>
+            <div class="nf-runbook-key">Decision</div>
+            <ul class="nf-list">
+              <li>All gate criteria pass → promote and enable drift monitoring.</li>
+              <li>Any subgroup regresses, calibration drifts, or shadow diverges from offline → block and investigate.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── REGRESSION GATE ── -->
+      <section class="nf-section" id="gate">
+        <div class="nf-section-heading"><div class="nf-section-icon green">🚦</div><h2>The regression gate</h2></div>
+        <p>
+          The gate is where the methodology becomes a decision. It is deliberately strict: every criterion
+          must hold. One passing metric does not buy forgiveness for a failing slice.
+        </p>
+
+        <div class="nf-diagram">
+          <svg width="100%" viewBox="0 0 680 330" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>NeuralFlow regression gate decision flow</title>
+            <defs><marker id="nfarr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <g class="c-gray"><rect x="260" y="30" width="160" height="44" rx="8" stroke-width="0.5"/><text class="th" x="340" y="52" text-anchor="middle" dominant-baseline="central">Evaluation results</text></g>
+            <line x1="340" y1="74" x2="340" y2="98" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#nfarr3)"/>
+            <g class="c-purple"><rect x="250" y="98" width="180" height="56" rx="8" stroke-width="0.5"/><text class="th" x="340" y="116" text-anchor="middle" dominant-baseline="central">Regression gate</text><text class="ts" x="340" y="136" text-anchor="middle" dominant-baseline="central">All criteria checked</text></g>
+            <line x1="430" y1="126" x2="510" y2="126" stroke="#185FA5" stroke-width="1.5" marker-end="url(#nfarr3)"/>
+            <text class="ts" x="470" y="116" text-anchor="middle" fill="#94a3b8">all pass</text>
+            <g class="c-green"><rect x="510" y="98" width="150" height="56" rx="8" stroke-width="0.5"/><text class="th" x="585" y="116" text-anchor="middle" dominant-baseline="central">Promote</text><text class="ts" x="585" y="136" text-anchor="middle" dominant-baseline="central">Ship + monitor</text></g>
+            <line x1="250" y1="126" x2="170" y2="126" stroke="#A32D2D" stroke-width="1.5" marker-end="url(#nfarr3)"/>
+            <text class="ts" x="210" y="116" text-anchor="middle" fill="#94a3b8">any fail</text>
+            <g class="c-red"><rect x="20" y="98" width="150" height="56" rx="8" stroke-width="0.5"/><text class="th" x="95" y="116" text-anchor="middle" dominant-baseline="central">Block</text><text class="ts" x="95" y="136" text-anchor="middle" dominant-baseline="central">Investigate</text></g>
+            <path d="M95 154 L95 220 L250 220" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#nfarr3)"/>
+            <text class="ts" x="150" y="210" text-anchor="middle" fill="#94a3b8">retrain / fix</text>
+            <g class="c-gray"><rect x="250" y="192" width="410" height="120" rx="12" stroke-width="0.5"/><text class="th" x="455" y="214" text-anchor="middle">Gate criteria — every one must hold</text>
+            <text class="ts" x="270" y="240" dominant-baseline="central">· Headline metric ≥ current production model</text>
+            <text class="ts" x="270" y="262" dominant-baseline="central">· No subgroup regresses beyond tolerance</text>
+            <text class="ts" x="270" y="284" dominant-baseline="central">· Calibration error within threshold</text>
+            <text class="ts" x="270" y="300" dominant-baseline="central">· Shadow run matches offline within margin</text></g>
+          </svg>
+          <p class="nf-diagram-caption">Diagram 3 of 3 — The regression gate. Results enter a single gate; only a candidate that satisfies every criterion is promoted. Any failure routes the model back for investigation and re-testing, mirroring the safety-first promotion logic used by the serving platform.</p>
+        </div>
+      </section>
+
+      <!-- ── RESULTS ── -->
+      <section class="nf-section" id="results">
+        <div class="nf-section-heading"><div class="nf-section-icon green">📈</div><h2>Results &amp; impact</h2></div>
+        <p>Once the methodology was documented and adopted, the change was measurable:</p>
+        <table class="nf-table">
+          <thead><tr><th>Measure</th><th>Before</th><th>After</th></tr></thead>
+          <tbody>
+            <tr><td>Models shipped with hidden subgroup regressions</td><td>Caught in production</td><td>Caught at the gate</td></tr>
+            <tr><td>Evaluation consistency across teams</td><td>Per-team, ad hoc</td><td>One shared methodology</td></tr>
+            <tr><td>Time for a reviewer to assess a candidate</td><td>Days of back-and-forth</td><td>One runbook, hours</td></tr>
+            <tr><td>Post-deployment surprises</td><td>Frequent</td><td>Rare — drift monitoring flags early</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── KEY LEARNINGS ── -->
+      <section class="nf-section" id="learnings">
+        <div class="nf-section-heading"><div class="nf-section-icon amber">💡</div><h2>Key learnings</h2></div>
+        <div class="nf-callout amber"><strong>A metric is a question, not an answer.</strong><p>The hardest part of documenting evaluation was teaching reviewers to ask what question each metric answers — and whether it's the question that matters for this model.</p></div>
+        <div class="nf-callout blue"><strong>The average is where failures hide.</strong><p>Every serious problem in the opening scenario was invisible in the aggregate and obvious in the slices. Documentation that doesn't push readers underneath the average is documentation that lets failures ship.</p></div>
+        <div class="nf-callout green"><strong>Evaluation is a loop, not a gate.</strong><p>Connecting pre-deployment evaluation to post-deployment drift monitoring was the shift that made the suite genuinely trustworthy rather than a one-time checkpoint.</p></div>
+      </section>
+
+      <!-- ── WRITER NOTE ── -->
+      <div class="nf-writer-note" id="writer-note">
+        <div class="nf-writer-note-label">📝 Writer's note</div>
+        <p>The temptation with an evaluation suite is to document it as a list of metrics. I deliberately built this around a failure story instead, because the real skill an evaluation reviewer needs is not computing AUC — it's knowing why a strong AUC can still be a model that fails real people.</p>
+        <p>Structuring the methodology as a sequence of questions ("are the probabilities honest?", "which segment does this fail?") rather than a glossary of terms is what made it usable by data scientists and product reviewers alike. The documentation had to serve both, and a question is a more inclusive entry point than a formula.</p>
+        <div class="nf-related">
+          <a href="./helios-model-serving.html">Helios Model Serving →</a>
+          <a href="./finsight-risk-api-v2.html">FinSight Risk API →</a>
         </div>
       </div>
-      <div class="doc-meta-row">
-        <div class="doc-meta-item">
-          <h3>Prerequisites</h3>
-          <p>Comfortable reading technical documentation and basic familiarity with the surrounding stack (e.g. APIs, data pipelines, dashboards, or game engines, depending on context).</p>
-        </div>
-        <div class="doc-meta-item">
-          <h3>Impact</h3>
-          <p>Intended to reduce back-and-forth clarification, speed up onboarding, and make future changes safer by giving teams a single, well-structured source of truth.</p>
-        </div>
+
+      <div class="nf-nav-bottom">
+        <a href="../../portfolio.html" class="btn-leslie">← Back to Portfolio</a>
+        <a href="../../contact.html" class="btn btn-accent">Discuss this work →</a>
       </div>
-    </section>
 
+    </main>
 
-    <p class="doc-subtitle">
-      A modular, automated evaluation framework designed for large-scale machine learning systems.
-      Includes benchmarking, safety evaluations, regression detection, dataset diagnostics, and real-time model monitoring.
-      I authored the entire technical documentation set: architecture, metrics, pipeline logic, APIs,
-      debugging workflows, and release checklists.
-    </p>
-  </header>
-
-  <!-- TAGS -->
-  <div class="tag-row">
-    <span class="tag">ML Evaluation</span>
-    <span class="tag">Benchmarking</span>
-    <span class="tag">Safety</span>
-    <span class="tag">MLOps</span>
-    <span class="tag">Regression Detection</span>
+    <!-- ═══════════════ SIDEBAR ═══════════════ -->
+    <aside class="nf-sidebar">
+      <nav class="nf-toc">
+        <div class="nf-toc-title">On this page</div>
+        <a href="#problem" class="toc-active"><span class="nf-toc-dot"></span>Business problem</a>
+        <a href="#contribution"><span class="nf-toc-dot"></span>My contribution</a>
+        <a href="#deliverables"><span class="nf-toc-dot"></span>Deliverables</a>
+        <a href="#pipeline"><span class="nf-toc-dot"></span>Evaluation pipeline</a>
+        <a href="#metrics"><span class="nf-toc-dot"></span>Offline metrics</a>
+        <a href="#slices"><span class="nf-toc-dot"></span>Slice &amp; fairness</a>
+        <a href="#calibration"><span class="nf-toc-dot"></span>Calibration</a>
+        <a href="#gap"><span class="nf-toc-dot"></span>The eval gap</a>
+        <a href="#drift"><span class="nf-toc-dot"></span>Drift</a>
+        <a href="#runbook"><span class="nf-toc-dot"></span>Evaluation runbook</a>
+        <a href="#gate"><span class="nf-toc-dot"></span>Regression gate</a>
+        <a href="#results"><span class="nf-toc-dot"></span>Results &amp; impact</a>
+        <a href="#learnings"><span class="nf-toc-dot"></span>Key learnings</a>
+      </nav>
+      <div class="nf-quick-ref">
+        <div class="nf-quick-ref-title">Suite at a glance</div>
+        <div class="nf-quick-ref-row"><strong>Stages</strong><span>Offline · Slice · Calib · Shadow</span></div>
+        <div class="nf-quick-ref-row"><strong>Gate</strong><span>All criteria must hold</span></div>
+        <div class="nf-quick-ref-row"><strong>Drift</strong><span>Data &amp; concept</span></div>
+        <div class="nf-quick-ref-row"><strong>Headline metric</strong><code>PR AUC</code></div>
+      </div>
+    </aside>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <section class="doc-section">
-    <div class="docs-body">
-
-    <!-- 1. Overview -->
-    <h2 id="1-system-overview">1. System Overview</h2>
-    <p>
-      The <strong>NeuralFlow Evaluation Suite</strong> is a cloud-based framework for continuously evaluating
-      machine learning models in offline, online, and pre-release stages.
-    </p>
-    <p>
-      The system is built for:
-    </p>
-    <ul>
-      <li>ML research & applied science teams</li>
-      <li>MLOps & platform engineering teams</li>
-      <li>Evaluation & safety specialists</li>
-      <li>Quality assurance and release management groups</li>
-    </ul>
-
-    <p>
-      The platform runs thousands of structured tests across:
-    </p>
-    <ul>
-      <li><strong>Performance</strong> — accuracy, recall, F1, lift, ROC-AUC</li>
-      <li><strong>Robustness</strong> — perturbation tests, adversarial consistency, stability</li>
-      <li><strong>Safety</strong> — harmful content, bias, fairness, hallucination rates</li>
-      <li><strong>Model drift</strong> — temporal drift, domain drift, feature distribution shifts</li>
-      <li><strong>Regression detection</strong> — A/B comparison between current and baseline model</li>
-    </ul>
-
-    <p>
-      NeuralFlow is fully automated and can be triggered from CI/CD, a release pipeline, or manually via API.
-    </p>
-
-    <!-- 2. Real-Life Use Case -->
-    <h2 id="2-real-life-scenario-preventing-a-faulty-model-release">2. Real-Life Scenario: Preventing a Faulty Model Release</h2>
-    <p>
-      Suppose a research team trains a new version of a fraud detection model. It performs slightly better on internal
-      accuracy metrics, and the team prepares it for deployment.
-    </p>
-
-    <p>
-      Before release, the CI pipeline triggers NeuralFlow:
-    </p>
-
-    <ol>
-      <li><strong>Baseline vs Candidate Comparison</strong>  
-      The suite runs 48 evaluation tasks comparing the new model to the production one.</li>
-
-      <li><strong>Dataset Drift Check</strong>  
-      The system detects a 14% shift in the “device_country” feature distribution.</li>
-
-      <li><strong>Bias Evaluation</strong>  
-      NeuralFlow flags a <strong>gender skew</strong> in false positive rates (FPR +8.1% for female users).</li>
-
-      <li><strong>Robustness Stress Tests</strong>  
-      Under noise perturbation, risk scores fluctuate unpredictably.</li>
-
-      <li><strong>Safety Test</strong>  
-      An edge-case triggers unsafe denial logic.</li>
-    </ol>
-
-    <p>
-      Outcome:  
-      <strong>Release blocked.</strong>  
-      The system generates a “fail” report with detailed reasoning and recommended fixes.
-    </p>
-
-    <p><em>
-      This documentation includes the workflow, example reports, remediation guide, and how platform teams consume this output.
-    </em></p>
-
-    <!-- 3. Architecture -->
-    <h2 id="3-architecture">3. Architecture</h2>
-    <pre><code>[ CI/CD Pipeline ]
-          |
-          v
-   POST /run-evaluation
-          |
-          v
-    [ Task Orchestrator ]
-          |
-    --------------------------
-    |          |            |
- [Benchmark] [Safety]   [Drift]
-    |          |            |
-    v          v            v
-  Results → Aggregator → Scorecard → Notifications
-    </code></pre>
-
-    <p>
-      The documentation breaks down:
-    </p>
-    <ul>
-      <li><strong>Task Orchestrator:</strong> schedules and runs evaluation modules in parallel.</li>
-      <li><strong>Benchmark Engine:</strong> standard ML tests (accuracy, recall, ROC curves).</li>
-      <li><strong>Safety Suite:</strong> policy violations, toxic responses, hallucination stress.</li>
-      <li><strong>Drift Detector:</strong> feature distribution monitoring + model stability.</li>
-      <li><strong>Scorecard Generator:</strong> creates PDF/JSON summaries for release managers.</li>
-    </ul>
-
-    <!-- 4. Evaluation Tasks -->
-    <h2 id="4-evaluation-tasks-methodology">4. Evaluation Tasks & Methodology</h2>
-    <p>The suite includes over 60 task types, grouped into modules.</p>
-
-    <h3>4.1 Benchmark Module</h3>
-    <ul>
-      <li>Accuracy, precision, recall, F1</li>
-      <li>ROC-AUC, PR-AUC</li>
-      <li>Confusion matrix breakdown</li>
-      <li>Top-K ranking metrics</li>
-      <li>Latency profiling (p50 / p90 / p99)</li>
-    </ul>
-
-    <h3>4.2 Robustness Module</h3>
-    <ul>
-      <li>Noise perturbation tests</li>
-      <li>Adversarial input variation</li>
-      <li>Response stability under partial input loss</li>
-    </ul>
-
-    <h3>4.3 Safety Module</h3>
-    <ul>
-      <li>Harmful content detection</li>
-      <li>Policy-triggering outputs</li>
-      <li>Hallucination rate estimation</li>
-      <li>Missing disclaimers or safety warnings</li>
-    </ul>
-
-    <h3>4.4 Bias and Fairness Module</h3>
-    <ul>
-      <li>Equal opportunity difference</li>
-      <li>Group FPR/FNR parity</li>
-      <li>Threshold stability across demographic slices</li>
-    </ul>
-
-    <h3>4.5 Drift & Data Quality Module</h3>
-    <ul>
-      <li>Feature distribution drift (KS test)</li>
-      <li>Embedding drift (cosine shift)</li>
-      <li>Data leakage detection</li>
-      <li>Outlier analysis</li>
-    </ul>
-
-    <h3>4.6 Regression Detection Module</h3>
-    <ul>
-      <li>Baseline vs candidate delta</li>
-      <li>Pass/fail decision engine</li>
-      <li>Weighted scoring</li>
-      <li>Release blocking criteria</li>
-    </ul>
-
-    <!-- 5. API Endpoints -->
-    <h2 id="5-api-reference">5. API Reference</h2>
-
-    <h3>5.1 POST /v1/evaluations/run</h3>
-    <p>Triggers a full evaluation suite run.</p>
-
-    <pre><code>{
-  "model_id": "fraud-detector-v12",
-  "baseline_id": "fraud-detector-v11",
-  "priority": "high",
-  "notify": ["platform-team", "ml-leads"]
-}</code></pre>
-
-    <h4>Response:</h4>
-    <pre><code>{
-  "evaluation_id": "eval_829301",
-  "status": "queued",
-  "estimated_completion": "2025-03-14T13:22:11Z"
-}</code></pre>
-
-    <h3>5.2 GET /v1/evaluations/{id}</h3>
-    <p>Returns evaluation status + results.</p>
-
-    <pre><code>{
-  "status": "completed",
-  "scorecard_url": "https://neuralflow.ai/evals/eval_829301/scorecard.pdf",
-  "modules_failed": ["safety", "bias"],
-  "release_decision": "block"
-}</code></pre>
-
-    <h3>5.3 GET /v1/metrics/drift/{model_id}</h3>
-    <p>Returns drift metrics for monitoring dashboards.</p>
-
-    <!-- 6. Reports -->
-    <h2 id="6-scorecards-reports">6. Scorecards & Reports</h2>
-    <p>
-      Each evaluation run produces:
-    </p>
-    <ul>
-      <li><strong>Model Delta Summary</strong></li>
-      <li><strong>Confusion Matrix & Class-wise Breakdown</strong></li>
-      <li><strong>Safety Violations Table</strong></li>
-      <li><strong>Bias Parity Report</strong></li>
-      <li><strong>Latency & Throughput Charts</strong></li>
-      <li><strong>Deployment Decision</strong> (allow / block / needs review)</li>
-    </ul>
-
-    <p>
-      Reports are available in <code>.html</code>, <code>.json</code>, and <code>.pdf</code>.
-    </p>
-
-    <!-- 7. Monitoring -->
-    <h2 id="7-real-time-monitoring-alerts">7. Real-Time Monitoring & Alerts</h2>
-    <p>
-      After deployment, NeuralFlow monitors the model for:
-    </p>
-    <ul>
-      <li>Latency spikes</li>
-      <li>Drift anomalies</li>
-      <li>Sudden changes in error distribution</li>
-      <li>Unexpected failure patterns</li>
-    </ul>
-
-    <p>
-      Alerts are sent via Slack, PagerDuty, email, or webhook.
-    </p>
-
-    <!-- 8. Governance -->
-    <h2 id="8-governance-compliance">8. Governance & Compliance</h2>
-    <p>
-      Documentation includes guidelines for handling:
-    </p>
-    <ul>
-      <li>PII and anonymisation in evaluation datasets</li>
-      <li>Audit trails for evaluation results</li>
-      <li>Regulatory needs (EU AI Act, banking-grade audit logs)</li>
-      <li>Release management protocols</li>
-    </ul>
-
-    <!-- 9. Integration Checklist -->
-    <h2 id="9-integration-checklist">9. Integration Checklist</h2>
-    <ul>
-      <li>☑ CI/CD connected to evaluation API</li>
-      <li>☑ Baseline model defined for comparison</li>
-      <li>☑ Dataset snapshots versioned</li>
-      <li>☑ Drift monitoring enabled</li>
-      <li>☑ Safety thresholds configured</li>
-      <li>☑ Slack/webhook alerts integrated</li>
-    </ul>
-
-  </section>
-
-  <!-- NAV BUTTONS -->
-  <div class="nav-buttons">
-    <a href="finsight-risk-api.html" class="btn">← Previous Project</a>
-    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
-  </div>
-
-  <a href="#top" class="to-top">↑ Back to Top</a>
+  <footer>
+    <p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
+  </footer>
 
 </div>
-
-</div>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-menu');
+  if (toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  const sections = document.querySelectorAll('.nf-section[id], .nf-writer-note[id]');
+  const tocLinks  = document.querySelectorAll('.nf-toc a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      tocLinks.forEach(l => l.classList.remove('toc-active'));
+      const link = document.querySelector(`.nf-toc a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('toc-active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+  sections.forEach(s => io.observe(s));
+</script>
 </body>
 </html>
-
