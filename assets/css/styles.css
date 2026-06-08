@@ -525,7 +525,7 @@ code {
 
 /* ── 14. Portfolio ───────────────────────────────────────── */
 .portfolio-banner         { margin-bottom: 2rem; }
-.portfolio-banner h1      { color: #372d2d; }
+.portfolio-banner h1      { color: #5a4648; }
 .portfolio-wrapper        { display: grid; grid-template-columns: 260px 1fr; gap: 2.5rem; margin-top: 2.5rem; }
 .breadcrumbs              { font-size: 0.85rem; margin-bottom: 1.2rem; color: #5a4648; }
 .breadcrumbs span         { opacity: 0.6; }
