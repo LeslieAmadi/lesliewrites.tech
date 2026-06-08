@@ -1,5 +1,5 @@
 /* ============================================================
-   Centralised Page for all my styles.css
+   Centralised Page for all my styles.css (it's getting too much but God help me)
    ============================================================ */
 
 /* ── 1. Google Fonts ─────────────────────────────────────── */
@@ -404,7 +404,7 @@ code {
   color: var(--text-secondary);
 }
 
-/* ── 12. Home — Hero ─────────────────────────────────────── */
+/* ── 12. Home Hero ─────────────────────────────────────── */
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
@@ -612,7 +612,7 @@ code {
 .domain-content a:last-child { border-bottom: none; }
 .domain-content a:hover { color: var(--accent); padding-left: 0.4rem; }
 
-/* ── Portfolio "coming soon" placeholder items */
+/* ── 15. Portfolio "coming soon" placeholder items */
 .domain-content .doc-soon{
   display:block;
   padding:.4rem 0;
@@ -632,7 +632,7 @@ code {
 }
 
 
-/* ── 15. About page ──────────────────────────────────────── */
+/* ── 16. About page ──────────────────────────────────────── */
 .hero-box        { max-width: 1000px; margin: 3rem auto; }
 .hero-box-inner  {
   background: #ffffff;
@@ -756,7 +756,7 @@ code {
 .personal-note p            { font-size: 0.95rem; color: #6a6764; line-height: 1.75; margin: 0; }
 .personal-note p + p        { margin-top: 0.75rem; }
 
-/* ── 16. Learning page ───────────────────────────────────── */
+/* ── 17. Learning page ───────────────────────────────────── */
 .featured-learning-card {
   display: block;
   background: rgba(255,255,255,0.9);
@@ -792,17 +792,17 @@ code {
 .premium-card > *:not(summary)           { animation: softReveal 0.4s ease both; }
 .experience-link { display: inline-block; margin-top: 0.7rem; font-size: 0.9rem; color: var(--text-accent); font-weight: 500; }
 
-/* ── 17. Contact page ────────────────────────────────────── */
+/* ── 18. Contact page ────────────────────────────────────── */
 .contact-hero {
   text-align: center;
   padding: 4rem 1rem 2rem;
   background: linear-gradient(135deg, #f3d5d0, #f4e3dd);
-  color: #c48a8f;
+  color: #3e352c;
   border-radius: var(--radius-large);
   margin-bottom: 2rem;
 }
-.contact-hero h1       { font-size: clamp(2rem, 3vw, 2.8rem); margin-bottom: 0.5rem; color: #c48a8f; }
-.contact-hero .subtitle { font-size: 1.1rem; opacity: 0.9; color: #c48a8f; }
+.contact-hero h1       { font-size: clamp(2rem, 3vw, 2.8rem); margin-bottom: 0.5rem; color: #ad7075; }
+.contact-hero .subtitle { font-size: 1.1rem; opacity: 0.9; color: #40292b; }
 
 .contact-grid {
   display: grid;
