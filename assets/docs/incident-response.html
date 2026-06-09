@@ -48,7 +48,7 @@
           A Severity-1 payment outage, documented the way a mature engineering organisation documents one:
           a precise timeline, honest impact, a root-cause analysis that reaches the real cause, and
           preventive measures that stop it recurring. This is the post-incident report for the NimbusTech
-          Payment Processing Service &mdash; written to be blameless, auditable, and actually acted on.
+          Payment Processing Service written to be blameless, auditable, and actually acted on.
         </p>
         <div class="ir-hero-tags">
           <span class="ir-hero-tag">Sev-1 outage</span>
@@ -63,10 +63,10 @@
       <div class="ir-control">
         <table class="ir-ctrl-table">
           <tbody>
-            <tr><td class="ir-ctrl-label">Document title</td><td>NPPS API Latency &amp; Outage &mdash; Major Incident Report</td></tr>
+            <tr><td class="ir-ctrl-label">Document title</td><td>NPPS API Latency &amp; Outage Major Incident Report</td></tr>
             <tr><td class="ir-ctrl-label">Incident type</td><td>Partial outage / performance degradation</td></tr>
             <tr><td class="ir-ctrl-label">Severity</td><td>Severity 1 (Critical)</td></tr>
-            <tr><td class="ir-ctrl-label">My role</td><td>Lead Technical Writer &mdash; post-incident report, RCA structure, RACI</td></tr>
+            <tr><td class="ir-ctrl-label">My role</td><td>Lead Technical Writer | post-incident report, RCA structure, RACI</td></tr>
             <tr><td class="ir-ctrl-label">Owner / approver</td><td>SRE Team / Head of Platform Engineering</td></tr>
             <tr><td class="ir-ctrl-label">Window</td><td>14 Feb 2025, 09:12&ndash;11:48 UTC (2h 36m)</td></tr>
             <tr><td class="ir-ctrl-label">Version</td><td>1.0 &middot; Final</td></tr>
@@ -129,8 +129,8 @@
         <div class="ir-section-heading"><div class="ir-section-icon purple">&#128203;</div><h2>Incident details</h2></div>
         <table class="ir-table">
           <tbody>
-            <tr><td class="ir-key">Start time</td><td>14 Feb 2025 &mdash; 09:12 UTC</td></tr>
-            <tr><td class="ir-key">Detection</td><td>Automated monitoring alert &mdash; latency SLA breach (P95 &gt; 3.2s)</td></tr>
+            <tr><td class="ir-key">Start time</td><td>14 Feb 2025 09:12 UTC</td></tr>
+            <tr><td class="ir-key">Detection</td><td>Automated monitoring alert latency SLA breach (P95 &gt; 3.2s)</td></tr>
             <tr><td class="ir-key">Affected systems</td><td>NPPS API gateway, Postgres cluster (payments-db-03), Redis cache</td></tr>
             <tr><td class="ir-key">Impacted customers</td><td>EU retail banking clients, partner merchants, mobile-app users</td></tr>
             <tr><td class="ir-key">Severity</td><td>Critical (Sev-1)</td></tr>
@@ -154,7 +154,7 @@
 
       <section class="ir-section" id="timeline">
         <div class="ir-section-heading"><div class="ir-section-icon amber">&#9201;&#65039;</div><h2>Timeline of events</h2></div>
-        <p>The timeline is the spine of any incident report. The diagram shows the shape of the response &mdash; detection, a false lead, the real diagnosis, 
+        <p>The timeline is the spine of any incident report. The diagram shows the shape of the response detection, a false lead, the real diagnosis, 
           the fix, and recovery.</p>
 
         <div class="ir-diagram">
@@ -245,14 +245,15 @@
               <text class="th" x="340" y="318" text-anchor="middle" dominant-baseline="central">Root cause: no cross-team review for scaling-policy changes</text>
               <text class="ts" x="340" y="337" text-anchor="middle" dominant-baseline="central">&mdash; a process gap, not a one-off mistake</text></g>
           </svg>
-          <p class="ir-diagram-caption">The 5-Whys chain. Each answer becomes the next question, walking from the visible symptom down to a systemic root cause: a change-management gap that let a scaling policy ship without SRE review. Fixing the symptom wouldn't prevent recurrence; fixing the process does.</p>
+          <p class="ir-diagram-caption">The 5-Whys chain. Each answer becomes the next question, walking from the visible symptom down to a systemic root cause: a change-management gap that let a scaling policy ship without SRE review. 
+            Fixing the symptom wouldn't prevent recurrence; fixing the process does.</p>
         </div>
 
         <div class="ir-callout purple">
           <strong>Stop at the cause you can fix with a process, not a person</strong>
           <p>
             The discipline of the 5 Whys is to keep going past &ldquo;someone misconfigured the autoscaler&rdquo;
-            &mdash; which invites blame and fixes nothing &mdash; to &ldquo;our change process allowed an
+            which invites blame and fixes nothing to &ldquo;our change process allowed an
             unreviewed scaling change.&rdquo; The second is blameless, systemic, and actionable. That shift is
             what separates a report that prevents recurrence from one that just assigns fault.
           </p>
@@ -261,7 +262,7 @@
 
       <section class="ir-section" id="prevention">
         <div class="ir-section-heading"><div class="ir-section-icon green">&#128737;&#65039;</div><h2>Long-term preventive measures</h2></div>
-        <p>Each measure maps directly to the root cause and its contributing factors &mdash; not a wish list, but the specific changes that close this exact gap.</p>
+        <p>Each measure maps directly to the root cause and its contributing factors not a wish list, but the specific changes that close this exact gap.</p>
         <table class="ir-table">
           <thead><tr><th>Measure</th><th>Closes</th></tr></thead>
           <tbody>
