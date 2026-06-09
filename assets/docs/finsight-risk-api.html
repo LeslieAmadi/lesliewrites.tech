@@ -84,7 +84,6 @@
       <!-- ── SECTION: CONTEXT ── -->
       <section class="fs-section" id="context">
         <div class="fs-section-heading">
-          <div class="fs-section-icon blue">💡</div>
           <h2>The business problem</h2>
         </div>
         <p>
@@ -117,7 +116,7 @@
       <!-- ── SECTION: MY CONTRIBUTION ── -->
       <section class="fs-section" id="contribution">
         <div class="fs-section-heading">
-          <div class="fs-section-icon purple">✍️</div>
+          
           <h2>My contribution</h2>
         </div>
         <p>I led the full documentation lifecycle for this project from initial information architecture through to post-release maintenance. The work covered six distinct areas:</p>
@@ -158,7 +157,6 @@
       <!-- ── SECTION: DELIVERABLES ── -->
       <section class="fs-section" id="deliverables">
         <div class="fs-section-heading">
-          <div class="fs-section-icon slate">📦</div>
           <h2>Documentation deliverables</h2>
         </div>
         <table class="fs-table">
@@ -181,7 +179,6 @@
       <!-- ── SECTION: ARCHITECTURE ── -->
       <section class="fs-section" id="architecture">
         <div class="fs-section-heading">
-          <div class="fs-section-icon blue">🏗️</div>
           <h2>System architecture</h2>
         </div>
         <p>
@@ -200,7 +197,8 @@
           <div class="fs-pipe-step"><div class="fs-pipe-connector"><div class="fs-pipe-line"></div></div><div></div></div>
           <div class="fs-pipe-step">
             <div class="fs-pipe-num">2</div>
-            <div><div class="fs-pipe-title">Gateway calls FinSight <code style="font-family:monospace;font-size:.8rem;">POST /v1/risk/score</code></div><p class="fs-pipe-desc">Before forwarding to the card network synchronous call with 3s client timeout</p></div>
+            <div><div class="fs-pipe-title">Gateway calls FinSight <code style="font-family:monospace;font-size:.8rem;">POST /v1/risk/score</code></div>
+            <p class="fs-pipe-desc">Before forwarding to the card network synchronous call with 3s client timeout</p></div>
           </div>
           <div class="fs-pipe-step"><div class="fs-pipe-connector"><div class="fs-pipe-line"></div></div><div></div></div>
           <div class="fs-pipe-step">
@@ -218,13 +216,7 @@
             <div><div class="fs-pipe-title">Gateway applies your policy</div><p class="fs-pipe-desc">allow → forward to issuer · challenge → enforce 3DS · block → decline immediately</p></div>
           </div>
         </div>
-        <!--
-          ══════════════════════════════════════════════════════
-          SVG IS EMBEDDED
-          ══════════════════════════════════════════════════════
-          
-          ══════════════════════════════════════════════════════
-        -->
+        
         <div class="fs-diagram">
           <svg width="100%" viewBox="0 0 680 520" role="img" xmlns="http://www.w3.org/2000/svg">
             <title>FinSight system architecture from merchant to risk assessment</title>
@@ -300,7 +292,6 @@
       <!-- ── SECTION: RISK MODEL ── -->
       <section class="fs-section" id="risk-model">
         <div class="fs-section-heading">
-          <div class="fs-section-icon purple">🧠</div>
           <h2>Risk model</h2>
         </div>
         <p>
@@ -314,10 +305,14 @@
         <table class="fs-table">
           <thead><tr><th>Signal category</th><th>Examples</th><th>Business value</th></tr></thead>
           <tbody>
-            <tr><td><strong>Transaction signals</strong></td><td>Amount, currency, merchant category code, channel, time of day</td><td>Establish baseline risk profile for this type of transaction at this merchant</td></tr>
-            <tr><td><strong>Behavioural signals</strong></td><td>Velocity on card (1h/6h/24h), account age days, deviation from customer patterns</td><td>Detect sudden changes in usage that often precede fraud new-account fraud, account takeover</td></tr>
-            <tr><td><strong>Device &amp; network signals</strong></td><td>Device fingerprint, IP geolocation, proxy/VPN/Tor detection, billing country mismatch</td><td>Identify suspicious origin patterns the same card looks very different from a VPN exit node</td></tr>
-            <tr><td><strong>Historical outcome signals</strong></td><td>Chargeback history on token, confirmed fraud in past 90 days, merchant-level fraud rates</td><td>The model learns from what actually happened, not what rules predict should happen</td></tr>
+            <tr><td><strong>Transaction signals</strong></td><td>Amount, currency, merchant category code, channel, time of day</td>
+              <td>Establish baseline risk profile for this type of transaction at this merchant</td></tr>
+            <tr><td><strong>Behavioural signals</strong></td><td>Velocity on card (1h/6h/24h), account age days, deviation from customer patterns</td>
+              <td>Detect sudden changes in usage that often precede fraud new-account fraud, account takeover</td></tr>
+            <tr><td><strong>Device &amp; network signals</strong></td><td>Device fingerprint, IP geolocation, proxy/VPN/Tor detection, billing country mismatch</td>
+              <td>Identify suspicious origin patterns the same card looks very different from a VPN exit node</td></tr>
+            <tr><td><strong>Historical outcome signals</strong></td><td>Chargeback history on token, confirmed fraud in past 90 days, merchant-level fraud rates</td>
+              <td>The model learns from what actually happened, not what rules predict should happen</td></tr>
           </tbody>
         </table>
 
@@ -347,22 +342,6 @@
             Your policy layer determines what the score means in your specific customer context.</p>
         </div>
 
-        <!--
-          ══════════════════════════════════════════════════════
-          DIAGRAM 2 — DEVELOPER JOURNEY
-          HOW TO READ THIS SVG EMBED:
-          - The <svg> tag defines the canvas (width="100%"
-            means it scales, viewBox sets the coordinate space)
-          - Each <g class="c-blue"> is a coloured group —
-            the .fs-diagram svg .c-blue rules in the central
-            styles.css map c-blue to the blue palette automatically
-          - <circle> elements draw the numbered stage circles
-          - <text class="th"> = bold heading text
-          - <text class="ts"> = smaller subtitle text
-          - <line ... marker-end="url(#arr2)"> draws the
-            connecting arrows using the <defs> marker
-          ══════════════════════════════════════════════════════
-        -->
         <div class="fs-diagram">
           <svg width="100%" viewBox="0 0 680 260" role="img" xmlns="http://www.w3.org/2000/svg">
             <title>FinSight developer integration journey 7 stages from discovery to production</title>
@@ -442,12 +421,11 @@
       <!-- ── SECTION: QUICKSTART ── -->
       <section class="fs-section" id="quickstart">
         <div class="fs-section-heading">
-          <div class="fs-section-icon green">⚡</div>
-          <h2>Quickstart — first successful score in 5 minutes</h2>
+          <h2>Quickstart, first successful score in 5 minutes</h2>
         </div>
         <p>You need a FinSight API key and curl. Nothing else.</p>
 
-        <h3>Step 1 — verify your credentials</h3>
+        <h3>Step 1. verify your credentials</h3>
         <div class="fs-code">
           <div class="fs-code-bar">
             <div class="fs-code-dots"><div class="fs-code-dot r"></div><div class="fs-code-dot y"></div><div class="fs-code-dot g"></div></div>
@@ -456,7 +434,7 @@
           <pre><span class="h">GET</span> https://api.finsight.ai/v1/ping \
   -H <span class="s">"Authorization: Bearer sk_live_51Fx8C0Xexample123"</span>
 
-<span class="c">// Expected response — 200 OK</span>
+<span class="c">// Expected response 200 OK</span>
 {
   <span class="k">"status"</span>:        <span class="s">"ok"</span>,
   <span class="k">"authenticated"</span>: <span class="n">true</span>,
@@ -471,8 +449,9 @@
             Test keys cannot call production endpoints and return 401 regardless of format. Check for trailing spaces in your environment variable.</p>
         </div>
 
-        <h3>Step 2 — score a realistic transaction</h3>
-        <p>This is a €289.50 e-commerce purchase structurally accurate to what a real integration sends. Note: <strong>amount is in cents</strong> — 28950 = €289.50. This is the most common integration mistake.</p>
+        <h3>Step 2. score a realistic transaction</h3>
+        <p>This is a €289.50 e-commerce purchase structurally accurate to what a real integration sends. Note: 
+          <strong>amount is in cents</strong> 28950 = €289.50. This is the most common integration mistake.</p>
 
         <div class="fs-code">
           <div class="fs-code-bar">
@@ -498,7 +477,7 @@
         <div class="fs-code">
           <div class="fs-code-bar">
             <div class="fs-code-dots"><div class="fs-code-dot r"></div><div class="fs-code-dot y"></div><div class="fs-code-dot g"></div></div>
-            <span class="fs-code-lang">Response · 200 OK · Low risk — established account, known device</span>
+            <span class="fs-code-lang">Response · 200 OK · Low risk established account, known device</span>
           </div>
           <pre>{
   <span class="k">"transaction_id"</span>:      <span class="s">"txn_493930"</span>,
@@ -519,20 +498,6 @@
             responding to a new account + unknown device + high-value combination one of the strongest signals for new account fraud.</p>
         </div>
 
-        <!--
-          ══════════════════════════════════════════════════════
-          DIAGRAM 3 — API DOCUMENTATION LIFECYCLE
-          HOW THIS DIFFERS FROM DIAGRAM 1:
-          - Uses a two-row layout (top row left→right, bottom
-            row right→left) to show the full cycle
-          - The dashed curved path at the bottom shows the
-            feedback loop from Release back to Requirements
-          - stroke-dasharray="5 4" creates the dashed line
-          - The path element uses M (move) and L (line) commands:
-            M x1 y1 = start here
-            L x2 y2 = draw line to here
-          ══════════════════════════════════════════════════════
-        -->
         <div class="fs-diagram">
           <svg width="100%" viewBox="0 0 680 310" role="img" xmlns="http://www.w3.org/2000/svg">
             <title>API documentation lifecycle six phases from requirements through release with feedback loop</title>
@@ -543,10 +508,7 @@
             </defs>
             <text class="ts" x="340" y="28" text-anchor="middle" fill="#94a3b8">Documentation lifecycle from requirements to release and back</text>
             <!-- Row 1: Requirements → Design → Development -->
-            <g class="c-blue"><rect x="60" y="56" width="140" height="64" rx="8" stroke-width="0.5"/>
-              <text class="th" x="130" y="81" text-anchor="middle" dominant-baseline="central">Requirements</text>
-              <text class="ts" x="130" y="101" text-anchor="middle" dominant-baseline="central">Scope · audience · goals</text>
-            </g>
+            <g class="c-blue"><rect x="60" y="56" width="140" height="64" rx="8" stroke-width="0.5"/><text class="th" x="130" y="81" text-anchor="middle" dominant-baseline="central">Requirements</text><text class="ts" x="130" y="101" text-anchor="middle" dominant-baseline="central">Scope · audience · goals</text></g>
             <line x1="200" y1="88" x2="228" y2="88" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr3)"/>
             <g class="c-teal"><rect x="228" y="56" width="140" height="64" rx="8" stroke-width="0.5"/>
               <text class="th" x="298" y="81" text-anchor="middle" dominant-baseline="central">Design</text>
@@ -585,7 +547,6 @@
       <!-- ── SECTION: API REFERENCE ── -->
       <section class="fs-section" id="endpoints">
         <div class="fs-section-heading">
-          <div class="fs-section-icon blue">📡</div>
           <h2>API reference</h2>
         </div>
 
@@ -616,7 +577,7 @@
               <tbody>
                 <tr><td><span class="fs-field-name">transaction_id</span><span class="fs-badge req">required</span></td><td><span class="fs-field-type">string</span></td><td>Your unique identifier. Used for idempotency and audit correlation. Max 64 chars.</td></tr>
                 <tr><td><span class="fs-field-name">occurred_at</span><span class="fs-badge req">required</span></td><td><span class="fs-field-type">string · ISO 8601</span></td><td>Customer-initiated timestamp in UTC. Send the customer's time, not your server time FinSight uses this for velocity calculations.</td></tr>
-                <tr><td><span class="fs-field-name">amount</span><span class="fs-badge req">required</span></td><td><span class="fs-field-type">integer</span></td><td><strong>Smallest currency unit.</strong> 28950 = €289.50. Sending 289 = €2.89. No error is thrown for wrong units — risk signals will simply be incorrect. Most common integration mistake.</td></tr>
+                <tr><td><span class="fs-field-name">amount</span><span class="fs-badge req">required</span></td><td><span class="fs-field-type">integer</span></td><td><strong>Smallest currency unit.</strong> 28950 = €289.50. Sending 289 = €2.89. No error is thrown for wrong units risk signals will simply be incorrect. Most common integration mistake.</td></tr>
                 <tr><td><span class="fs-field-name">currency</span><span class="fs-badge req">required</span></td><td><span class="fs-field-type">string · ISO 4217</span></td><td>Three-letter currency code. EUR, GBP, USD, etc.</td></tr>
                 <tr><td><span class="fs-field-name">merchant.id</span><span class="fs-badge req">required</span></td><td><span class="fs-field-type">string</span></td><td>Your internal merchant identifier. Builds merchant-level behavioural baselines.</td></tr>
                 <tr><td><span class="fs-field-name">merchant.category</span><span class="fs-badge req">required</span></td><td><span class="fs-field-type">string</span></td><td>Merchant category string for category-level risk calibration.</td></tr>
@@ -713,7 +674,6 @@
       <!-- ── SECTION: IDEMPOTENCY ── -->
       <section class="fs-section" id="idempotency">
         <div class="fs-section-heading">
-          <div class="fs-section-icon purple">🔁</div>
           <h2>Idempotency</h2>
         </div>
 
@@ -743,7 +703,6 @@
       <!-- ── SECTION: MONITORING ── -->
       <section class="fs-section" id="monitoring">
         <div class="fs-section-heading">
-          <div class="fs-section-icon amber">📊</div>
           <h2>SLAs &amp; monitoring</h2>
         </div>
 
@@ -773,7 +732,6 @@
       <!-- ── SECTION: CHECKLIST ── -->
       <section class="fs-section" id="integration">
         <div class="fs-section-heading">
-          <div class="fs-section-icon green">✅</div>
           <h2>Production integration checklist</h2>
         </div>
         <p>Every item here represents something that has caused a production incident on at least one integration. Work through this before routing live customer transactions through FinSight.</p>
@@ -795,7 +753,6 @@
       <!-- ── SECTION: RESULTS ── -->
       <section class="fs-section" id="results">
         <div class="fs-section-heading">
-          <div class="fs-section-icon green">📈</div>
           <h2>Results &amp; impact</h2>
         </div>
         <p>Outcomes measured after the full documentation suite was published and the first five integration partners had completed onboarding using the new material:</p>
@@ -810,20 +767,7 @@
           </tbody>
         </table>
 
-        <!--
-          ══════════════════════════════════════════════════════
-          DIAGRAM 4 CONFLUENCE INFORMATION ARCHITECTURE
-          WHAT IS AN IA TREE DIAGRAM?
-          - The root node at top represents the entire space
-          - Horizontal line connects all Level 2 sections
-          - Vertical lines drop down from that to each section
-          - Each section has child pages below it
-          - This pattern (root → horizontal bus → verticals
-            → leaf nodes) is called a "tree diagram"
-          - It maps exactly to what you see in Confluence's
-            left sidebar when you expand a space
-          ══════════════════════════════════════════════════════
-        -->
+        --->
         <div class="fs-diagram">
           <svg width="100%" viewBox="0 0 680 380" role="img" xmlns="http://www.w3.org/2000/svg">
             <title>Confluence information architecture FinSight documentation space with 6 sections and child pages</title>
@@ -836,7 +780,7 @@
             <g class="c-blue">
               <rect x="220" y="20" width="240" height="44" rx="8" stroke-width="0.5"/>
               <text class="th" x="340" y="38" text-anchor="middle" dominant-baseline="central">FinSight documentation space</text>
-              <text class="ts" x="340" y="56" text-anchor="middle" dominant-baseline="central">Root — all teams, all audiences</text>
+              <text class="ts" x="340" y="56" text-anchor="middle" dominant-baseline="central">Root all teams, all audiences</text>
             </g>
             <!-- Trunk line down -->
             <line x1="340" y1="64" x2="340" y2="92" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr4)"/>
@@ -916,7 +860,6 @@
       <!-- ── SECTION: LESSONS ── -->
       <section class="fs-section" id="lessons">
         <div class="fs-section-heading">
-          <div class="fs-section-icon slate">🎓</div>
           <h2>Key learnings</h2>
         </div>
 
@@ -940,25 +883,9 @@
             the quality of every document improved and the review cycles shortened.</p>
         </div>
 
-        <!--
-          ══════════════════════════════════════════════════════
-          DIAGRAM 5 — JIRA → PRODUCT → ENGINEERING → DOCS WORKFLOW
-          WHAT IS A SWIMLANE DIAGRAM?
-          - Horizontal bands (swimlanes) each represent a team
-          - Work items (boxes) sit in the lane of whoever owns them
-          - Vertical arrows show handoffs between teams
-          - The column dividers (dashed vertical lines) show
-            phases of the project — not strict time divisions
-          - This is the most common diagram type in process
-            documentation, product ops, and PMO work
-          - The Docs lane (coral / orange) is highlighted because
-            it is the lead technical writer's lane — showing
-            exactly when and where documentation work happens
-          ══════════════════════════════════════════════════════
-        -->
         <div class="fs-diagram">
           <svg width="100%" viewBox="0 0 680 420" role="img" xmlns="http://www.w3.org/2000/svg">
-            <title>Jira to Product to Engineering to Documentation workflow — swimlane showing documentation involved at every stage</title>
+            <title>Jira to Product to Engineering to Documentation workflow swimlane showing documentation involved at every stage</title>
             <defs>
               <marker id="arr5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                 <path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1064,17 +991,22 @@
             <line x1="500" y1="234" x2="500" y2="264" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr5)"/>
             <line x1="500" y1="300" x2="500" y2="352" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr5)"/>
             <!-- Caption -->
-            <text class="ts" x="380" y="400" text-anchor="middle" fill="#94a3b8">Technical writing is engaged from scoping through post-release maintenance — not a final step</text>
+            <text class="ts" x="380" y="400" text-anchor="middle" fill="#94a3b8">Technical writing is engaged from scoping through post-release maintenance not a final step</text>
           </svg>
-          <p class="fs-diagram-caption">Diagram 5 of 5 — Cross-functional workflow: how work flows from customer need through Product, Jira, Engineering, Documentation (coral — my lane), and Release. The key message: documentation is not a downstream activity. On FinSight, I was involved at the Define stage — scoping what needed to be written before the first line of code was written — which is why every document was accurate from day one rather than requiring major revision after the fact.</p>
+          <p class="fs-diagram-caption">Diagram 5 of 5 Cross-functional workflow: how work flows from customer need through Product, Jira, Engineering, Documentation (coral my lane), and Release. 
+            The key message: documentation is not a downstream activity. On FinSight, I was involved at the Define stage scoping what needed to be written before the first line of code was written 
+            which is why every document was accurate from day one rather than requiring major revision after the fact.</p>
         </div>
       </section>
 
       <!-- ── WRITER NOTE ── -->
       <div class="fs-writer-note" id="writer-note">
         <div class="fs-writer-note-label">📝 About this portfolio piece</div>
-        <p>FinSight is a fictional company created for this portfolio. The system architecture, API design, risk model description, error catalogue, idempotency patterns, SLAs, integration checklist, and results table represent the standard of documentation I produce for real payment infrastructure clients.</p>
-        <p>Every specific detail — the fail-open discussion, the "amounts in smallest currency unit" warning, the idempotency real-scenario, the monitoring threshold recommendations, the before/after impact table — reflects patterns from real developer documentation problems I have encountered, solved, and documented. The structure of this document mirrors how engineers actually approach an unfamiliar API. Documentation built around how people read — not how systems are organised — gets integrated faster and generates fewer support tickets.</p>
+        <p>FinSight is a fictional company created for this portfolio. The system architecture, API design, risk model description, error catalogue, idempotency patterns, 
+          SLAs, integration checklist, and results table represent the standard of documentation I produce for real payment infrastructure clients.</p>
+        <p>Every specific detail the fail-open discussion, the "amounts in smallest currency unit" warning, the idempotency real-scenario, the monitoring 
+          threshold recommendations, the before/after impact table reflects patterns from real developer documentation problems I have encountered, solved, and documented. 
+          The structure of this document mirrors how engineers actually approach an unfamiliar API. Documentation built around how people read not how systems are organised gets integrated faster and generates fewer support tickets.</p>
         <div class="fs-related">
           <a href="../../blog/2025-api-examples-developers-use.html">API Examples Developers Actually Use →</a>
           <a href="../../blog/2025-api-quickstart-guide.html">How to Write an API Quickstart →</a>
@@ -1123,7 +1055,7 @@
   </div><!-- /.fs-shell -->
 
   <footer>
-    <p>© 2025 Leslie Amadi · <a href="mailto:hello@lesliewrites.tech">hello@lesliewrites.tech</a></p>
+    <p>© 2025 Leslie Amadi · <a href="https://mail.google.com/mail/?view=cm&fs=1&to=angelalora16@gmail.com">hello@lesliewrites.tech</a></p>
   </footer>
 
 </div>

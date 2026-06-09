@@ -1,300 +1,458 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atlas Developer Experience Platform | Project Leslie Amadi</title>
-  <link rel="stylesheet" href="..//styles.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atlas Developer Platform API Reference Case Study | Leslie Amadi</title>
+  <meta name="description" content="Lead Technical Writer portfolio case study: a developer-platform API reference in the Stripe documentation style. 
+  Authentication, core resources, endpoints with tabbed code samples, errors, idempotency, pagination, and webhooks."/>
+  <meta property="og:title" content="Atlas Developer Platform API Reference | Leslie Amadi"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png"/>
+  <link rel="stylesheet" href="../../assets/css/styles.css"/>
 </head>
-
 <body>
-    <div class="page-shell">
-    
-    <!-- NAVBAR -->
- <header class="navbar">
+<div class="page-shell">
+
+  <nav class="navbar">
     <div class="navbar-inner">
-      <div class="logo">Leslie Amadi</div>
-      <nav class="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="portfolio.html" class="active">Portfolio</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+      <a href="../../index.html" class="logo">
+        <span class="logo-badge">LA</span>
+        <span class="logo-text">Technical Writer<br>Leslie Amadi</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="nav-menu">
+        <a href="../../index.html">Home</a>
+        <a href="../../portfolio.html" class="active">Portfolio</a>
+        <a href="../../blog.html">Blog</a>
+        <a href="../../about.html">About</a>
+        <a href="../../learning.html">Learning</a>
+        <a href="../../contact.html" class="nav-cta">Let's Talk</a>
+      </div>
     </div>
-    </header>
-
-
-  <!-- PROJECT HERO -->
-  <header class="doc-header">
-    <h1>Atlas Developer Experience Platform</h1>
-    
-  </header>
-
-  <!-- TAGS -->
-  <div class="tag-row">
-    <span class="tag">Developer Experience</span>
-    <span class="tag">API Documentation</span>
-    <span class="tag">CLI Tools</span>
-    <span class="tag">SDKs</span>
-    <span class="tag">Platform</span>
-  </div>
-
-  <!-- BREADCRUMB -->
-  <nav class="breadcrumb">
-    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
-    <span> / LexiMind</span>
   </nav>
 
-  <!-- MAIN -->
-  <section class="doc-section">
-    <div class="docs-body">
+  <div class="at-shell">
+    <main class="at-content">
 
-      <nav class="docs-toc docs-toc-dropdown">
-      <details open>
-        <summary>On this page</summary>
-        <ol>
-          <li><a href="#1-platform-overview">1. Platform Overview</a></li>
-          <li><a href="#2-real-life-developer-story">2. Real-Life Developer Story</a></li>
-          <li><a href="#3-architecture-overview">3. Architecture Overview</a></li>
-          <li><a href="#4-authentication">4. Authentication</a></li>
-          <li><a href="#5-sandbox-testing">5. Sandbox &amp; Testing</a></li>
-          <li><a href="#6-api-explorer">6. API Explorer</a></li>
-          <li><a href="#7-sdks-cli-tools">7. SDKs &amp; CLI Tools</a></li>
-          <li><a href="#8-webhooks">8. Webhooks</a></li>
-          <li><a href="#9-error-library">9. Error Library</a></li>
-          <li><a href="#10-versioning-release-strategy">10. Versioning &amp; Release Strategy</a></li>
-          <li><a href="#11-integration-checklist">11. Integration Checklist</a></li>
-        </ol>
-      </details>
-    </nav>
+      <div class="doc-breadcrumb" style="margin-bottom:1.25rem;">
+        <a href="../../portfolio.html">Portfolio</a><span>&rsaquo;</span>
+        <span>Developer Experience &amp; API</span><span>&rsaquo;</span>
+        <span>Atlas Developer Platform</span>
+      </div>
 
-    <!-- Overview -->
-    <h2 id="1-platform-overview">1. Platform Overview</h2>
+      <div class="at-hero">
+        <span class="at-hero-eyebrow"> Case Study &middot; Developer Experience &middot; API Reference &middot; Stripe-style DX</span>
+        <h1>Atlas <span>Developer Platform</span></h1>
+        <p class="at-hero-desc">
+          The best API documentation lets a developer make their first successful call in minutes. I built
+          the Atlas API reference in the style the industry treats as the gold standard prose on the
+          left, runnable code on the right covering authentication, core resources, endpoints, errors,
+          idempotency, pagination, and webhooks, with every concept paired to a real request and response.
+        </p>
+        <div class="at-hero-tags">
+          <span class="at-hero-tag">Authentication</span>
+          <span class="at-hero-tag">REST endpoints</span>
+          <span class="at-hero-tag">Idempotency</span>
+          <span class="at-hero-tag">Pagination</span>
+          <span class="at-hero-tag">Errors</span>
+          <span class="at-hero-tag">Webhooks</span>
+        </div>
+      </div>
 
-    <p>
-      The <strong>Atlas Developer Experience Platform (DXP)</strong> is an integrated environment that helps
-      developers move from “first request” to “production-ready integration” with minimal friction.
-    </p>
+      <div class="at-control">
+        <table class="at-ctrl-table">
+          <tbody>
+            <tr><td class="at-ctrl-label">Product</td><td>Atlas Developer Platform unified REST API for application developers</td></tr>
+            <tr><td class="at-ctrl-label">My role</td><td>Lead Technical Writer API reference, quickstart, DX patterns</td></tr>
+            <tr><td class="at-ctrl-label">Audience</td><td>Backend &amp; full-stack developers integrating Atlas</td></tr>
+            <tr><td class="at-ctrl-label">Doc type</td><td>API reference + integration guide</td></tr>
+            <tr><td class="at-ctrl-label">Base URL</td><td><code>https://api.atlas.dev/v1</code></td></tr>
+            <tr><td class="at-ctrl-label">Format</td><td>JSON over HTTPS &middot; REST conventions</td></tr>
+            <tr><td class="at-ctrl-label">Version</td><td>v1</td></tr>
+            <tr><td class="at-ctrl-label">Last reviewed</td><td>June 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-    <p>Atlas provides:</p>
-    <ul>
-      <li><strong>API Explorer</strong> for live requests</li>
-      <li><strong>SDK & CLI tools</strong> for fast onboarding</li>
-      <li><strong>Authentication Dashboard</strong> for managing keys & OAuth flows</li>
-      <li><strong>Sandbox environments</strong> with simulated data</li>
-      <li><strong>Error library</strong> with real debugging guidance</li>
-      <li><strong>Developer webhooks</strong> for event-driven architecture</li>
-      <li><strong>Release & versioning workflow</strong></li>
-      <li><strong>Use-case templates</strong> for production-ready examples</li>
-    </ul>
+      <section class="at-section" id="problem">
+        <div class="at-section-heading"><h2>The business problem</h2></div>
+        <p>
+          A developer evaluating an API gives it about 5-10 minutes. If they can't authenticate and get one
+          successful response in that window, they leave and an API nobody can adopt has no value no
+          matter how good the underlying platform is. Atlas had a capable API and documentation that read
+          like a database dump: every field listed, no path through it, no runnable example, no answer to
+          &ldquo;what do I actually type first?&rdquo;
+        </p>
+        <div class="at-callout red">
+          <strong>Documentation is the product's front door</strong>
+          <p>
+            For a developer platform, the docs <em>are</em> the product experience nobody calls a
+            salesperson, they read the reference and try a call. I rebuilt the Atlas reference around
+            time-to-first-success: authenticate, make one call, see one response, on the same screen. The
+            structure below is what turns an evaluator into an integrator.
+          </p>
+        </div>
+      </section>
 
-    <p>
-      My documentation ensures that developers understand every step—from account creation to testing,
-      scaling, and debugging real integrations.
-    </p>
+      <section class="at-section" id="contribution">
+        <div class="at-section-heading"><h2>My contribution</h2></div>
+        <div class="at-cards">
+          <div class="at-card"><div class="at-card-icon">&#128273;</div><h3>Authentication guide</h3><p>The first thing a developer needs how to get a key and sign every request.</p></div>
+          <div class="at-card"><div class="at-card-icon">&#128230;</div><h3>Core resource model</h3><p>Documented the central object and its lifecycle so the API's shape is obvious.</p></div>
+          <div class="at-card"><div class="at-card-icon">&#128187;</div><h3>Endpoint reference</h3><p>Each endpoint with parameters, a runnable example, and the real response.</p></div>
+          <div class="at-card"><div class="at-card-icon">&#9851;&#65039;</div><h3>Idempotency &amp; pagination</h3><p>The production concerns that separate a demo integration from a real one.</p></div>
+          <div class="at-card"><div class="at-card-icon">&#128680;</div><h3>Error reference</h3><p>Every error code, what causes it, and how to recover the most-visited page in any API doc.</p></div>
+          <div class="at-card"><div class="at-card-icon">&#128276;</div><h3>Webhooks</h3><p>How Atlas notifies your app of events, with signature verification.</p></div>
+        </div>
+      </section>
 
-    <!-- 2 -->
-    <h2 id="2-real-life-developer-story">2. Real-Life Developer Story</h2>
-    <p>
-      A fintech engineer wants to integrate Atlas' Payments API. Historically, it took developers
-      2–4 days to understand authentication, error responses, and webhook flows.
-    </p>
+      <!-- AUTH -->
+      <section class="at-section" id="auth">
+        <div class="at-section-heading"><h2>Authentication</h2></div>
+        <div class="at-split">
+          <div class="at-split-doc">
+            <p>
+              Atlas authenticates with a secret API key sent as a Bearer token on every request. Keys are
+              environment-scoped a <code>sk_test_</code> key hits test data, a <code>sk_live_</code>
+              key hits production so you can build safely before going live.
+            </p>
+            <div class="at-callout amber">
+              <strong>&#9888; Keep secret keys server-side</strong>
+              <p>A secret key can move money and read data. Never ship it in client-side code or commit it to source control; load it from an environment variable.</p>
+            </div>
+          </div>
+          <div class="at-split-code">
+            <div class="at-code">
+              <div class="at-code-bar"><span class="at-code-lang">Authorization header</span></div>
+              <pre>curl https://api.atlas.dev/v1/resources \
+              </div>
+              -H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span></pre>
+          </div>
+        </div>
+      </section>
 
-    <p>After launching my documentation suite:</p>
-    <ul>
-      <li>Time to first successful API call: <strong>32 minutes</strong></li>
-      <li>Time to full integration: <strong>1.4 days → 3 hours</strong></li>
-      <li>Support tickets dropped by <strong>47%</strong></li>
-      <li>Error misinterpretation reduced dramatically</li>
-    </ul>
+      <!-- QUICKSTART -->
+      <section class="at-section" id="quickstart">
+        <div class="at-section-heading"><h2>Quickstart your first call</h2></div>
+        <div class="at-split">
+          <div class="at-split-doc">
+            <p>
+              The fastest path to a successful response: create a resource. The tabs on the right show the
+              same call in three languages pick yours and run it. A <code>201 Created</code> with a
+              resource <code>id</code> means you're integrated.
+            </p>
+            <p>Every Atlas object has a stable, prefixed <code>id</code> (here <code>res_</code>), a
+            <code>created</code> timestamp, and a <code>livemode</code> flag so you always know which
+            environment produced it.</p>
+          </div>
+          <div class="at-split-code">
+            <div class="at-tabs" data-tabs>
+              <div class="at-tab-row">
+                <button class="at-tab is-active" data-tab="curl">curl</button>
+                <button class="at-tab" data-tab="js">Node</button>
+                <button class="at-tab" data-tab="py">Python</button>
+              </div>
+              <div class="at-code at-tab-panel is-active" data-panel="curl">
+                <div class="at-code-bar"><span class="at-code-lang">POST /v1/resources</span></div>
+                <pre>curl https://api.atlas.dev/v1/resources \
+                  -d name=<span class="at-s">"My first resource"</span> \
+                  -H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span> \
+                </div>
+                -d type=standard</pre>
+              <div class="at-code at-tab-panel" data-panel="js">
+                <div class="at-code-bar"><span class="at-code-lang">Node — atlas-node</span></div>
+                <pre><span class="at-k">const</span> atlas = <span class="at-fn">require</span>(<span class="at-s">"atlas-node"</span>)(process.env.ATLAS_KEY);
 
-    <p>
-      This story is included in the documentation as a real case study showing DX impact.
-    </p>
+                  name: <span class="at-s">"My first resource"</span>,
+                  <span class="at-k">const</span> resource = <span class="at-k">await</span> atlas.resources.<span class="at-fn">create</span>({
+                  });</pre>
+                  type: <span class="at-s">"standard"</span>,
+              </div>
+              <div class="at-code at-tab-panel" data-panel="py">
+                <div class="at-code-bar"><span class="at-code-lang">Python atlas</span></div>
+                <pre><span class="at-k">import</span> atlas
+                  
+                  atlas.api_key = os.environ[<span class="at-s">"ATLAS_KEY"</span>]
+                  name=<span class="at-s">"My first resource"</span>,
+                  resource = atlas.Resource.<span class="at-fn">create</span>(
+                    )</pre>
+                    type=<span class="at-s">"standard"</span>,
+              </div>
+            </div>
+            <div class="at-code at-response">
+              <div class="at-code-bar"><span class="at-code-lang">200 response</span></div>
+              <pre>{
+                <span class="at-k">"object"</span>: <span class="at-s">"resource"</span>,
+                <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8x2eZvKYlo2C"</span>,
+                <span class="at-k">"type"</span>: <span class="at-s">"standard"</span>,
+                <span class="at-k">"name"</span>: <span class="at-s">"My first resource"</span>,
+                <span class="at-k">"created"</span>: <span class="at-num">1718000000</span>,
+                <span class="at-k">"status"</span>: <span class="at-s">"active"</span>,
+              }</pre>
+              <span class="at-k">"livemode"</span>: <span class="at-num">false</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- 3 -->
-    <h2 id="3-architecture-overview">3. Architecture Overview</h2>
+      <!-- ENDPOINTS -->
+      <section class="at-section" id="endpoints">
+        <div class="at-section-heading"><h2>The resource endpoints</h2></div>
+        <p>Atlas follows REST conventions: the same resource path supports create, retrieve, update, list, and delete through standard HTTP verbs.</p>
+        <table class="at-endpoint-table">
+          <thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><span class="at-verb post">POST</span></td><td><code>/v1/resources</code></td><td>Create a resource</td></tr>
+            <tr><td><span class="at-verb get">GET</span></td><td><code>/v1/resources/:id</code></td><td>Retrieve a resource</td></tr>
+            <tr><td><span class="at-verb post">POST</span></td><td><code>/v1/resources/:id</code></td><td>Update a resource</td></tr>
+            <tr><td><span class="at-verb get">GET</span></td><td><code>/v1/resources</code></td><td>List resources</td></tr>
+            <tr><td><span class="at-verb del">DELETE</span></td><td><code>/v1/resources/:id</code></td><td>Delete a resource</td></tr>
+          </tbody>
+        </table>
 
-    <pre><code>[ Atlas Dashboard ]
-        |
-        v
-    [ Auth Service ]
-        |
-        +-------------------------+
-        |                         |
- [ API Key Mgmt ]        [ OAuth 2.0 Server ]
-        |
-        v
-  [ API Gateway ] ---> [ Rate Limiter ]
-        |
-        v
-  [ Service Mesh ]
-        |
-        +-----> Payments API
-        +-----> Risk API
-        +-----> Identity API
-        +-----> Webhooks Engine
-    </code></pre>
+        <h3>Parameters create a resource</h3>
+        <div class="at-split">
+          <div class="at-split-doc">
+            <table class="at-param-table">
+              <tbody>
+                <tr><td><code>name</code> <span class="at-req">required</span></td><td>A human-readable name for the resource.</td></tr>
+                <tr><td><code>type</code> <span class="at-req">required</span></td><td>One of <code>standard</code> or <code>priority</code>.</td></tr>
+                <tr><td><code>metadata</code> <span class="at-opt">optional</span></td><td>A set of key-value pairs you can attach for your own use.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="at-split-code">
+            <div class="at-code">
+              <div class="at-code-bar"><span class="at-code-lang">GET /v1/resources/res_1Nl8x2</span></div>
+              <pre>curl https://api.atlas.dev/v1/resources/res_1Nl8x2 \
+  -H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span></pre>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <p>
-      The documentation breaks down each layer and explains how developers interact with it.
-    </p>
+      <!-- IDEMPOTENCY -->
+      <section class="at-section" id="idempotency">
+        <div class="at-section-heading"><h2>Idempotency</h2></div>
+        <div class="at-split">
+          <div class="at-split-doc">
+            <p>
+              Networks fail mid-request. To safely retry a create without risking a duplicate, send an
+              <code>Idempotency-Key</code> header with a unique value. Atlas remembers the first response for
+              that key for 24 hours and replays it on any retry, so the resource is created exactly once.
+            </p>
+            <div class="at-callout green">
+              <strong>Use it on every POST that creates or charges</strong>
+              <p>A retried create without an idempotency key is the classic source of duplicate records. One header eliminates the entire class of bug.</p>
+            </div>
+          </div>
+          <div class="at-split-code">
+            <div class="at-code">
+              <div class="at-code-bar"><span class="at-code-lang">safe retry</span></div>
+              <pre>curl https://api.atlas.dev/v1/resources \
+                -H <span class="at-s">"Idempotency-Key: a1b2c3-unique"</span> \
+                -H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span> \
+                -d type=standard</pre>
+                -d name=<span class="at-s">"My first resource"</span> \
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- 4 -->
-    <h2 id="4-authentication">4. Authentication</h2>
+      <!-- PAGINATION -->
+      <section class="at-section" id="pagination">
+        <div class="at-section-heading"><h2>Pagination</h2></div>
+        <div class="at-split">
+          <div class="at-split-doc">
+            <p>
+              List endpoints are cursor-paginated. Pass <code>limit</code> (1&ndash;100) and, to get the next
+              page, <code>starting_after</code> set to the last <code>id</code> you received. The response's
+              <code>has_more</code> tells you when to stop.
+            </p>
+          </div>
+          <div class="at-split-code">
+            <div class="at-code">
+              <div class="at-code-bar"><span class="at-code-lang">GET /v1/resources?limit=2</span></div>
+              <pre>{
+  <span class="at-k">"object"</span>: <span class="at-s">"list"</span>,
+  <span class="at-k">"has_more"</span>: <span class="at-num">true</span>,
+  <span class="at-k">"data"</span>: [
+    { <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8x2"</span> },
+    { <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8y7"</span> }
+  ]
+}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <h3>4.1 API Keys (Server-to-Server)</h3>
-    <p>
-      Best for backend integrations. Rotate regularly, do not store in client apps.
-    </p>
-    <pre><code>Authorization: Bearer API_KEY</code></pre>
-
-    <h3>4.2 OAuth 2.0 (User Delegation)</h3>
-    <p>
-      Supports: <code>authorization_code</code>, <code>client_credentials</code>, and <code>refresh_token</code>.
-    </p>
-
-    <h3>4.3 Session Tokens</h3>
-    <p>
-      Short-lived, suitable for interactive dashboards.
-    </p>
-
-    <!-- 5 -->
-    <h2 id="5-sandbox-testing">5. Sandbox & Testing</h2>
-    <p>
-      Developers can test using a fully isolated sandbox:
-    </p>
-    <ul>
-      <li>Rate limits relaxed</li>
-      <li>Simulated events</li>
-      <li>Fake identities & transactions</li>
-      <li>Replay mode for deterministic testing</li>
-    </ul>
-
-    <pre><code>https://sandbox.api.atlas.dev/v1</code></pre>
-
-    <!-- 6 -->
-    <h2 id="6-api-explorer">6. API Explorer</h2>
-    <p>
-      A browser-based tool allowing developers to call any Atlas endpoint with live or mock data.
-    </p>
-
-    <ul>
-      <li>Auto-populated parameters</li>
-      <li>Schema validation</li>
-      <li>Instant error explanations</li>
-      <li>Request history per project</li>
-    </ul>
-
-    <!-- 7 -->
-    <h2 id="7-sdks-cli-tools">7. SDKs & CLI Tools</h2>
-
-    <h3>7.1 Install the Atlas CLI</h3>
-    <pre><code>npm install -g atlas-cli</code></pre>
-
-    <h3>7.2 Python SDK</h3>
-    <pre><code>pip install atlas-sdk</code></pre>
-
-    <h3>7.3 Common Commands</h3>
-    <pre><code>atlas login
-atlas projects list
-atlas simulate webhook payment.succeeded
-atlas apis invoke payments.create
-</code></pre>
-
-    <!-- 8 -->
-    <h2 id="8-webhooks">8. Webhooks</h2>
-    <p>
-      Developers can subscribe to domain events using secure webhooks.
-    </p>
-
-    <pre><code>{
-  "event": "payment.succeeded",
-  "data": {
-    "payment_id": "pay_92349",
-    "amount": 12000,
-    "currency": "GBP"
+      <!-- ERRORS -->
+      <section class="at-section" id="errors">
+        <div class="at-section-heading"><div class="at-section-icon red">&#128680;</div><h2>Errors</h2></div>
+        <p>Atlas uses conventional HTTP status codes and returns a structured error body. This is the page developers visit most, so it maps every code to a cause and a fix.</p>
+        <div class="at-split">
+          <div class="at-split-doc">
+            <table class="at-table">
+              <thead><tr><th>Code</th><th>Means</th><th>Do</th></tr></thead>
+              <tbody>
+                <tr><td><code>400</code></td><td>Bad request a parameter is malformed</td><td>Check the <code>message</code> field</td></tr>
+                <tr><td><code>401</code></td><td>No or invalid API key</td><td>Verify the Authorization header</td></tr>
+                <tr><td><code>404</code></td><td>Resource doesn't exist</td><td>Check the <code>id</code></td></tr>
+                <tr><td><code>409</code></td><td>Idempotency key reused with a different body</td><td>Use a fresh key</td></tr>
+                <tr><td><code>429</code></td><td>Rate limited</td><td>Back off and retry with jitter</td></tr>
+                <tr><td><code>500</code></td><td>Atlas error</td><td>Retry; if it persists, contact support</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="at-split-code">
+            <div class="at-code">
+              <div class="at-code-bar"><span class="at-code-lang">error body</span></div>
+              <pre>{
+  <span class="at-k">"error"</span>: {
+    <span class="at-k">"type"</span>: <span class="at-s">"invalid_request_error"</span>,
+    <span class="at-k">"param"</span>: <span class="at-s">"type"</span>,
+    <span class="at-k">"message"</span>: <span class="at-s">"type must be standard or priority"</span>
   }
-}</code></pre>
+}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- 9 -->
-    <h2 id="9-error-library">9. Error Library</h2>
-    <p>
-      One of the biggest improvements I delivered:  
-      A structured, human-readable error library.
-    </p>
+      <!-- WEBHOOKS -->
+      <section class="at-section" id="webhooks">
+        <div class="at-section-heading"><div class="at-section-icon amber">&#128276;</div><h2>Webhooks</h2></div>
+        <div class="at-split">
+          <div class="at-split-doc">
+            <p>
+              Rather than polling, register a webhook endpoint and Atlas POSTs an event to it when something
+              happens for example <code>resource.updated</code>. Always verify the
+              <code>Atlas-Signature</code> header before trusting a payload, so you know the event genuinely
+              came from Atlas.
+            </p>
+            <div class="at-callout amber">
+              <strong>&#9888; Verify the signature, then respond 2xx fast</strong>
+              <p>Acknowledge with a 2xx immediately and process asynchronously slow webhook handlers cause Atlas to retry and your events to back up.</p>
+            </div>
+          </div>
+          <div class="at-split-code">
+            <div class="at-code">
+              <div class="at-code-bar"><span class="at-code-lang">event payload</span></div>
+              <pre>{
+  <span class="at-k">"id"</span>: <span class="at-s">"evt_1Nl9a2"</span>,
+  <span class="at-k">"type"</span>: <span class="at-s">"resource.updated"</span>,
+  <span class="at-k">"data"</span>: {
+    <span class="at-k">"object"</span>: { <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8x2"</span> }
+  }
+}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <table>
-      <thead>
-        <tr><th>Error Code</th><th>Description</th><th>Fix</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>4010_INVALID_KEY</td>
-          <td>API key missing or incorrect.</td>
-          <td>Use a valid server-side key from the Atlas dashboard.</td>
-        </tr>
-        <tr>
-          <td>4031_PERMISSION_DENIED</td>
-          <td>Project not allowed to access this API.</td>
-          <td>Enable the API in your project settings.</td>
-        </tr>
-        <tr>
-          <td>4290_RATE_LIMIT_EXCEEDED</td>
-          <td>Too many requests.</td>
-          <td>Implement retry with exponential backoff.</td>
-        </tr>
-      </tbody>
-    </table>
+      <section class="at-section" id="results">
+        <div class="at-section-heading"><div class="at-section-icon green">&#128200;</div><h2>Results &amp; impact</h2></div>
+        <table class="at-table">
+          <thead><tr><th>Measure</th><th>Before</th><th>After</th></tr></thead>
+          <tbody>
+            <tr><td>Time to first successful call</td><td>Unclear path, abstract docs</td><td>Authenticate &rarr; one call &rarr; response, on screen</td></tr>
+            <tr><td>Code samples</td><td>None</td><td>Runnable curl / Node / Python per call</td></tr>
+            <tr><td>Production-readiness</td><td>Idempotency &amp; pagination undocumented</td><td>Documented as first-class concerns</td></tr>
+            <tr><td>Error resolution</td><td>Codes without guidance</td><td>Every code mapped to cause + fix</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- 10 -->
-    <h2 id="10-versioning-release-strategy">10. Versioning & Release Strategy</h2>
-    <p>
-      Atlas uses a dual-strategy approach:
-    </p>
+      <section class="at-section" id="learnings">
+        <div class="at-section-heading"><div class="at-section-icon amber">&#128161;</div><h2>Key learnings</h2></div>
+        <div class="at-callout blue"><strong>Optimise for time-to-first-success.</strong><p>Every structural choice served one goal: get the developer to a successful 
+          response as fast as possible. That metric drove the whole reference.</p></div>
+        <div class="at-callout green"><strong>Show the call, don't describe it.</strong><p>Pairing each concept with a runnable example on the same screen did more than any 
+          amount of prose.</p></div>
+        <div class="at-callout amber"><strong>The error page is a feature.</strong><p>Mapping every code to a cause and a fix turns the most frustrating moment in an 
+          integration into a self-service one.</p></div>
+      </section>
 
-    <ul>
-      <li><strong>Major versions</strong> for breaking changes</li>
-      <li><strong>Minor versions</strong> for new features</li>
-      <li><strong>Patches</strong> for backwards-compatible fixes</li>
-    </ul>
+      <div class="at-writer-note" id="writer-note">
+        <div class="at-writer-note-label">Note</div>
+        <p>I modelled this reference on the documentation pattern the industry treats as the benchmark prose paired with runnable code in a two-column layout
+           because for a developer platform, the docs are the product. The patterns are borrowed; the visual language, palette, and structure are this site's own.</p>
+        <p>The deeper craft was in what most API docs omit: idempotency, pagination, and a real error reference. Those aren't glamorous, but they're exactly what 
+          separates documentation a developer can demo with from documentation they can build a business on. Writing them as first-class sections is the difference 
+          between an API that looks usable and one that is.</p>
+        <div class="at-related">
+          <a href="./finsight-risk-api.html">FinSight Risk API &rarr;</a>
+          <a href="./seo-case-study.html">SEO Documentation &rarr;</a>
+        </div>
+      </div>
 
-    <pre><code>v1.4.2  → Patch  
-v1.5.0  → New features  
-v2.0.0  → Breaking changes  
-</code></pre>
+      <div class="at-nav-bottom">
+        <a href="../../portfolio.html" class="btn-leslie">&larr; Back to Portfolio</a>
+        <a href="../../contact.html" class="btn btn-accent">Discuss this work &rarr;</a>
+      </div>
 
-    <!-- 11 -->
-    <h2 id="11-integration-checklist">11. Integration Checklist</h2>
-    <ul>
-      <li>☑ API key securely stored</li>
-      <li>☑ Sandbox calls working</li>
-      <li>☑ Webhooks signed & verified</li>
-      <li>☑ Error handling implemented</li>
-      <li>☑ Retry logic added</li>
-      <li>☑ Version pinned</li>
-      <li>☑ Production endpoints configured</li>
-    </ul>
+    </main>
 
-  </section>
-
-  <!-- NAV BUTTON -->
-
-  <div class="nav-buttons">
-    <a href="neuralflow-eval.html" class="btn">← Previous Project</a>
-    <a href="../../portfolio.html" class="btn">Back to Portfolio</a>
+    <aside class="at-sidebar">
+      <nav class="at-toc">
+        <div class="at-toc-title">On this page</div>
+        <a href="#problem" class="toc-active"><span class="at-toc-dot"></span>Business problem</a>
+        <a href="#contribution"><span class="at-toc-dot"></span>My contribution</a>
+        <a href="#auth"><span class="at-toc-dot"></span>Authentication</a>
+        <a href="#quickstart"><span class="at-toc-dot"></span>Quickstart</a>
+        <a href="#endpoints"><span class="at-toc-dot"></span>Endpoints</a>
+        <a href="#idempotency"><span class="at-toc-dot"></span>Idempotency</a>
+        <a href="#pagination"><span class="at-toc-dot"></span>Pagination</a>
+        <a href="#errors"><span class="at-toc-dot"></span>Errors</a>
+        <a href="#webhooks"><span class="at-toc-dot"></span>Webhooks</a>
+        <a href="#results"><span class="at-toc-dot"></span>Results &amp; impact</a>
+        <a href="#learnings"><span class="at-toc-dot"></span>Key learnings</a>
+      </nav>
+      <div class="at-quick-ref">
+        <div class="at-quick-ref-title">API at a glance</div>
+        <div class="at-quick-ref-row"><strong>Auth</strong><span>Bearer key</span></div>
+        <div class="at-quick-ref-row"><strong>Format</strong><span>JSON / REST</span></div>
+        <div class="at-quick-ref-row"><strong>Safe retry</strong><span>Idempotency-Key</span></div>
+        <div class="at-quick-ref-row"><strong>Events</strong><code>webhooks</code></div>
+      </div>
+    </aside>
   </div>
 
-  <a href="#top" class="to-top">↑ Back to Top</a>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2025 Leslie Amadi</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 Leslie Amadi &middot; <a href="https://mail.google.com/mail/?view=cm&fs=1&to=angelalora16@gmail.com">hello@lesliewrites.tech</a></p>
+  </footer>
 
 </div>
-</div>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-menu');
+  if (toggle) toggle.addEventListener('click', () => menu.classList.toggle('open'));
 
+  // Tabbed code samples
+  document.querySelectorAll('[data-tabs]').forEach(group => {
+    const tabs = group.querySelectorAll('.at-tab');
+    const panels = group.querySelectorAll('.at-tab-panel');
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('is-active'));
+      panels.forEach(p => p.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      const panel = group.querySelector(`.at-tab-panel[data-panel="${tab.dataset.tab}"]`);
+      if (panel) panel.classList.add('is-active');
+    }));
+  });
+
+  const sections = document.querySelectorAll('.at-section[id], .at-writer-note[id]');
+  const tocLinks  = document.querySelectorAll('.at-toc a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      tocLinks.forEach(l => l.classList.remove('toc-active'));
+      const link = document.querySelector(`.at-toc a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('toc-active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+  sections.forEach(s => io.observe(s));
+</script>
 </body>
 </html>
