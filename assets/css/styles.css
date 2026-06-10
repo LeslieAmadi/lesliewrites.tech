@@ -3852,3 +3852,72 @@ footer a { color: var(--text-accent); }
 /* 10. Default panel titles (User Story/SEO/NimbusShop) — brown */
 .us-panel-title,.se-panel-title,.ns-panel-title{background:#7c5a44;}
 
+
+/* ════════════════════════════════════════════════════════════
+   CV / Résumé page (cv.html) styles.css
+
+   ════════════════════════════════════════════════════════════ */
+
+.cv-wrap{max-width:900px;margin:0 auto;padding:1rem 1.5rem 4rem;}
+
+/* Header */
+.cv-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;
+         flex-wrap:wrap;background:linear-gradient(135deg,#6a4c39,#8a6750);
+         color:#fff;border-radius:22px;padding:2.25rem 2rem;margin-bottom:1.25rem;}
+.cv-head-main h1{font-size:2.3rem;line-height:1.1;margin:0 0 .3rem;color:#fff;}
+.cv-role{font-size:1.1rem;font-weight:600;color:#ecd9c9;margin:0 0 .35rem;}
+.cv-sub{font-size:.9rem;color:rgba(255,255,255,.85);margin:0 0 .8rem;}
+.cv-contact{font-size:.88rem;color:rgba(255,255,255,.92);margin:.15rem 0;}
+.cv-contact a{color:#fff;text-decoration:underline;}
+.cv-contact a:hover{opacity:.85;}
+.cv-actions{display:flex;flex-direction:column;gap:.6rem;flex-shrink:0;}
+.cv-actions .btn-accent{background:#fff;color:#6a4c39;box-shadow:none;}
+.cv-actions .btn-accent:hover{background:#f4ece4;color:#4e3526;}
+.cv-actions .btn-leslie{justify-content:center;}
+
+/* Meta strip */
+.cv-meta{border:1px solid var(--border-warm);border-radius:12px;overflow:hidden;margin-bottom:2rem;}
+.cv-meta-row{display:flex;gap:1rem;padding:.7rem 1rem;border-bottom:1px solid var(--border-warm);font-size:.9rem;color:var(--text-secondary);}
+.cv-meta-row:last-child{border-bottom:none;}
+.cv-meta-row strong{color:var(--text-primary);min-width:150px;}
+
+/* Sections */
+.cv-section{margin:2rem 0;}
+.cv-section h2{font-size:1.4rem;color:var(--text-primary);border-bottom:2px solid #7c5a44;
+               padding-bottom:.4rem;margin-bottom:1rem;}
+.cv-section h3{font-size:1.1rem;color:var(--text-primary);margin:0;}
+.cv-section h4{font-size:.95rem;color:#7c5a44;margin:1.1rem 0 .4rem;text-transform:uppercase;letter-spacing:.04em;}
+.cv-section p{line-height:1.7;color:var(--text-secondary);margin:.5rem 0;}
+.cv-note{font-size:.88rem;font-style:italic;color:var(--text-muted);}
+.cv-note a{color:#7c5a44;}
+
+/* Competency tags */
+.cv-tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:.5rem 0;}
+.cv-tags li{background:#f4ece4;color:#6a4c39;border:1px solid #e4d5c5;
+            font-size:.82rem;padding:.3rem .7rem;border-radius:999px;}
+
+/* Experience */
+.cv-role-block{margin:1.25rem 0 1.75rem;}
+.cv-role-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.cv-dates{font-size:.85rem;color:var(--text-muted);white-space:nowrap;}
+.cv-company{font-style:italic;color:var(--text-secondary);font-size:.92rem;margin:.2rem 0;}
+.cv-context{font-size:.85rem;color:var(--text-muted);margin:.2rem 0 .6rem;}
+.cv-bullets{margin:.4rem 0 .4rem 1.1rem;padding:0;}
+.cv-bullets li{line-height:1.65;color:var(--text-secondary);margin:.4rem 0;font-size:.92rem;}
+.cv-bullets strong{color:var(--text-primary);}
+
+/* Recommendation letter */
+.cv-letter-card{background:#f4ece4;border:1px solid #e4d5c5;border-radius:16px;padding:1.75rem 2rem;}
+.cv-letter-meta{display:flex;flex-direction:column;gap:.25rem;padding-bottom:1rem;margin-bottom:1rem;
+                border-bottom:1px solid #e4d5c5;font-size:.86rem;color:var(--text-secondary);}
+.cv-letter-meta strong{color:#6a4c39;margin-right:.4rem;}
+.cv-letter-card p{line-height:1.75;color:var(--text-secondary);}
+.cv-sign{margin-top:1.25rem;color:var(--text-primary);}
+
+@media(max-width:640px){
+  .cv-head{padding:1.75rem 1.25rem;}
+  .cv-head-main h1{font-size:1.9rem;}
+  .cv-actions{width:100%;}
+  .cv-letter-card{padding:1.25rem;}
+}
+
