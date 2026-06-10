@@ -3805,3 +3805,50 @@ footer a { color: var(--text-accent); }
 .op-diagram svg .c-gray   text{fill:#2c2c2a;}
 .op-diagram svg text.t,.op-diagram svg text.th{fill:#3a3734;}
 .op-diagram svg text.ts{fill:#6a6764;}
+
+
+
+/* ════════════════════════════════════════════════════════════
+   PORTFOLIO PAGES — UNIFIED WARM-BROWN THEME + BUG FIXES
+   ═══════════════════════ */
+
+/* 1. Hero block — one lightened brown gradient on every page */
+.fs-hero,.hl-hero,.nf-hero,.or-hero,.se-hero,.uj-hero,.us-hero,.ns-hero,.ir-hero,.jw-hero,.at-hero,.pd-hero,.ca-hero,.co-hero,.da-hero,.kb-hero,.rf-hero,.op-hero,.ct-hero,.pi-hero,.bp-hero{background:linear-gradient(135deg,#6a4c39,#8a6750);}
+
+/* neutralise the cool decorative glow on FinSight/Helios heroes */
+.fs-hero::before,.hl-hero::before{background:rgba(255,255,255,.08);}
+
+/* 2. Hero heading — uniform size/spacing across all pages */
+.fs-hero h1,.hl-hero h1,.nf-hero h1,.or-hero h1,.se-hero h1,.uj-hero h1,.us-hero h1,.ns-hero h1,.ir-hero h1,.jw-hero h1,.at-hero h1,.pd-hero h1,.ca-hero h1,.co-hero h1,.da-hero h1,.kb-hero h1,.rf-hero h1,.op-hero h1,.ct-hero h1,.pi-hero h1,.bp-hero h1{font-size:2.4rem;line-height:1.1;color:#fff;letter-spacing:-.3px;}
+.fs-hero h1 span,.hl-hero h1 span,.nf-hero h1 span,.or-hero h1 span,.se-hero h1 span,.uj-hero h1 span,.us-hero h1 span,.ns-hero h1 span,.ir-hero h1 span,.jw-hero h1 span,.at-hero h1 span,.pd-hero h1 span,.ca-hero h1 span,.co-hero h1 span,.da-hero h1 span,.kb-hero h1 span,.rf-hero h1 span,.op-hero h1 span,.ct-hero h1 span,.pi-hero h1 span,.bp-hero h1 span{color:#ecd9c9;}
+
+/* 3. FIX — hero paragraph was inheriting dark base p{} colour */
+.fs-hero-desc,.hl-hero-desc,.nf-hero-desc,.or-hero-desc,.se-hero-desc,.uj-hero-desc,.us-hero-desc,.ns-hero-desc,.ir-hero-desc,.jw-hero-desc,.at-hero-desc,.pd-hero-desc,.ca-hero-desc,.co-hero-desc,.da-hero-desc,.kb-hero-desc,.rf-hero-desc,.op-hero-desc,.ct-hero-desc,.pi-hero-desc,.bp-hero-desc{color:rgba(255,255,255,.92);}
+
+/* 4. Hero eyebrow + tags — unify to warm white */
+.fs-hero-eyebrow,.hl-hero-eyebrow,.nf-hero-eyebrow,.or-hero-eyebrow,.se-hero-eyebrow,.uj-hero-eyebrow,.us-hero-eyebrow,.ns-hero-eyebrow,.ir-hero-eyebrow,.jw-hero-eyebrow,.at-hero-eyebrow,.pd-hero-eyebrow,.ca-hero-eyebrow,.co-hero-eyebrow,.da-hero-eyebrow,.kb-hero-eyebrow,.rf-hero-eyebrow,.op-hero-eyebrow,.ct-hero-eyebrow,.pi-hero-eyebrow,.bp-hero-eyebrow{color:rgba(255,255,255,.85);}
+
+/* 5. FIX — code panel: force dark background so syntax colours show */
+.fs-code pre,.hl-code pre,.nf-code pre,.or-code pre,.se-code pre,.uj-code pre,.us-code pre,.ns-code pre,.ir-code pre,.jw-code pre,.at-code pre,.pd-code pre,.ca-code pre,.co-code pre,.da-code pre,.kb-code pre,.rf-code pre,.op-code pre,.ct-code pre,.pi-code pre,.bp-code pre{background:#0f172a;color:#e2e8f0;}
+.fs-code,.hl-code,.nf-code,.or-code,.se-code,.uj-code,.us-code,.ns-code,.ir-code,.jw-code,.at-code,.pd-code,.ca-code,.co-code,.da-code,.kb-code,.rf-code,.op-code,.ct-code,.pi-code,.bp-code{background:#0f172a;}
+
+/* 6. Table headers — one brown accent everywhere */
+.fs-table th,.hl-table th,.nf-table th,.or-table th,.se-table th,.uj-table th,.us-table th,.ns-table th,.ir-table th,.jw-table th,.at-table th,.pd-table th,.ca-table th,.co-table th,.da-table th,.kb-table th,.rf-table th,.op-table th,.ct-table th,.pi-table th,.bp-table th{background:#7c5a44;color:#fff;}
+.at-endpoint-table th,.at-param-table th{background:#7c5a44;color:#fff;}
+
+/* 7. Sidebar TOC active/hover — brown */
+.fs-toc a:hover,.hl-toc a:hover,.nf-toc a:hover,.or-toc a:hover,.se-toc a:hover,.uj-toc a:hover,.us-toc a:hover,.ns-toc a:hover,.ir-toc a:hover,.jw-toc a:hover,.at-toc a:hover,.pd-toc a:hover,.ca-toc a:hover,.co-toc a:hover,.da-toc a:hover,.kb-toc a:hover,.rf-toc a:hover,.op-toc a:hover,.ct-toc a:hover,.pi-toc a:hover,.bp-toc a:hover{color:#7c5a44;}
+.fs-toc a.toc-active,.hl-toc a.toc-active,.nf-toc a.toc-active,.or-toc a.toc-active,.se-toc a.toc-active,.uj-toc a.toc-active,.us-toc a.toc-active,.ns-toc a.toc-active,.ir-toc a.toc-active,.jw-toc a.toc-active,.at-toc a.toc-active,.pd-toc a.toc-active,.ca-toc a.toc-active,.co-toc a.toc-active,.da-toc a.toc-active,.kb-toc a.toc-active,.rf-toc a.toc-active,.op-toc a.toc-active,.ct-toc a.toc-active,.pi-toc a.toc-active,.bp-toc a.toc-active{color:#7c5a44;background:transparent;}
+.fs-toc a.toc-active .fs-toc-dot,.hl-toc a.toc-active .hl-toc-dot,.nf-toc a.toc-active .nf-toc-dot,.or-toc a.toc-active .or-toc-dot,.se-toc a.toc-active .se-toc-dot,.uj-toc a.toc-active .uj-toc-dot,.us-toc a.toc-active .us-toc-dot,.ns-toc a.toc-active .ns-toc-dot,.ir-toc a.toc-active .ir-toc-dot,.jw-toc a.toc-active .jw-toc-dot,.at-toc a.toc-active .at-toc-dot,.pd-toc a.toc-active .pd-toc-dot,.ca-toc a.toc-active .ca-toc-dot,.co-toc a.toc-active .co-toc-dot,.da-toc a.toc-active .da-toc-dot,.kb-toc a.toc-active .kb-toc-dot,.rf-toc a.toc-active .rf-toc-dot,.op-toc a.toc-active .op-toc-dot,.ct-toc a.toc-active .ct-toc-dot,.pi-toc a.toc-active .pi-toc-dot,.bp-toc a.toc-active .bp-toc-dot{background:#7c5a44;}
+
+/* 8. Writer note — warm brown card on every page */
+.fs-writer-note,.hl-writer-note,.nf-writer-note,.or-writer-note,.se-writer-note,.uj-writer-note,.us-writer-note,.ns-writer-note,.ir-writer-note,.jw-writer-note,.at-writer-note,.pd-writer-note,.ca-writer-note,.co-writer-note,.da-writer-note,.kb-writer-note,.rf-writer-note,.op-writer-note,.ct-writer-note,.pi-writer-note,.bp-writer-note{background:#f4ece4;border-color:#e4d5c5;}
+.fs-writer-note-label,.hl-writer-note-label,.nf-writer-note-label,.or-writer-note-label,.se-writer-note-label,.uj-writer-note-label,.us-writer-note-label,.ns-writer-note-label,.ir-writer-note-label,.jw-writer-note-label,.at-writer-note-label,.pd-writer-note-label,.ca-writer-note-label,.co-writer-note-label,.da-writer-note-label,.kb-writer-note-label,.rf-writer-note-label,.op-writer-note-label,.ct-writer-note-label,.pi-writer-note-label,.bp-writer-note-label{color:#7c5a44;}
+
+/* 9. Related links + quick-ref code — brown */
+.fs-related a,.hl-related a,.nf-related a,.or-related a,.se-related a,.uj-related a,.us-related a,.ns-related a,.ir-related a,.jw-related a,.at-related a,.pd-related a,.ca-related a,.co-related a,.da-related a,.kb-related a,.rf-related a,.op-related a,.ct-related a,.pi-related a,.bp-related a{color:#7c5a44;}
+.fs-quick-ref-row code,.hl-quick-ref-row code,.nf-quick-ref-row code,.or-quick-ref-row code,.se-quick-ref-row code,.uj-quick-ref-row code,.us-quick-ref-row code,.ns-quick-ref-row code,.ir-quick-ref-row code,.jw-quick-ref-row code,.at-quick-ref-row code,.pd-quick-ref-row code,.ca-quick-ref-row code,.co-quick-ref-row code,.da-quick-ref-row code,.kb-quick-ref-row code,.rf-quick-ref-row code,.op-quick-ref-row code,.ct-quick-ref-row code,.pi-quick-ref-row code,.bp-quick-ref-row code{color:#7c5a44;background:#f4ece4;}
+
+/* 10. Default panel titles (User Story/SEO/NimbusShop) — brown */
+.us-panel-title,.se-panel-title,.ns-panel-title{background:#7c5a44;}
+
