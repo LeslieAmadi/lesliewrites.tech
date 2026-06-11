@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Atlas Developer Platform API Reference Case Study | Leslie Amadi</title>
-  <meta name="description" content="Lead Technical Writer portfolio case study: a developer-platform API reference in the Stripe documentation style. 
-  Authentication, core resources, endpoints with tabbed code samples, errors, idempotency, pagination, and webhooks."/>
+  <title>Atlas Developer Platform | API Reference Case Study | Leslie Amadi</title>
+  <meta name="description" content="Lead Technical Writer portfolio case study: a developer-platform API reference in the Stripe documentation style. Authentication, core resources, endpoints with tabbed code samples, errors, idempotency, pagination, and webhooks."/>
   <meta property="og:title" content="Atlas Developer Platform API Reference | Leslie Amadi"/>
   <meta property="og:type" content="article"/>
   <meta property="og:image" content="https://leslieamadi.github.io/lesliewrites.tech/assets/images/profile-image.png"/>
@@ -42,7 +41,7 @@
       </div>
 
       <div class="at-hero">
-        <span class="at-hero-eyebrow"> Case Study &middot; Developer Experience &middot; API Reference &middot; Stripe-style DX</span>
+        <span class="at-hero-eyebrow">&#129513; Case Study &middot; Developer Experience &middot; API Reference &middot; Stripe-style DX</span>
         <h1>Atlas <span>Developer Platform</span></h1>
         <p class="at-hero-desc">
           The best API documentation lets a developer make their first successful call in minutes. I built
@@ -76,9 +75,9 @@
       </div>
 
       <section class="at-section" id="problem">
-        <div class="at-section-heading"><h2>The business problem</h2></div>
+        <div class="at-section-heading"><div class="at-section-icon red">&#127919;</div><h2>The business problem</h2></div>
         <p>
-          A developer evaluating an API gives it about 5-10 minutes. If they can't authenticate and get one
+          A developer evaluating an API gives it about ten minutes. If they can't authenticate and get one
           successful response in that window, they leave and an API nobody can adopt has no value no
           matter how good the underlying platform is. Atlas had a capable API and documentation that read
           like a database dump: every field listed, no path through it, no runnable example, no answer to
@@ -96,7 +95,7 @@
       </section>
 
       <section class="at-section" id="contribution">
-        <div class="at-section-heading"><h2>My contribution</h2></div>
+        <div class="at-section-heading"><div class="at-section-icon blue">&#9997;&#65039;</div><h2>My contribution</h2></div>
         <div class="at-cards">
           <div class="at-card"><div class="at-card-icon">&#128273;</div><h3>Authentication guide</h3><p>The first thing a developer needs how to get a key and sign every request.</p></div>
           <div class="at-card"><div class="at-card-icon">&#128230;</div><h3>Core resource model</h3><p>Documented the central object and its lifecycle so the API's shape is obvious.</p></div>
@@ -109,7 +108,7 @@
 
       <!-- AUTH -->
       <section class="at-section" id="auth">
-        <div class="at-section-heading"><h2>Authentication</h2></div>
+        <div class="at-section-heading"><div class="at-section-icon purple">&#128273;</div><h2>Authentication</h2></div>
         <div class="at-split">
           <div class="at-split-doc">
             <p>
@@ -126,15 +125,15 @@
             <div class="at-code">
               <div class="at-code-bar"><span class="at-code-lang">Authorization header</span></div>
               <pre>curl https://api.atlas.dev/v1/resources \
-              </div>
-              -H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span></pre>
+-H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span></pre>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- QUICKSTART -->
       <section class="at-section" id="quickstart">
-        <div class="at-section-heading"><h2>Quickstart your first call</h2></div>
+        <div class="at-section-heading"><div class="at-section-icon green">&#9889;</div><h2>Quickstart — your first call</h2></div>
         <div class="at-split">
           <div class="at-split-doc">
             <p>
@@ -156,41 +155,41 @@
               <div class="at-code at-tab-panel is-active" data-panel="curl">
                 <div class="at-code-bar"><span class="at-code-lang">POST /v1/resources</span></div>
                 <pre>curl https://api.atlas.dev/v1/resources \
-                  -d name=<span class="at-s">"My first resource"</span> \
-                  -H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span> \
-                </div>
-                -d type=standard</pre>
+-H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span> \
+-d name=<span class="at-s">"My first resource"</span> \
+-d type=standard</pre>
+              </div>
               <div class="at-code at-tab-panel" data-panel="js">
                 <div class="at-code-bar"><span class="at-code-lang">Node — atlas-node</span></div>
                 <pre><span class="at-k">const</span> atlas = <span class="at-fn">require</span>(<span class="at-s">"atlas-node"</span>)(process.env.ATLAS_KEY);
 
-                  name: <span class="at-s">"My first resource"</span>,
-                  <span class="at-k">const</span> resource = <span class="at-k">await</span> atlas.resources.<span class="at-fn">create</span>({
-                  });</pre>
-                  type: <span class="at-s">"standard"</span>,
+<span class="at-k">const</span> resource = <span class="at-k">await</span> atlas.resources.<span class="at-fn">create</span>({
+name: <span class="at-s">"My first resource"</span>,
+type: <span class="at-s">"standard"</span>,
+});</pre>
               </div>
               <div class="at-code at-tab-panel" data-panel="py">
-                <div class="at-code-bar"><span class="at-code-lang">Python atlas</span></div>
+                <div class="at-code-bar"><span class="at-code-lang">Python — atlas</span></div>
                 <pre><span class="at-k">import</span> atlas
-                  
-                  atlas.api_key = os.environ[<span class="at-s">"ATLAS_KEY"</span>]
-                  name=<span class="at-s">"My first resource"</span>,
-                  resource = atlas.Resource.<span class="at-fn">create</span>(
-                    )</pre>
-                    type=<span class="at-s">"standard"</span>,
+atlas.api_key = os.environ[<span class="at-s">"ATLAS_KEY"</span>]
+
+resource = atlas.Resource.<span class="at-fn">create</span>(
+name=<span class="at-s">"My first resource"</span>,
+type=<span class="at-s">"standard"</span>,
+)</pre>
               </div>
             </div>
             <div class="at-code at-response">
-              <div class="at-code-bar"><span class="at-code-lang">200 response</span></div>
+              <div class="at-code-bar"><span class="at-code-lang">200 — response</span></div>
               <pre>{
-                <span class="at-k">"object"</span>: <span class="at-s">"resource"</span>,
-                <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8x2eZvKYlo2C"</span>,
-                <span class="at-k">"type"</span>: <span class="at-s">"standard"</span>,
-                <span class="at-k">"name"</span>: <span class="at-s">"My first resource"</span>,
-                <span class="at-k">"created"</span>: <span class="at-num">1718000000</span>,
-                <span class="at-k">"status"</span>: <span class="at-s">"active"</span>,
-              }</pre>
-              <span class="at-k">"livemode"</span>: <span class="at-num">false</span>
+<span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8x2eZvKYlo2C"</span>,
+<span class="at-k">"object"</span>: <span class="at-s">"resource"</span>,
+<span class="at-k">"name"</span>: <span class="at-s">"My first resource"</span>,
+<span class="at-k">"type"</span>: <span class="at-s">"standard"</span>,
+<span class="at-k">"status"</span>: <span class="at-s">"active"</span>,
+<span class="at-k">"created"</span>: <span class="at-num">1718000000</span>,
+<span class="at-k">"livemode"</span>: <span class="at-num">false</span>
+}</pre>
             </div>
           </div>
         </div>
@@ -198,7 +197,7 @@
 
       <!-- ENDPOINTS -->
       <section class="at-section" id="endpoints">
-        <div class="at-section-heading"><h2>The resource endpoints</h2></div>
+        <div class="at-section-heading"><div class="at-section-icon blue">&#128187;</div><h2>The resource endpoints</h2></div>
         <p>Atlas follows REST conventions: the same resource path supports create, retrieve, update, list, and delete through standard HTTP verbs.</p>
         <table class="at-endpoint-table">
           <thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead>
@@ -211,7 +210,7 @@
           </tbody>
         </table>
 
-        <h3>Parameters create a resource</h3>
+        <h3>Parameters — create a resource</h3>
         <div class="at-split">
           <div class="at-split-doc">
             <table class="at-param-table">
@@ -226,7 +225,7 @@
             <div class="at-code">
               <div class="at-code-bar"><span class="at-code-lang">GET /v1/resources/res_1Nl8x2</span></div>
               <pre>curl https://api.atlas.dev/v1/resources/res_1Nl8x2 \
-  -H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span></pre>
+-H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span></pre>
             </div>
           </div>
         </div>
@@ -234,7 +233,7 @@
 
       <!-- IDEMPOTENCY -->
       <section class="at-section" id="idempotency">
-        <div class="at-section-heading"><h2>Idempotency</h2></div>
+        <div class="at-section-heading"><div class="at-section-icon purple">&#9851;&#65039;</div><h2>Idempotency</h2></div>
         <div class="at-split">
           <div class="at-split-doc">
             <p>
@@ -251,10 +250,10 @@
             <div class="at-code">
               <div class="at-code-bar"><span class="at-code-lang">safe retry</span></div>
               <pre>curl https://api.atlas.dev/v1/resources \
-                -H <span class="at-s">"Idempotency-Key: a1b2c3-unique"</span> \
-                -H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span> \
-                -d type=standard</pre>
-                -d name=<span class="at-s">"My first resource"</span> \
+-H <span class="at-s">"Authorization: Bearer sk_test_4eC39Hq..."</span> \
+-H <span class="at-s">"Idempotency-Key: a1b2c3-unique"</span> \
+-d name=<span class="at-s">"My first resource"</span> \
+-d type=standard</pre>
             </div>
           </div>
         </div>
@@ -262,7 +261,7 @@
 
       <!-- PAGINATION -->
       <section class="at-section" id="pagination">
-        <div class="at-section-heading"><h2>Pagination</h2></div>
+        <div class="at-section-heading"><div class="at-section-icon blue">&#128196;</div><h2>Pagination</h2></div>
         <div class="at-split">
           <div class="at-split-doc">
             <p>
@@ -275,12 +274,12 @@
             <div class="at-code">
               <div class="at-code-bar"><span class="at-code-lang">GET /v1/resources?limit=2</span></div>
               <pre>{
-  <span class="at-k">"object"</span>: <span class="at-s">"list"</span>,
-  <span class="at-k">"has_more"</span>: <span class="at-num">true</span>,
-  <span class="at-k">"data"</span>: [
-    { <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8x2"</span> },
-    { <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8y7"</span> }
-  ]
+<span class="at-k">"object"</span>: <span class="at-s">"list"</span>,
+<span class="at-k">"has_more"</span>: <span class="at-num">true</span>,
+<span class="at-k">"data"</span>: [
+{ <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8x2"</span> },
+{ <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8y7"</span> }
+]
 }</pre>
             </div>
           </div>
@@ -309,11 +308,11 @@
             <div class="at-code">
               <div class="at-code-bar"><span class="at-code-lang">error body</span></div>
               <pre>{
-  <span class="at-k">"error"</span>: {
-    <span class="at-k">"type"</span>: <span class="at-s">"invalid_request_error"</span>,
-    <span class="at-k">"param"</span>: <span class="at-s">"type"</span>,
-    <span class="at-k">"message"</span>: <span class="at-s">"type must be standard or priority"</span>
-  }
+<span class="at-k">"error"</span>: {
+<span class="at-k">"type"</span>: <span class="at-s">"invalid_request_error"</span>,
+<span class="at-k">"param"</span>: <span class="at-s">"type"</span>,
+<span class="at-k">"message"</span>: <span class="at-s">"type must be standard or priority"</span>
+}
 }</pre>
             </div>
           </div>
@@ -340,11 +339,11 @@
             <div class="at-code">
               <div class="at-code-bar"><span class="at-code-lang">event payload</span></div>
               <pre>{
-  <span class="at-k">"id"</span>: <span class="at-s">"evt_1Nl9a2"</span>,
-  <span class="at-k">"type"</span>: <span class="at-s">"resource.updated"</span>,
-  <span class="at-k">"data"</span>: {
-    <span class="at-k">"object"</span>: { <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8x2"</span> }
-  }
+<span class="at-k">"id"</span>: <span class="at-s">"evt_1Nl9a2"</span>,
+<span class="at-k">"type"</span>: <span class="at-s">"resource.updated"</span>,
+<span class="at-k">"data"</span>: {
+<span class="at-k">"object"</span>: { <span class="at-k">"id"</span>: <span class="at-s">"res_1Nl8x2"</span> }
+}
 }</pre>
             </div>
           </div>
@@ -366,24 +365,18 @@
 
       <section class="at-section" id="learnings">
         <div class="at-section-heading"><div class="at-section-icon amber">&#128161;</div><h2>Key learnings</h2></div>
-        <div class="at-callout blue"><strong>Optimise for time-to-first-success.</strong><p>Every structural choice served one goal: get the developer to a successful 
-          response as fast as possible. That metric drove the whole reference.</p></div>
-        <div class="at-callout green"><strong>Show the call, don't describe it.</strong><p>Pairing each concept with a runnable example on the same screen did more than any 
-          amount of prose.</p></div>
-        <div class="at-callout amber"><strong>The error page is a feature.</strong><p>Mapping every code to a cause and a fix turns the most frustrating moment in an 
-          integration into a self-service one.</p></div>
+        <div class="at-callout blue"><strong>Optimise for time-to-first-success.</strong><p>Every structural choice served one goal: get the developer to a successful response as fast as possible. That metric drove the whole reference.</p></div>
+        <div class="at-callout green"><strong>Show the call, don't describe it.</strong><p>Pairing each concept with a runnable example on the same screen did more than any amount of prose.</p></div>
+        <div class="at-callout amber"><strong>The error page is a feature.</strong><p>Mapping every code to a cause and a fix turns the most frustrating moment in an integration into a self-service one.</p></div>
       </section>
 
       <div class="at-writer-note" id="writer-note">
-        <div class="at-writer-note-label">Note</div>
-        <p>I modelled this reference on the documentation pattern the industry treats as the benchmark prose paired with runnable code in a two-column layout
-           because for a developer platform, the docs are the product. The patterns are borrowed; the visual language, palette, and structure are this site's own.</p>
-        <p>The deeper craft was in what most API docs omit: idempotency, pagination, and a real error reference. Those aren't glamorous, but they're exactly what 
-          separates documentation a developer can demo with from documentation they can build a business on. Writing them as first-class sections is the difference 
-          between an API that looks usable and one that is.</p>
+        <div class="at-writer-note-label">&#128221; Writer's note</div>
+        <p>I modelled this reference on the documentation pattern the industry treats as the benchmark prose paired with runnable code in a two-column layout because for a developer platform, the docs are the product. The patterns are borrowed; the visual language, palette, and structure are this site's own.</p>
+        <p>The deeper craft was in what most API docs omit: idempotency, pagination, and a real error reference. Those aren't glamorous, but they're exactly what separates documentation a developer can demo with from documentation they can build a business on. Writing them as first-class sections is the difference between an API that looks usable and one that is.</p>
         <div class="at-related">
-          <a href="./finsight-risk-api.html">FinSight Risk API &rarr;</a>
-          <a href="./seo-case-study.html">SEO Documentation &rarr;</a>
+          <a href="./finsight-risk-api-v2.html">FinSight Risk API &rarr;</a>
+          <a href="./seo-documentation.html">SEO Documentation &rarr;</a>
         </div>
       </div>
 
@@ -420,7 +413,7 @@
   </div>
 
   <footer>
-    <p>&copy; 2025 Leslie Amadi &middot; <a href="https://mail.google.com/mail/?view=cm&fs=1&to=angelalora16@gmail.com">hello@lesliewrites.tech</a></p>
+    <p>&copy; 2025 Leslie Amadi &middot; <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lesliewrites.amadi@gmail.com">hello@lesliewrites.tech</a></p>
   </footer>
 
 </div>

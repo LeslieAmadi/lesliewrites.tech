@@ -3810,7 +3810,7 @@ footer a { color: var(--text-accent); }
 
 /* ════════════════════════════════════════════════════════════
    PORTFOLIO PAGES — UNIFIED WARM-BROWN THEME + BUG FIXES
-   ═══════════════════════ */
+   ════════════════════════════════════════════════════════════ */
 
 /* 1. Hero block — one lightened brown gradient on every page */
 .fs-hero,.hl-hero,.nf-hero,.or-hero,.se-hero,.uj-hero,.us-hero,.ns-hero,.ir-hero,.jw-hero,.at-hero,.pd-hero,.ca-hero,.co-hero,.da-hero,.kb-hero,.rf-hero,.op-hero,.ct-hero,.pi-hero,.bp-hero{background:linear-gradient(135deg,#6a4c39,#8a6750);}
@@ -3828,9 +3828,10 @@ footer a { color: var(--text-accent); }
 /* 4. Hero eyebrow + tags — unify to warm white */
 .fs-hero-eyebrow,.hl-hero-eyebrow,.nf-hero-eyebrow,.or-hero-eyebrow,.se-hero-eyebrow,.uj-hero-eyebrow,.us-hero-eyebrow,.ns-hero-eyebrow,.ir-hero-eyebrow,.jw-hero-eyebrow,.at-hero-eyebrow,.pd-hero-eyebrow,.ca-hero-eyebrow,.co-hero-eyebrow,.da-hero-eyebrow,.kb-hero-eyebrow,.rf-hero-eyebrow,.op-hero-eyebrow,.ct-hero-eyebrow,.pi-hero-eyebrow,.bp-hero-eyebrow{color:rgba(255,255,255,.85);}
 
-/* 5. FIX — code panel: force dark background so syntax colours show */
-.fs-code pre,.hl-code pre,.nf-code pre,.or-code pre,.se-code pre,.uj-code pre,.us-code pre,.ns-code pre,.ir-code pre,.jw-code pre,.at-code pre,.pd-code pre,.ca-code pre,.co-code pre,.da-code pre,.kb-code pre,.rf-code pre,.op-code pre,.ct-code pre,.pi-code pre,.bp-code pre{background:#0f172a;color:#e2e8f0;}
-.fs-code,.hl-code,.nf-code,.or-code,.se-code,.uj-code,.us-code,.ns-code,.ir-code,.jw-code,.at-code,.pd-code,.ca-code,.co-code,.da-code,.kb-code,.rf-code,.op-code,.ct-code,.pi-code,.bp-code{background:#0f172a;}
+/* 5. FIX — code panel: dark bg, light text, long lines scroll
+      INSIDE the box instead of spilling onto the page. */
+.fs-code,.hl-code,.nf-code,.or-code,.se-code,.uj-code,.us-code,.ns-code,.ir-code,.jw-code,.at-code,.pd-code,.ca-code,.co-code,.da-code,.kb-code,.rf-code,.op-code,.ct-code,.pi-code,.bp-code{background:#0f172a;overflow:hidden;}
+.fs-code pre,.hl-code pre,.nf-code pre,.or-code pre,.se-code pre,.uj-code pre,.us-code pre,.ns-code pre,.ir-code pre,.jw-code pre,.at-code pre,.pd-code pre,.ca-code pre,.co-code pre,.da-code pre,.kb-code pre,.rf-code pre,.op-code pre,.ct-code pre,.pi-code pre,.bp-code pre{background:#0f172a;color:#e2e8f0;white-space:pre;overflow-x:auto;max-width:100%;}
 
 /* 6. Table headers — one brown accent everywhere */
 .fs-table th,.hl-table th,.nf-table th,.or-table th,.se-table th,.uj-table th,.us-table th,.ns-table th,.ir-table th,.jw-table th,.at-table th,.pd-table th,.ca-table th,.co-table th,.da-table th,.kb-table th,.rf-table th,.op-table th,.ct-table th,.pi-table th,.bp-table th{background:#7c5a44;color:#fff;}
@@ -3851,6 +3852,20 @@ footer a { color: var(--text-accent); }
 
 /* 10. Default panel titles (User Story/SEO/NimbusShop) — brown */
 .us-panel-title,.se-panel-title,.ns-panel-title{background:#7c5a44;}
+/* (jw/pd/co/rf/op/kb panel .ok/.no stay green/red — they carry meaning) */
+
+/* 11. Hero h1 span tint already set; ensure FinSight/Helios coloured
+      spans (#93c5fd etc.) are overridden — covered by rule 2 above. */
+
+/* 5b. Belt-and-braces: make the code wrapper clip and the pre scroll,
+   higher-specificity so it wins over per-page rules regardless of order. */
+.fs-code,.hl-code,.nf-code,.or-code,.se-code,.uj-code,.us-code,.ns-code,.ir-code,.jw-code,.at-code,.pd-code,.ca-code,.co-code,.da-code,.kb-code,.rf-code,.op-code,.ct-code,.pi-code,.bp-code{overflow:hidden;max-width:100%;}
+div.fs-code pre,div.hl-code pre,div.nf-code pre,div.or-code pre,div.se-code pre,div.uj-code pre,div.us-code pre,div.ns-code pre,div.ir-code pre,div.jw-code pre,div.at-code pre,div.pd-code pre,div.ca-code pre,div.co-code pre,div.da-code pre,div.kb-code pre,div.rf-code pre,div.op-code pre,div.ct-code pre,div.pi-code pre,div.bp-code pre{overflow-x:auto;max-width:100%;white-space:pre;}
+.at-split-code,.at-split-doc{min-width:0;}
+
+.fs-code pre,.hl-code pre,.nf-code pre,.or-code pre,.se-code pre,.uj-code pre,.us-code pre,.ns-code pre,.ir-code pre,.jw-code pre,.at-code pre,.pd-code pre,.ca-code pre,.co-code pre,.da-code pre,.kb-code pre,.rf-code pre,.op-code pre,.ct-code pre,.pi-code pre,.bp-code pre{background:#0f172a;color:#e2e8f0;white-space:pre;overflow-x:auto;max-width:100%;}
+.fs-code,.hl-code,.nf-code,.or-code,.se-code,.uj-code,.us-code,.ns-code,.ir-code,.jw-code,.at-code,.pd-code,.ca-code,.co-code,.da-code,.kb-code,.rf-code,.op-code,.ct-code,.pi-code,.bp-code{overflow:hidden;max-width:100%;}
+.at-split-code,.at-split-doc{min-width:0;}
 
 
 /* ════════════════════════════════════════════════════════════
@@ -3920,4 +3935,6 @@ footer a { color: var(--text-accent); }
   .cv-actions{width:100%;}
   .cv-letter-card{padding:1.25rem;}
 }
+
+
 
