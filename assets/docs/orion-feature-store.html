@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Orion Feature Store Portfolio Case Study | Leslie Amadi</title>
+  <title>Orion Feature Store | Portfolio Case Study | Leslie Amadi</title>
   <meta name="description" content="Lead Technical Writer portfolio case study: documenting a feature store. Offline and online stores, 
   the feature registry, point-in-time correctness, materialisation, and the training/serving skew problem feature stores exist to solve."/>
   <meta property="og:title" content="Orion Feature Store | Leslie Amadi | Lead Technical Writer"/>
@@ -27,6 +27,7 @@
         <a href="../../blog.html">Blog</a>
         <a href="../../about.html">About</a>
         <a href="../../learning.html">Learning</a>
+        <a href="../../leslie-amadi-cv.html">CV</a>
         <a href="../../contact.html" class="nav-cta">Let's Talk</a>
       </div>
     </div>
@@ -217,7 +218,7 @@
               <text class="ts" x="525" y="88" text-anchor="middle" dominant-baseline="central">Feature re-implemented</text>
               <text class="ts" x="525" y="108" text-anchor="middle" dominant-baseline="central">in streaming code</text></g>
             <line x1="280" y1="85" x2="398" y2="85" stroke="#A32D2D" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#orarr2)"/>
-            <text class="ts" x="339" y="72" text-anchor="middle" fill="#94a3b8">should match &mdash; but doesn't</text>
+            <text class="ts" x="339" y="72" text-anchor="middle" fill="#94a3b8">should match but doesn't</text>
             <g class="c-red"><rect x="190" y="190" width="300" height="80" rx="12" stroke-width="0.5"/>
               <text class="th" x="340" y="214" text-anchor="middle">The skew</text>
               <text class="ts" x="340" y="236" text-anchor="middle" dominant-baseline="central">Different window boundary, different</text>
@@ -235,7 +236,7 @@
             Skew is rarely a big, obvious bug. It hides in edge cases: how a 7-day window treats the
             current partial day, what happens for a brand-new customer with no history, whether amounts
             are rounded before or after averaging. Two engineers can each write correct-looking code and
-            still disagree on these. The only durable fix is a single definition both paths share &mdash;
+            still disagree on these. The only durable fix is a single definition both paths share
             which is what a feature store enforces structurally rather than by discipline.
           </p>
         </div>

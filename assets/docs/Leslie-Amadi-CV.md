@@ -22,8 +22,8 @@ See each competency demonstrated in the [documentation portfolio](https://leslie
 
 ## Professional Experience
 
-### Senior Technical Writer — Documentation Governance
-**GC Software Development GmbH · Hamburg, Germany** — Oct 2022 – Jun 2026
+### Senior Technical Writer Documentation Governance
+**GC Software Development GmbH · Hamburg, Germany** Oct 2022 – Jun 2026
 *Sole Technical Writer; contractual partner to Booming Games (Malta) Ltd.*
 
 **Documentation Governance & Standards**
@@ -43,7 +43,7 @@ See each competency demonstrated in the [documentation portfolio](https://leslie
 - Documented billing, reconciliation, and exception-handling with Finance and Compliance to meet audit and internal-control expectations.
 
 ### Technical Writer
-**Betinvest · Remote** — Jan 2021 – Sep 2022
+**Betinvest · Remote** Jan 2021 – Sep 2022
 - Produced technical documentation, release notes, and user-facing content with engineers, QA, and product managers.
 - Maintained knowledge repositories, improving content organisation and discoverability; supported coordinated release cycles.
 

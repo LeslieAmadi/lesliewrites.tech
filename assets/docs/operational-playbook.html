@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Operational Playbook — Portfolio Case Study | Leslie Amadi</title>
+  <title>Operational Playbook | Portfolio Case Study | Leslie Amadi</title>
   <meta name="description" content="Lead Technical Writer portfolio case study: an operational playbook for running a service. Routine operations, on-call, escalation paths, runbooks, severity levels, maintenance windows, and the handover that keeps operations continuous."/>
   <meta property="og:title" content="Operational Playbook | Leslie Amadi"/>
   <meta property="og:type" content="article"/>
@@ -26,6 +26,7 @@
         <a href="../../blog.html">Blog</a>
         <a href="../../about.html">About</a>
         <a href="../../learning.html">Learning</a>
+        <a href="../../leslie-amadi-cv.html">CV</a>
         <a href="../../contact.html" class="nav-cta">Let's Talk</a>
       </div>
     </div>
@@ -44,7 +45,7 @@
         <span class="op-hero-eyebrow">&#128221; Case Study &middot; Product Operations &middot; PMO &middot; Runbooks</span>
         <h1>Operational <span>Playbook</span></h1>
         <p class="op-hero-desc">
-          The document an operations team actually opens &mdash; at the start of a shift, during a maintenance
+          The document an operations team actually opens at the start of a shift, during a maintenance
           window, and at 3am when something breaks. This playbook defines how a service is run day to day:
           routine operations, on-call and escalation, severity levels, runbooks for known failures, and the
           handover that keeps operations continuous across shifts.
@@ -63,8 +64,8 @@
         <table class="op-ctrl-table">
           <tbody>
             <tr><td class="op-ctrl-label">Discipline</td><td>Product Operations &middot; Service Management &middot; PMO</td></tr>
-            <tr><td class="op-ctrl-label">Project</td><td>Operational Playbook &mdash; how a live service is run and supported</td></tr>
-            <tr><td class="op-ctrl-label">My role</td><td>Lead Technical Writer &mdash; playbook structure, runbooks, escalation &amp; handover design</td></tr>
+            <tr><td class="op-ctrl-label">Project</td><td>Operational Playbook how a live service is run and supported</td></tr>
+            <tr><td class="op-ctrl-label">My role</td><td>Lead Technical Writer playbook structure, runbooks, escalation &amp; handover design</td></tr>
             <tr><td class="op-ctrl-label">Audience</td><td>On-call engineers, operations &amp; support teams, service managers</td></tr>
             <tr><td class="op-ctrl-label">Companion to</td><td>Product Release Framework &amp; Incident Response Report</td></tr>
             <tr><td class="op-ctrl-label">Doc type</td><td>Operational runbook &amp; reference</td></tr>
@@ -80,12 +81,12 @@
           A service runs fine until the one person who knows how it works is on holiday. Then a routine task
           becomes a guessing game, an alert fires and no one's sure who owns it, and a small issue escalates
           because the steps to fix it lived only in someone's memory. Operations that depend on heroes don't
-          scale and don't sleep &mdash; and every shift handover is a chance for something to fall through.
+          scale and don't sleep and every shift handover is a chance for something to fall through.
         </p>
         <div class="op-callout red">
           <strong>A playbook turns expertise into a procedure anyone can run</strong>
           <p>
-            The goal isn't to document everything &mdash; it's to make the service runnable by someone who
+            The goal isn't to document everything it's to make the service runnable by someone who
             isn't the expert. A good operational playbook captures the routine tasks, the known failures and
             their fixes, who to escalate to and when, and how one shift hands off cleanly to the next. It's the
             difference between operations that depend on people and operations that depend on a process.
@@ -151,7 +152,7 @@
         <div class="op-section-heading"><div class="op-section-icon blue">&#128226;</div><h2>On-call &amp; escalation path</h2></div>
         <p>
           When the on-call can't resolve something alone, the escalation path tells them exactly who's next
-          &mdash; no guessing, no waking the wrong person. The diagram shows the ladder.
+          no guessing, no waking the wrong person. The diagram shows the ladder.
         </p>
 
         <div class="op-diagram">
@@ -179,11 +180,11 @@
         <div class="op-section-heading"><div class="op-section-icon green">&#128296;</div><h2>Runbooks for known failures</h2></div>
         <p>
           The heart of the playbook: for each recurring failure, a runbook gives the symptom, the likely
-          cause, and the exact steps to fix it &mdash; so the on-call doesn't reverse-engineer a solution at
+          cause, and the exact steps to fix it so the on-call doesn't reverse-engineer a solution at
           3am. A sample entry:
         </p>
         <div class="op-runbook">
-          <div class="op-runbook-hdr">Runbook &mdash; Queue backing up</div>
+          <div class="op-runbook-hdr">Runbook Queue backing up</div>
           <div class="op-runbook-body">
             <div class="op-rb-key">Symptom</div>
             <p>Processing queue depth rising steadily; jobs delayed beyond SLA.</p>
@@ -197,13 +198,13 @@
               <li>If depth keeps rising after these steps, escalate to the owning team (L2).</li>
             </ul>
             <div class="op-rb-key">Do not</div>
-            <p>Don't purge the queue to clear the alert &mdash; it discards real work. Escalate instead.</p>
+            <p>Don't purge the queue to clear the alert it discards real work. Escalate instead.</p>
           </div>
         </div>
         <div class="op-callout green">
           <strong>The &ldquo;do not&rdquo; line is as valuable as the steps</strong>
           <p>
-            Under pressure, the tempting shortcut is often the dangerous one &mdash; purging a queue, forcing a
+            Under pressure, the tempting shortcut is often the dangerous one purging a queue, forcing a
             restart, clearing state. Writing the explicit &ldquo;do not&rdquo; for each runbook prevents the
             well-meaning 3am mistake that turns an incident into a bigger one.
           </p>
@@ -236,7 +237,7 @@
             <ul class="op-list">
               <li>Open issues and their current status.</li>
               <li>Anything mid-flight or paused for the next shift.</li>
-              <li>Watch-items &mdash; metrics trending the wrong way.</li>
+              <li>Watch-items metrics trending the wrong way.</li>
               <li>Planned maintenance or releases coming up.</li>
               <li>Who to reach for anything unusual.</li>
             </ul>
@@ -244,7 +245,7 @@
           <div class="op-panel no">
             <div class="op-panel-title no">A handover that fails</div>
             <ul class="op-list">
-              <li>&ldquo;All quiet&rdquo; &mdash; when it wasn't.</li>
+              <li>&ldquo;All quiet&rdquo; when it wasn't.</li>
               <li>Open issues left unmentioned.</li>
               <li>No context on a paused task.</li>
               <li>Verbal-only, nothing written down.</li>
@@ -269,14 +270,14 @@
 
       <section class="op-section" id="learnings">
         <div class="op-section-heading"><div class="op-section-icon amber">&#128161;</div><h2>Key learnings</h2></div>
-        <div class="op-callout amber"><strong>Document for the non-expert at 3am.</strong><p>The test of a runbook isn't whether the author understands it &mdash; it's whether a tired stand-in can follow it under pressure.</p></div>
+        <div class="op-callout amber"><strong>Document for the non-expert at 3am.</strong><p>The test of a runbook isn't whether the author understands it it's whether a tired stand-in can follow it under pressure.</p></div>
         <div class="op-callout green"><strong>Write the &ldquo;do not&rdquo;s.</strong><p>The dangerous shortcuts deserve as much ink as the steps; naming them prevents the well-meaning mistake.</p></div>
         <div class="op-callout blue"><strong>Handover is part of operations.</strong><p>Treating the shift handover as a first-class procedure closed the riskiest gap in continuous operations.</p></div>
       </section>
 
       <div class="op-writer-note" id="writer-note">
         <div class="op-writer-note-label">&#128221; Writer's note</div>
-        <p>An operational playbook is documentation written for its worst-case reader: someone tired, under pressure, who isn't the expert and needs to act now. That constraint shapes everything &mdash; short steps, explicit severities, clear escalation, and the &ldquo;do not&rdquo; warnings that stop a bad situation getting worse.</p>
+        <p>An operational playbook is documentation written for its worst-case reader: someone tired, under pressure, who isn't the expert and needs to act now. That constraint shapes everything short steps, explicit severities, clear escalation, and the &ldquo;do not&rdquo; warnings that stop a bad situation getting worse.</p>
         <p>The thread connecting this to my release-framework and incident-response work is the same principle: move the thinking earlier. Decide the severity scale, the escalation ladder, and the runbook steps in a calm moment, so the stressful moment is just execution. That's what lets operations scale beyond the people who happen to remember how everything works.</p>
         <div class="op-related">
           <a href="./helios-operations-playbook.html">Helios Operations Playbook &rarr;</a>

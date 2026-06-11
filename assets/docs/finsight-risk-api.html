@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FinSight Risk API Portfolio Case Study | Leslie Amadi</title>
+  <title>FinSight Risk API | Portfolio Case Study | Leslie Amadi</title>
   <meta name="description" content="Senior Technical Writer portfolio case study: end-to-end API documentation for FinSight real-time financial 
   risk scoring. Architecture, integration guide, error catalogue, and production checklist."/>
   <meta property="og:title" content="FinSight Risk API | Leslie Amadi Senior Technical Writer"/>
@@ -28,10 +28,12 @@
         <a href="../../blog.html">Blog</a>
         <a href="../../about.html">About</a>
         <a href="../../learning.html">Learning</a>
+        <a href="../../leslie-amadi-cv.html">CV</a>
         <a href="../../contact.html" class="nav-cta">Let's Talk</a>
       </div>
     </div>
   </nav>
+
 
   <div class="fs-shell">
 
@@ -536,7 +538,7 @@
               <text class="th" x="508" y="193" text-anchor="middle" dominant-baseline="central">Documentation</text>
               <text class="ts" x="508" y="213" text-anchor="middle" dominant-baseline="central">API ref · guides · error catalogue</text>
             </g>
-            <!-- Feedback loop arrow — dashed path from Release back up to Requirements -->
+            <!-- Feedback loop arrow dashed path from Release back up to Requirements -->
             <path d="M130 232 L130 264 L340 264 L340 248" fill="none" stroke="#cbd5e1" stroke-width="0.5" stroke-dasharray="5 4" marker-end="url(#arr3)"/>
             <text class="ts" x="230" y="280" text-anchor="middle" fill="#94a3b8">Feedback loop version update triggers new cycle</text>
           </svg>
@@ -620,7 +622,7 @@
         <div class="fs-code">
           <div class="fs-code-bar">
             <div class="fs-code-dots"><div class="fs-code-dot r"></div><div class="fs-code-dot y"></div><div class="fs-code-dot g"></div></div>
-            <span class="fs-code-lang">Error response shape — all error codes follow this structure</span>
+            <span class="fs-code-lang">Error response shape all error codes follow this structure</span>
           </div>
           <pre>{
   <span class="k">"error"</span>: {
@@ -736,7 +738,7 @@
         </div>
         <p>Every item here represents something that has caused a production incident on at least one integration. Work through this before routing live customer transactions through FinSight.</p>
         <ul class="fs-checklist">
-          <li><div class="fs-check">✓</div><div><strong>Amounts are in the smallest currency unit</strong> 28950 for €289.50, not 289.50. No error is thrown for wrong units — signals will simply be incorrect.</div></li>
+          <li><div class="fs-check">✓</div><div><strong>Amounts are in the smallest currency unit</strong> 28950 for €289.50, not 289.50. No error is thrown for wrong units signals will simply be incorrect.</div></li>
           <li><div class="fs-check">✓</div><div><strong>API key is in a secrets manager</strong>, not hardcoded in application config or committed to version control.</div></li>
           <li><div class="fs-check">✓</div><div><strong>Idempotency keys implemented</strong> for all risk score requests and stored for the duration of your retry window.</div></li>
           <li><div class="fs-check">✓</div><div><strong>3-second client timeout with one retry on 5xx.</strong> FinSight's P95 is under 250ms, 3 seconds provides generous headroom without risking customer-visible delays.</div></li>
@@ -812,38 +814,38 @@
             <g class="c-purple"><rect x="580" y="120" width="80" height="40" rx="6" stroke-width="0.5"/>
               <text class="ts" x="620" y="136" text-anchor="middle" dominant-baseline="central">Release</text>
               <text class="ts" x="620" y="152" text-anchor="middle" dominant-baseline="central">notes</text></g>
-            <!-- L3 child pages — Getting Started -->
+            <!-- L3 child pages Getting Started -->
             <line x1="60" y1="160" x2="60" y2="204" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="20" y="204" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="60" y="217" text-anchor="middle" dominant-baseline="central">Overview</text></g>
             <line x1="60" y1="230" x2="60" y2="248" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="20" y="248" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="60" y="261" text-anchor="middle" dominant-baseline="central">Quickstart</text></g>
             <line x1="60" y1="274" x2="60" y2="292" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="20" y="292" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="60" y="305" text-anchor="middle" dominant-baseline="central">Auth guide</text></g>
-            <!-- L3 — API Reference -->
+            <!-- L3 API Reference -->
             <line x1="172" y1="160" x2="172" y2="204" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="132" y="204" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="172" y="217" text-anchor="middle" dominant-baseline="central">Endpoints</text></g>
             <line x1="172" y1="230" x2="172" y2="248" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="132" y="248" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="172" y="261" text-anchor="middle" dominant-baseline="central">Schemas</text></g>
             <line x1="172" y1="274" x2="172" y2="292" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="132" y="292" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="172" y="305" text-anchor="middle" dominant-baseline="central">Error codes</text></g>
-            <!-- L3 — Integration Guides -->
+            <!-- L3 Integration Guides -->
             <line x1="284" y1="160" x2="284" y2="204" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="244" y="204" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="284" y="217" text-anchor="middle" dominant-baseline="central">Onboarding</text></g>
             <line x1="284" y1="230" x2="284" y2="248" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="244" y="248" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="284" y="261" text-anchor="middle" dominant-baseline="central">Idempotency</text></g>
             <line x1="284" y1="274" x2="284" y2="292" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="244" y="292" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="284" y="305" text-anchor="middle" dominant-baseline="central">Go-live checklist</text></g>
-            <!-- L3 — Security -->
+            <!-- L3 Security -->
             <line x1="396" y1="160" x2="396" y2="204" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="356" y="204" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="396" y="217" text-anchor="middle" dominant-baseline="central">Key management</text></g>
             <line x1="396" y1="230" x2="396" y2="248" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="356" y="248" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="396" y="261" text-anchor="middle" dominant-baseline="central">PII handling</text></g>
-            <!-- L3 — Troubleshooting -->
+            <!-- L3 Troubleshooting -->
             <line x1="508" y1="160" x2="508" y2="204" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="468" y="204" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="508" y="217" text-anchor="middle" dominant-baseline="central">Error catalogue</text></g>
             <line x1="508" y1="230" x2="508" y2="248" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="468" y="248" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="508" y="261" text-anchor="middle" dominant-baseline="central">Debug guide</text></g>
-            <!-- L3 — Release Notes -->
+            <!-- L3 Release Notes -->
             <line x1="620" y1="160" x2="620" y2="204" stroke="#e2e8f0" stroke-width="0.5"/>
             <g class="c-gray"><rect x="580" y="204" width="80" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="620" y="217" text-anchor="middle" dominant-baseline="central">v3.1</text></g>
             <line x1="620" y1="230" x2="620" y2="248" stroke="#e2e8f0" stroke-width="0.5"/>

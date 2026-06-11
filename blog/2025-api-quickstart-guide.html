@@ -20,7 +20,7 @@
       <div class="nav-menu">
         <a href="../index.html">Home</a><a href="../portfolio.html">Portfolio</a>
         <a href="../blog.html" class="active">Blog</a><a href="../about.html">About</a>
-        <a href="../learning.html">Learning</a><a href="../contact.html" class="nav-cta">Let's Talk</a>
+        <a href="../learning.html">Learning</a><a href="../../leslie-amadi-cv.html">CV</a><a href="../contact.html" class="nav-cta">Let's Talk</a>
       </div>
     </div>
   </nav>
@@ -169,7 +169,7 @@
        "description": "My first test payment"
      }'</pre>
 
-      <p>Expected response — HTTP 201:</p>
+      <p>Expected response  HTTP 201:</p>
 
 <pre>{
   "id": "pay_test_001",
@@ -180,9 +180,9 @@
   "created_at": "2025-01-14T09:22:11Z"
 }</pre>
 
-      <p>The <code>id</code> field is your payment reference — you will use it to retrieve, update, or refund this payment. Keep it.</p>
+      <p>The <code>id</code> field is your payment reference you will use it to retrieve, update, or refund this payment. Keep it.</p>
 
-      <h3>Step 3 — Retrieve the payment you just created</h3>
+      <h3>Step 3  Retrieve the payment you just created</h3>
       <p>Replace <code>pay_test_001</code> with the <code>id</code> from your response above.</p>
 
 <pre>curl -X GET "https://api.example.com/v1/payments/pay_test_001" \

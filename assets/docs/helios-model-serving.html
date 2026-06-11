@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Helios Model Serving Infrastructure Portfolio Case Study | Leslie Amadi</title>
+  <title>Helios Model Serving Infrastructure | Portfolio Case Study | Leslie Amadi</title>
   <meta name="description" content="Senior Technical Writer portfolio case study: production model-serving platform documentation. 
   Architecture, autoscaling, SLOs, incident playbooks, and model versioning for multiple ML teams."/>
   <meta property="og:title" content="Helios Model Serving | Leslie Amadi Senior Technical Writer"/>
@@ -28,6 +28,7 @@
         <a href="../../blog.html">Blog</a>
         <a href="../../about.html">About</a>
         <a href="../../learning.html">Learning</a>
+        <a href="../../leslie-amadi-cv.html">CV</a>
         <a href="../../contact.html" class="nav-cta">Let's Talk</a>
       </div>
     </div>
@@ -172,12 +173,12 @@
 
         <!--
           ════════════════════════════════════════════════════
-          DIAGRAM 1 — PLATFORM ARCHITECTURe
+          DIAGRAM 1 PLATFORM ARCHITECTURe
           ════════════════════════════════════════════════════
         -->
         <div class="hl-diagram">
           <svg width="100%" viewBox="0 0 680 560" role="img" xmlns="http://www.w3.org/2000/svg">
-            <title>Helios platform architecture — data plane and control plane</title>
+            <title>Helios platform architecture data plane and control plane</title>
             <defs><marker id="hlarr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
             <text class="ts" x="150" y="32" text-anchor="middle" fill="#94a3b8">Data plane</text>
             <text class="ts" x="540" y="32" text-anchor="middle" fill="#94a3b8">Control plane</text>
@@ -332,7 +333,7 @@
         </p>
 
         <div class="hl-scenario">
-          <div class="hl-scenario-hdr">Real scenario — campaign traffic doubles in 10 minutes</div>
+          <div class="hl-scenario-hdr">Real scenario campaign traffic doubles in 10 minutes</div>
           <div class="hl-scenario-body">
             <div class="hl-scenario-step"><div class="hl-scenario-num">1</div><div>Autoscaler detects sustained CPU and latency increase above threshold.</div></div>
             <div class="hl-scenario-step"><div class="hl-scenario-num">2</div><div>Spins up additional pods for example, from 8 to 20 replicas.</div></div>
@@ -438,7 +439,7 @@
         <div class="hl-scenario">
           <div class="hl-scenario-hdr">Executable runbook model regression (SEV-2)</div>
           <div class="hl-scenario-body">
-            <div class="hl-runbook-row"><span class="hl-runbook-key">Severity</span><span class="hl-runbook-val"><span class="hl-sev sev2">SEV-2</span> — degraded prediction quality, no full outage</span></div>
+            <div class="hl-runbook-row"><span class="hl-runbook-key">Severity</span><span class="hl-runbook-val"><span class="hl-sev sev2">SEV-2</span> degraded prediction quality, no full outage</span></div>
             <div class="hl-runbook-key">Symptoms</div>
             <ul class="hl-list">
               <li>Precision &lt; 92% on the canary cohort.</li>
@@ -524,7 +525,7 @@ promtool query instant 'precision:fraud_model:5m' <span class="hl-c"># current p
           </tbody>
         </table>
 
-        <h3>Ownership — RACI matrix</h3>
+        <h3>Ownership RACI matrix</h3>
         <p>On shared infrastructure, "who is allowed to do what" must be unambiguous. R = responsible, A = accountable, C = consulted, I = informed.</p>
         <table class="hl-table hl-raci">
           <thead><tr><th>Activity</th><th>ML team</th><th>Platform team</th><th>SRE</th></tr></thead>
@@ -542,7 +543,7 @@ promtool query instant 'precision:fraud_model:5m' <span class="hl-c"># current p
       <section class="hl-section" id="business-impact">
         <div class="hl-section-heading"><div class="hl-section-icon amber">💼</div><h2>Business impact view</h2></div>
         <p>
-          Executives and product owners do not read latency graphs — they read consequences. This view
+          Executives and product owners do not read latency graphs they read consequences. This view
           translates a technical degradation into the business terms a VP or COO actually cares about.
         </p>
         <table class="hl-table">
@@ -575,14 +576,14 @@ promtool query instant 'precision:fraud_model:5m' <span class="hl-c"># current p
           <li><div class="hl-check">✓</div><div><strong>Evaluation metrics captured</strong> and reviewed before deployment.</div></li>
           <li><div class="hl-check">✓</div><div><strong>Canary / shadow plan agreed</strong> with the product team.</div></li>
           <li><div class="hl-check">✓</div><div><strong>Dashboards and alerts configured</strong> for the key SLOs.</div></li>
-          <li><div class="hl-check">✓</div><div><strong>Rollback plan tested</strong> — not just written down, actually executed in staging.</div></li>
+          <li><div class="hl-check">✓</div><div><strong>Rollback plan tested</strong> not just written down, actually executed in staging.</div></li>
           <li><div class="hl-check">✓</div><div><strong>Playbooks created</strong> for the high-risk failure modes specific to this model.</div></li>
         </ul>
 
         <a class="hl-companion" href="./helios-operations-playbook.html">
           <div class="hl-companion-icon">📕</div>
           <div class="hl-companion-body">
-            <div class="hl-companion-title">Companion page — Operations Playbook</div>
+            <div class="hl-companion-title">Companion page Operations Playbook</div>
             <div class="hl-companion-desc">Disaster recovery procedures and capacity planning guidance live in a dedicated operations playbook, so this page stays focused on 
               the platform itself.</div>
           </div>

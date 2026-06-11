@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ChatAssist Onboarding| Portfolio Case Study | Leslie Amadi</title>
+  <title>ChatAssist Onboarding | Portfolio Case Study | Leslie Amadi</title>
   <meta name="description" content="Lead Technical Writer portfolio case study: a developer onboarding and integration guide for a RAG support assistant. Prerequisites, step-by-step setup with code, connecting a knowledge base, testing, go-live checklist, and troubleshooting."/>
   <meta property="og:title" content="ChatAssist Onboarding Guide | Leslie Amadi"/>
   <meta property="og:type" content="article"/>
@@ -26,6 +26,7 @@
         <a href="../../blog.html">Blog</a>
         <a href="../../about.html">About</a>
         <a href="../../learning.html">Learning</a>
+        <a href="../../leslie-amadi-cv.html">CV</a>
         <a href="../../contact.html" class="nav-cta">Let's Talk</a>
       </div>
     </div>
@@ -158,7 +159,7 @@
             <h3>Load &amp; index your knowledge base</h3>
             <p>Upload your content. ChatAssist chunks, embeds, and indexes it so it can be retrieved at query time. This is the grounding source the assistant answers only from here.</p>
             <div class="co-code">
-              <div class="co-code-bar"><span class="co-code-lang">Node — index KB documents</span></div>
+              <div class="co-code-bar"><span class="co-code-lang">Node index KB documents</span></div>
               <pre><span class="co-k">await</span> chatassist.knowledge.<span class="co-fn">upload</span>({
   source: <span class="co-s">"./help-center/"</span>,   <span class="co-c">// FAQs, docs, articles</span>
   language: <span class="co-s">"auto"</span>,           <span class="co-c">// EN + DE handled together</span>
@@ -173,7 +174,7 @@
             <h3>Ask a question</h3>
             <p>Send a user message. The response includes the grounded answer <em>and</em> the sources it used, so you can verify it.</p>
             <div class="co-code">
-              <div class="co-code-bar"><span class="co-code-lang">Node — query</span></div>
+              <div class="co-code-bar"><span class="co-code-lang">Node query</span></div>
               <pre><span class="co-k">const</span> reply = <span class="co-k">await</span> chatassist.<span class="co-fn">ask</span>({
   message: <span class="co-s">"How do I reset my password?"</span>,
 });
@@ -189,7 +190,7 @@ console.<span class="co-fn">log</span>(reply.sources);  <span class="co-c">// pa
             <h3>Test grounding &amp; escalation</h3>
             <p>Ask something <em>not</em> in your knowledge base. A correctly configured assistant won't invent an answer it escalates. That negative test matters more than the happy path.</p>
             <div class="co-code">
-              <div class="co-code-bar"><span class="co-code-lang">Node — the test that matters</span></div>
+              <div class="co-code-bar"><span class="co-code-lang">Node the test that matters</span></div>
               <pre><span class="co-k">const</span> r = <span class="co-k">await</span> chatassist.<span class="co-fn">ask</span>({ message: <span class="co-s">"What's the weather today?"</span> });
 <span class="co-c">// expect: r.escalated === true, not a made-up answer</span></pre>
             </div>
