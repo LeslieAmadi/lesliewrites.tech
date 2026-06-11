@@ -3869,8 +3869,7 @@ div.fs-code pre,div.hl-code pre,div.nf-code pre,div.or-code pre,div.se-code pre,
 
 
 /* ════════════════════════════════════════════════════════════
-   CV / Résumé page (cv.html) styles.css
-
+   CV page
    ════════════════════════════════════════════════════════════ */
 
 .cv-wrap{max-width:900px;margin:0 auto;padding:1rem 1.5rem 4rem;}
@@ -3936,11 +3935,19 @@ div.fs-code pre,div.hl-code pre,div.nf-code pre,div.or-code pre,div.se-code pre,
   .cv-letter-card{padding:1.25rem;}
 }
 
+/* Recommendation-letter images */
+.cv-letter-images{display:flex;flex-direction:column;gap:1rem;margin:1rem 0;}
+.cv-letter-images img{width:100%;height:auto;border:1px solid var(--border-warm);
+                      border-radius:12px;box-shadow:var(--shadow-sm);display:block;}
+@media(min-width:760px){
+  .cv-letter-images{flex-direction:row;align-items:flex-start;}
+  .cv-letter-images img{width:calc(50% - .5rem);}
+}
+
 
 
 /* ════════════════════════════════════════════════════════════
-   BPMN Workflow Documentation — page-specific styles
-   Prefix: .bp-   Accent: warm brown (uniform palette). Paste once into styles.css.
+   BPMN Workflow Documentation 
    ════════════════════════════════════════════════════════════ */
 
 :root{
@@ -4060,8 +4067,7 @@ div.fs-code pre,div.hl-code pre,div.nf-code pre,div.or-code pre,div.se-code pre,
 
 
 /* ════════════════════════════════════════════════════════════
-   APERTURE PAY — PAYMENTS API (aperture-pay-api.html)
-   Prefix: .ap-   Warm-brown theme + dark code blocks. Paste once.
+   APERTURE PAY — PAYMENTS API 
    ════════════════════════════════════════════════════════════ */
 
 .ap-shell{max-width:1200px;margin:0 auto;padding:0 1.5rem;}
@@ -4174,8 +4180,7 @@ div.fs-code pre,div.hl-code pre,div.nf-code pre,div.or-code pre,div.se-code pre,
 
 
 /* ════════════════════════════════════════════════════════════
-   HELIX PLAY — OPERATOR RGS API (helix-play-api.html)
-   Prefix: .hx-   Warm-brown theme + dark code blocks. Paste once.
+   HELIX PLAY — OPERATOR RGS API
    ════════════════════════════════════════════════════════════ */
 
 .hx-shell{max-width:1200px;margin:0 auto;padding:0 1.5rem;}
@@ -4289,8 +4294,7 @@ div.fs-code pre,div.hl-code pre,div.nf-code pre,div.or-code pre,div.se-code pre,
 
 
 /* ════════════════════════════════════════════════════════════
-   STRIDE — PLATFORM API (stride-api.html)
-   Prefix: .sd-   Warm-brown theme + dark code blocks. Paste once.
+   STRIDE — PLATFORM API 
    ════════════════════════════════════════════════════════════ */
 
 .sd-shell{max-width:1200px;margin:0 auto;padding:0 1.5rem;}
@@ -4402,8 +4406,7 @@ div.fs-code pre,div.hl-code pre,div.nf-code pre,div.or-code pre,div.se-code pre,
 
 
 /* ════════════════════════════════════════════════════════════
-   PRODUCT REQUIREMENTS DOCUMENT (product-requirements-document.html)
-   Prefix: .pr-   Warm-brown theme. Paste once into styles.css.
+   PRODUCT REQUIREMENTS DOCUMENT 
    ════════════════════════════════════════════════════════════ */
 
 .pr-shell{max-width:1200px;margin:0 auto;padding:0 1.5rem;}
