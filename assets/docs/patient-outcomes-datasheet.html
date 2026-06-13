@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Patient Outcomes Datasheet | Portfolio Case Study | Leslie Amadi</title>
+  <title>Patient Outcomes Datasheet — Portfolio Case Study | Leslie Amadi</title>
   <meta name="description" content="Lead Technical Writer portfolio case study: a Datasheet for Datasets for a healthcare ML dataset. Motivation, schema, collection governance, de-identification pipeline, intended and out-of-scope uses, bias and fairness, and access controls."/>
   <meta property="og:title" content="Patient Outcomes Datasheet | Leslie Amadi"/>
   <meta property="og:type" content="article"/>
@@ -26,7 +26,6 @@
         <a href="../../blog.html">Blog</a>
         <a href="../../about.html">About</a>
         <a href="../../learning.html">Learning</a>
-        <a href="../../leslie-amadi-cv.html">CV</a>
         <a href="../../contact.html" class="nav-cta">Let's Talk</a>
       </div>
     </div>
@@ -175,10 +174,10 @@
             <line x1="600" y1="166" x2="600" y2="200" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#pdarr1)"/>
             <g class="c-green"><rect x="430" y="200" width="230" height="56" rx="8" stroke-width="0.5"/><text class="th" x="545" y="220" text-anchor="middle" dominant-baseline="central">ML-ready dataset</text><text class="ts" x="545" y="238" text-anchor="middle" dominant-baseline="central">patient-level train/val/test</text></g>
 
-            <rect x="170" y="40" width="350" height="40" rx="8" class="pd-enclave"/>
-            <text class="pd-enclave-label" x="345" y="60" text-anchor="middle" dominant-baseline="central">Secure research enclave (encrypted, audited)</text>
+            <rect x="140" y="36" width="410" height="44" rx="8" class="pd-enclave"/>
+            <text class="pd-enclave-label" x="345" y="58" text-anchor="middle" dominant-baseline="central">Secure research enclave (encrypted, audited)</text>
             <line x1="345" y1="80" x2="345" y2="108" stroke="#A32D2D" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#pdarr1)"/>
-            <text class="ts" x="395" y="98" text-anchor="middle" fill="#94a3b8">boundary</text>
+            <text class="ts" x="408" y="96" text-anchor="middle" fill="#94a3b8">boundary</text>
           </svg>
           <p class="pd-diagram-caption">The pipeline. Direct identifiers are stripped at each hospital <em>before</em> transfer; only de-identified, highly aggregated data crosses into the secure, audited research enclave, where it's standardised, cleaned, and split by patient into the ML-ready dataset.</p>
         </div>
@@ -298,6 +297,7 @@
         </table>
       </section>
 
+    
       <section class="pd-section" id="learnings">
         <div class="pd-section-heading"><div class="pd-section-icon amber">&#128161;</div><h2>Key learnings</h2></div>
         <div class="pd-callout amber"><strong>Document the gaps, not just the contents.</strong><p>The most valuable section is the one naming who's underrepresented a datasheet that hides weaknesses lends false confidence.</p></div>
