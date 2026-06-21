@@ -612,6 +612,16 @@ code {
 .domain-content a:last-child { border-bottom: none; }
 .domain-content a:hover { color: var(--accent); padding-left: 0.4rem; }
 
+/* ── Portfolio outcome lines (one-liner under each doc link) ── */
+.domain-content .doc-outcome{
+  margin: 2px 0 14px 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-muted, #8b8682);
+  max-width: 60ch;
+}
+.domain-content a{ margin-bottom: 2px; }   /* tighten link to its outcome */
+
 /* ── 15. Portfolio "coming soon" placeholder items */
 .domain-content .doc-soon{
   display:block;
@@ -1164,6 +1174,75 @@ footer a { color: var(--text-accent); }
 
 @media (max-width: 580px) {
   .method-grid { grid-template-columns: 1fr 1fr; }
+}
+
+
+/* ── Flagship spotlight (featured piece above the grid) ── */
+.flagship{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  background:linear-gradient(135deg,#6a4c39,#8a6750);
+  border-radius:16px;
+  padding:1.8rem 2rem;
+  margin:0 0 2rem 0;
+  box-shadow:0 8px 24px rgba(106,76,57,.18);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.flagship:hover{ transform:translateY(-3px); box-shadow:0 12px 30px rgba(106,76,57,.26); }
+.flagship-tag{
+  display:inline-block;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  color:#f4ece4;
+  background:rgba(255,255,255,.16);
+  padding:.25rem .7rem;
+  border-radius:999px;
+  margin-bottom:.8rem;
+}
+.flagship-title{
+  color:#fff;
+  font-size:1.6rem;
+  margin:0 0 .6rem 0;
+  line-height:1.2;
+}
+.flagship-desc{
+  color:#f0e6dd;
+  font-size:.98rem;
+  line-height:1.6;
+  max-width:70ch;
+  margin:0 0 1rem 0;
+}
+.flagship-chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
+.flagship-chip{
+  font-size:.8rem;
+  color:#fff;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.22);
+  padding:.2rem .7rem;
+  border-radius:999px;
+}
+.flagship-cta{
+  display:inline-block;
+  font-weight:700;
+  color:#fff;
+  border-bottom:2px solid rgba(255,255,255,.5);
+  padding-bottom:2px;
+}
+.flagship:hover .flagship-cta{ border-bottom-color:#fff; }
+@media (max-width:600px){
+  .flagship{ padding:1.4rem 1.3rem; }
+  .flagship-title{ font-size:1.35rem; }
+}
+
+
+.portfolio-disclaimer{
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted, #8b8682);
+  max-width: 75ch;
+  margin: 2rem auto 0;
 }
 
 /* ════════════════════════════════════════════════════════════

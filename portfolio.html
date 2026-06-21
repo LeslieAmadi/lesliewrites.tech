@@ -43,153 +43,156 @@
     <div class="portfolio-banner">
       <h1>Documentation Portfolio</h1>
       <p style="max-width:760px;color:#5a4648;">
-        This portfolio showcases how I design, structure, and govern documentation that supports real business operations. 
-        My work spans platform engineering, AI/ML systems, incident management, process documentation, governance frameworks, 
-        developer experience, and knowledge management. Each case study demonstrates how documentation can improve operational 
-        readiness, reduce risk, support onboarding, and enable teams to work more effectively. 
-
-         <p>
-          <italic>These documentation samples were researched, planned, structured, and authored by me to demonstrate my technical writing, documentation governance, process mapping, 
-          API documentation, and information architecture skills. The projects are based on real-world professional experience, but all proprietary information has been replaced 
-          with fictional examples to maintain confidentiality. Website development and selected code components were created by me, with AI used as a productivity and learning tool 
-          while I continue developing my programming expertise.</italic>
-         </p>
+        As the first and sole technical writer in my organisation, I built the documentation function from scratch interviewing stakeholders across departments to map operational workflows and designing 
+        tailored templates for each team, from onboarding to daily procedures. I turn complex, scattered knowledge into documentation that helps teams ship faster, integrate with less friction, and 
+        operate with confidence across fintech, iGaming, ML platforms, and developer tooling.
       </p>
       <input id="docSearch" type="text" placeholder="Search the portfolio&hellip;" />
     </div>
 
+<!-- FLAGSHIP SPOTLIGHT  -->
+<a class="flagship" href="assets/docs/helix-play-api.html">
+  <div class="flagship-tag">&#11088; Featured &middot; iGaming</div>
+  <h2 class="flagship-title">Helix Play | Operator RGS API</h2>
+  <p class="flagship-desc">
+    A seamless-wallet integration between an iGaming remote game server and an operator's
+    wallet: signed wallet hooks on every round, reversal-based recovery when a hook can't be
+    confirmed, and first-class responsible-play controls deposit and loss limits,
+    self-exclusion, and session limits. Written for the engineers who integrate real-money play,
+    where one unconfirmed transaction is a real problem.
+  </p>
+  <div class="flagship-chips">
+    <span class="flagship-chip">HMAC-signed hooks</span>
+    <span class="flagship-chip">Reversal recovery</span>
+    <span class="flagship-chip">Responsible play</span>
+    <span class="flagship-chip">Regulated iGaming</span>
+  </div>
+  <span class="flagship-cta">Read the API reference &rarr;</span>
+</a>
+
     <div class="domain-grid" id="domainGrid">
 
-      <!-- MLOps & AI PLATFORM DOCUMENTATION -->
-      <div class="domain-card" data-search="mlops ai ml model serving evaluation platform infrastructure helios neuralflow finsight healthcare inference deployment observability">
-        <div class="domain-title">&#9881;&#65039; MLOps &amp; AI Platform Docs</div>
-        <div class="domain-desc">Production model-serving, evaluation suites, and AI platform documentation for engineering teams</div>
-        <div class="domain-chips">
-          <span class="domain-chip">Model Serving</span>
-          <span class="domain-chip">Evaluation</span>
-          <span class="domain-chip">Inference</span>
-          <span class="domain-chip">Observability</span>
-        </div>
-        <div class="domain-footer">
-          <svg class="domain-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </div>
-        <div class="domain-content">
-          <a href="assets/docs/helios-model-serving.html">Helios Model Serving Infrastructure</a>
-          <a href="assets/docs/helios-operations-playbook.html">Helios Operations Playbook (DR &amp; Capacity)</a>
-          <a href="assets/docs/neuralflow-eval.html">NeuralFlow Evaluation Suite</a>
-          <a href="assets/docs/finsight-risk-api.html">FinSight Risk API</a>
-          <a href="assets/docs/orion-feature-store.html">Orion Feature Store</a>
-          <a href="assets/docs/atlas-developer-platform.html">Atlas Developer Platform </a>
-          <a href="assets/docs/chatassist-architecture-regression.html">ChatAssist Architecture</a>
-        </div>
-      </div>
+      <!-- DEVELOPER EXPERIENCE & API  (LEADS — your target market) -->
+<div class="domain-card" data-search="developer experience devex api integration reference onboarding sdk endpoints webhooks authentication idempotency payments igaming saas fintech aperture helix stride atlas chatassist quickstart">
+  <div class="domain-title">&#129513; Developer Experience &amp; API</div>
+  <div class="domain-desc">API references and developer guides signed requests, idempotency, webhooks, and failure recovery across payments, iGaming, and SaaS.</div>
+  <div class="domain-chips">
+    <span class="domain-chip">API Reference</span>
+    <span class="domain-chip">Webhooks</span>
+    <span class="domain-chip">Authentication</span>
+    <span class="domain-chip">Developer Guides</span>
+  </div>
+  <div class="domain-footer">
+    <svg class="domain-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="domain-content">
+    <a href="assets/docs/aperture-pay-api.html">Aperture Pay | Payments API</a>
+    <p class="doc-outcome">Stripe-style payments API reference HMAC request signing, idempotency, and settlement webhooks built for fintech integrators to go live quickly.</p>
+    <a href="assets/docs/helix-play-api.html">Helix Play Operator RGS API</a>
+    <p class="doc-outcome">Seamless-wallet iGaming integration signed wallet hooks, reversal-based recovery, and responsible-play limits written for operators handling real-money play.</p>
+    <a href="assets/docs/stride-api.html">Stride Platform API</a>
+    <p class="doc-outcome">B2B SaaS event API signed at-least-once webhooks and idempotent consumers, documented so integrations never corrupt data on retry.</p>
+    <a href="assets/docs/atlas-developer-platform.html">Atlas Developer Platform</a>
+    <p class="doc-outcome">Developer-platform reference with runnable examples, built so integrators reach their first successful call fast.</p>
+    <a href="assets/docs/chatassist-onboarding.html">ChatAssist Onboarding Guide</a>
+    <p class="doc-outcome">Onboarding path that takes a new developer from zero to a working integration with minimal back-and-forth.</p>
+  </div>
+</div>
 
-      <!-- DEVELOPER EXPERIENCE & API -->
-      <div class="domain-card" data-search="developer experience api reference rest webhooks authentication hmac signing idempotency payments igaming saas aperture pay helix play stride atlas chatassist onboarding integration">
-        <div class="domain-title">&#129513; Developer Experience &amp; API</div>
-        <div class="domain-desc">API references and developer guides: signed requests, idempotency, webhooks, and failure recovery across payments, iGaming, and SaaS</div>
-        <div class="domain-chips">
-          <span class="domain-chip">API Reference</span>
-          <span class="domain-chip">Webhooks</span>
-          <span class="domain-chip">Authentication</span>
-          <span class="domain-chip">Developer Guides</span>
-        </div>
-        <div class="domain-footer">
-          <svg class="domain-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </div>
-        <div class="domain-content">
-          <a href="assets/docs/aperture-pay-api.html">Aperture Pay Payments API</a>
-          <a href="assets/docs/helix-play-api.html">Helix Play Operator RGS API</a>
-          <a href="assets/docs/stride-api.html">Stride Platform API</a>
-          <a href="assets/docs/atlas-developer-platform.html">Atlas Developer Platform</a>
-          <a href="assets/docs/chatassist-onboarding.html">ChatAssist Onboarding Guide</a>
-        </div>
-      </div>
+<!-- GOVERNANCE, RISK & COMPLIANCE -->
+<div class="domain-card" data-search="governance risk compliance audit standards security data protection regulated finsight patient outcomes datasheet model card controls framework knowledge base information architecture">
+  <div class="domain-title">&#128737;&#65039; Governance, Risk &amp; Compliance</div>
+  <div class="domain-desc">Documentation standards, model governance, risk and compliance frameworks, and audit-ready references for regulated environments.</div>
+  <div class="domain-chips">
+    <span class="domain-chip">Standards</span>
+    <span class="domain-chip">Risk</span>
+    <span class="domain-chip">Compliance</span>
+    <span class="domain-chip">Model Cards</span>
+  </div>
+  <div class="domain-footer">
+    <svg class="domain-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="domain-content">
+    <a href="assets/docs/documentation-architecture.html">Documentation Governance Framework</a>
+    <p class="doc-outcome">The ownership model, standards, and content lifecycle that keep 400+ documents consistent and trustworthy at scale.</p>
+    <a href="assets/docs/knowledge-base-architecture.html">Knowledge Base Architecture</a>
+    <p class="doc-outcome">Information architecture designed around how readers actually search, browse, and arrive so they find answers, not dead ends.</p>
+    <a href="assets/docs/finsight-risk-api.html">FinSight Security &amp; Compliance Reference</a>
+    <p class="doc-outcome">Security and compliance reference for a financial API the audit-ready documentation regulated fintech teams depend on.</p>
+    <a href="assets/docs/patient-outcomes-datasheet.html">Patient Outcomes Datasheet</a>
+    <p class="doc-outcome">Model datasheet with de-identification, intended-use limits, and fairness checks documentation that stands up to regulatory scrutiny.</p>
+  </div>
+</div>
 
-      <!-- GOVERNANCE, RISK & COMPLIANCE -->
-      <div class="domain-card" data-search="governance risk compliance audit standards security data protection finsight patient outcomes leximind model card datasheet controls framework">
-        <div class="domain-title">&#128737;&#65039; Governance, Risk &amp; Compliance</div>
-        <div class="domain-desc">Documentation standards, model governance, risk and compliance frameworks, and audit-ready references</div>
-        <div class="domain-chips">
-          <span class="domain-chip">Standards</span>
-          <span class="domain-chip">Risk</span>
-          <span class="domain-chip">Compliance</span>
-          <span class="domain-chip">Model Cards</span>
-        </div>
-        <div class="domain-footer">
-          <svg class="domain-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </div>
-        <div class="domain-content">
-          <a href="assets/docs/finsight-risk-api.html">FinSight Security &amp; Compliance Reference</a>
-          <a href="assets/docs/patient-outcomes-datasheet.html">Patient Outcomes Datasheet</a>
-          <a href="assets/docs/documentation-architecture.html">Documentation Governance Framework</a>
-          <a href="assets/docs/knowledge-base-architecture.html">Knowledge Base Architecture</a>
-        </div>
-      </div>
+<!-- PROCESS & OPERATIONS -->
+<div class="domain-card" data-search="process operations workflow incident response jira swimlane bpmn sop business process governance escalation runbook playbook release framework user story journey seo reconciliation">
+  <div class="domain-title">&#128260; Process &amp; Operations</div>
+  <div class="domain-desc">End-to-end process documentation, incident-response playbooks, and operational workflows that keep teams aligned.</div>
+  <div class="domain-chips">
+    <span class="domain-chip">Incident Response</span>
+    <span class="domain-chip">Jira Workflows</span>
+    <span class="domain-chip">SOPs</span>
+    <span class="domain-chip">Process Maps</span>
+  </div>
+  <div class="domain-footer">
+    <svg class="domain-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="domain-content">
+    <a href="assets/docs/incident-response.html">NimbusTech Incident Response Report</a>
+    <p class="doc-outcome">Post-incident analysis with 5-Whys root-cause and clear corrective actions turning an outage into organisational learning.</p>
+    <a href="assets/docs/hallo-games-jira.html">Hallo Games Jira Workflow Documentation</a>
+    <p class="doc-outcome">Governed, multi-team Jira ticket workflow with enforced states and a protected audit trail.</p>
+    <a href="assets/docs/operational-playbook.html">Operational Playbook</a>
+    <p class="doc-outcome">On-call escalation ladder and runbooks that tell a non-expert exactly what to do during a Sev-1/2 incident.</p>
+    <a href="assets/docs/product-release-framework.html">Product Release Framework</a>
+    <p class="doc-outcome">A readiness-gated release process so nothing ships to production until every quality criterion passes.</p>
+    <a href="assets/docs/bpmn-workflow-documentation.html">BPMN Workflow Documentation</a>
+    <p class="doc-outcome">Customer-onboarding process modelled in BPMN across three lanes, making every hand-off and decision point explicit.</p>
+    <a href="assets/docs/process-improvement-case-study.html">Process Improvement Case Study</a>
+    <p class="doc-outcome">Before/after of a documentation-lifecycle overhaul, showing measurable gains in consistency and findability.</p>
+    <a href="assets/docs/user-journey.html">User Journey Mapping Documentation</a>
+    <p class="doc-outcome">Journey map with an emotion curve that pinpoints the highest-leverage moment to fix in a product experience.</p>
+    <a href="assets/docs/user-story-documentation.html">User Story Documentation</a>
+    <p class="doc-outcome">Well-formed user stories with acceptance criteria that give engineering unambiguous, testable requirements.</p>
+    <a href="assets/docs/seo-documentation.html">SEO Documentation Case Study</a>
+    <p class="doc-outcome">Documentation restructured for search turning support-gap signals into findable, ticket-deflecting content.</p>
+  </div>
+</div>
 
-      <!-- PROCESS & OPERATIONS -->
-      <div class="domain-card" data-search="process operations workflow incident response jira swimlane sop business process governance escalation nimbus playbook runbook reconciliation billing">
-        <div class="domain-title">&#128260; Process &amp; Operations</div>
-        <div class="domain-desc">End-to-end process documentation, incident response playbooks, and operational workflows</div>
-        <div class="domain-chips">
-          <span class="domain-chip">Incident Response</span>
-          <span class="domain-chip">Jira Workflows</span>
-          <span class="domain-chip">SOPs</span>
-          <span class="domain-chip">Process Maps</span>
-        </div>
-        <div class="domain-footer">
-          <span class="doc-count">6 live &middot; 1 coming</span>
-          <svg class="domain-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </div>
-        <div class="domain-content">
-          <a href="assets/docs/helios-operations-playbook.html">Helios Operations Playbook</a>
-          <a href="assets/docs/seo-documentation.html">SEO Documentation Case Study</a>
-          <a href="assets/docs/user-journey.html">User Journey Mapping Documentation</a>
-          <a href="assets/docs/user-story-documentation.html">User Story Documentation</a>
-          <a href="assets/docs/incident-response.html">NimbusTech Incident Response Report</a>
-          <a href="assets/docs/hallo-games-jira.html">Hallo Games Jira Workflow Documentation </a>
-          <a href="assets/docs/product-release-framework.html">Product Release Framework</a>
-          <a href="assets/docs/operational-playbook.html">Operational Playbook</a>
-          <a href="assets/docs/process-improvement-case-study.html">Process Improvement Case Study</a>
-          <a href="assets/docs/bpmn-workflow-documentation.html">BPMN WorkfLow Documentation</a>
-        </div>
-      </div>
-
-
-      <!-- UX & CONTENT SYSTEMS -->
-      <div class="domain-card" data-search="ux writing microcopy content systems release notes empty states gaming crimson temple showcase tone voice">
-        <div class="domain-title">&#9997;&#65039; UX &amp; Content Systems</div>
-        <div class="domain-desc">UX writing systems, microcopy frameworks, and content design for product and gaming environments</div>
-        <div class="domain-chips">
-          <span class="domain-chip">UX Writing</span>
-          <span class="domain-chip">Microcopy</span>
-          <span class="domain-chip">Content Design</span>
-          <span class="domain-chip">Gaming</span>
-        </div>
-        <div class="domain-footer">
-          <span class="doc-count">2 coming soon</span>
-          <svg class="domain-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </div>
-        <div class="domain-content">
-          <span class="doc-soon">UX Writing Showcase <em>&middot; coming soon</em></span>
-          <span class="doc-soon">Crimson Temple Game Documentation <em>&middot; coming soon</em></span>
-        </div>
-      </div>
+<!-- MLOPS & AI PLATFORM -->
+<div class="domain-card" data-search="mlops ai ml model serving evaluation platform infrastructure helios neuralflow orion feature store atlas chatassist inference deployment observability">
+  <div class="domain-title">&#9881;&#65039; MLOps &amp; AI Platform Docs</div>
+  <div class="domain-desc">Production model-serving, evaluation suites, and AI-platform documentation for engineering teams.</div>
+  <div class="domain-chips">
+    <span class="domain-chip">Model Serving</span>
+    <span class="domain-chip">Evaluation</span>
+    <span class="domain-chip">Inference</span>
+    <span class="domain-chip">Observability</span>
+  </div>
+  <div class="domain-footer">
+    <svg class="domain-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="domain-content">
+    <a href="assets/docs/helios-model-serving.html">Helios Model Serving Infrastructure</a>
+    <p class="doc-outcome">How a production model-serving platform is deployed, scaled, and operated the reference engineers rely on to ship models safely.</p>
+    <a href="assets/docs/helios-operations-playbook.html">Helios Operations Playbook (DR &amp; Capacity)</a>
+    <p class="doc-outcome">Disaster-recovery and capacity runbook that lets on-call engineers respond without reverse-engineering the system at 3 a.m.</p>
+    <a href="assets/docs/neuralflow-eval.html">NeuralFlow Evaluation Suite</a>
+    <p class="doc-outcome">Documents how models are evaluated before release, giving teams a consistent quality gate instead of ad-hoc checks.</p>
+    <a href="assets/docs/orion-feature-store.html">Orion Feature Store</a>
+    <p class="doc-outcome">Explains how features are stored, served, and reused across models reducing duplicated work and training/serving skew.</p>
+    <a href="assets/docs/chatassist-architecture.html">ChatAssist Architecture</a>
+    <p class="doc-outcome">System architecture for an AI assistant, showing how grounding and escalation keep answers safe and accurate.</p>
+  </div>
+</div>
 
     </div>
     <p id="noResults" style="display:none;text-align:center;padding:3rem;color:#8b7070;">No documentation found for that search.</p>
 
   </main>
+
+  <p class="portfolio-disclaimer"><em>All samples are original work, based on real professional experience with proprietary details replaced by fictional examples to protect confidentiality. 
+  The site is built docs-as-code; I use AI tooling as leverage while owning quality and accuracy myself.</em></p>
 
   <footer>
     <p>&copy; 2025 Leslie Amadi &middot; <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lesliewrites.amadi@gmail.com">Hello-Leslie</a></p>
